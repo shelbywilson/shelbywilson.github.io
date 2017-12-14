@@ -1,0 +1,32 @@
+.article {
+	position: relative;
+	&-load-more {
+		text-align: center;
+		padding: 30px;
+	}
+	a {
+		display: block;
+		padding: 30px 30px 30px 220px;
+		&:hover {
+			background: #f0f0f0;
+			img {
+				opacity: 1;
+				z-index: 1;
+			}
+		}
+	}
+	img {
+		max-width: 200px;
+		max-height: 200px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0.05;
+	}
+}
+
+@media (max-width: 480px) {
+	.article a {
+		padding: 20px;
+	}
+}
