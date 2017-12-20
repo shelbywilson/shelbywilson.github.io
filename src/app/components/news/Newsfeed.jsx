@@ -2,6 +2,8 @@ import React from 'react';
 import $ from 'jquery';
 import moment from 'moment';
 
+import NewsfeedArticle from './NewsfeedArticle.jsx';
+
 const apiKey = 'cb15d26e791f471abee466ce78d79760';
 
 class Newsfeed extends React.Component {
@@ -24,7 +26,7 @@ class Newsfeed extends React.Component {
 			this.setState({
 				isLoad: true
 			})
-		}.bind(this), 1000)
+		}.bind(this), 1400)
 
 		this.setSources();
 	}
@@ -35,15 +37,23 @@ class Newsfeed extends React.Component {
 				this.setState({
 					sources: this._getShuffledArray(data.sources)
 				});
-				this.setArticles(data.sources);
+				this.setArticles(0, 20);
+				setTimeout(function() {
+					this.setArticles(21, 40);
+				}.bind(this), 400)
+				setTimeout(function() {
+					this.setArticles(41, data.sources.length);
+				}.bind(this), 800)
 		 	}.bind(this)
 		});
 	}
-	setArticles() {
+	setArticles(start, end) {
 		var i;
 
-		for (i = 0; i < this.state.sources.length; i += 1) {
-			this.getArticles(this.state.sources[i]);
+		for (i = start; i < end; i += 1) {
+			if (this.state.sources[i]) {
+				this.getArticles(this.state.sources[i]);
+			}
 		}
 	}
 	getArticles(source) {		
@@ -62,13 +72,18 @@ class Newsfeed extends React.Component {
 					article.source = data.source;
 					article.category = source.category;
 
-					articles.push(article);
+					if (article.title) {
+						articles.push(article);
+					}
 				});
 
 				this.setState({
-					articles: this._getSortedArray(articles)
-				})
-		 	}.bind(this)
+					articles: this._getShuffledArray(articles)
+				});
+		 	}.bind(this),
+		 	error: function (xhr, status) {
+		 		console.log(xhr, status)
+		 	}
 		});
 	}
 	loadMore() {
@@ -107,25 +122,15 @@ class Newsfeed extends React.Component {
 							{this.state.articles.map(function (article, i) {
 								if (i <= this.state.displayEnd) {
 									return (
-										<li className='article' key={article.title + i} data-source={article.source} data-index={i}>
-											<a href={article.url} target="_blank">
-												{article.title}
-												{article.publishedAt &&
-													<div style={{fontSize: '11px'}}>
-														{moment(article.publishedAt).fromNow()}
-													</div>
-												}
-												{window.innerWidth > 480 && 
-													<img src={article.urlToImage} />
-												}
-											</a>
-										</li>
+										<NewsfeedArticle article={article} 
+											key={article.url}
+											index={i} />
 									)
 								}
 							}.bind(this))}
 						</ul>
 						<div className='article-load-more'>
-							<button type="button" onMouseUp={this.loadMore} >
+							<button type="button" className='btn-primary' onMouseUp={this.loadMore} >
 								More + 
 							</button>
 						</div>
@@ -137,28 +142,3 @@ class Newsfeed extends React.Component {
 }
 
 export default Newsfeed;
-
-
-					// <div style={{fontSize: '11px', textAlign: 'right'}}>
-					// 	{article.category}
-					// </div>
-
-
-					// <div className='article-desc'>
-					// 	{article.description}
-					// </div>
-// {this.state.sources.map(function (source) {
-// 	console.log(source)
-// 	if (this.state.articles[source.id]) {
-// 		return (
-// 			this.state.articles[source.id].map(function (article) {
-// 				return (
-// 					<li>
-// 						{article.title}
-// 					</li>
-// 				)
-// 			}.bind(this))
-// 		)
-// 	}
-// 	return null;
-// }.bind(this))}

@@ -12,7 +12,22 @@ html {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 16px;
 }
-
+header {
+  width: 100%;
+  padding: 0;
+}
+h1 {
+	font-weight: normal;
+	text-align: center;
+	margin: 1rem 0;
+	color: $orange-dark;
+	font-size: 3.4vw;
+	letter-spacing: 3.7vw;
+}
+h2 {
+	font-weight: normal;
+	margin: 0 0 0.5rem 0;
+}
 a {
 	color: inherit;
 	text-decoration: none;
@@ -22,12 +37,4 @@ ul {
 	list-style: none;
 	padding: 0;
 	margin: 20px;
-}
-h1 {
-	font-weight: normal;
-	text-align: center;
-	margin: 1rem 0;
-	color: $orange-dark;
-	font-size: 3.4vw;
-	letter-spacing: 3.7vw;
 }

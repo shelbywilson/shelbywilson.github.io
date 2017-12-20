@@ -1,0 +1,15 @@
+button {
+	background: #fff;
+	padding: 8px;
+	&:active, &:focus {
+		outline: none;
+	}
+}
+
+.btn-primary {
+	background: $green;
+	color: #fff;
+	&:hover {
+		background: $green-hover;
+	}
+}
