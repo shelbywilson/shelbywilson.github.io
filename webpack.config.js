@@ -21,7 +21,7 @@ var webpackConfig = {
         patterns: './src/app/entry/patterns.js'
     },
     output: {
-        filename: "./dist/scripts/[name].entry.js"
+        filename: "./dist/scripts/[name].min.js"
     },
     devtool: getDevTool(),
     module: {

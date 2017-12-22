@@ -171,7 +171,7 @@ class Newsfeed extends React.Component {
 		return (
 			<div className='newsfeed'>
 				{this.state.isLoad === false ?
-					<div style={{textAlign: 'center', paddingTop: '20px'}}>
+					<div className='newsfeed-loading'>
 						loading...
 					</div>
 					:

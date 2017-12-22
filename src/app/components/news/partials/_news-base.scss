@@ -1,6 +1,10 @@
 .newsfeed {
 	max-width: 800px;
 	margin: 0 auto;
+	&-loading {
+		padding: 50px 0;
+		text-align: center;
+	}
 	&-focused-article {
 		position: fixed;
 		top: 0;
