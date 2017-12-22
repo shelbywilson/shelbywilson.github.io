@@ -21,13 +21,14 @@
 		&-description {
 			max-height: calc(100% - 130px);
 			overflow-y: auto;
+			padding-top: 5px;
 		}
 		&-about {
 			position: relative;
 		}
 		&-link {
 			position: absolute;
-			top: 5px;
+			top: 0;
 			right: 0;
 		}
 		img {

@@ -15,10 +15,13 @@ function getDevTool() {
 
 var webpackConfig = {
     entry: {
-        main: './src/app/main.js'
+        dev: './src/app/main.js',
+        home: './src/app/entry/home.js',
+        news: './src/app/entry/news.js',
+        patterns: './src/app/entry/patterns.js'
     },
     output: {
-        filename: './dist/scripts/[name].js'
+        filename: "./dist/scripts/[name].entry.js"
     },
     devtool: getDevTool(),
     module: {
@@ -66,7 +69,7 @@ isProduction
 
 if (!isProduction) {
   webpackConfig.devServer = {
-    contentBase: Path.join(__dirname, './'),
+    contentBase: Path.join(__dirname, './src/'),
     hot: true,
     port: port,
     inline: true,
