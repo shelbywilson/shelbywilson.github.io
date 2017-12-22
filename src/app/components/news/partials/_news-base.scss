@@ -18,9 +18,22 @@
 			max-width: 900px;
 			padding: 20px;
 		}
+		&-description {
+			max-height: calc(100% - 130px);
+			overflow-y: auto;
+		}
 		img {
 			max-height: 50%;
 			height: auto;
+			width: 50%;
+			float: right;
+			&.full-size {
+				width: auto;
+				float: none;
+				margin: 10px auto;
+				display: block;
+				max-width: 60%;
+			}
 		}
 	}
 }
@@ -34,20 +47,6 @@
 		display: block;
 		padding: 30px;
 		color: inherit;
-		&:hover {
-			img {
-				opacity: 1;
-				z-index: 1;
-			}
-		}
-	}
-	img {
-		max-width: 200px;
-		max-height: 200px;
-		position: absolute;
-		top: 0;
-		left: 0;
-		opacity: 0.05;
 	}
 	&-description {
 		font-size: 0.9rem;
