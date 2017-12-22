@@ -4,21 +4,23 @@ import moment from 'moment';
 class NewsfeedArticle extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.track = this.props.onTrack;
 	}
 	render() {
 		const article = this.props.article;
 		return (
 			<li className='article' data-source={article.source} data-index={this.props.index}>
-				<a href={article.url} target="_blank">
+				<a href="javascript:void(0)" onMouseUp={this.track} >
 					<h2>
 						{article.title}
 					</h2>
 					{article.publishedAt &&
-						<div style={{fontSize: '0.8rem'}}>
+						<h3>
 							{moment(article.publishedAt).fromNow()}
-						</div>
+						</h3>
 					}
-					<div style={{fontSize: '0.9rem'}}>
+					<div className="article-description">
 						{article.description}
 					</div>
 					
@@ -30,6 +32,4 @@ class NewsfeedArticle extends React.Component {
 
 export default NewsfeedArticle;
 
-// {window.innerWidth > 480 && 
-// 						<img src={article.urlToImage} alt={article.title}/>
-// 					}
+//href={article.url}

@@ -3,6 +3,7 @@ import $ from 'jquery';
 import moment from 'moment';
 
 import NewsfeedArticle from './NewsfeedArticle.jsx';
+import NewsfeedFocusedArticle from './NewsfeedFocusedArticle.jsx';
 
 const apiKey = 'cb15d26e791f471abee466ce78d79760';
 
@@ -14,19 +15,25 @@ class Newsfeed extends React.Component {
 			sources: [],
 			articles: [],
 			displayEnd: 30,
-			isLoad: false
+			isLoad: false,
+			sourcesDictionary: {},
+			skew: {r: 255, g: 255, b: 255},
+			count: {},
+			focus: false
 		}
 
 		this.setSources = this.setSources.bind(this);
 		this.setArticles = this.setArticles.bind(this);
 		this.getArticles = this.getArticles.bind(this);
 		this.loadMore = this.loadMore.bind(this);
+		this.track = this.track.bind(this);
+		this.toggleFocusedArticle = this.toggleFocusedArticle.bind(this);
 
 		setTimeout(function () {
 			this.setState({
 				isLoad: true
 			})
-		}.bind(this), 1400)
+		}.bind(this), 1000)
 
 		this.setSources();
 	}
@@ -35,20 +42,21 @@ class Newsfeed extends React.Component {
 			url: "https://newsapi.org/v1/sources?language=en",
 			success: function(data){
 				this.setState({
-					sources: this._getShuffledArray(data.sources)
+					sources: this._getShuffledArray(data.sources),
+					sourcesDictionary: this._getSourcesDictionary(data.sources)
 				});
 				this.setArticles(0, 20);
 				setTimeout(function() {
 					this.setArticles(21, 40);
-				}.bind(this), 400)
+				}.bind(this), 500)
 				setTimeout(function() {
 					this.setArticles(41, data.sources.length);
-				}.bind(this), 800)
+				}.bind(this), 1000)
 		 	}.bind(this)
 		});
 	}
 	setArticles(start, end) {
-		var i;
+		let i;
 
 		for (i = start; i < end; i += 1) {
 			if (this.state.sources[i]) {
@@ -57,7 +65,7 @@ class Newsfeed extends React.Component {
 		}
 	}
 	getArticles(source) {		
-		var articles;
+		let articles;
 
 		$.ajax({
 			url: "https://newsapi.org/v1/articles?"
@@ -72,7 +80,7 @@ class Newsfeed extends React.Component {
 					article.source = data.source;
 					article.category = source.category;
 
-					if (article.title) {
+					if (article.title && article.publishedAt) {
 						articles.push(article);
 					}
 				});
@@ -91,13 +99,38 @@ class Newsfeed extends React.Component {
 			displayEnd: this.state.displayEnd + 20
 		})
 	}
+	track(article) {
+		const category = this.state.sourcesDictionary[article.source].category;
+		let count = this.state.count;
+
+		//categories: business, entertainment, gaming, general, music, politics, science-and-nature, sport, technology
+
+		if (count[category]) {
+			count[category] += 1;
+		} else {
+			count[category] = 1;
+		}
+
+		console.log(count)
+
+		this.toggleFocusedArticle(article);
+
+		this.setState({
+			count: count
+		})
+	}
+	toggleFocusedArticle(article) {
+		this.setState({
+			focus: article
+		})
+	}
 	_getSortedArray(arr) {
 		return arr.sort(function (a, b) {
 			return moment(a.publishedAt).isBefore(b.publishedAt) ? 1 : -1
 		})
 	}
 	_getShuffledArray(arr) {
-		var ctr = arr.length, temp, index;
+		let ctr = arr.length, temp, index;
 
 		while (ctr > 0) {
 			index = Math.floor(Math.random() * ctr);
@@ -109,9 +142,22 @@ class Newsfeed extends React.Component {
 
 	    return arr;
 	}
+	_getSourcesDictionary(sources) {
+		let categories = {};
+		let dictionary = {};
+
+		sources.forEach(function(source) {
+			dictionary[source.id] = source;
+			categories[source.category] = categories[source.category] ? categories[source.category] + 1 : 1;
+		});
+
+		console.log(categories)
+
+		return dictionary;
+	}
 	render() {
 		return (
-			<div>
+			<div className='newsfeed'>
 				{this.state.isLoad === false ?
 					<div style={{textAlign: 'center', paddingTop: '20px'}}>
 						loading...
@@ -123,8 +169,9 @@ class Newsfeed extends React.Component {
 								if (i <= this.state.displayEnd) {
 									return (
 										<NewsfeedArticle article={article} 
-											key={article.url}
-											index={i} />
+											key={article.url + '_' + i}
+											index={i} 
+											onTrack={this.track.bind(this, article)} />
 									)
 								}
 							}.bind(this))}
@@ -136,6 +183,12 @@ class Newsfeed extends React.Component {
 						</div>
 					</div>
 				}
+				<NewsfeedFocusedArticle article={this.state.focus} 
+					source={this.state.focus ? this.state.sourcesDictionary[this.state.focus.source] : {}} 
+					onToggleFocusedArticle={this.toggleFocusedArticle} />
+				<p className='attribution-link'>
+					built with <a href='https://newsapi.org/'>{'https://newsapi.org/'}</a>
+				</p>
 			</div>
 		)
 	}

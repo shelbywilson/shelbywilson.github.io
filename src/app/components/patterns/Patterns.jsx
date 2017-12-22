@@ -1,6 +1,6 @@
 import React from 'react';
 
-import patterns from './../common/data/patterns.js';
+import patterns from './data/patterns.js';
 
 class Patterns extends React.Component {
 	constructor(props) {

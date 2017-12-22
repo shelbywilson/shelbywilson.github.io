@@ -4,9 +4,11 @@ import { Link } from 'react-router';
 function Header() {
   return (
     <header>
-      <h1>
-        west south east
-      </h1>
+    <a href='/'>
+      	<h1>
+        	west south east
+      	</h1>
+    </a>
     </header>
   )
 }

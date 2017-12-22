@@ -5,7 +5,6 @@
 html, body {
 	margin: 0;
   	padding: 0;
-  	background: $peach;
 }
 
 html {
@@ -20,7 +19,7 @@ h1 {
 	font-weight: normal;
 	text-align: center;
 	margin: 1rem 0;
-	color: $orange-dark;
+	color: $green;
 	font-size: 3.4vw;
 	letter-spacing: 3.7vw;
 }
@@ -28,9 +27,21 @@ h2 {
 	font-weight: normal;
 	margin: 0 0 0.5rem 0;
 }
+h3 {
+	margin: 0.5rem 0;
+	font-size: 0.7rem;
+	letter-spacing: 0.15rem;
+	text-transform: uppercase;
+}
 a {
-	color: inherit;
+	color: $blue-medium;
 	text-decoration: none;
+}
+p {
+	margin: 1rem 0;
+}
+img {
+	max-width: 100%;
 }
 
 ul {
