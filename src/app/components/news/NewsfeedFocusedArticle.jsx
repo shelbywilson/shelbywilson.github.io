@@ -44,6 +44,9 @@ class NewsfeedFocusedArticle extends React.Component {
 								<img src={article.urlToImage} className='full-size' alt='' />
 							}
 						</div>
+						<button type='button' className='btn-transparent modal-close' onMouseUp={this.toggleFocusedArticle}>
+							&times;
+						</button>
 					</div>
 				</div>
 			)

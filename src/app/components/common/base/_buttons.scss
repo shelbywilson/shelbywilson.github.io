@@ -2,6 +2,7 @@ button {
 	background: #fff;
 	padding: 8px;
 	border: none;
+	cursor: pointer;
 	&:active, &:focus {
 		outline: none;
 	}
@@ -13,4 +14,7 @@ button {
 	&:hover {
 		background: $green-hover;
 	}
+}
+.btn-transparent {
+	background: transparent;
 }

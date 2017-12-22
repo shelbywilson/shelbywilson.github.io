@@ -1,6 +1,11 @@
 .newsfeed {
 	max-width: 800px;
 	margin: 0 auto;
+	ul {
+		@include tablet {
+			margin: 20px 0;
+		}
+	}
 	&-loading {
 		padding: 50px 0;
 		text-align: center;
@@ -21,6 +26,10 @@
 			margin-top: 15vh;
 			max-width: 900px;
 			padding: 20px;
+			position: relative;
+			@include mobile {
+				width: 90%;
+			}
 		}
 		&-description {
 			max-height: calc(100% - 130px);
@@ -35,6 +44,10 @@
 			top: 0;
 			right: 0;
 			font-size: 0.8rem;
+			@include mobile {
+				display: block;
+				position: relative;
+			}
 		}
 		img {
 			max-height: 50%;
@@ -70,7 +83,7 @@
 		font-size: 0.9rem;
 	}
 	&:hover {
-		background: $peach;
+		background: $peach-light;
 	}
 }
 
@@ -79,4 +92,10 @@
 	color: $gray-medium;
 	font-size: 0.7rem;
 	text-align: center;
+}
+.modal-close {
+	position: absolute;
+	top: 0;
+	right: 5px;
+	font-size: 2rem;
 }
