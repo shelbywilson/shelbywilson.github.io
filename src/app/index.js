@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from './components/App';
-import Home from './components/home/Home';
-import Patterns from './components/patterns/Patterns';
-import Newsfeed from './components/news/Newsfeed';
+import App from './components/App.jsx';
+import Home from './components/home/Home.jsx';
+import Patterns from './components/patterns/Patterns.jsx';
+import Newsfeed from './components/news/Newsfeed.jsx';
 
 import reducers from './reducers';
 

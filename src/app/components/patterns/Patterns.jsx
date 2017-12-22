@@ -7,7 +7,6 @@ class Patterns extends React.Component {
 		super(props);
 	}
 	render() {
-		console.log(patterns)
 		return (
 			<div>
 			</div>

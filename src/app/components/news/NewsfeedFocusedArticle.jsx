@@ -9,7 +9,7 @@ class NewsfeedFocusedArticle extends React.Component {
 	}
 	toggleFocusedArticle(e) {
 		this._stopPropagation(e);
-
+ 
 		this.props.onToggleFocusedArticle(false);
 	}
 	_stopPropagation(e) {

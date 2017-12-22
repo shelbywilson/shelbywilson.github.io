@@ -12,6 +12,8 @@ function App({ children }) {
   );
 }
 
-App.propTypes = { children: PropTypes.object };
+App.propTypes = { 
+	children: PropTypes.object 
+};
 
 export default App;
