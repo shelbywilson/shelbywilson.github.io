@@ -24,7 +24,7 @@ var webpackConfig = {
       },
     }),
     new HtmlWebpackPlugin({
-      template: Path.join(__dirname, './src/index.html'),
+      template: Path.join(__dirname, './index.html'),
     }),
   ],
   module: {
