@@ -22,12 +22,13 @@ class Newsfeed extends React.Component {
 			focus: false
 		}
 
+		this.getArticles = this.getArticles.bind(this);
+		this.handleKeyDown = this.handleKeyDown.bind(this);
+		this.loadMore = this.loadMore.bind(this);
+		this.toggleFocusedArticle = this.toggleFocusedArticle.bind(this);
+		this.track = this.track.bind(this);
 		this.setSources = this.setSources.bind(this);
 		this.setArticles = this.setArticles.bind(this);
-		this.getArticles = this.getArticles.bind(this);
-		this.loadMore = this.loadMore.bind(this);
-		this.track = this.track.bind(this);
-		this.toggleFocusedArticle = this.toggleFocusedArticle.bind(this);
 
 		setTimeout(function () {
 			this.setState({
@@ -36,6 +37,12 @@ class Newsfeed extends React.Component {
 		}.bind(this), 1000)
 
 		this.setSources();
+	}
+	componentDidMount() {
+		window.addEventListener("keydown", this.handleKeyDown);
+	}
+	componentWillUnmount() {
+		window.removeEventListener("keydown", this.handleKeyDown);
 	}
 	setSources() {
 		$.ajax({
@@ -123,6 +130,11 @@ class Newsfeed extends React.Component {
 		this.setState({
 			focus: article
 		})
+	}
+	handleKeyDown(e) {
+		if (e.which === 27) {
+			this.toggleFocusedArticle(false);
+		}
 	}
 	_getSortedArray(arr) {
 		return arr.sort(function (a, b) {

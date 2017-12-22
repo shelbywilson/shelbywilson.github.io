@@ -2,7 +2,7 @@
   "name": "westsoutheast",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/app/index.js",
+  "main": "./src/app/main.js",
   "directories": {
     "test": "test"
   },

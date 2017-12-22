@@ -15,7 +15,7 @@ function getDevTool() {
 
 var webpackConfig = {
     entry: {
-        main: './src/app/index.js'
+        main: './src/app/main.js'
     },
     output: {
         filename: './dist/scripts/[name].js'
@@ -58,8 +58,7 @@ isProduction
         compressor: {
           warnings: false,
         },
-      }),
-      ExtractSASS
+      })
     )
   : webpackConfig.plugins.push(
       new Webpack.HotModuleReplacementPlugin()
