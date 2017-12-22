@@ -31,5 +31,3 @@ class NewsfeedArticle extends React.Component {
 }
 
 export default NewsfeedArticle;
-
-//href={article.url}
