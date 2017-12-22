@@ -22,6 +22,14 @@
 			max-height: calc(100% - 130px);
 			overflow-y: auto;
 		}
+		&-about {
+			position: relative;
+		}
+		&-link {
+			position: absolute;
+			top: 5px;
+			right: 0;
+		}
 		img {
 			max-height: 50%;
 			height: auto;

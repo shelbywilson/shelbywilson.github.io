@@ -24,12 +24,17 @@ class NewsfeedFocusedArticle extends React.Component {
 						<h2>
 							{article.title}
 						</h2>
-						<h3>
-							{this.props.source.name}
-						</h3>
-						<h3>
-							{moment(article.publishedAt).fromNow()}
-						</h3>
+						<div className='newsfeed-focused-article-about'>
+							<h3>
+								{this.props.source.name}
+							</h3>
+							<h3>
+								{moment(article.publishedAt).fromNow()}
+							</h3>
+							<a className='newsfeed-focused-article-link' href={article.url} target='_blank'>
+								read article
+							</a>
+						</div>
 						<div className="newsfeed-focused-article-description">
 							{article.description ?
 								<p>
