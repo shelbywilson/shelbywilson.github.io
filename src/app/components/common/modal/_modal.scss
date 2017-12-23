@@ -7,10 +7,12 @@
 	max-width: 900px;
 	padding: 20px 25px;
 	position: relative;
+	background: #fff;
 	@include mobile {
 		width: 100%;
 		height: 100%;
 		margin: 0;
+		padding: 30px;
 	}
 	&-content {	
 		overflow-y: auto;
@@ -21,6 +23,9 @@
 		top: 0;
 		right: 0;
 		font-size: 2rem;
+		@include mobile {
+			font-size: 3rem;
+		}
 	}
 	&-bg {
 		position: fixed;

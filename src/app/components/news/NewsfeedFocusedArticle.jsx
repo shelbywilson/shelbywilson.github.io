@@ -19,8 +19,7 @@ class NewsfeedFocusedArticle extends React.Component {
 			<Modal onClose={this.toggleFocusedArticle}
 				display={article !== false}
 				customClass='newsfeed-focused-article'>
-				<h3>
-					{article.title}
+				<h3 dangerouslySetInnerHTML={{__html: article.title}}>
 				</h3>
 				<div className='newsfeed-focused-article-about'>
 					<h6>

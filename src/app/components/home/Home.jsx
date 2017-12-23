@@ -39,6 +39,11 @@ function Home() {
 		    		</a>
 		    	</li>
 		    	<li>
+		    		<a href='https://www.linkedin.com/in/shelby-wilson-26b18153' target='_blank'>
+		    			linkedin
+		    		</a>
+		    	</li>
+		    	<li>
 		    		<a href='mailto:west.south.east000@gmail.com'>
 		    			email
 		    		</a>

@@ -31,6 +31,7 @@
 			top: 0;
 			right: 0;
 			font-size: 0.8rem;
+			font-weight: 400;
 			@include mobile {
 				display: block;
 				position: relative;
@@ -49,6 +50,10 @@
 				display: block;
 				max-width: 60%;
 			}
+			@include mobile {
+				width: 100%;
+				margin: 10px 0;
+			}
 		}
 	}
 }
@@ -65,9 +70,6 @@
 		@include mobile {
 			padding: 20px;
 		}
-	}
-	&-description {
-		font-size: 0.9rem;
 	}
 	&:hover, &-active {
 		background: $peach-light;
