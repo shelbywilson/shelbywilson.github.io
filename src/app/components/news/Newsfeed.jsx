@@ -180,7 +180,7 @@ class Newsfeed extends React.Component {
 	}
 	render() {
 		return (
-			<div className='newsfeed'>
+			<div className='newsfeed container'>
 				{this.state.isLoaded === false ?
 					<div className='newsfeed-loading'>
 						loading...
