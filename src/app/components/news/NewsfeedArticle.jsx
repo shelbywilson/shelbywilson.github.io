@@ -20,9 +20,9 @@ class NewsfeedArticle extends React.Component {
 							{moment(article.publishedAt).fromNow()}
 						</h3>
 					}
-					<div className="article-description">
+					<p className="article-description">
 						{article.description}
-					</div>
+					</p>
 					
 				</a>
 			</li>

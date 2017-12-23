@@ -15,11 +15,13 @@ class Newsfeed extends React.Component {
 			sources: [],
 			articles: [],
 			displayEnd: 30,
-			isLoad: false,
+			isLoaded: false,
 			sourcesDictionary: {},
 			skew: {r: 255, g: 255, b: 255},
 			count: {},
-			focus: false
+			focus: false,
+			numLoaded: 0,
+			isSorted: false
 		}
 
 		this.getArticles = this.getArticles.bind(this);
@@ -29,12 +31,7 @@ class Newsfeed extends React.Component {
 		this.track = this.track.bind(this);
 		this.setSources = this.setSources.bind(this);
 		this.setArticles = this.setArticles.bind(this);
-
-		setTimeout(function () {
-			this.setState({
-				isLoad: true
-			})
-		}.bind(this), 1000)
+		this.toggleSortedArray = this.toggleSortedArray.bind(this);
 
 		this.setSources();
 	}
@@ -43,6 +40,13 @@ class Newsfeed extends React.Component {
 	}
 	componentWillUnmount() {
 		window.removeEventListener("keydown", this.handleKeyDown);
+	}
+	componentDidUpdate(prevProps, prevState) {
+		if (this.state.numLoaded === this.state.sources.length && !this.state.isLoaded) {
+			this.setState({
+				isLoaded: true
+			})
+		}
 	}
 	setSources() {
 		$.ajax({
@@ -65,7 +69,7 @@ class Newsfeed extends React.Component {
 	setArticles(start, end) {
 		let i;
 
-		for (i = start; i < end; i += 1) {
+		for (i = start; i <= end; i += 1) {
 			if (this.state.sources[i]) {
 				this.getArticles(this.state.sources[i]);
 			}
@@ -93,10 +97,14 @@ class Newsfeed extends React.Component {
 				});
 
 				this.setState({
-					articles: this._getShuffledArray(articles)
+					articles: this._getShuffledArray(articles),
+					numLoaded: this.state.numLoaded + 1
 				});
 		 	}.bind(this),
 		 	error: function (xhr, status) {
+		 		this.setState({
+		 			numLoaded: this.state.numLoaded + 1
+		 		})
 		 		console.log(xhr, status)
 		 	}
 		});
@@ -136,6 +144,21 @@ class Newsfeed extends React.Component {
 			this.toggleFocusedArticle(false);
 		}
 	}
+	toggleSortedArray() {
+		const newState = !this.state.isSorted;
+		let arr = [];
+
+		if (newState) {
+			arr = this._getSortedArray(this.state.articles);
+		} else {
+			arr = this._getShuffledArray(this.state.articles);
+		}
+
+		this.setState({
+			articles: arr,
+			isSorted: newState
+		})
+	}
 	_getSortedArray(arr) {
 		return arr.sort(function (a, b) {
 			return moment(a.publishedAt).isBefore(b.publishedAt) ? 1 : -1
@@ -170,12 +193,18 @@ class Newsfeed extends React.Component {
 	render() {
 		return (
 			<div className='newsfeed'>
-				{this.state.isLoad === false ?
+				{this.state.isLoaded === false ?
 					<div className='newsfeed-loading'>
 						loading...
 					</div>
 					:
-					<div>
+					<div>	
+						<div className='newsfeed-sort'>				
+							<label>
+								<input type='checkbox' checked={this.state.isSorted} onChange={this.toggleSortedArray} />
+								sort by most recent
+							</label>
+						</div>
 						<ul>
 							{this.state.articles.map(function (article, i) {
 								if (i <= this.state.displayEnd) {

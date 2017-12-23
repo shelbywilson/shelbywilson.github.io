@@ -9,7 +9,7 @@ import reducers from './../reducers';
 import './../components/bundle.scss';
 
 ReactDOM.render(
-  <App>
+  <div>
     <About />
-  </App>
+  </div>
   , document.getElementById('react-root'));
