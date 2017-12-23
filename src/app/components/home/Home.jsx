@@ -28,6 +28,23 @@ function Home() {
 		    	</li>
 	    	</ul>
 	    </section>
+	    <section className='about'>
+	    	<h2>
+    			about
+    		</h2>
+    		<ul className='home-links'>
+	    		<li>
+		    		<a href='https://github.com/shelby-' target='_blank'>
+		    			github
+		    		</a>
+		    	</li>
+		    	<li>
+		    		<a href='mailto:west.south.east000@gmail.com'>
+		    			email
+		    		</a>
+		    	</li>
+	    	</ul>
+	    </section>
     </div>
   )
 }

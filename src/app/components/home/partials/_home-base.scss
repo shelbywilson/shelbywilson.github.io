@@ -2,71 +2,42 @@
 	h1, h4 {
 		text-align: left;
 	}
-	h1 {
+	h1, h2 {
 		font-size: 8vw;
+		@include mobile {
+			font-size: 2.5rem;
+		}
 	}
-	h2 {
-		font-size: 8vw;
-	}
-	h4 {
-		font-size: 2vw;
+	h4, .home-links a {
+		font-size: 2.5vw;
+		@include mobile {
+			font-size: 1.1rem;
+		}
 	}
 	.projects {
 		background: $orange-dark;
-		h2 {
+		h2, .home-links a {
 			color: $peach;
-			font-size: 6vw;
+		}
+	}
+	.about {
+		background: $peach;
+		h2, .home-links a{
+			color: red;
 		}
 	}
 	&-links {
 		margin: 0;
 		li {
-			margin: 15px;
+			margin: 2vw 5vw 2vw 0;
 			display: inline-block;
-			&:first-child {
-				margin-left: 0;
-			}
 		}
 		a {
-			font-weight: 600;
+			font-weight: 400;
 			text-transform: uppercase;
-			color: $peach;
-			font-size: 1.4rem;
 			&:hover {
 				text-decoration: underline;
 			}
 		}
 	}
-	// &-links {
-	// 	display: flex;
-	// 	justify-content: center;
-	// 	max-width: 900px;
-	// 	margin: 20px auto;
-	// 	flex-direction: row;
-	// 	@include mobile {
-	// 		flex-direction: column;
-	// 	}
-	// 	li {
-	// 		@include mobile {
-	// 			width: 100%;
-	// 		}
-	// 	}
-	// 	a {
-	// 		background: $peach-light;
-	// 		line-height: 100%;
-	// 		margin: 15px;
-	// 		height: 100px;
-	// 		width: 100px;
-	// 		line-height: 100px;
-	// 		display: block;
-	// 		text-align: center;
-	// 		font-size: 0.9rem;
-	// 		@include mobile {
-	// 			margin: 8px 0;
-	// 			width: 100%;
-	// 			height: 40px;
-	// 			line-height: 40px;
-	// 		}
-	// 	}
-	// }
 }
