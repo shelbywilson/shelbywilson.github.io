@@ -82,7 +82,7 @@
 	&-description {
 		font-size: 0.9rem;
 	}
-	&:hover {
+	&:hover, &-active {
 		background: $peach-light;
 	}
 }

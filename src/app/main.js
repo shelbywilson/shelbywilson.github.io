@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/App.jsx';
+import About from './components/about/About.jsx';
 import Home from './components/home/Home.jsx';
 import Patterns from './components/patterns/Patterns.jsx';
 import Newsfeed from './components/news/Newsfeed.jsx';
@@ -27,6 +28,9 @@ ReactDOM.render(
       </Route>
       <Route path="/news" component={App}>
         <IndexRoute component={Newsfeed} />;
+      </Route>
+      <Route path="/about" component={App}>
+        <IndexRoute component={About} />;
       </Route>
     </Router>
   </Provider>

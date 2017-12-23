@@ -10,7 +10,7 @@ class NewsfeedArticle extends React.Component {
 	render() {
 		const article = this.props.article;
 		return (
-			<li className='article' data-source={article.source} data-index={this.props.index}>
+			<li className={'article' + (this.props.isActive ? ' article-active' : '')} data-source={article.source} data-index={this.props.index}>
 				<a href="javascript:void(0)" onMouseUp={this.track} >
 					<h2>
 						{article.title}

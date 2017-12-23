@@ -21,6 +21,11 @@ header {
   width: 100%;
   padding: 0;
 }
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
 h1 {
 	font-weight: normal;
 	text-align: center;
@@ -42,6 +47,18 @@ h3 {
 	font-size: 0.7rem;
 	letter-spacing: 0.15rem;
 	text-transform: uppercase;
+}
+h4 {
+	color: $green-light;
+	font-size: 0.8rem;
+	letter-spacing: 0.1rem;
+	font-weight: normal;
+	margin: 1rem 0;
+	text-align: center;
+	@include tablet {
+		font-size: 2.5vw;
+		letter-spacing: 0.5vw;
+	}
 }
 a {
 	color: $blue-medium;

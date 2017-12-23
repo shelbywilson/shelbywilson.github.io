@@ -183,6 +183,7 @@ class Newsfeed extends React.Component {
 										<NewsfeedArticle article={article} 
 											key={article.url + '_' + i}
 											index={i} 
+											isActive={this.state.focus.url === article.url}
 											onTrack={this.track.bind(this, article)} />
 									)
 								}

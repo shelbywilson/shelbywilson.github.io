@@ -18,7 +18,8 @@ var webpackConfig = {
         dev: './src/app/main.js',
         home: './src/app/entry/home.js',
         news: './src/app/entry/news.js',
-        patterns: './src/app/entry/patterns.js'
+        patterns: './src/app/entry/patterns.js',
+        about: './src/app/entry/about.js'
     },
     output: {
         filename: "./dist/scripts/[name].min.js"
