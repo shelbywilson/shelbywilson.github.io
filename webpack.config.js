@@ -15,7 +15,7 @@ function getDevTool() {
 
 var webpackConfig = {
     entry: {
-        dev: './src/app/main.js',
+        dev: './src/app/entry/dev.js',
         home: './src/app/entry/home.js',
         news: './src/app/entry/news.js',
         patterns: './src/app/entry/patterns.js'

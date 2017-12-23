@@ -4,14 +4,14 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from './components/App.jsx';
-import Home from './components/home/Home.jsx';
-import Patterns from './components/patterns/Patterns.jsx';
-import Newsfeed from './components/news/Newsfeed.jsx';
+import App from './../components/App.jsx';
+import Home from './../components/home/Home.jsx';
+import Patterns from './../components/patterns/Patterns.jsx';
+import Newsfeed from './../components/news/Newsfeed.jsx';
 
-import reducers from './reducers';
+import reducers from './../reducers';
 
-import './components/bundle.scss';
+import './../components/bundle.scss';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 const store = createStoreWithMiddleware(reducers);
