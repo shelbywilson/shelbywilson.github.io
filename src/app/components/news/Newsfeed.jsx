@@ -25,7 +25,6 @@ class Newsfeed extends React.Component {
 		}
 
 		this.getArticles = this.getArticles.bind(this);
-		this.handleKeyDown = this.handleKeyDown.bind(this);
 		this.loadMore = this.loadMore.bind(this);
 		this.toggleFocusedArticle = this.toggleFocusedArticle.bind(this);
 		this.track = this.track.bind(this);
@@ -34,12 +33,6 @@ class Newsfeed extends React.Component {
 		this.toggleSortedArray = this.toggleSortedArray.bind(this);
 
 		this.setSources();
-	}
-	componentDidMount() {
-		window.addEventListener("keydown", this.handleKeyDown);
-	}
-	componentWillUnmount() {
-		window.removeEventListener("keydown", this.handleKeyDown);
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.numLoaded === this.state.sources.length && !this.state.isLoaded) {
@@ -138,11 +131,6 @@ class Newsfeed extends React.Component {
 		this.setState({
 			focus: article
 		})
-	}
-	handleKeyDown(e) {
-		if (e.which === 27) {
-			this.toggleFocusedArticle(false);
-		}
 	}
 	toggleSortedArray() {
 		const newState = !this.state.isSorted;

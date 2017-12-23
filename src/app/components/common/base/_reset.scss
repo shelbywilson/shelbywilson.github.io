@@ -18,6 +18,7 @@ html {
 header {
   width: 100%;
   padding: 0;
+  padding: 2rem 0;
 }
 footer {
 	width: 100%;
@@ -29,35 +30,38 @@ h1 {
 	text-align: center;
 	margin: 0;
 	color: $green;
-	font-size: 3.4vw;
-	letter-spacing: 3.7vw;
-	line-height: 4rem;
+	font-size: 3rem;
 	@include tablet {
-		font-size: 4vw;
-		letter-spacing: 3.7vw;
+		font-size: 5vw;
 	}
 }
 h2 {
-	font-weight: 300;
-	margin: 0 0 1rem 0;
+	font-weight: 600;
+	font-size: 3rem;
+	margin: 0;
+	@include tablet {
+		font-size: 5vw;
+	}
 }
 h3 {
-	margin: 0.5rem 0;
-	font-size: 0.7rem;
-	letter-spacing: 0.15rem;
-	text-transform: uppercase;
+	font-weight: 300;
+	margin: 0 0 1rem 0;
 }
 h4 {
 	color: $green-light;
 	font-size: 0.8rem;
-	letter-spacing: 0.1rem;
 	font-weight: normal;
-	margin: 1rem 0;
+	margin: 1vw 0;
 	text-align: center;
 	@include tablet {
 		font-size: 2.5vw;
-		letter-spacing: 0.5vw;
 	}
+}
+h6 {
+	margin: 0.5rem 0;
+	font-size: 0.7rem;
+	letter-spacing: 0.15rem;
+	text-transform: uppercase;
 }
 a {
 	color: $blue-medium;

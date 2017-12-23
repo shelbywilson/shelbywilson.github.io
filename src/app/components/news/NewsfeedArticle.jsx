@@ -12,13 +12,13 @@ class NewsfeedArticle extends React.Component {
 		return (
 			<li className={'article' + (this.props.isActive ? ' article-active' : '')} data-source={article.source} data-index={this.props.index}>
 				<a href="javascript:void(0)" onMouseUp={this.track} >
-					<h2>
+					<h3>
 						{article.title}
-					</h2>
+					</h3>
 					{article.publishedAt &&
-						<h3>
+						<h6>
 							{moment(article.publishedAt).fromNow()}
-						</h3>
+						</h6>
 					}
 					<p className="article-description">
 						{article.description}

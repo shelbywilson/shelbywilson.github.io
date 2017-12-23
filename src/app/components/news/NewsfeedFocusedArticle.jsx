@@ -19,13 +19,13 @@ class NewsfeedFocusedArticle extends React.Component {
 			<Modal onClose={this.toggleFocusedArticle}
 				display={article !== false}
 				customClass='newsfeed-focused-article'>
-				<h2>
+				<h3>
 					{article.title}
-				</h2>
+				</h3>
 				<div className='newsfeed-focused-article-about'>
-					<h3>
+					<h6>
 						{moment(article.publishedAt).fromNow()}
-					</h3>
+					</h6>
 					<a className='newsfeed-focused-article-link' href={article.url} target='_blank'>
 						read article on {this.props.source.name}
 					</a>

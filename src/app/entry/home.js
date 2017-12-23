@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './../components/App.jsx';
 import Home from './../components/home/Home.jsx';
 
 import reducers from './../reducers';
@@ -9,7 +8,7 @@ import reducers from './../reducers';
 import './../components/bundle.scss';
 
 ReactDOM.render(
-  <App>
+  <div>
     <Home />
-  </App>
+  </div>
   , document.getElementById('react-root'));
