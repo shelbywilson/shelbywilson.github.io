@@ -1,8 +1,11 @@
 button {
 	background: #fff;
-	padding: 8px;
+	padding: 12px 20px;
 	border: none;
 	cursor: pointer;
+	border-radius: 0;
+	font-size: 1.2rem;
+	font-family: $font-primary;
 	&:active, &:focus {
 		outline: none;
 	}
@@ -17,4 +20,5 @@ button {
 }
 .btn-transparent {
 	background: transparent;
+	padding: 0 8px;
 }
