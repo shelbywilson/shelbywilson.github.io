@@ -36,13 +36,16 @@
 			}
 			&.checked {
 				background: $blue-medium;
-				border: 1px solid $blue-medium;
+				border: 1px solid $blue-dark;
 			}
 			&.not-checked {
 				background: $peach-light;
-				border: 1px solid $blue-medium;
+				border: 1px solid $blue-dark;
 			}
 		}
+	}
+	&-tie_up {
+		margin-right: 16px;
 	}
 	&-nav {
 		text-align: center;
