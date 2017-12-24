@@ -33,7 +33,7 @@ class Pattern extends React.Component {
 		} else {
 			return (
 				<PatternRow row={row} 
-					rowNum={type === 'threading' ? key + 1 : false} />
+					rowNum={type === 'threading' || type === 'tie_up' ? key + 1 : false} />
 			)
 		}
 	}
@@ -54,7 +54,28 @@ class Pattern extends React.Component {
 										)
 									}.bind(this))}
 								</tbody>
-							</table>
+							</table>							
+							{type === 'treadling' || type === 'tie_up' ?
+								<table>
+									<tbody>
+										<tr>
+											{type === 'tie_up' &&
+												<td className='patterns-item-cell'>
+												</td>
+											}
+											{this.props.data.tie_up[0].map(function (col, i) {
+												return (
+													<td className='patterns-item-cell' key={i}>
+														{this.props.data.tie_up[0].length - i}
+													</td>
+												)
+											}.bind(this))}
+										</tr>
+									</tbody>
+								</table>
+								:
+								null
+							}
 						</div>
 					)
 				}.bind(this))}

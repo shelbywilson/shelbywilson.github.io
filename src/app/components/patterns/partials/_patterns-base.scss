@@ -20,19 +20,28 @@
 				right: -20px;
 			}
 			&-spacer {
-				padding: 10px;
+				padding: 5px;
 			}
 		}
-	}
-	&-row {
-	}
-	&-cell {
-		height: 25px;
-		width: 25px;
-		background: $peach-light;
-		border: 1px solid $blue-medium;
-		&.checked {
-			background: $blue-medium;
+		&-row {
+		}
+		&-cell {
+			height: 25px;
+			width: 25px;
+			text-align: center;
+			@include mobile {
+				height: 16px;
+				width: 16px;
+				font-size: 0.65rem;
+			}
+			&.checked {
+				background: $blue-medium;
+				border: 1px solid $blue-medium;
+			}
+			&.not-checked {
+				background: $peach-light;
+				border: 1px solid $blue-medium;
+			}
 		}
 	}
 	&-nav {
