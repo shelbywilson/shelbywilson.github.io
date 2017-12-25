@@ -12,7 +12,7 @@ class PatternNotes extends React.Component {
 				{this.props.notes.map(function (id) {
 					return (
 						<p key={id}>
-							{noteData[id].ru}
+							{noteData[id].en}
 						</p>
 					)
 				}.bind(this))}
