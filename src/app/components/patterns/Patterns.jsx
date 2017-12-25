@@ -61,6 +61,7 @@ class Patterns extends React.Component {
 				</div>
 				<Pattern data={patternData[this.state.active]} 
 					patternNumber={this.state.active} />
+
 			</div>
 		)
 	}

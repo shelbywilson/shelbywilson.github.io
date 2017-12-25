@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PatternRow from './PatternRow.jsx';
+import PatternNotes from './PatternNotes.jsx';
 
 class Pattern extends React.Component {
 	constructor(props) {
@@ -40,9 +41,12 @@ class Pattern extends React.Component {
 	render() {
 		return (
 			<div className='patterns-item'>
+						
+				<PatternNotes notes={this.props.data.notes || []} />	
+					
 				{['threading', 'tie_up', 'treadling'].map(function (type) {
 					return (
-						<div className='patterns-item-section'>						
+						<div className='patterns-item-section'>				
 							<p>
 								{type}
 							</p>

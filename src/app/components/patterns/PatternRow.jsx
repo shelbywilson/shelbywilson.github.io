@@ -1,5 +1,7 @@
 import React from 'react';
 
+const cellClasses = ['not-checked', 'checked', 'checked-alt'];
+
 class PatternRow extends React.Component {
 	constructor(props) {
 		super(props);
@@ -12,9 +14,11 @@ class PatternRow extends React.Component {
 						{this.props.rowNum}
 					</td>
 				}
-				{this.props.row.map(function (isChecked) {
+				{this.props.row.map(function (cellVal) {
 					return (
-						<td className={'patterns-item-cell' + (isChecked ? ' checked' : ' not-checked')}>
+						<td className={'patterns-item-cell ' + (cellClasses[cellVal])}>
+							<div>
+							</div>
 						</td>
 					)
 				})}
