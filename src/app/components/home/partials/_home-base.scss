@@ -15,28 +15,25 @@
 		}
 	}
 	.projects {
-		background: $orange-dark;
-		h2, .home-links a {
-			color: $peach;
-		}
+		background: $blue-light;
 	}
 	.about {
-		background: $peach;
-		h2, .home-links a{
-			color: $red;
-		}
 	}
 	&-links {
 		margin: 0;
 		li {
-			margin: 2vw 5vw 2vw 0;
+			margin: 1vw 3vw 0 0;
 			display: inline-block;
 		}
 		a {
 			font-weight: 400;
 			text-transform: uppercase;
+			display: block;
+			padding: 1.5vw;
+			color: #000;
+			background: $pink;
 			&:hover {
-				text-decoration: underline;
+				background: $pink-hover;
 			}
 		}
 	}

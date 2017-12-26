@@ -1,6 +1,7 @@
 .patterns {
 	h3 {
 		text-align: center;
+		margin: 1rem 0;
 		color: $blue-medium;
 	}
 	&-item {
@@ -62,8 +63,10 @@
 			@include tablet {
 				position: relative;
 				top: 0;
-				margin: 1rem 15px;
+				margin: 1rem auto;
+				padding: 0 15px;
 				width: 100%;
+				max-width: 500px;
 			}
 		}
 	}
