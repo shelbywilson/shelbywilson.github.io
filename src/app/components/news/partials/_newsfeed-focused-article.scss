@@ -1,0 +1,46 @@
+.newsfeed-focused-article {
+	background: $peach;
+	h2 {
+		margin-right: 15px;
+	}
+	&-description {
+		padding-top: 5px;
+	}
+	&-about {
+		position: relative;
+	}
+	&-link {
+		position: absolute;
+		top: 0;
+		right: 0;
+		font-size: 0.8rem;
+		font-weight: 400;
+		@include mobile {
+			display: block;
+			position: relative;
+		}
+	}
+	img {
+		max-height: 50%;
+		height: auto;
+		width: 50%;
+		float: right;
+		margin-left: 10px;
+		&.full-size {
+			width: auto;
+			float: none;
+			margin: 10px auto;
+			display: block;
+			max-width: 60%;
+		}
+		@include mobile {
+			width: 100%;
+			margin: 10px 0;
+		}
+	}
+	&-category {
+		padding: 4px 8px;
+		display: inline-block;
+		margin-top: 4px;
+	}
+}

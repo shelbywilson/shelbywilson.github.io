@@ -6,4 +6,10 @@
 		flex-direction: column;
 		justify-content: center;
 	}
+	&-attribution-link {
+		margin: 2rem 0;
+		color: $gray-medium;
+		font-size: 0.8rem;
+		text-align: center;
+	}
 }

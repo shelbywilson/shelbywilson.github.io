@@ -3,6 +3,8 @@ import moment from 'moment';
 
 import Modal from './../common/modal/Modal.jsx';
 
+import colors from './data/colors';
+
 class NewsfeedFocusedArticle extends React.Component {
 	constructor(props) {
 		super(props);
@@ -28,6 +30,10 @@ class NewsfeedFocusedArticle extends React.Component {
 					<a className='newsfeed-focused-article-link' href={article.url} target='_blank'>
 						read article on {this.props.source.name}
 					</a>
+					
+					<span className='newsfeed-focused-article-category' style={{background: colors[this.props.source.category]}}>
+						{this.props.source.category}
+					</span>
 				</div>
 				<div className="newsfeed-focused-article-description">
 					{article.description ?

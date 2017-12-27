@@ -40,15 +40,15 @@
 			}
 			&.checked {
 				background: $blue-medium;
-				border: 1px solid $blue-dark;
+				border: 1px solid #000;
 			}
 			&.not-checked, &.checked-alt {
 				background: $peach-light;
-				border: 1px solid $blue-dark;
+				border: 1px solid #000;
 			}
 			&.checked-alt {
 				div {
-					border: 2px solid $blue-dark;
+					border: 2px solid $blue-medium;
 					height: 100%;
 					width: 100%;
 					border-radius: 100%;

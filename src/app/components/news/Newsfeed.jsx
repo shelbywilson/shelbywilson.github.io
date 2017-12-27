@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import NewsfeedArticle from './NewsfeedArticle.jsx';
 import NewsfeedFocusedArticle from './NewsfeedFocusedArticle.jsx';
+import NewsfeedBackground from './NewsfeedBackground.jsx';
 
 const apiKey = 'cb15d26e791f471abee466ce78d79760';
 
@@ -19,6 +20,7 @@ class Newsfeed extends React.Component {
 			sourcesDictionary: {},
 			skew: {r: 255, g: 255, b: 255},
 			count: {},
+			clicks: [],
 			focus: false,
 			numLoaded: 0,
 			isSorted: false
@@ -110,6 +112,7 @@ class Newsfeed extends React.Component {
 	track(article) {
 		const category = this.state.sourcesDictionary[article.source].category;
 		let count = this.state.count;
+		let clicks = JSON.parse(JSON.stringify(this.state.clicks));
 
 		//categories: business, entertainment, gaming, general, music, politics, science-and-nature, sport, technology
 
@@ -119,12 +122,15 @@ class Newsfeed extends React.Component {
 			count[category] = 1;
 		}
 
-		console.log(count)
+		clicks.push({
+			category: category
+		})
 
 		this.toggleFocusedArticle(article);
 
 		this.setState({
-			count: count
+			count: count,
+			clicks: clicks
 		})
 	}
 	toggleFocusedArticle(article) {
@@ -181,6 +187,8 @@ class Newsfeed extends React.Component {
 	render() {
 		return (
 			<div className='newsfeed container'>
+				<NewsfeedBackground clicks={this.state.clicks} 
+					count={this.state.count} />
 				{this.state.isLoaded === false ?
 					<div className='newsfeed-loading'>
 						loading...
@@ -216,8 +224,10 @@ class Newsfeed extends React.Component {
 				<NewsfeedFocusedArticle article={this.state.focus} 
 					source={this.state.focus ? this.state.sourcesDictionary[this.state.focus.source] : {}} 
 					onToggleFocusedArticle={this.toggleFocusedArticle} />
-				<p className='attribution-link'>
-					built with <a href='https://newsapi.org/'>{'https://newsapi.org/'}</a>
+				<p className='content-attribution-link'>
+					built with <a href='https://newsapi.org/' target='_blank'>
+						{'https://newsapi.org/'}
+					</a>
 				</p>
 			</div>
 		)

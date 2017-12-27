@@ -1,0 +1,49 @@
+.newsfeed {
+	ul {
+		@include tablet {
+			margin: 20px 0;
+		}
+	}
+	&-sort {
+		text-align: center;
+		font-size: 0.8rem;
+		margin: 2rem 0;
+	}
+	&-loading {
+		padding: 50px 0;
+		text-align: center;
+	}
+	&-bg {
+		position: fixed;
+		z-index: -1;
+		top: 0;
+		left: 0;
+	}
+}
+.article {
+	position: relative;
+	background: #fff;
+	margin: 2rem 0;
+	&-load-more {
+		text-align: center;
+		padding: 30px;
+	}
+	a {
+		display: block;
+		padding: 30px;
+		color: inherit;
+		@include mobile {
+			padding: 20px;
+		}
+	}
+	&:hover, &-active {
+		background: $peach-light;
+	}
+	@include tablet {
+		background: #fff;
+		margin: 5rem 0;
+		&:hover, &-active {
+			background: #fff;
+		}
+	}
+}

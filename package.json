@@ -1,17 +1,15 @@
 {
   "name": "westsoutheast",
   "version": "1.0.0",
-  "description": "",
-  "main": "./src/app/main.js",
+  "description": "personal website",
+  "main": "./src/app/entry/dev.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
+    "d3": "^4.10.0",
     "react": "^15.0.2",
-    "react-dom": "^15.0.2",
-    "react-redux": "^5.0.2",
-    "react-router": "^3.0.2",
-    "redux": "^3.5.2"
+    "react-dom": "^15.0.2"
   },
   "devDependencies": {
     "babel-core": "~6.18.2",
@@ -31,6 +29,9 @@
     "moment": "^2.20.1",
     "node-sass": "~3.13.0",
     "react-hot-loader": "~3.0.0-beta.6",
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.2",
+    "redux": "^3.5.2",
     "sass-loader": "~4.0.2",
     "style-loader": "~0.13.1",
     "webpack": "~1.13.3",
