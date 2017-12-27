@@ -22,7 +22,7 @@ function Header() {
 					west south east
 				</h1>
 			</a>
-			<nav>
+			<nav tabIndex='1'>
 				<div className='toggle-nav'>
 				</div>
 				<ul>
