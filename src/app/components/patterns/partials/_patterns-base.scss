@@ -1,75 +1,4 @@
 .patterns {
-	h3 {
-		text-align: center;
-		margin: 1rem 0;
-		color: $blue-medium;
-	}
-	&-item {
-		display: flex;
-		flex-direction: row;
-		position: relative;
-		@include tablet {
-			flex-direction: column;
-		}
-		table {
-			position: relative;
-		}
-		&-section {
-			margin: 20px auto;
-			position: relative;
-			&-label {
-				position: absolute;
-				top: 44%;
-				right: -20px;
-			}
-			&-spacer {
-				padding: 5px;
-			}
-		}
-		&-row {
-		}
-		&-cell {
-			height: 25px;
-			width: 25px;
-			text-align: center;
-			 -webkit-print-color-adjust:exact;
-			@include mobile {
-				height: 16px;
-				width: 16px;
-				font-size: 0.65rem;
-			}
-			&.checked {
-				background: $blue-medium;
-				border: 1px solid #000;
-			}
-			&.not-checked, &.checked-alt {
-				background: $peach-light;
-				border: 1px solid #000;
-			}
-			&.checked-alt {
-				div {
-					border: 2px solid $blue-medium;
-					height: 100%;
-					width: 100%;
-					border-radius: 100%;
-				}
-			}
-		}
-		&-notes {
-			position: absolute;
-			top: 170px;
-			margin: 1rem 5%;
-			width: 40%;
-			@include tablet {
-				position: relative;
-				top: 0;
-				margin: 1rem auto;
-				padding: 0 15px;
-				width: 100%;
-				max-width: 500px;
-			}
-		}
-	}
 	&-tie_up {
 		margin-right: 16px;
 	}
@@ -80,5 +9,26 @@
 			font-size: 2rem;
 			color: $blue-medium;
 		}
+	}
+	&-notes {
+		position: absolute;
+		top: 170px;
+		margin: 2rem 4%;
+		width: 40%;
+		@include tablet {
+			position: relative;
+			top: 0;
+			margin: 1rem auto;
+			padding: 0 15px;
+			width: 100%;
+			max-width: 500px;
+		}
+	}
+	&-about {
+		text-align: center;
+		margin: 8rem 0 3rem 0;
+	}
+	&-select {
+		text-align: center;
 	}
 }

@@ -11,7 +11,7 @@
 	h4, .home-links a {
 		font-size: 2.5vw;
 		@include mobile {
-			font-size: 1.1rem;
+			font-size: 1.3rem;
 		}
 	}
 	.projects {
@@ -29,7 +29,7 @@
 			font-weight: 400;
 			text-transform: uppercase;
 			display: block;
-			padding: 1.5vw;
+			padding: 2vw;
 			color: #000;
 			background: $pink;
 			&:hover {

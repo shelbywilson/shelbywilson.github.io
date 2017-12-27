@@ -1,0 +1,27 @@
+.Dropdown {
+	background: #fff;
+	&-root {
+		display: inline-block;
+	}
+	&-control, &-menu {
+		min-width: 100px;
+		background: $peach-light;
+	}
+	&-menu {
+		position: absolute;
+		max-height: 40vh;
+		overflow: auto;
+		z-index: 1;
+	}
+	&-placeholder {
+		font-size: 1.5rem;
+		padding: 6px;
+	}
+	&-option {
+		padding: 6px;
+		cursor: pointer;
+		&:hover {
+			background: $peach;
+		}
+	}
+}

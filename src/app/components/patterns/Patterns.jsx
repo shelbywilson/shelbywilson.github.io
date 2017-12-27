@@ -1,7 +1,12 @@
 import React from 'react';
 
+import Dropdown from 'react-dropdown';
+
 import patternData from './data/patterns';
 import Pattern from './Pattern.jsx';
+import PatternsAbout from './PatternsAbout.jsx';
+
+const options = Object.keys(patternData);
 
 class Patterns extends React.Component {
 	constructor(props) {
@@ -15,6 +20,7 @@ class Patterns extends React.Component {
 
 		this.navigatePatterns = this.navigatePatterns.bind(this);
 		this.handleKeyUp = this.handleKeyUp.bind(this);
+		this.selectPattern = this.selectPattern.bind(this);
 	}
 	componentDidMount() {
 		window.addEventListener("keyup", this.handleKeyUp);
@@ -39,18 +45,25 @@ class Patterns extends React.Component {
 			newState = this.state.active === 1 ? numPatterns : this.state.active - 1;
 		}
 
-		this.setState({
-			active: newState
-		});
+		this.selectPattern(newState);
+	}
+	selectPattern(number) {
+		number = number.value || number;
 
-		window.location.hash = newState;
+		this.setState({
+			active: parseInt(number, 10)
+		})
+
+		window.location.hash = number;
 	}
 	render() {
 		return (
 			<div className='container patterns'>
-				<h3>
-					&#8470;&nbsp;{this.state.active}
-				</h3>
+				<div className='patterns-select'>
+					<Dropdown options={options}
+						placeholder={'№ ' + this.state.active}
+						onChange={this.selectPattern} />
+				</div>
 				<div className='patterns-nav'>
 					<button type='button' className='btn-transparent' onMouseUp={this.navigatePatterns.bind(this, false)}>
 						&lt;
@@ -62,6 +75,7 @@ class Patterns extends React.Component {
 				<Pattern data={patternData[this.state.active]} 
 					patternNumber={this.state.active} />
 
+				<PatternsAbout />
 			</div>
 		)
 	}

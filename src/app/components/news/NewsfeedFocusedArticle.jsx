@@ -31,7 +31,7 @@ class NewsfeedFocusedArticle extends React.Component {
 						read article on {this.props.source.name}
 					</a>
 					
-					<span className='newsfeed-focused-article-category' style={{background: colors[this.props.source.category]}}>
+					<span className={'newsfeed-focused-article-category ' + (this.props.source.category)} style={{background: colors[this.props.source.category]}}>
 						{this.props.source.category}
 					</span>
 				</div>

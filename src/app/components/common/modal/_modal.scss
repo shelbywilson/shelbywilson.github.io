@@ -5,14 +5,13 @@
 	height: 70vh;
 	margin-top: 15vh;
 	max-width: 900px;
-	padding: 20px 25px;
+	padding: 30px;
 	position: relative;
-	background: #fff;
+	background: $peach;
 	@include mobile {
 		width: 100%;
 		height: 100%;
 		margin: 0;
-		padding: 30px;
 	}
 	&-content {	
 		overflow-y: auto;
@@ -22,10 +21,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
-		font-size: 2rem;
-		@include mobile {
-			font-size: 3rem;
-		}
+		font-size: 3rem;
 	}
 	&-bg {
 		position: fixed;

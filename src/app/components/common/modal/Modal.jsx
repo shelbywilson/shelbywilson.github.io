@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import $ from 'jquery';
 
@@ -59,6 +59,12 @@ class Modal extends React.Component {
 		} 
 		return null;
 	}
+}
+
+Modal.propTypes = {
+	onClose: PropTypes.func.isRequired,
+	display: PropTypes.bool,
+	customClass: PropTypes.string
 }
 
 export default Modal;

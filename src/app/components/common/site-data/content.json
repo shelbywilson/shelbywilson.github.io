@@ -1,0 +1,42 @@
+{
+	"en": {
+		"site": {
+			"title": "west south east"
+		},
+		"menu": {
+			"home": "home",
+			"weaving": "weaving",
+			"news": "news"
+		},
+		"patterns": {
+			"about-description": "transcribed, translated, and adapted from",
+			"about-name": "Album of Weaving Patterns",
+			"opt-0": "a",
+			"opt-1": "b",
+			"opt-2": "c",
+			"opt-3": "d",
+ 			"tie_up": "tie up",
+			"threading": "threading",
+			"treadling": "treadling"
+		}
+	},
+	"ru": {
+		"site": {
+			"title": "восток юг запад"
+		},
+		"menu": {
+			"home": "главная",
+			"weaving": "weaving",
+			"news": "новости"
+		},
+		"patterns": {
+			"opt-0": "а",
+			"opt-1": "б",
+			"opt-2": "в",
+			"opt-3": "г",
+			"tie_up": "подвяз",
+			"threading": "пробор",
+			"treadling": "ход по подножкам"
+		}
+	}
+}

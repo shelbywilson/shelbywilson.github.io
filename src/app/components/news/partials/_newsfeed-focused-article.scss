@@ -1,5 +1,4 @@
 .newsfeed-focused-article {
-	background: $peach;
 	h2 {
 		margin-right: 15px;
 	}
@@ -42,5 +41,8 @@
 	&-category {
 		padding: 5px 10px;
 		display: inline-block;
+		&.technology, &.sport, &.science-and-technology {
+			color: #fff;
+		}
 	}
 }

@@ -8,7 +8,7 @@ class PatternNotes extends React.Component {
 	}
 	render() {
 		return (
-			<div className='patterns-item-notes'>
+			<div className='patterns-notes'>
 				{this.props.notes.map(function (id) {
 					return (
 						<p key={id}>

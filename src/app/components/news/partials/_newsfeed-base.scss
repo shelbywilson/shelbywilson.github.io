@@ -12,7 +12,9 @@
 		button {
 			margin: 0 1rem;	
 			@include mobile {
-				margin: 1rem;
+				margin: 1rem auto;
+				position: relative;
+				display: block;
 			}
 		}
 	}
@@ -23,10 +25,6 @@
 		span {
 			@include transform(rotate(90deg));
 			display: inline-block;
-		}
-		@include mobile {
-			position: relative;
-			float: right;
 		}
 	}
 	&-sort {

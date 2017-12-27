@@ -9,19 +9,28 @@ class PatternRow extends React.Component {
 	render() {
 		return (
 			<tr className={'patterns-item-row'}>
-				{this.props.rowNum &&
-					<td className='patterns-item-cell'>
-						{this.props.rowNum}
-					</td>
-				}
-				{this.props.row.map(function (cellVal) {
+				{this.props.row.map(function (cellVal, i) {
 					return (
 						<td className={'patterns-item-cell ' + (cellClasses[cellVal])}>
-							<div>
+							{this.props.rowNum && i === 0 ?
+								<span className='patterns-item-cell-row-num'>
+									{this.props.rowNum}
+								</span>
+								:
+								null
+							}
+							{this.props.showCol ?
+								<span className='patterns-item-cell-col-num'>
+									{this.props.row.length - i}
+								</span>
+								:
+								null
+							}
+							<div className='secondary-type'>
 							</div>
 						</td>
 					)
-				})}
+				}.bind(this))}
 			</tr>	
 		)
 	}

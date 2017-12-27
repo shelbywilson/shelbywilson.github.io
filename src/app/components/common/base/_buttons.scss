@@ -9,6 +9,9 @@ button {
 	&:active, &:focus {
 		outline: none;
 	}
+	.btn-sublabel {
+		font-size: 0.8rem;
+	}
 }
 
 .btn-primary {

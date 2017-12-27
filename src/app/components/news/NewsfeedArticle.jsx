@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import moment from 'moment';
 
 class NewsfeedArticle extends React.Component {
@@ -27,6 +27,12 @@ class NewsfeedArticle extends React.Component {
 			</li>
 		)
 	}
+}
+
+NewsfeedArticle.propTypes = {
+	acticle: PropTypes.object,
+	onTrack: PropTypes.func,
+	index: PropTypes.number
 }
 
 export default NewsfeedArticle;
