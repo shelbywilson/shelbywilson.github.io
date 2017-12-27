@@ -12,6 +12,14 @@ const bg = {
 	'sport': Math.floor(Math.random() * 6)
 };
 
+// const bg = {
+// 	'technology': 3,
+// 	'entertainment': 3,
+// 	'gaming': 3,
+// 	'music': 4,
+// 	'sport': 4
+// };
+
 function Home() {
   return (
     <div className='content home'>
