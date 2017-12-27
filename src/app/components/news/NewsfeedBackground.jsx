@@ -6,9 +6,18 @@ import colors from './data/colors';
 class NewsfeedBackground extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.updateSvg = this.updateSvg.bind(this);
+	}
+	componentDidMount() {
+		window.addEventListener("resize", this.updateSvg);
+		this.updateSvg();
+	}
+	componentWillUnMount() {
+		window.removeEventListener("resize");
 	}
     componentDidUpdate(prevProps, prevState) {
-    	if (prevProps.clicks.length !== this.props.clicks.length) {
+    	if (prevProps.clicks !== this.props.clicks) {
     		this.updateSvg();
     	}
     }
@@ -18,6 +27,7 @@ class NewsfeedBackground extends React.Component {
 	    let group;
 	    let svg = d3.select(this.refs.svg);
 	    let prevR = 1;
+	    let count = 1;
 	    const grid = this._getGridData();
 
 	    svg.selectAll("*").remove();
@@ -25,8 +35,7 @@ class NewsfeedBackground extends React.Component {
 	    svg.attr('height',window.innerHeight);
 
 	    for (i in this.props.count) {
-	    	group = svg.append('g')
-	    		.attr('data-category', i);
+	    	group = svg.append('g');
 
 	    	field = group.selectAll('g')
 	    		.data(grid)
@@ -36,41 +45,39 @@ class NewsfeedBackground extends React.Component {
 	    		.enter()
 	    		.append('circle');
 
-	    	field.attr("cx", function (d) { return d.x + prevR; })
-				.attr("cy", function (d) { return d.y + prevR; })
+	    	field.attr("cx", function (d) { return d.x + (prevR * (count % 2 === 0 ? -1 : 1)); })
+				.attr("cy", function (d) { return d.y + (prevR * (count % 4 === 1 ? -1 : 1)); })
 				.attr("r", this.props.count[i] * 3)
 				.style("fill", colors[i]);
 
 			prevR = prevR + this.props.count[i] * 3;
+			count += 1;
 	    }
     }
     _getGridData() {
     	//adapted from https://bl.ocks.org/cagrimmett/07f8c8daea00946b9e704e3efcbd5739
 	    let data = [];
-	    let width = Math.max(100, window.innerWidth / 8);
-	    let height = Math.max(100, window.innerHeight / 8);
-	    let xpos = width/2;
-	    let ypos = height/2;
+	    let size = Math.max(120, window.innerWidth / 8);
+	    let xpos = -size/2;
+	    let ypos = -size/2;
 
 	    // iterate for rows 
-	    for (var row = 0; row < 8; row++) {
+	    for (var row = 0; row < 10; row++) {
 	        data.push( new Array() );
 
 	        // iterate for cells/columns inside rows
-	        for (var column = 0; column < 8; column++) {
+	        for (var column = 0; column < 10; column++) {
 	            data[row].push({
 	                x: xpos,
-	                y: ypos,
-	                width: width,
-	                height: height
+	                y: ypos
 	            });
 
-	            xpos += width;
+	            xpos += size;
 	        }
 	        // reset the x position after a row is complete
-	        xpos = width/2;
+	        xpos = -size/2;
 
-	        ypos += height; 
+	        ypos += size; 
 	    }
 	    return data;
 	}

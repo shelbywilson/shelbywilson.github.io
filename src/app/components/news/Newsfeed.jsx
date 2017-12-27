@@ -18,9 +18,8 @@ class Newsfeed extends React.Component {
 			displayEnd: 30,
 			isLoaded: false,
 			sourcesDictionary: {},
-			skew: {r: 255, g: 255, b: 255},
 			count: {},
-			clicks: [],
+			clicks: 0,
 			focus: false,
 			numLoaded: 0,
 			isSorted: false
@@ -33,6 +32,8 @@ class Newsfeed extends React.Component {
 		this.setSources = this.setSources.bind(this);
 		this.setArticles = this.setArticles.bind(this);
 		this.toggleSortedArray = this.toggleSortedArray.bind(this);
+		this.resetClicks = this.resetClicks.bind(this);
+		this.resetPage = this.resetPage.bind(this);
 
 		this.setSources();
 	}
@@ -42,6 +43,20 @@ class Newsfeed extends React.Component {
 				isLoaded: true
 			})
 		}
+	}
+	resetPage() {
+		this.setState({
+			isLoaded: false,
+			numLoaded: 0
+		});
+
+		this.setArticles(0, 20);
+		setTimeout(function() {
+			this.setArticles(21, 40);
+		}.bind(this), 500)
+		setTimeout(function() {
+			this.setArticles(41, this.state.sources.length);
+		}.bind(this), 1000)
 	}
 	setSources() {
 		$.ajax({
@@ -101,7 +116,7 @@ class Newsfeed extends React.Component {
 		 			numLoaded: this.state.numLoaded + 1
 		 		})
 		 		console.log(xhr, status)
-		 	}
+		 	}.bind(this)
 		});
 	}
 	loadMore() {
@@ -112,7 +127,6 @@ class Newsfeed extends React.Component {
 	track(article) {
 		const category = this.state.sourcesDictionary[article.source].category;
 		let count = this.state.count;
-		let clicks = JSON.parse(JSON.stringify(this.state.clicks));
 
 		//categories: business, entertainment, gaming, general, music, politics, science-and-nature, sport, technology
 
@@ -122,15 +136,11 @@ class Newsfeed extends React.Component {
 			count[category] = 1;
 		}
 
-		clicks.push({
-			category: category
-		})
-
 		this.toggleFocusedArticle(article);
 
 		this.setState({
 			count: count,
-			clicks: clicks
+			clicks: this.state.clicks + 1
 		})
 	}
 	toggleFocusedArticle(article) {
@@ -184,6 +194,12 @@ class Newsfeed extends React.Component {
 
 		return dictionary;
 	}
+	resetClicks() {
+		this.setState({
+			clicks: 0,
+			count: {}
+		})
+	}
 	render() {
 		return (
 			<div className='newsfeed container'>
@@ -194,12 +210,26 @@ class Newsfeed extends React.Component {
 						loading...
 					</div>
 					:
-					<div>	
-						<div className='newsfeed-sort'>				
-							<label>
-								<input type='checkbox' checked={this.state.isSorted} onChange={this.toggleSortedArray} />
-								sort by most recent
-							</label>
+					<div>
+						<div className='newsfeed-actions'>
+							<div className='newsfeed-sort'>				
+								<label>
+									<input type='checkbox' checked={this.state.isSorted} onChange={this.toggleSortedArray} />
+									sort by most recent
+								</label>
+							</div>
+							{this.state.clicks > 0 &&
+								<button type='button' className='btn-primary newsfeed-reset' onMouseUp={this.resetClicks} >
+									Reset
+									&nbsp;
+									<span>&times;</span>
+								</button>
+							}
+							<button type='button' className='btn-primary newsfeed-refresh' onMouseUp={this.resetPage} >
+								Refresh
+								&nbsp;
+								<span>&#x21bb;</span>
+							</button>
 						</div>
 						<ul>
 							{this.state.articles.map(function (article, i) {

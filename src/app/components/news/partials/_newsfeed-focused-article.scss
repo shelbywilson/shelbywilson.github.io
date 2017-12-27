@@ -18,6 +18,7 @@
 		@include mobile {
 			display: block;
 			position: relative;
+			margin: 10px 0;
 		}
 	}
 	img {
@@ -39,8 +40,7 @@
 		}
 	}
 	&-category {
-		padding: 4px 8px;
+		padding: 5px 10px;
 		display: inline-block;
-		margin-top: 4px;
 	}
 }

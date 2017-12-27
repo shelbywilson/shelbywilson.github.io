@@ -4,10 +4,42 @@
 			margin: 20px 0;
 		}
 	}
+	&-actions {
+		position: relative;
+		padding: 1rem 0;
+		margin: 1rem 0;
+		overflow: hidden;
+		button {
+			margin: 0 1rem;	
+			@include mobile {
+				margin: 1rem;
+			}
+		}
+	}
+	&-refresh {
+		position: absolute;
+		right: 0;
+		top: 0;
+		span {
+			@include transform(rotate(90deg));
+			display: inline-block;
+		}
+		@include mobile {
+			position: relative;
+			float: right;
+		}
+	}
+	&-reset {
+		position: absolute;
+		left: 0;
+		top: 0;
+		@include mobile {
+			position: relative;
+		}
+	}
 	&-sort {
 		text-align: center;
 		font-size: 0.8rem;
-		margin: 2rem 0;
 	}
 	&-loading {
 		padding: 50px 0;
@@ -23,7 +55,7 @@
 .article {
 	position: relative;
 	background: #fff;
-	margin: 2rem 0;
+	margin: 3rem 0;
 	&-load-more {
 		text-align: center;
 		padding: 30px;
@@ -41,7 +73,7 @@
 	}
 	@include tablet {
 		background: #fff;
-		margin: 5rem 0;
+		margin: 2rem 0 5rem 0;
 		&:hover, &-active {
 			background: #fff;
 		}

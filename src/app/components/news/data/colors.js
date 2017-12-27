@@ -3,11 +3,11 @@ const colors = {
 	'entertainment': '#9fc7a1',
 	'gaming': '#add',
 	'general': '#f6befe',
-	'music': '#fc8c28',
+	'music': '#dde0ff',
 	'politics': '#fc8c28',
 	'science-and-nature': '#3c709a',
 	'sport': '#f7002e',
-	'technology': '#4c7d82'
+	'technology': '#6ba4a8'
 };
 
 export default colors;

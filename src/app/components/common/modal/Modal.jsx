@@ -1,5 +1,7 @@
 import React from 'react';
 
+import $ from 'jquery';
+
 class Modal extends React.Component {
 	constructor(props) {
 		super(props);
@@ -12,6 +14,16 @@ class Modal extends React.Component {
 	}
 	componentWillUnmount() {
 		window.removeEventListener("keydown", this.handleKeyDown);
+		$('body').removeClass('modal-open');
+	}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.display !== this.props.display) {
+			if (nextProps.display) {
+				$('body').addClass('modal-open');
+			} else {
+				$('body').removeClass('modal-open');
+			}
+		}
 	}
 	close(e) {
 		if (e) {
