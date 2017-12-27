@@ -29,14 +29,6 @@
 			float: right;
 		}
 	}
-	&-reset {
-		position: absolute;
-		left: 0;
-		top: 0;
-		@include mobile {
-			position: relative;
-		}
-	}
 	&-sort {
 		text-align: center;
 		font-size: 0.8rem;

@@ -28,6 +28,7 @@ class NewsfeedBackground extends React.Component {
 	    let svg = d3.select(this.refs.svg);
 	    let prevR = 1;
 	    let count = 1;
+	    let bin;
 	    const grid = this._getGridData();
 
 	    svg.selectAll("*").remove();
@@ -40,17 +41,24 @@ class NewsfeedBackground extends React.Component {
 	    	field = group.selectAll('g')
 	    		.data(grid)
 	    		.enter()
+	    		.append('g')
 	    		.selectAll('circle')
 	    		.data(function(d) { return d; })
 	    		.enter()
 	    		.append('circle');
 
-	    	field.attr("cx", function (d) { return d.x + (prevR * (count % 2 === 0 ? -1 : 1)); })
-				.attr("cy", function (d) { return d.y + (prevR * (count % 4 === 1 ? -1 : 1)); })
+	    	bin = parseInt(count, 10).toString(2);
+
+	    	if (bin.length === 1) {
+	    		bin = '01';
+	    	} 
+
+	    	field.attr("cx", function (d) { return d.x + (prevR * (bin[bin.length - 1] === '0' ? -1 : 1)); })
+				.attr("cy", function (d) { return d.y + (prevR * (bin[bin.length - 2] === '0' ? -1 : 1)); })
 				.attr("r", this.props.count[i] * 3)
 				.style("fill", colors[i]);
 
-			prevR = prevR + this.props.count[i] * 3;
+			prevR = prevR + this.props.count[i] * 2;
 			count += 1;
 	    }
     }

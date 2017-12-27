@@ -32,7 +32,6 @@ class Newsfeed extends React.Component {
 		this.setSources = this.setSources.bind(this);
 		this.setArticles = this.setArticles.bind(this);
 		this.toggleSortedArray = this.toggleSortedArray.bind(this);
-		this.resetClicks = this.resetClicks.bind(this);
 		this.resetPage = this.resetPage.bind(this);
 
 		this.setSources();
@@ -47,7 +46,9 @@ class Newsfeed extends React.Component {
 	resetPage() {
 		this.setState({
 			isLoaded: false,
-			numLoaded: 0
+			numLoaded: 0,
+			count: {},
+			clicks: 0
 		});
 
 		this.setArticles(0, 20);
@@ -190,15 +191,9 @@ class Newsfeed extends React.Component {
 			categories[source.category] = categories[source.category] ? categories[source.category] + 1 : 1;
 		});
 
-		console.log(categories)
+		//console.log(categories)
 
 		return dictionary;
-	}
-	resetClicks() {
-		this.setState({
-			clicks: 0,
-			count: {}
-		})
 	}
 	render() {
 		return (
@@ -218,13 +213,6 @@ class Newsfeed extends React.Component {
 									sort by most recent
 								</label>
 							</div>
-							{this.state.clicks > 0 &&
-								<button type='button' className='btn-primary newsfeed-reset' onMouseUp={this.resetClicks} >
-									Reset
-									&nbsp;
-									<span>&times;</span>
-								</button>
-							}
 							<button type='button' className='btn-primary newsfeed-refresh' onMouseUp={this.resetPage} >
 								Refresh
 								&nbsp;
