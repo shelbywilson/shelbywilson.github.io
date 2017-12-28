@@ -90,7 +90,7 @@ class PatternItemGrid extends React.Component {
 				.attr('class', 'label')
 				.attr('transform', 'translate(' + fontSize/2 + ',' + (size + fontSize) + ')')
 		    	.style('font-size', fontSize)
-				.text(function (d, i) { return i + 1; })
+				.text(function (d, i) { return data[0].length - i; })
 		}
 	}
 	changeSection(i) {
