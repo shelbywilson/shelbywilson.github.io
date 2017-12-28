@@ -12,10 +12,13 @@ class Patterns extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const hash = parseInt(window.location.hash.replace(/#/g, ''), 10);
+		const hash = parseFloat(window.location.hash.replace(/#/g, ''), 10);
+		const splitHash = hash.toString().split('.');
+		const index = splitHash.length > 0 ? parseInt(splitHash[0], 10) : 1;
 
 		this.state = {
-			active: patternData[hash] ? hash : 1
+			active: patternData[index] ? index : 1,
+			subActive: splitHash.length > 1 ? parseInt(splitHash[1], 10) : 0
 		}
 
 		this.navigatePatterns = this.navigatePatterns.bind(this);
@@ -73,7 +76,8 @@ class Patterns extends React.Component {
 					</button>
 				</div>
 				<Pattern data={patternData[this.state.active]} 
-					patternNumber={this.state.active} />
+					patternNumber={this.state.active} 
+					subActive={this.state.subActive} />
 
 				<PatternsAbout />
 			</div>

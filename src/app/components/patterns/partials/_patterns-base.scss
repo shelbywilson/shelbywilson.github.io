@@ -8,21 +8,19 @@
 			margin: 10px;
 			font-size: 2rem;
 			color: $blue-medium;
+			&:first-of-type {
+				margin-right: 80px;
+			}
+			&:last-of-type {
+				margin-left: 80px;
+			}
 		}
 	}
 	&-notes {
-		position: absolute;
-		top: 170px;
-		margin: 2rem 4%;
-		width: 40%;
-		@include tablet {
-			position: relative;
-			top: 0;
-			margin: 1rem auto;
-			padding: 0 15px;
-			width: 100%;
-			max-width: 500px;
-		}
+		margin: 2rem auto;
+		text-align: left;
+		max-width: 500px;
+		padding: 0 0.7rem;
 	}
 	&-about {
 		text-align: center;

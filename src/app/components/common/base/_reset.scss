@@ -70,7 +70,7 @@ h5 {
 h6 {
 	margin: 0.5rem 0;
 	font-size: 0.7rem;
-	letter-spacing: 0.15rem;
+	letter-spacing: 0.1rem;
 	text-transform: uppercase;
 }
 a {
@@ -84,6 +84,11 @@ p {
 	line-height: 1.8em;
 	@include tablet {
 		font-size: 1.1rem;
+	}
+	&.small {
+		@include tablet {
+			font-size: 0.9rem;
+		}
 	}
 }
 img {
@@ -102,4 +107,7 @@ table {
 label {
 	padding: 1rem;
 	background: #fff;
+}
+svg {
+	overflow: visible;
 }

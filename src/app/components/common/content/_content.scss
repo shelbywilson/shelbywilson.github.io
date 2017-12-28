@@ -12,4 +12,13 @@
 		font-size: 0.8rem;
 		text-align: center;
 	}
+	&-tabs {
+		button {
+			padding: 2px 8px;
+			background: $green-light;
+			&:hover, &.selected {
+				background: $green-light-hover;
+			}
+		}
+	}
 }
