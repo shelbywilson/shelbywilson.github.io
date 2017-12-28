@@ -30,16 +30,16 @@ class PatternsAbout extends React.Component {
 				<Modal onClose={this.toggle}
 					display={this.state.modalDisplay} >
 					<h3>
-						Album of weaving patterns
+						{this.content['about-name']}
 					</h3>
 					<h6>
-						Department of rural economics and agricultural statistics
+						{this.content['about-dept-rural-econ']}
 					</h6>
 					<h6>
-						Second supplemental issue
+						{this.content['about-second-supp-issue']}
 					</h6>
 					<h6>
-						Saint Petersburg 1912
+						{this.content['about-saint-petersburg']}
 					</h6>
 					<p>
 						<a href='/files/weaving_patterns.pdf' target='_blank'>

@@ -69,9 +69,9 @@ header {
 		margin: 10px 20px;
 		width: 0; 
 		height: 0; 
-		border-left: 18px solid transparent;
-		border-right: 18px solid transparent;
-		border-top: 18px solid $orange-dark;
+		border-color: $orange-dark transparent transparent;
+	    border-style: solid;
+	    border-width: 18px 18px 0;
 		@include tablet {
 			border-width: 14px;
 		}

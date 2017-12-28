@@ -3,8 +3,11 @@
 	&-root {
 		display: inline-block;
 	}
+	&-control {
+		position: relative;
+	}
 	&-control, &-menu {
-		min-width: 100px;
+		min-width: 120px;
 		background: $peach-light;
 	}
 	&-menu {
@@ -15,7 +18,8 @@
 	}
 	&-placeholder {
 		font-size: 1.5rem;
-		padding: 6px;
+		padding: 6px 25px;
+		cursor: pointer;
 	}
 	&-option {
 		padding: 6px;
@@ -23,5 +27,17 @@
 		&:hover {
 			background: $peach;
 		}
+	}
+	&-arrow {
+		border-color: $blue-medium transparent transparent;
+	    border-style: solid;
+	    border-width: 7px 7px 0;
+	    content: ' ';
+	    display: block;
+	    height: 0;
+	    position: absolute;
+	    right: 8px;
+	    top: 1rem;
+	    width: 0;
 	}
 }

@@ -48,7 +48,7 @@ class Pattern extends React.Component {
 	}
 	render() {
 		return (
-			<div className='patterns-item'>
+			<div className={'patterns-item' + (this.props.data.threading[0].length > 20 ? ' wrap' : '')}>
 						
 				<PatternNotes notes={this.props.data.notes || []} />	
 					

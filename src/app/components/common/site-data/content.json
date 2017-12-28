@@ -9,8 +9,11 @@
 			"news": "news"
 		},
 		"patterns": {
+			"about-dept-rural-econ": "Department of rural economics and agricultural statistics",
 			"about-description": "transcribed, translated, and adapted from",
 			"about-name": "Album of Weaving Patterns",
+			"about-saint-petersburg": "Saint Petersburg 1912",
+			"about-second-supp-issue": "Second supplemental issue",
 			"opt-0": "a",
 			"opt-1": "b",
 			"opt-2": "c",
@@ -30,6 +33,11 @@
 			"news": "новости"
 		},
 		"patterns": {
+			"about-dept-rural-econ": "Отделъ сельской экономии и сельскохозяйственной статистики",
+			"about-description": "transcribed, translated, and adapted from",
+			"about-name": "Альбом ткацих узоров ",
+			"about-saint-petersburg": "Санкт-Петербург 1912",
+			"about-second-supp-issue": "2-ое дополненное издание",
 			"opt-0": "а",
 			"opt-1": "б",
 			"opt-2": "в",

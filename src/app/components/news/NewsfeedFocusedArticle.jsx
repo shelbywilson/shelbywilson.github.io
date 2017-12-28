@@ -16,6 +16,7 @@ class NewsfeedFocusedArticle extends React.Component {
 	}
 	render() {
 		const article = this.props.article;
+		const category = this.props.source.category || '';
 
 		return (
 			<Modal onClose={this.toggleFocusedArticle}
@@ -32,7 +33,7 @@ class NewsfeedFocusedArticle extends React.Component {
 					</a>
 					
 					<span className={'newsfeed-focused-article-category ' + (this.props.source.category)} style={{background: colors[this.props.source.category]}}>
-						{this.props.source.category}
+						{category.replace(/-/g, ' ')}
 					</span>
 				</div>
 				<div className="newsfeed-focused-article-description">
