@@ -42,9 +42,12 @@ class PatternsAbout extends React.Component {
 						{this.content['about-saint-petersburg']}
 					</h6>
 					<p>
-						<a href='/files/weaving_patterns.pdf' target='_blank'>
+						<a className='psuedo-btn-primary' href='/files/weaving_patterns.pdf' target='_blank'>
 							view original
 						</a>
+					</p>
+					<p>
+						The descriptions of each pattern are meant to be as close to the original as possible.
 					</p>
 				</Modal>
 			</div>

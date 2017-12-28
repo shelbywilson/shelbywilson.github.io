@@ -1,6 +1,10 @@
 {
 	"n-multi-treadling": {
-		"en": "Some patterns with the same threading and tie-ups give the opportunity to receive different patterns, only it’s worth changing the order of the treadlings, so numbers 2, 7, 21, etc have three different treadlings a, b, c, from which  different fabrics are obtained.",
+		"en": "Different fabrics are produced depending on which treadling is used.",
+		"ru": ""
+	},
+	"n-secondary-color": {
+		"en": "A secondary color is used, as indicated by circles in the patterns.",
 		"ru": ""
 	},
 	"n-2-10": {
@@ -20,11 +24,19 @@
 		"ru": ""
 	},
 	"n-27": {
-		"en": "Fabric for bed covers. The warp is made from stocking cotton #26, on the weft use that number cotton for 8 picks of the weft, then 2 picks of the thicker weft (using cotton #10), as noted on the design of the treadling.",
+		"en": "Fabric for bed covers. The warp is made from stocking cotton #26, on the weft use that number cotton for 8 picks of the weft, then 2 picks of the thicker weft (using cotton #10), as noted on the design of the treadling using a circle.",
 		"ru": ""
 	},
 	"n-28": {
 		"en": "Woolen blend fabric, suitable for outer layer winter clothes and blankets, with a cotton or linen warp and unspun wool weft.",
+		"ru": ""
+	},
+	"n-34": {
+		"en": "Suitable for aprons with multicolored stripes.",
+		"ru": ""
+	},
+	"n-58-59": {
+		"en": "able to be made into furniture upholstery, if a thicker weft is used.",
 		"ru": ""
 	}
 }

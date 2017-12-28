@@ -60,6 +60,11 @@ function Home() {
 		    		</a>
 		    	</li>
 		    	<li>
+		    		<a href='https://bl.ocks.org/shelby-' target='_blank'>
+		    			gist
+		    		</a>
+		    	</li>
+		    	<li>
 		    		<a href='https://www.linkedin.com/in/shelby-wilson-26b18153' target='_blank'>
 		    			linkedin
 		    		</a>

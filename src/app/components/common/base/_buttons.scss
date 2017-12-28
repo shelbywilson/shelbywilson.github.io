@@ -14,7 +14,7 @@ button {
 	}
 }
 
-.btn-primary {
+.btn-primary, .psuedo-btn-primary {
 	background: $pink;
 	color: #000;
 	&:hover {
@@ -24,4 +24,10 @@ button {
 .btn-transparent {
 	background: transparent;
 	padding: 0 8px;
+}
+.psuedo-btn-primary {
+	padding: 12px 20px;
+	font-size: 1.2rem;
+	font-family: $font-primary;
+	display: inline-block;
 }
