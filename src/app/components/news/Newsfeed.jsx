@@ -15,7 +15,7 @@ class Newsfeed extends React.Component {
 		this.state = {
 			sources: [],
 			articles: [],
-			displayEnd: 30,
+			displayEnd: 20,
 			isLoaded: false,
 			sourcesDictionary: {},
 			count: {},

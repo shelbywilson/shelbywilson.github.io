@@ -98,7 +98,12 @@ class PatternItemGrid extends React.Component {
 			active: i
 		})
 
-		window.location.hash = this.props.patternNumber + '.' + i;
+		if (history.pushState) {
+		    history.pushState(null, null, '#' + this.props.patternNumber + '.' + i);
+		}
+		else {
+		    location.hash = '#' + this.props.patternNumber + '.' + i;
+		}
 	}
 	render() {
 		if (this.state.sections > 1) {

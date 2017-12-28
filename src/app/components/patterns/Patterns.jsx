@@ -57,7 +57,12 @@ class Patterns extends React.Component {
 			active: parseInt(number, 10)
 		})
 
-		window.location.hash = number;
+		if (history.pushState) {
+		    history.pushState(null, null, '#' + number);
+		}
+		else {
+		    location.hash = '#' + number;
+		}
 	}
 	render() {
 		return (
