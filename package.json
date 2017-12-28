@@ -2,6 +2,7 @@
   "name": "westsoutheast",
   "version": "1.0.0",
   "description": "personal website",
+  "keywords": ["react", "reactjs", "d3", "d3js"],
   "main": "./src/app/entry/dev.js",
   "directories": {
     "test": "test"
@@ -48,7 +49,7 @@
     "url": "git+https://github.com/shelby-/shelby-.github.io.git"
   },
   "author": "Shelby Wilson",
-  "license": "",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/shelby-/shelby-.github.io/issues"
   },
