@@ -16,9 +16,22 @@ class Patterns extends React.Component {
 		const splitHash = hash.toString().split('.');
 		const index = splitHash.length > 0 ? parseInt(splitHash[0], 10) : 1;
 
+		let subActive = 0;
+
+		if (splitHash.length > 1) {
+			subActive = parseInt(splitHash[1], 10);
+			if (patternData[index]) {
+				if (!patternData[index].treadling[subActive]) {
+					subActive = 0;
+				}
+			} else {
+				subActive = 0;
+			}
+		}
+
 		this.state = {
 			active: patternData[index] ? index : 1,
-			subActive: splitHash.length > 1 ? parseInt(splitHash[1], 10) : 0
+			subActive: subActive
 		}
 
 		this.navigatePatterns = this.navigatePatterns.bind(this);
