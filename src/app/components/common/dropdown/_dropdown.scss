@@ -8,7 +8,7 @@
 	}
 	&-control, &-menu {
 		min-width: 120px;
-		background: $peach-light;
+		background: $pink-light;
 	}
 	&-menu {
 		position: absolute;
@@ -25,7 +25,7 @@
 		padding: 6px;
 		cursor: pointer;
 		&:hover {
-			background: $peach;
+			background: $pink;
 		}
 	}
 	&-arrow {
