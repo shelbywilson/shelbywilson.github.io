@@ -43,7 +43,7 @@ class PatternsAbout extends React.Component {
 					</h6>
 					<p>
 						<a href='/files/weaving_patterns.pdf' target='_blank'>
-							original
+							view original
 						</a>
 					</p>
 				</Modal>

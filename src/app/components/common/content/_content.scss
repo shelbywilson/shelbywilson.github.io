@@ -14,10 +14,12 @@
 	}
 	&-tabs {
 		button {
-			padding: 2px 8px;
-			background: $green-light;
+			padding: 6px 8px;
+			font-size: 0.8rem;
+			width: 1.8rem;
+			background: $peach-light;
 			&:hover, &.selected {
-				background: $green-light-hover;
+				background: $peach;
 			}
 		}
 	}
