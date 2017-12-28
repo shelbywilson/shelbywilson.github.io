@@ -3,13 +3,13 @@ import React from 'react';
 import NewsfeedBackground from './../news/NewsfeedBackground.jsx';
 
 const bg = {
-	'technology': Math.floor(Math.random() * 6),
-	'general': Math.floor(Math.random() * 6),
-	'entertainment': Math.floor(Math.random() * 6),
-	'gaming': Math.floor(Math.random() * 6),
-	'music': Math.floor(Math.random() * 6),
-	//'business': Math.floor(Math.random() * 8),
-	'sport': Math.floor(Math.random() * 6)
+	'technology': Math.floor(Math.random() * 8),
+	'general': Math.floor(Math.random() * 8),
+	'gaming': Math.floor(Math.random() * 8),
+	'music': Math.floor(Math.random() * 8),
+	'business': Math.floor(Math.random() * 8),
+	'sport': Math.floor(Math.random() * 8),
+	'homepage-1': Math.floor(Math.random() * 8)
 };
 
 // const bg = {
