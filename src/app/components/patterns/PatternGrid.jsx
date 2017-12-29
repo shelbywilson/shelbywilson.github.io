@@ -81,7 +81,7 @@ class PatternGrid extends React.Component {
 				.text(function (d, i) { return i + 1; })
 		}
 
-		if (this.props.type === 'treadling') {
+		if (this.props.type === 'treadling' || this.props.type === 'tie_up') {
 			row.filter(function(d, i){ return i === data.length - 1; })
 				.selectAll('.col')
 				.append('text')
