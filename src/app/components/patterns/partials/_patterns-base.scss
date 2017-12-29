@@ -31,5 +31,50 @@
 	}
 	&-preview {
 		display: inline-block;
+		.warp {
+			rect {
+				fill: $theme-1-blue;
+			}
+			line {
+				stroke: #c8ccf7;
+			}
+		}
+		.primary {
+			rect {
+				fill: $theme-1-blue;
+			}
+			line {
+				stroke: #c8ccf7;
+			}
+		}
+		.secondary {
+			rect {
+				fill: $theme-1-green;
+			}
+			line {
+				stroke: $teal;
+			}
+		}
+		.default {
+			rect {
+				fill: #fff;
+			}
+			line {
+				stroke: $gray-light;
+			}
+		}
+		.contrast {
+			.default {
+				rect {
+					fill: $yellow;
+				}
+				line {
+					stroke: #d3d998;
+				}
+			}
+		}
+		line {
+			stroke-width: 1;
+		}
 	}
 }

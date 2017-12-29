@@ -22,6 +22,18 @@ function consolidateArrays(arr) {
 	return arr[0];
 }
 
+function isSecondary(rows, index) {
+	let i;
+
+	for (i = 0; i < rows.length; i += 1) {
+		if (rows[i][index] === 2) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
 class PatternPreview extends React.Component {
 	constructor(props) {
 		super(props);
@@ -43,7 +55,7 @@ class PatternPreview extends React.Component {
 		}
 	}
 	updateSvg() {
-		const size = window.innerWidth > 450 ? 22 : 16;
+		const size = window.innerWidth > 450 ? 15 : 10;
 		const threading = this.props.data.threading;
 		const treadling = this.getTreadling();
 
@@ -62,12 +74,11 @@ class PatternPreview extends React.Component {
     		.data(threading[0])
     		.enter()
     		.append('g')
-    		.attr('class', 'warp-col')
+    		.attr('class', function(d, i) { return (isSecondary(threading, i) ? 'secondary ' : '') + 'warp-col'; })
     		.attr('transform', function(d,i){ return 'translate(' + (i * size) + ',0)'})
     		.append('rect')
     		.attr('height', treadling.length * size)
-    		.attr('width', size - 4)
-    		.style('fill', 'rgba(200,200,200,0.6)')
+    		.attr('width', size * 0.8)
     		.attr('transform', 'translate(2,0)');
 
 	    let weft = svg.append('g')
@@ -78,19 +89,44 @@ class PatternPreview extends React.Component {
     		.data(draft)
     		.enter()
     		.append('g')
-    		.attr('class', 'weft-row')
+    		.attr('class', function(d,i) { return (treadling[i].indexOf(2) > -1 ? 'contrast ' : '') + 'weft-row'; })
     		.attr('transform', function(d,i){ return 'translate(0,' + (i * size) + ')'});
 
     	let weftCol = weftRow.selectAll('.weft-col')
     		.data(function (d) { return d; })
     		.enter()
     		.append('g')
-    		.attr('class', 'weft-col')
+    		.attr('class', function (d, i) { return (d > 1 ? 'secondary' : d > 0 ? 'primary' : 'default') + ' weft-col'; })
     		.attr('transform', function(d,i){ return 'translate(' + (i * size) + ',0)'})
     		.append('rect')
-    		.attr('height', function(d, i) { return d === 0 ? size - 4 : size;})
-    		.attr('width', size )
-    		.style('fill', function (d, i) { return d > 1 ? 'rgba(68, 164, 243, 0.5)' : d > 0 ? '#6ba4a8' : 'rgba(200,200,200,0.6)'; });
+    		.attr('height', function(d, i) { return d === 0 ? size * 0.8 : size;})
+    		.attr('width', size );
+
+    	weftRow.selectAll('.weft-col.default')
+    		.append('line')
+    		.attr('x1', 0)
+    		.attr('x2', size)
+    		.attr('y1', 0)
+    		.attr('y2', 0);
+    	weftRow.selectAll('.weft-col.default')
+    		.append('line')
+    		.attr('x1', 0)
+    		.attr('x2', size)
+    		.attr('y1', size * 0.8)
+    		.attr('y2', size * 0.8);
+
+    	weftRow.selectAll('.weft-col.primary, .weft-col.secondary')
+    		.append('line')
+    		.attr('x1', 0)
+    		.attr('x2', 0)
+    		.attr('y1', 0)
+    		.attr('y2', size);
+    	weftRow.selectAll('.weft-col.primary, .weft-col.secondary')
+    		.append('line')
+    		.attr('x1', size)
+    		.attr('x2', size)
+    		.attr('y1', 0)
+    		.attr('y2', size);
 	}
 	getDraft() {
 		const threading = this.props.data.threading;
@@ -113,15 +149,6 @@ class PatternPreview extends React.Component {
 						if (tieUpRow[shaft] > 0) {
 
 							arr = threading[k].slice();
-
-							if (val > 1) {
-								arr = threading[k].map(function (x) {
-									if (x > 0) {
-										return val;
-									}
-									return x;
-								})
-							} 
 
 							shafts.push(arr);
 						}
