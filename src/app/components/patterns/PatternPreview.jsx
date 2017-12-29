@@ -99,9 +99,13 @@ class PatternPreview extends React.Component {
 		const treadling = this.getTreadling();
 		let shafts = [];
 		let draft = [];
+		let empty = false;
+
+		const emptyArr = threading[0].map(function(){return 0; })
 
 		treadling.forEach(function (row, i) {
 			shafts = [];
+			empty = true;
 			row.forEach(function(val, j) {
 				let shaft = j;
 				if (val > 0) {
@@ -112,8 +116,12 @@ class PatternPreview extends React.Component {
 					})
 
 					draft.push(consolidateArrays(shafts));
-				}
+					empty = false;
+				} 
 			});
+			if (empty) {
+				draft.push(emptyArr)
+			}
 		});
 
 		return draft;
