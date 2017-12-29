@@ -5,6 +5,7 @@ import Dropdown from 'react-dropdown';
 import patternData from './data/patterns';
 import Pattern from './Pattern.jsx';
 import PatternsAbout from './PatternsAbout.jsx';
+import util from './../common/site-data/util.js';
 
 const options = Object.keys(patternData);
 
@@ -70,12 +71,7 @@ class Patterns extends React.Component {
 			active: parseInt(number, 10)
 		})
 
-		if (history.pushState) {
-		    history.pushState(null, null, '#' + number);
-		}
-		else {
-		    location.hash = '#' + number;
-		}
+		util.setUrlHash(number);
 	}
 	render() {
 		return (
