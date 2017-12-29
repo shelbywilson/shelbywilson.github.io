@@ -2,10 +2,9 @@
   "name": "westsoutheast",
   "version": "1.0.0",
   "description": "personal website",
-  "keywords": ["react", "reactjs", "d3", "d3js"],
+  "keywords": ["react", "reactjs", "d3", "d3js", "scss", "webpack"],
   "main": "./src/app/entry/dev.js",
   "directories": {
-    "test": "test"
   },
   "dependencies": {
     "d3": "^4.10.0",
