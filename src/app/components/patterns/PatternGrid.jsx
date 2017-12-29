@@ -3,12 +3,11 @@ import * as d3 from "d3";
 
 import util from './../common/site-data/util.js';
 
-class PatternItemGrid extends React.Component {
+class PatternGrid extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			active: props.subActive || 0,
 			sections: Array.isArray(props.data[0][0]) ? props.data.length : 1
 		}	
 
@@ -26,7 +25,6 @@ class PatternItemGrid extends React.Component {
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.data != this.props.data) {
 			this.setState({
-				active: 0,
 				sections: Array.isArray(nextProps.data[0][0]) ? nextProps.data.length : 1
 			})
 		}
@@ -75,7 +73,7 @@ class PatternItemGrid extends React.Component {
 		    .style('stroke-width', '2')
 		    .style('stroke','#45a6f3');
 
-		if (this.props.type === 'tie_up' || this.props.type === 'threading') {
+		if (this.props.type === 'threading') {
 			row.append('text')
 				.attr('class', 'label')
 				.attr('transform', 'translate(' + fontSize/2 + ',' + (fontSize + 2) + ')')
@@ -83,7 +81,7 @@ class PatternItemGrid extends React.Component {
 				.text(function (d, i) { return i + 1; })
 		}
 
-		if (this.props.type === 'tie_up' || this.props.type === 'treadling') {
+		if (this.props.type === 'treadling') {
 			row.filter(function(d, i){ return i === data.length - 1; })
 				.selectAll('.col')
 				.append('text')
@@ -94,9 +92,7 @@ class PatternItemGrid extends React.Component {
 		}
 	}
 	changeSection(i) {
-		this.setState({
-			active: i
-		});
+		this.props.onUpdateSubActive(i);
 
 		util.setUrlHash(this.props.patternNumber + '.' + i)
 	}
@@ -107,13 +103,13 @@ class PatternItemGrid extends React.Component {
 					<div className='content-tabs'>
 						{this.props.data.map(function(section, i) {
 							return (
-								<button className={i == this.state.active ? 'selected' : ''} type='button' onMouseUp={this.changeSection.bind(this, i)}>
+								<button className={i == this.props.subActive ? 'selected' : ''} type='button' onMouseUp={this.changeSection.bind(this, i)}>
 									{this.content['opt-' + i]}
 								</button>
 							)
 						}.bind(this))}
 					</div>
-					<PatternItemGrid data={this.props.data[this.state.active]} 
+					<PatternGrid data={this.props.data[this.props.subActive]} 
 						patternNumber={this.props.patternNumber}
 						type={this.props.type} />
 				</div>
@@ -128,4 +124,4 @@ class PatternItemGrid extends React.Component {
 	}
 }
 
-export default PatternItemGrid;
+export default PatternGrid;

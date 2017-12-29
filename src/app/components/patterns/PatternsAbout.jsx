@@ -20,7 +20,7 @@ class PatternsAbout extends React.Component {
 	}
 	render() {
 		return (
-			<div className='patterns-about'>
+			<div className='pattern-about'>
 				<button type='button' className='btn-primary' onMouseUp={this.toggle}>
 					<div className='btn-sublabel'>
 						{this.content['about-description']}
