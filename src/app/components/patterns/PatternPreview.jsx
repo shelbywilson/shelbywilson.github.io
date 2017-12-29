@@ -38,7 +38,6 @@ class PatternPreview extends React.Component {
 		window.removeEventListener("resize");
 	}
 	componentDidUpdate(prevProps, prevState) {
-		console.log(this.props.subActive, prevProps.subActive)
 		if (prevProps.data !== this.props.data || prevProps.subActive !== this.props.subActive) {
 			this.updateSvg();
 		}
@@ -68,7 +67,7 @@ class PatternPreview extends React.Component {
     		.append('rect')
     		.attr('height', treadling.length * size)
     		.attr('width', size - 4)
-    		.style('fill', 'rgba(0,0,0,0.6)')
+    		.style('fill', 'rgba(200,200,200,0.6)')
     		.attr('transform', 'translate(2,0)');
 
 	    let weft = svg.append('g')
@@ -83,15 +82,15 @@ class PatternPreview extends React.Component {
     		.attr('transform', function(d,i){ return 'translate(0,' + (i * size) + ')'});
 
     	let weftCol = weftRow.selectAll('.weft-col')
-    		.data(function (d) { console.log(d); return d; })
+    		.data(function (d) { return d; })
     		.enter()
     		.append('g')
     		.attr('class', 'weft-col')
     		.attr('transform', function(d,i){ return 'translate(' + (i * size) + ',0)'})
     		.append('rect')
-    		.attr('height', size)
+    		.attr('height', function(d, i) { return d === 0 ? size - 4 : size;})
     		.attr('width', size )
-    		.style('fill', function (d, i) { return d > 0 ? 'rgba(0,0,0,0.6)' : 'rgba(255,255,255,0.6)'; });
+    		.style('fill', function (d, i) { return d > 1 ? 'rgba(68, 164, 243, 0.5)' : d > 0 ? '#6ba4a8' : 'rgba(200,200,200,0.6)'; });
 	}
 	getDraft() {
 		const threading = this.props.data.threading;
@@ -100,8 +99,9 @@ class PatternPreview extends React.Component {
 		let shafts = [];
 		let draft = [];
 		let empty = false;
+		let arr = [];
 
-		const emptyArr = threading[0].map(function(){return 0; })
+		const emptyArr = threading[0].map(function(){ return 0; })
 
 		treadling.forEach(function (row, i) {
 			shafts = [];
@@ -111,7 +111,19 @@ class PatternPreview extends React.Component {
 				if (val > 0) {
 					tieUp.forEach(function(tieUpRow, k) {
 						if (tieUpRow[shaft] > 0) {
-							shafts.push(threading[k]);
+
+							arr = threading[k].slice();
+
+							if (val > 1) {
+								arr = threading[k].map(function (x) {
+									if (x > 0) {
+										return val;
+									}
+									return x;
+								})
+							} 
+
+							shafts.push(arr);
 						}
 					})
 
