@@ -35,8 +35,8 @@ class PatternGrid extends React.Component {
 		}
 	}
 	updateSvg() {
-		const size = window.innerWidth > 450 ? 22 : 16;
-		const fontSize = window.innerWidth > 450 ? 14 : 11;
+		const size = window.innerWidth > 450 ? 16 : 12;
+		const fontSize = window.innerWidth > 450 ? 12 : 9;
 		const data = this.props.data;
 
 		let svg = d3.select(this.refs.svg);
@@ -73,7 +73,7 @@ class PatternGrid extends React.Component {
 		if (this.props.type === 'threading') {
 			row.append('text')
 				.attr('class', 'label')
-				.attr('transform', 'translate(' + fontSize/2 + ',' + (fontSize + 2) + ')')
+				.attr('transform', 'translate(' + (fontSize/2 - 2) + ',' + (fontSize + 2) + ')')
 		    	.style('font-size', fontSize)
 				.text(function (d, i) { return i + 1; })
 		}
@@ -83,7 +83,7 @@ class PatternGrid extends React.Component {
 				.selectAll('.col')
 				.append('text')
 				.attr('class', 'label')
-				.attr('transform', 'translate(' + fontSize/2 + ',' + (size + fontSize) + ')')
+				.attr('transform', 'translate(' + (fontSize/2 - 2) + ',' + (size + fontSize) + ')')
 		    	.style('font-size', fontSize)
 				.text(function (d, i) { return data[0].length - i; })
 		}
