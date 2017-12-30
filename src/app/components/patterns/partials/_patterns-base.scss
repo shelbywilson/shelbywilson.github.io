@@ -31,15 +31,7 @@
 	}
 	&-preview {
 		display: inline-block;
-		.warp {
-			rect {
-				fill: $theme-1-blue;
-			}
-			line {
-				stroke: #c8ccf7;
-			}
-		}
-		.primary {
+		.warp, .weft {
 			rect {
 				fill: $theme-1-blue;
 			}

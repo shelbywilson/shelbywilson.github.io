@@ -68,7 +68,7 @@ class PatternPreview extends React.Component {
 
 	    let warp = svg.append('g')
 	    	.attr('class', 'warp')	    	
-    		.attr('transform', 'translate(' + (size/2) + ',0)');
+    		.attr('transform', 'translate(' + (size/2) + ',' + (size/2) + ')');
 
     	let warpCol = warp.selectAll('.warp-col')
     		.data(threading[0])
@@ -79,11 +79,11 @@ class PatternPreview extends React.Component {
     		.append('rect')
     		.attr('height', treadling.length * size)
     		.attr('width', size * 0.8)
-    		.attr('transform', 'translate(2,0)');
+    		.attr('transform', 'translate(' + (size/10) + ',0)');
 
 	    let weft = svg.append('g')
 	    	.attr('class', 'weft')
-    		.attr('transform', 'translate(' + (size/2) + ',0)');
+    		.attr('transform', 'translate(' + (size/2) + ',' + (size/2) + ')');
 
     	let weftRow = weft.selectAll('.weft-row')
     		.data(draft)
@@ -174,7 +174,9 @@ class PatternPreview extends React.Component {
 	render() {
 		return (
 			<div className='pattern-preview pattern-item'>
-				<svg ref='svg'></svg>
+				<div className='pattern-item-section'>
+					<svg ref='svg'></svg>
+				</div>
 			</div>
 		)
 	}
