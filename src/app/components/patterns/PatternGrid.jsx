@@ -59,19 +59,16 @@ class PatternGrid extends React.Component {
     		.attr('transform', function(d,i){ return 'translate(' + ((i + 1) * size) + ', 0)'});;
     		
     	col.append("rect")
-		    .attr("class","square")
+		    .attr("class", function(d,i) { return (d === 1 ? 'primary ' : '') + 'square';  })
 		    .attr("width", size)
-		    .attr("height", size)
-		    .style("fill", function(d,i) { return d === 1 ? '#45a6f3' : '#fff' })
+		    .attr("height", size);
 		 
 		col.filter(function(d){ return d == 2; })
 			.append('circle')
+			.attr('class','secondary')
 		    .attr("r", (size/2 - 4))
 		    .attr("cy", size/2)
-		    .attr("cx", size/2)
-		    .style('fill', 'transparent')
-		    .style('stroke-width', '2')
-		    .style('stroke','#45a6f3');
+		    .attr("cx", size/2);
 
 		if (this.props.type === 'threading') {
 			row.append('text')
@@ -117,7 +114,7 @@ class PatternGrid extends React.Component {
 		}
 
 		return (
-			<div>
+			<div className='pattern-item-grid'>
 				<svg ref='svg'></svg>
 			</div>
 		)

@@ -55,7 +55,7 @@ class PatternPreview extends React.Component {
 		}
 	}
 	updateSvg() {
-		const size = window.innerWidth > 450 ? 15 : 10;
+		const size = window.innerWidth > 450 ? 14 : 8;
 		const threading = this.props.data.threading;
 		const treadling = this.getTreadling();
 
@@ -75,9 +75,9 @@ class PatternPreview extends React.Component {
     		.enter()
     		.append('g')
     		.attr('class', function(d, i) { return (isSecondary(threading, i) ? 'secondary ' : '') + 'warp-col'; })
-    		.attr('transform', function(d,i){ return 'translate(' + (i * size) + ',0)'})
+    		.attr('transform', function(d,i){ return 'translate(' + (i * size) + ',' + (size/5) + ')'})
     		.append('rect')
-    		.attr('height', treadling.length * size)
+    		.attr('height', (treadling.length * size) - size)
     		.attr('width', size * 0.8)
     		.attr('transform', 'translate(' + (size/10) + ',0)');
 
@@ -102,29 +102,16 @@ class PatternPreview extends React.Component {
     		.attr('height', function(d, i) { return d === 0 ? size * 0.8 : size;})
     		.attr('width', size );
 
-    	weftRow.selectAll('.weft-col.default')
-    		.append('line')
-    		.attr('x1', 0)
-    		.attr('x2', size)
-    		.attr('y1', 0)
-    		.attr('y2', 0);
-    	weftRow.selectAll('.weft-col.default')
-    		.append('line')
-    		.attr('x1', 0)
-    		.attr('x2', size)
-    		.attr('y1', size * 0.8)
-    		.attr('y2', size * 0.8);
-
     	weftRow.selectAll('.weft-col.primary, .weft-col.secondary')
     		.append('line')
-    		.attr('x1', 0)
-    		.attr('x2', 0)
+    		.attr('x1', -0.5)
+    		.attr('x2', -0.5)
     		.attr('y1', 0)
     		.attr('y2', size);
     	weftRow.selectAll('.weft-col.primary, .weft-col.secondary')
     		.append('line')
-    		.attr('x1', size)
-    		.attr('x2', size)
+    		.attr('x1', size - 0.5)
+    		.attr('x2', size - 0.5)
     		.attr('y1', 0)
     		.attr('y2', size);
 	}

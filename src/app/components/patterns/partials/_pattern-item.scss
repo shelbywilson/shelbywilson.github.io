@@ -9,9 +9,6 @@
 		vertical-align: top;
 		overflow: auto;
 		max-width: calc(100% - 40px);
-		.square {
-			stroke: $blue-medium;
-		}
 		@include mobile {
 			display: block;
 			text-align: center;
@@ -25,5 +22,19 @@
 	}
 	.content-tabs {
 		margin-bottom: 6px;
+	}
+	&-grid {
+		.square {
+			fill: #fff;
+			stroke: $blue-medium;
+			&.primary {
+				fill: $blue-bright;
+			}
+		}
+		circle {
+			fill: transparent;
+			stroke-width: 2;
+			stroke: $blue-bright;
+		}
 	}
 }

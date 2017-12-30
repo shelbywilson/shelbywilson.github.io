@@ -33,35 +33,32 @@
 		display: inline-block;
 		.warp, .weft {
 			rect {
-				fill: $theme-1-blue;
+				fill: $theme-1-pink-2;
 			}
 			line {
-				stroke: #c8ccf7;
+				stroke: #f28fff;
 			}
 		}
 		.secondary {
 			rect {
-				fill: $theme-1-green;
+				fill: $orange-light;
 			}
 			line {
-				stroke: $teal;
+				stroke: $orange-dark;
 			}
 		}
 		.default {
 			rect {
-				fill: #fff;
+				fill: $orange-dark;
 			}
 			line {
-				stroke: $gray-light;
+				stroke-width: 0;
 			}
 		}
 		.contrast {
 			.default {
 				rect {
-					fill: $yellow;
-				}
-				line {
-					stroke: #d3d998;
+					fill: #dbeeff;
 				}
 			}
 		}
