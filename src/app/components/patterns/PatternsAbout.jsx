@@ -39,7 +39,7 @@ class PatternsAbout extends React.Component {
 						{this.content['about-saint-petersburg']}
 					</h6>
 					<p>
-						<a className='psuedo-btn-primary' href='/files/weaving_patterns.pdf' target='_blank'>
+						<a className='psuedo-btn-primary' href={util.getFilePath('weaving_patterns.pdf')} target='_blank'>
 							view original
 						</a>
 					</p>

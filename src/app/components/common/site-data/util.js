@@ -13,6 +13,10 @@ let util = {
 		else {
 		    location.hash = '#' + hash;
 		}
+  },
+
+  getFilePath(file) {
+    return window.location.origin + '/files/' + file;
   }
 
 };

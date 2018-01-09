@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Webpack = require('webpack');
 var isProduction = process.env.NODE_ENV === 'production';
 var port = isProduction ? process.env.PORT || 8080 : process.env.PORT || 3000;
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 function getDevTool() {
     if (isProduction !== 'production') {
@@ -53,8 +54,13 @@ var webpackConfig = {
         }),
         new ExtractTextPlugin('dist/styles/main.css', {
             allChunks: true
-        })
-
+        }),
+         new CopyWebpackPlugin([
+            {from:'./src/files',to:'./dist/files'} 
+        ]), 
+         new CopyWebpackPlugin([
+            {from:'./src/img',to:'./dist/img'} 
+        ]), 
     ]
 };
 
