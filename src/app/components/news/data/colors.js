@@ -7,8 +7,7 @@ const colors = {
 	'politics': '#fc8c28',
 	'science-and-nature': '#3c709a',
 	'sport': '#f7002e',
-	'technology': '#6ba4a8',
-	'homepage-1': '#ffe7d2'
+	'technology': '#6ba4a8'
 };
 
 export default colors;

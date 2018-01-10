@@ -1,7 +1,6 @@
 .home {
 	h1 {
 		height: 8vw;
-		margin-top: -7.85vw;
 		@include mobile {
 			height: 2.5rem;
 			margin-top: -2.5rem;
