@@ -1,16 +1,11 @@
-$white: rgba(255,255,255,0.7);
 .home {
 	h1 {
-		color: $white;
 		height: 8vw;
 		margin-top: -7.85vw;
 		@include mobile {
 			height: 2.5rem;
 			margin-top: -2.5rem;
 		}
-	}
-	h4 {
-		color: $peach;
 	}
 	h1, h4 {
 		text-align: center;
@@ -27,13 +22,12 @@ $white: rgba(255,255,255,0.7);
 			font-size: 1.3rem;
 		}
 	}
-	.about, .projects {
-		h2 {
-			color: $white;
-		}
+	h1, h2, h4 {
+	    @include transition(color 2s);
+	    transition-delay: 1s;
+		color: $blue-dark;
 	}
 	.main {
-		height: 100vh;
 		justify-content: flex-end;
 	}
 	&-links {
@@ -56,13 +50,26 @@ $white: rgba(255,255,255,0.7);
 	}
 	&-bg {
 		position: fixed;
-	    top: 50%;
-	    left: 50%;
-	    min-width: 100%;
-	    min-height: 100%;
-	    width: 100%;
-	    height: 100%;
+	    top: 5%;
+	    left: 5%;
+	    width: 90%;
+	    height: 90%;
 	    z-index: -100;
-	    @include transform(translateX(-50%) translateY(-50%) translateZ(0));
+	    background: $blue-dark;
+	    svg {
+	    	top: -5%;
+	    	left: -5%;
+	    	position: relative;
+	    }
+	}
+	.line {
+		stroke: $blue-bright;
+		stroke-width: 1;
+		fill: none;
+	}
+}
+body.home-loaded {
+	h1, h2, h4 {
+		color: $white;
 	}
 }

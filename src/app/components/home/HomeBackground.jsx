@@ -1,9 +1,10 @@
 import React from 'react';
 import * as d3 from "d3";
+import $ from 'jquery';
 
 const lineFunction = d3.line()
          .x(function(d) { return d.x; })
-         .y(function(d) { return d.y; })
+         .y(function(d) { return d.y; });
 
 class HomepageBackground extends React.Component {
 	constructor(props) {
@@ -19,6 +20,7 @@ class HomepageBackground extends React.Component {
 
 		setTimeout(function () {
 			this.updateSvg();
+			$('body').addClass('home-loaded');
 		}.bind(this), 1000);
 	}
 	componentWillUnMount() {
@@ -32,29 +34,21 @@ class HomepageBackground extends React.Component {
 	    svg.attr('width',window.innerWidth);
 	    svg.attr('height',window.innerHeight);
 
-	    const data = this._getData(window.innerWidth, window.innerHeight);
+	    const data = this._getInitialData(window.innerWidth, window.innerHeight);
 
 	    for (i = 0; i < data.length; i += 1) {
 	    	group = svg.append('g')
 	    		.attr('class', 'group-' + i);
 
-	    	if (i === 1) {
-	    		group.attr('transform', 'translate(0,' + window.innerHeight +')')
-	    	} else if (i === 2) {
-	    		group.attr('transform', 'translate(' + window.innerWidth + ',' + window.innerHeight +')')
-	    	}
+	    	group.attr('transform', 'translate(' + window.innerWidth*0.6 + ',' + window.innerHeight*0.4 +')');
 
 		    group.selectAll('.line')
 		    	.data(data[i])
 		    	.enter()
 				.append('path')
 				.attr('class', 'line')
-	              	.attr('d', function(d) { return lineFunction(d); })
-	              	.attr('transform', i === 1 ? 'rotate(-135)' : i === 2 ? 'rotate(135)' : '')
-	                .attr('stroke', 'blue')
-	                .attr('stroke-width', 5)
-	                .attr('stroke-opacity', 0.3)
-	                .attr('fill', 'none');
+              	.attr('d', function(d) { return lineFunction(d); })
+              	.attr('transform', 'rotate(0)');
 	    }
 	}
     updateSvg() {
@@ -75,8 +69,8 @@ class HomepageBackground extends React.Component {
 		    group.selectAll('.line')
 		    	.data(data[i])
 		    	.transition()
-		    	.delay(function (d, x) { return (x * 20 - 100) + (i * 200)})
-		    	.duration(500)
+		    	.attr('transform', function(d,i) { return 'rotate(' + i + ')'; })
+		    	.duration(1200)
 	            .attr('d', function(d) { return lineFunction(d); });
 	    }
     }
@@ -88,48 +82,39 @@ class HomepageBackground extends React.Component {
 	    svg.attr('width',window.innerWidth);
 	    svg.attr('height',window.innerHeight);
 
-	    const data = this._getUpdatedData(window.innerWidth, window.innerHeight);
-
 	    for (i = 0; i < data.length; i += 1) {
 	    	group = svg.select('.group-' + i);
 
-	    	if (i === 1) {
-	    		group.attr('transform', 'translate(0,' + window.innerHeight +')')
-	    	} else if (i === 2) {
-	    		group.attr('transform', 'translate(' + window.innerWidth + ',' + window.innerHeight +')')
-	    	}
-
-		    group.selectAll('.line')
-		    	.data(data[i])
-	            .attr('d', function(d) { return lineFunction(d); });
+	    	group.attr('transform', 'translate(' + window.innerWidth*0.6 + ',' + window.innerHeight*0.4 +')');
 	    }
     }
-    _getData(width, height) {
+    _getInitialData(width, height) {
     	let i;
     	let j;
     	let data = [];
-    	let temp;
+    	let temp;    	
+    	const h = height /30;
 
-    	for (i = 0; i < 3; i += 1) {
+    	//for (i = 0; i < 3; i += 1) {
     		j = 1;
     		temp = [];
 	    	do {
 
 	    		temp.push([
 		    		{
-		    			x: -width,
-		    			y: 0 
+		    			x: -width * Math.random(),
+		    			y: ((j/90 + 100/j) * h)
 		    		},
 		    		{
-		    			x: width * 2,
-		    			y: 0
+		    			x: width * Math.random(),
+		    			y: ((j/90 + 100/j) * h)
 		    		}
 		    	]);
 	    		j += 1;
-	    	} while (j < 20);
+	    	} while (j < 180);
 
 	    	data.push(temp);
-	    }
+	    //}
 
     	return data;
     }
@@ -137,34 +122,30 @@ class HomepageBackground extends React.Component {
     _getUpdatedData(width, height) {
     	let i;
     	let j;
-    	let step;
     	let data = [];
     	let temp;
-    	const h = height /40;
+    	const h = height /30;
 
-    	for (i = 0; i < 3; i += 1) {
+    	//for (i = 0; i < 3; i += 1) {
     		j = 1;
     		temp = [];
 	    	do {
-    			step = 30/j;
 
 	    		temp.push([
 		    		{
-		    			x: -width,
-		    			y: h * step
+		    			x: -width * 0.4,
+		    			y: ((j/90 + 100/j) * h)
 		    		},
 		    		{
-		    			x: width * 2,
-		    			y: h * step
+		    			x: width * 0.8,
+		    			y: ((j/90 + 100/j) * h)
 		    		}
 		    	]);
 	    		j += 1;
-	    	} while (j < 20);
+	    	} while (j < 180);
 
 	    	data.push(temp);
-	    }
-
-	    console.log(data)
+	    //}
 
     	return data;
     }
