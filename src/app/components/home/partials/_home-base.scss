@@ -12,7 +12,7 @@
 	h1, h2 {
 		font-size: 8vw;
 		@include mobile {
-			font-size: 2.5rem;
+			font-size: 2.25rem;
 		}
 	}
 	h4, .home-links a {
@@ -22,9 +22,9 @@
 		}
 	}
 	h1, h2, h4 {
-	    @include transition(color 2s);
-	    transition-delay: 1s;
-		color: $blue-dark;
+	    @include transition(color 1s);
+	    transition-delay: 0.5s;
+		color: $home-blue-dark;
 	}
 	.main {
 		justify-content: flex-end;
