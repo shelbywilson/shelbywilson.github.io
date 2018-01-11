@@ -15,6 +15,7 @@ class Newsfeed extends React.Component {
 		this.state = {
 			sources: [],
 			articles: [],
+			initialArticles: [],
 			displayEnd: 20,
 			isLoaded: false,
 			sourcesDictionary: {},
@@ -22,7 +23,8 @@ class Newsfeed extends React.Component {
 			clicks: 0,
 			focus: false,
 			numLoaded: 0,
-			isSorted: false
+			isSorted: false,
+			query: ''
 		}
 
 		this.getArticles = this.getArticles.bind(this);
@@ -33,13 +35,15 @@ class Newsfeed extends React.Component {
 		this.setArticles = this.setArticles.bind(this);
 		this.toggleSortedArray = this.toggleSortedArray.bind(this);
 		this.resetPage = this.resetPage.bind(this);
+		this.search = this.search.bind(this);
 
 		this.setSources();
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.numLoaded === this.state.sources.length && !this.state.isLoaded) {
 			this.setState({
-				isLoaded: true
+				isLoaded: true,
+				initialArticles: this.state.articles.slice()
 			})
 		}
 	}
@@ -48,7 +52,8 @@ class Newsfeed extends React.Component {
 			isLoaded: false,
 			numLoaded: 0,
 			count: {},
-			clicks: 0
+			clicks: 0,
+			articles: []
 		});
 
 		this.setArticles(0, 20);
@@ -164,6 +169,24 @@ class Newsfeed extends React.Component {
 			isSorted: newState
 		})
 	}
+	search(e) {
+		const query = e.target.value.replace(/\s+/g,' ').trim().split(' ');
+		let j;
+
+		let articles = $.grep(this.state.initialArticles, function (article, i) {
+			for (j = 0; j < query.length; j += 1) {
+				if (article.title.toLowerCase().indexOf(query[j]) === -1 && article.description.toLowerCase().indexOf(query[j]) === -1) {
+					return false;
+				}
+			}
+			return true;
+		});
+
+		this.setState({
+			articles: articles,
+			query: e.target.value.trim()
+		})
+	}
 	_getSortedArray(arr) {
 		return arr.sort(function (a, b) {
 			return moment(a.publishedAt).isBefore(b.publishedAt) ? 1 : -1
@@ -219,6 +242,10 @@ class Newsfeed extends React.Component {
 								<span>&#x21bb;</span>
 							</button>
 						</div>
+						<div className='newsfeed-search'> 
+							<input type='text' className={this.state.query.length === 0 ? 'empty' : ''} spellCheck={false} onChange={this.search} placeholder={'search'}/>
+							{this.state.articles.length} articles
+						</div>
 						<ul>
 							{this.state.articles.map(function (article, i) {
 								if (i <= this.state.displayEnd) {
@@ -232,11 +259,13 @@ class Newsfeed extends React.Component {
 								}
 							}.bind(this))}
 						</ul>
-						<div className='article-load-more'>
-							<button type="button" className='btn-primary' onMouseUp={this.loadMore} >
-								More + 
-							</button>
-						</div>
+						{this.state.displayEnd < this.state.articles.length &&
+							<div className='article-load-more'>
+								<button type="button" className='btn-primary' onMouseUp={this.loadMore} >
+									More + 
+								</button>
+							</div>
+						}
 					</div>
 				}
 				<NewsfeedFocusedArticle article={this.state.focus} 

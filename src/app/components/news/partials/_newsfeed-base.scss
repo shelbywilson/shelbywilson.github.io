@@ -1,4 +1,5 @@
 .newsfeed {
+	min-height: 70vh;
 	ul {
 		@include tablet {
 			margin: 20px 0;
@@ -40,6 +41,22 @@
 		z-index: -1;
 		top: 0;
 		left: 0;
+	}
+	&-search {
+		text-align: center;
+		margin: 0 1rem;
+		input {
+			outline: none;
+			border: none;
+			font-size: 3rem;
+			width: 100%;
+			background: transparent;
+			text-align: center;
+			margin: 1rem 0;
+			&.empty {
+				opacity: 0.4;
+			}
+		}
 	}
 }
 .article {

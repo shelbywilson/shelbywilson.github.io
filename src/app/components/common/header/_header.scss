@@ -31,7 +31,7 @@ header {
 		a {
 			display: inline-block;
 			padding: 12px 28px;
-			background: $pink;
+			background: $blue-light;
 			color: #000;
 			font-weight: 400;
 			&.active {
@@ -47,7 +47,7 @@ header {
 				}
 			}
 			&:hover {
-				background: $pink-hover;
+				background: $blue-light-hover;
 			}
 		}
 		&:hover, &:focus {
@@ -70,7 +70,7 @@ header {
 		margin: 10px 20px;
 		width: 0; 
 		height: 0; 
-		border-color: $orange-dark transparent transparent;
+		border-color: $blue-medium transparent transparent;
 	    border-style: solid;
 	    border-width: 18px 18px 0;
 		@include tablet {

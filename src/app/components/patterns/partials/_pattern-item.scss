@@ -26,15 +26,15 @@
 	&-grid {
 		.square {
 			fill: #fff;
-			stroke: $blue-medium;
+			stroke: #000;
 			&.primary {
-				fill: $blue-bright;
+				fill: $blue-dark;
 			}
 		}
 		circle {
 			fill: transparent;
 			stroke-width: 2;
-			stroke: $blue-bright;
+			stroke: $blue-dark;
 		}
 	}
 }
