@@ -28,6 +28,9 @@
 	}
 	.main {
 		justify-content: flex-end;
+		@include mobile {
+			padding: 7vh 0;
+		}
 	}
 	&-links {
 		margin: 0;

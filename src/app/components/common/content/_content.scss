@@ -5,6 +5,9 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		@include mobile {
+			height: 80vh;
+		}
 	}
 	&-attribution-link {
 		margin: 2rem 0;
