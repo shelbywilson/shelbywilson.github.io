@@ -33,23 +33,23 @@
 		display: inline-block;
 		.warp, .weft {
 			rect {
-				fill: $theme-1-pink-2;
+				fill: $blue-dark;
 			}
 			line {
-				stroke: #f28fff;
+				stroke: #000;
 			}
 		}
 		.secondary {
 			rect {
-				fill: $orange-light;
+				fill: #99dfe4;
 			}
 			line {
-				stroke: $orange-dark;
+				stroke: #00909a;
 			}
 		}
 		.default {
 			rect {
-				fill: #f7002f;
+				fill: $blue-bright;
 			}
 			line {
 				stroke-width: 0;
@@ -58,7 +58,7 @@
 		.contrast {
 			.default {
 				rect {
-					fill: #dbeeff;
+					fill: #00909a;
 				}
 			}
 		}
