@@ -10,6 +10,11 @@ class HomepageBackground extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			width: window.innerWidth,
+			height: window.innerHeight
+		}
+
 		this.updateSvg = this.updateSvg.bind(this);
 		this.setSvg = this.setSvg.bind(this);
 		this.resizeSvg = this.resizeSvg.bind(this);
@@ -30,15 +35,15 @@ class HomepageBackground extends React.Component {
 	    let svg = d3.select(this.refs.svg);
 	    let group;
 
-	    svg.attr('width',window.innerWidth);
-	    svg.attr('height',window.innerHeight);
+	    svg.attr('width',this.state.width);
+	    svg.attr('height',this.state.height);
 
-	    const data = this._getInitialData(window.innerWidth, window.innerHeight);
+	    const data = this._getInitialData();
 
     	group = svg.append('g')
     		.attr('class', 'group');
 
-    	group.attr('transform', 'translate(' + window.innerWidth*0.6 + ',' + window.innerHeight*0.4 +')');
+    	group.attr('transform', 'translate(' + this.state.width*0.6 + ',' + this.state.height*0.4 +')');
 
 	    group.selectAll('.line')
 	    	.data(data)
@@ -52,10 +57,10 @@ class HomepageBackground extends React.Component {
 	    let svg = d3.select(this.refs.svg);
 	    let group;
 
-	    svg.attr('width',window.innerWidth);
-	    svg.attr('height',window.innerHeight);
+	    svg.attr('width',this.state.width);
+	    svg.attr('height',this.state.height);
 
-	    const data = this._getUpdatedData(window.innerWidth, window.innerHeight);
+	    const data = this._getUpdatedData();
     	group = svg.select('.group');
 
 	    group.selectAll('.line')
@@ -66,17 +71,26 @@ class HomepageBackground extends React.Component {
             .attr('d', function(d) { return lineFunction(d); });
     }
     resizeSvg() {
-    	let svg = d3.select(this.refs.svg);
+    	if (this.state.width !== window.innerWidth) {
+	    	let svg = d3.select(this.refs.svg);
 
-	    svg.attr('width',window.innerWidth);
-	    svg.attr('height',window.innerHeight);
+		    svg.attr('width',this.state.width);
+		    svg.attr('height',this.state.height);
 
-    	svg.select('.group')
-    		.attr('transform', 'translate(' + window.innerWidth*0.6 + ',' + window.innerHeight*0.4 +')');
+	    	svg.select('.group')
+	    		.attr('transform', 'translate(' + this.state.width*0.6 + ',' + this.state.height*0.4 +')');
+
+	    	this.setState({
+				width: window.innerWidth,
+				height: window.innerHeight	    		
+	    	})
+	    }
     }
-    _getInitialData(width, height) {
+    _getInitialData() {
     	let i = 1;
     	let data = [];	
+    	const width = this.state.width;
+    	const height = this.state.height;
     	const h = height /30;
 
     	do {
@@ -96,11 +110,13 @@ class HomepageBackground extends React.Component {
     	return data;
     }
 
-    _getUpdatedData(width, height) {
+    _getUpdatedData() {
     	let i = 1;
-    	let data = [];
-    	const h = height /30;
+    	let data = [];   	
+    	const width = this.state.width;
+    	const height = this.state.height;
     	const max = Math.max(width, height);
+    	const h = height /30; 
 
     	do {
     		data.push([

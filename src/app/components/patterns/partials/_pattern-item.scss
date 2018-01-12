@@ -28,13 +28,13 @@
 			fill: #fff;
 			stroke: #000;
 			&.primary {
-				fill: $blue-dark;
+				fill: $blue-medium;
 			}
 		}
 		circle {
 			fill: transparent;
 			stroke-width: 2;
-			stroke: $blue-dark;
+			stroke: $blue-medium;
 		}
 	}
 }

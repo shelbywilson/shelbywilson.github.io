@@ -170,12 +170,12 @@ class Newsfeed extends React.Component {
 		})
 	}
 	search(e) {
-		const query = e.target.value.replace(/\s+/g,' ').trim().split(' ');
+		const query = e.target.value.replace(/\s+/g,' ').toLowerCase().trim().split(' ');
 		let j;
 
 		let articles = $.grep(this.state.initialArticles, function (article, i) {
 			for (j = 0; j < query.length; j += 1) {
-				if (article.title.toLowerCase().indexOf(query[j]) === -1 && article.description.toLowerCase().indexOf(query[j]) === -1) {
+				if (article.title.toLowerCase().indexOf(query[j]) === -1 && (article.description || '').toLowerCase().indexOf(query[j]) === -1) {
 					return false;
 				}
 			}
@@ -243,7 +243,7 @@ class Newsfeed extends React.Component {
 							</button>
 						</div>
 						<div className='newsfeed-search'> 
-							<input type='text' className={this.state.query.length === 0 ? 'empty' : ''} spellCheck={false} onChange={this.search} placeholder={'search'}/>
+							<input type='text' className={this.state.query.length === 0 ? 'empty' : ''} spellCheck={false} onKeyUp={this.search} placeholder={'search'}/>
 							{this.state.articles.length} articles
 						</div>
 						<ul>
