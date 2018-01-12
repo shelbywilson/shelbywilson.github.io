@@ -17,6 +17,10 @@ let util = {
 
   getFilePath(file) {
     return window.location.origin + '/files/' + file;
+  },
+
+  getBinaryToDecimal(bin) {
+    return parseInt(bin, 2);
   }
 
 };

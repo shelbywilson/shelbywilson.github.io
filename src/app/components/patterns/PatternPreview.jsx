@@ -55,7 +55,7 @@ class PatternPreview extends React.Component {
 		}
 	}
 	updateSvg() {
-		const size = window.innerWidth > 450 ? 12 : 8;
+		const size = (window.innerWidth > 450 ? 12 : 8) * (this.props.data.threading[0].length > 30 ? 0.65 : 1);
 		const threading = this.props.data.threading;
 		const treadling = this.getTreadling();
 
@@ -123,6 +123,7 @@ class PatternPreview extends React.Component {
 		let draft = [];
 		let empty = false;
 		let arr = [];
+		let temp;
 
 		const emptyArr = threading[0].map(function(){ return 0; })
 
@@ -139,10 +140,14 @@ class PatternPreview extends React.Component {
 
 							shafts.push(arr);
 						}
-					})
+					});
 
-					draft.push(consolidateArrays(shafts));
-					empty = false;
+					temp = consolidateArrays(shafts);
+
+					if (temp) {
+						draft.push(temp);
+						empty = false;
+					}
 				} 
 			});
 			if (empty) {

@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from "d3";
+import $ from 'jquery';
 
 import util from './../common/site-data/util.js';
 
@@ -14,6 +15,7 @@ class PatternGrid extends React.Component {
 		this.content = util.getContent('en').patterns;
 		this.updateSvg = this.updateSvg.bind(this);
 		this.changeSection = this.changeSection.bind(this);
+		this.toggleVal = this.toggleVal.bind(this);
 	}
 	componentDidMount() {
 		window.addEventListener("resize", this.updateSvg);
@@ -38,6 +40,7 @@ class PatternGrid extends React.Component {
 		const size = window.innerWidth > 450 ? 16 : 12;
 		const fontSize = window.innerWidth > 450 ? 12 : 9;
 		const data = this.props.data;
+		const toggleVal = this.toggleVal;
 
 		let svg = d3.select(this.refs.svg);
 		svg.selectAll("*").remove();
@@ -49,6 +52,7 @@ class PatternGrid extends React.Component {
     		.enter()
     		.append('g')
     		.attr('class', 'row')
+    		.attr('data-i', function(d, i) { return i; })
     		.attr('transform', function(d,i){ return 'translate(0,' + (i * size) + ')'});
 
     	let col = row.selectAll('.col')
@@ -61,14 +65,16 @@ class PatternGrid extends React.Component {
     	col.append("rect")
 		    .attr("class", function(d,i) { return (d === 1 ? 'primary ' : '') + 'square';  })
 		    .attr("width", size)
-		    .attr("height", size);
+		    .attr("height", size)
+		    .on('mouseup', function(d,i) { toggleVal($(this).closest('.row').attr('data-i'), i, d); });
 		 
 		col.filter(function(d){ return d == 2; })
 			.append('circle')
 			.attr('class','secondary')
 		    .attr("r", (size/2 - 4))
 		    .attr("cy", size/2)
-		    .attr("cx", size/2);
+		    .attr("cx", size/2)
+		    .on('mouseup', function(d,i) { toggleVal($(this).closest('.row').attr('data-i'), i, d); });
 
 		if (this.props.type === 'threading') {
 			row.append('text')
@@ -93,6 +99,13 @@ class PatternGrid extends React.Component {
 
 		util.setUrlHash(this.props.patternNumber + '.' + i)
 	}
+	toggleVal(row, col, val) {
+		if (this.props.onToggleVal) {
+			val = val === 0 ? 1 : 0; //val === 0 ? 1 : val === 1 && this.props.type !== 'tie_up' ? 2 : 0;
+
+			this.props.onToggleVal({type: this.props.type, row: row, col: col, val: val});
+		}
+	}
 	render() {
 		if (this.state.sections > 1) {
 			return (
@@ -114,9 +127,11 @@ class PatternGrid extends React.Component {
 		}
 
 		return (
-			<div className='pattern-item-grid'>
-				<svg ref='svg'></svg>
-			</div>
+			<span>
+				<div className='pattern-item-grid'>
+					<svg ref='svg'></svg>
+				</div>
+			</span>
 		)
 	}
 }

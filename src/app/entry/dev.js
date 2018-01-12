@@ -7,6 +7,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './../components/App.jsx';
 import Home from './../components/home/Home.jsx';
 import Patterns from './../components/patterns/Patterns.jsx';
+import PatternBuilder from './../components/patterns/PatternBuilder.jsx';
 import Newsfeed from './../components/news/Newsfeed.jsx';
 
 import reducers from './../reducers';
@@ -26,6 +27,9 @@ ReactDOM.render(
       </Route>
       <Route path="/news" component={App}>
         <IndexRoute component={Newsfeed} />;
+      </Route>
+      <Route path="/patterns/builder" component={App}>
+        <IndexRoute component={PatternBuilder} />;
       </Route>
     </Router>
   </Provider>

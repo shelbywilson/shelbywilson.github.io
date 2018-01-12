@@ -56,13 +56,19 @@ class Patterns extends React.Component {
 		}
 	}
 	navigatePatterns(increase) {
-		const numPatterns = Object.keys(patternData).length;
-		let newState = 1;
+		const lastPattern = Object.keys(patternData).reduce(function(a, b) { return Math.max(a, b); });;
+		let newState = this.state.active;
 
 		if (increase) {
-			newState = this.state.active === numPatterns ? 1 : this.state.active + 1;
+			newState = this.state.active === lastPattern ? 1 : this.state.active + 1;
+			while(!patternData[newState]) {
+				newState += 1;
+			} 
 		} else {
-			newState = this.state.active === 1 ? numPatterns : this.state.active - 1;
+			newState = this.state.active === 1 ? lastPattern : this.state.active - 1;
+			while (!patternData[newState]) {
+				newState -= 1;
+			} 
 		}
 
 		this.selectPattern(newState);
@@ -85,6 +91,11 @@ class Patterns extends React.Component {
 	render() {
 		return (
 			<div className='container patterns'>
+				<div className='pattern-builder-link'>
+					<a href='/patterns/builder'>
+						BYO &rarr;
+					</a>
+				</div>
 				<div className='pattern-select'>
 					<Dropdown options={options}
 						placeholder={'№ ' + this.state.active}

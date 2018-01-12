@@ -55,15 +55,13 @@ class HomepageBackground extends React.Component {
 	}
     updateSvg() {
 	    let svg = d3.select(this.refs.svg);
-	    let group;
 
 	    svg.attr('width',this.state.width);
 	    svg.attr('height',this.state.height);
 
 	    const data = this._getUpdatedData();
-    	group = svg.select('.group');
 
-	    group.selectAll('.line')
+	    svg.selectAll('.line')
 	    	.data(data)
 	    	.transition()
 	    	.attr('transform', function(d,i) { return 'rotate(' + i + ')'; })
