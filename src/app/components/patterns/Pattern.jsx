@@ -18,7 +18,7 @@ class Pattern extends React.Component {
 		return (
 			<div className='pattern-item'>
 						
-				<PatternNotes notes={this.props.data.notes || []} />	
+				<PatternNotes notes={this.props.data.notes || []} />
 					
 				{['threading', 'tie_up', 'treadling'].map(function (type) {
 					return (
@@ -30,7 +30,7 @@ class Pattern extends React.Component {
 								onUpdateSubActive={this.updateSubActive} />
 						</PatternSection>
 					)
-				}.bind(this))}				
+				}.bind(this))}		
 			</div>
 		)
 	}

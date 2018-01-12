@@ -10,7 +10,7 @@ class PatternBuilder extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
+		const defaultState = {
 			threading: [
 				[0,0,0,0],
 				[0,0,0,0],
@@ -28,11 +28,21 @@ class PatternBuilder extends React.Component {
 				[0,0]
 			]
 		}
+		const data = util.getPatternDecodeFromUrl(window.location.hash.replace(/#/g, ''));
+
+		if (data) {
+			this.state = data;
+		} else {
+			this.state = defaultState;
+		}
 
 		this.toggleVal = this.toggleVal.bind(this);
 		this.modifyGrid = this.modifyGrid.bind(this);
 
 		this.content = util.getContent('en').patterns;
+	}
+	componentDidUpdate() {
+		util.setUrlHash(util.getPatternEncodedUrl(this.state));
 	}
 	toggleVal({type = 'threading', col = 0, row = 0, val = 0}) {
 		let grid = this.state[type].slice();
