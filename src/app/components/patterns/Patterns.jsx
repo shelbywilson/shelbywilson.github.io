@@ -92,7 +92,7 @@ class Patterns extends React.Component {
 		return (
 			<div className='container patterns'>
 				<div className='pattern-builder-link'>
-					<a href='/patterns/builder'>
+					<a href='/pattern-builder'>
 						BYO &rarr;
 					</a>
 				</div>

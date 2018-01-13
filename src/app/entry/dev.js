@@ -28,7 +28,7 @@ ReactDOM.render(
       <Route path="/news" component={App}>
         <IndexRoute component={Newsfeed} />;
       </Route>
-      <Route path="/patterns/builder" component={App}>
+      <Route path="/pattern-builder" component={App}>
         <IndexRoute component={PatternBuilder} />;
       </Route>
     </Router>
