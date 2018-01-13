@@ -13,10 +13,42 @@ class Pattern extends React.Component {
 		this.content = util.getContent('en').patterns;
 
 		this.updateSubActive = this.props.onUpdateSubActive;
+		this._isEditable = this.isEditable.bind(this);
+	}
+	isEditable() {
+		let i;
+		if (this.props.data.threading[0].length > 24) {
+			return false;
+		} else if (Array.isArray(this.props.data.treadling[0][0])) {
+			return false;
+		}
+
+		for (i = 0; i < this.props.data.treadling.length; i += 1) {
+			if (this.props.data.treadling[i].indexOf(2) > -1) {
+				return false;
+			}
+		}
+		for (i = 0; i < this.props.data.threading.length; i += 1) {
+			if (this.props.data.threading[i].indexOf(2) > -1) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 	render() {
 		return (
 			<div className='pattern-item'>
+
+				{this.isEditable() ? 
+					<div>
+						<a href={'/patterns/builder' + '#' + util.getPatternEncodedUrl(this.props.data)} target='_blank'>
+							edit
+						</a>
+					</div>	
+					:
+					null
+				}
 						
 				<PatternNotes notes={this.props.data.notes || []} />
 					

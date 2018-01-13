@@ -55,7 +55,7 @@ class PatternPreview extends React.Component {
 		}
 	}
 	updateSvg() {
-		const size = (window.innerWidth > 450 ? 12 : 8) * (this.props.data.threading[0].length > 30 ? 0.65 : 1);
+		const size = (window.innerWidth > 450 ? 12 : 8) * (this.props.data.threading[0].length > 24 ? 0.65 : 1);
 		const threading = this.props.data.threading;
 		const treadling = this.getTreadling();
 

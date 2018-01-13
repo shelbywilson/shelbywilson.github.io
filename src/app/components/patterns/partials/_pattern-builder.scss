@@ -2,4 +2,17 @@
 	&-link {
 		text-align: right;
 	}
+	&-controls {
+		h5 {
+			display: inline-block;
+			width: 60px;
+		}
+		&-item {
+			display: inline-block;
+			margin: 0 20px;
+			&-section {
+				margin: 10px 0;
+			}
+		}
+	}
 }

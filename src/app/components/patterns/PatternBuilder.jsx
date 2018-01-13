@@ -3,6 +3,7 @@ import React from 'react';
 import PatternPreview from './PatternPreview.jsx';
 import PatternSection from './PatternSection.jsx';
 import PatternGrid from './PatternGrid.jsx';
+import PatternBuilderControls from './PatternBuilderControls.jsx';
 
 import util from './../common/site-data/util.js';
 
@@ -71,10 +72,10 @@ class PatternBuilder extends React.Component {
 		const emptyRowTieUp = tie_up[0].map(function() { return 0; });
 
 		if (isThreading) {
-			if (isAddRow) {
+			if (isAddRow && treadling.length < 25) {
 				threading.push(emptyRowThreading);
 				tie_up.push(emptyRowTieUp);
-			} else if (isAddCol) {
+			} else if (isAddCol && threading[0].length < 25) {
 				threading.forEach(function(row) {
 					row.unshift(0);
 				});
@@ -91,9 +92,9 @@ class PatternBuilder extends React.Component {
 				}
 			}
 		} else if (isTreadling) {
-			if (isAddRow) {
+			if (isAddRow && treadling.length < 25) {
 				treadling.push(emptyRowTreadling);
-			} else if (isAddCol) {
+			} else if (isAddCol && treadling[0].length < 25) {
 				treadling.forEach(function(row) {
 					row.unshift(0);
 				});
@@ -124,44 +125,33 @@ class PatternBuilder extends React.Component {
 	}
 	render() {
 		return (
-			<div className='pattern-item'>	
-				<div>
-					<h4>
-						threading
-					</h4>	
-					row	
-					<button type='button' onMouseUp={this.modifyGrid.bind(this, {isAddRow: true, isThreading: true} )}>&#43;</button>	
-					<button type='button' onMouseUp={this.modifyGrid.bind(this, {isRemoveRow: true, isThreading: true} )}>&minus;</button>
-					col		
-					<button type='button' onMouseUp={this.modifyGrid.bind(this, {isAddCol: true, isThreading: true } )}>&#43;</button>	
-					<button type='button' onMouseUp={this.modifyGrid.bind(this, {isRemoveCol: true, isThreading: true } )}>&minus;</button>
+			<div className='pattern-builder container'>	
+
+				<div className='pattern-builder-link'>
+					<a href='/patterns'>
+						&larr; patterns 
+					</a>
 				</div>
-				<div>
-					<h4>
-						treading order
-					</h4>
-					row
-					<button type='button' onMouseUp={this.modifyGrid.bind(this, {isAddRow: true, isTreadling: true} )}>&#43;</button>	
-					<button type='button' onMouseUp={this.modifyGrid.bind(this, {isRemoveRow: true, isTreadling: true} )}>&minus;</button>
-					col		
-					<button type='button' onMouseUp={this.modifyGrid.bind(this, {isAddCol: true, isTreadling: true } )}>&#43;</button>	
-					<button type='button' onMouseUp={this.modifyGrid.bind(this, {isRemoveCol: true, isTreadling: true } )}>&minus;</button>
+
+				<div className='pattern-item'>
+					<PatternBuilderControls onModifyGrid={this.modifyGrid} />
+
+					{['threading', 'tie_up', 'treadling'].map(function (type) {
+						return (
+							<PatternSection label={this.content[type]} key={type}>
+								<PatternGrid data={this.state[type]} 
+									type={type} 
+									patternNumber={''}
+									subActive={0}
+									onToggleVal={this.toggleVal}
+									onUpdateSubActive={function(){return;}} 
+									onModifyGrid={this.modifyGrid} />
+							</PatternSection>
+						)
+					}.bind(this))}	
+					<PatternPreview data={this.state}
+						subActive={0} />
 				</div>
-				{['threading', 'tie_up', 'treadling'].map(function (type) {
-					return (
-						<PatternSection label={this.content[type]} key={type}>
-							<PatternGrid data={this.state[type]} 
-								type={type} 
-								patternNumber={''}
-								subActive={0}
-								onToggleVal={this.toggleVal}
-								onUpdateSubActive={function(){return;}} 
-								onModifyGrid={this.modifyGrid} />
-						</PatternSection>
-					)
-				}.bind(this))}	
-				<PatternPreview data={this.state}
-					subActive={0} />
 			</div>
 		)
 	}
