@@ -3,3 +3,8 @@
 	max-width: 900px;
 	margin: 0 auto;
 }
+
+.symbol-refresh {
+	@include transform(rotate(90deg));
+	display: inline-block;
+}

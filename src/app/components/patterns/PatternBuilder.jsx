@@ -7,28 +7,29 @@ import PatternBuilderControls from './PatternBuilderControls.jsx';
 
 import util from './../common/site-data/util.js';
 
+const defaultState = {
+	threading: [
+		[0,0,0,0],
+		[0,0,0,0],
+		[0,0,0,0],
+		[0,0,0,0]
+	],
+	tie_up: [
+		[0,0],
+		[0,0],
+		[0,0],
+		[0,0]
+	],
+	treadling: [
+		[0,0],
+		[0,0]
+	]
+}
+
 class PatternBuilder extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const defaultState = {
-			threading: [
-				[0,0,0,0],
-				[0,0,0,0],
-				[0,0,0,0],
-				[0,0,0,0]
-			],
-			tie_up: [
-				[0,0],
-				[0,0],
-				[0,0],
-				[0,0]
-			],
-			treadling: [
-				[0,0],
-				[0,0]
-			]
-		}
 		const data = util.getPatternDecodeFromUrl(window.location.hash.replace(/#/g, ''));
 
 		if (data) {
@@ -39,6 +40,7 @@ class PatternBuilder extends React.Component {
 
 		this.toggleVal = this.toggleVal.bind(this);
 		this.modifyGrid = this.modifyGrid.bind(this);
+		this.reset = this.reset.bind(this);
 
 		this.content = util.getContent('en').patterns;
 	}
@@ -123,6 +125,9 @@ class PatternBuilder extends React.Component {
 
 		this.setState(update);
 	}
+	reset() {
+		this.setState(JSON.parse(JSON.stringify(defaultState)));
+	}
 	render() {
 		return (
 			<div className='pattern-builder container'>	
@@ -134,7 +139,8 @@ class PatternBuilder extends React.Component {
 				</div>
 
 				<div className='pattern-item'>
-					<PatternBuilderControls onModifyGrid={this.modifyGrid} />
+					<PatternBuilderControls onModifyGrid={this.modifyGrid} 
+						onReset={this.reset} />
 
 					{['threading', 'tie_up', 'treadling'].map(function (type) {
 						return (

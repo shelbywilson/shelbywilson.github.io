@@ -5,6 +5,7 @@ class PatternBuilderControls extends React.Component {
 		super(props);
 
 		this.modifyGrid = this.props.onModifyGrid.bind(this);
+		this.reset = this.props.onReset.bind(this);
 	}
 	render() {
 		return (
@@ -46,6 +47,13 @@ class PatternBuilderControls extends React.Component {
 						<button type='button' className='btn-small' onMouseUp={this.modifyGrid.bind(this, {isAddCol: true, isTreadling: true } )}>&#43;</button>	
 						<button type='button' className='btn-small' onMouseUp={this.modifyGrid.bind(this, {isRemoveCol: true, isTreadling: true } )}>&minus;</button>
 					</div>
+				</div>
+				<div>
+					<button type='button' className='btn-primary' onMouseUp={this.reset}>
+						Reset
+						&nbsp;
+						<span className='symbol-refresh'>&#x21bb;</span>
+					</button>
 				</div>
 			</div>
 		)

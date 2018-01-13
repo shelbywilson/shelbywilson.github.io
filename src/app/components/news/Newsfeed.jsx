@@ -239,7 +239,7 @@ class Newsfeed extends React.Component {
 							<button type='button' className='btn-primary newsfeed-refresh' onMouseUp={this.resetPage} >
 								Refresh
 								&nbsp;
-								<span>&#x21bb;</span>
+								<span className='symbol-refresh'>&#x21bb;</span>
 							</button>
 						</div>
 						<div className='newsfeed-search'> 

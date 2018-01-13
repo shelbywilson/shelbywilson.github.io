@@ -23,10 +23,6 @@
 		position: absolute;
 		right: 0;
 		top: 0;
-		span {
-			@include transform(rotate(90deg));
-			display: inline-block;
-		}
 	}
 	&-sort {
 		text-align: center;
