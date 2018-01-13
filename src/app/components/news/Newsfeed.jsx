@@ -21,6 +21,7 @@ class Newsfeed extends React.Component {
 			sourcesDictionary: {},
 			count: {},
 			clicks: 0,
+			countBySource: {},
 			focus: false,
 			numLoaded: 0,
 			isSorted: false,
@@ -52,6 +53,7 @@ class Newsfeed extends React.Component {
 			isLoaded: false,
 			numLoaded: 0,
 			count: {},
+			countBySource: {},
 			clicks: 0,
 			articles: []
 		});
@@ -133,6 +135,7 @@ class Newsfeed extends React.Component {
 	track(article) {
 		const category = this.state.sourcesDictionary[article.source].category;
 		let count = this.state.count;
+		let countBySource = this.state.countBySource;
 
 		//categories: business, entertainment, gaming, general, music, politics, science-and-nature, sport, technology
 
@@ -142,11 +145,18 @@ class Newsfeed extends React.Component {
 			count[category] = 1;
 		}
 
+		if (countBySource[article.source]) {
+			countBySource[article.source] += 1;
+		} else {
+			countBySource[article.source] = 1;
+		}
+
 		this.toggleFocusedArticle(article);
 
 		this.setState({
 			count: count,
-			clicks: this.state.clicks + 1
+			clicks: this.state.clicks + 1,
+			countBySource: countBySource
 		})
 	}
 	toggleFocusedArticle(article) {

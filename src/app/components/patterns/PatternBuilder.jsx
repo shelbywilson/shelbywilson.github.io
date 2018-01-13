@@ -35,7 +35,7 @@ class PatternBuilder extends React.Component {
 		if (data) {
 			this.state = data;
 		} else {
-			this.state = defaultState;
+			this.state = JSON.stringify(JSON.parse(defaultState));
 		}
 
 		this.toggleVal = this.toggleVal.bind(this);
