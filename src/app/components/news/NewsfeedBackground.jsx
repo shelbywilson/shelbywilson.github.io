@@ -41,7 +41,7 @@ class NewsfeedBackground extends React.Component {
 	    	field = group.selectAll('g')
 	    		.data(grid)
 	    		.enter()
-	    		.append('g')
+	    		.append('g')	    		
 	    		.selectAll('circle')
 	    		.data(function(d) { return d; })
 	    		.enter()

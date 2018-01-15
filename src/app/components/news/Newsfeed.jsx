@@ -5,6 +5,7 @@ import moment from 'moment';
 import NewsfeedArticle from './NewsfeedArticle.jsx';
 import NewsfeedFocusedArticle from './NewsfeedFocusedArticle.jsx';
 import NewsfeedBackground from './NewsfeedBackground.jsx';
+import ToggleAbout from './../common/header/ToggleAbout.jsx';
 
 const apiKey = 'cb15d26e791f471abee466ce78d79760';
 
@@ -37,8 +38,18 @@ class Newsfeed extends React.Component {
 		this.toggleSortedArray = this.toggleSortedArray.bind(this);
 		this.resetPage = this.resetPage.bind(this);
 		this.search = this.search.bind(this);
+		this.toggleAbout = this.toggleAbout.bind(this);
 
 		this.setSources();
+	}
+	componentDidMount() {
+		setTimeout(function () {
+			if (!this.state.isLoaded) {
+				this.setState({
+					isLoaded: true
+				})
+			}
+		}.bind(this), 10000)
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.numLoaded === this.state.sources.length && !this.state.isLoaded) {
@@ -196,6 +207,9 @@ class Newsfeed extends React.Component {
 			articles: articles,
 			query: e.target.value.trim()
 		})
+	}
+	toggleAbout() {
+		console.log('toggle')
 	}
 	_getSortedArray(arr) {
 		return arr.sort(function (a, b) {

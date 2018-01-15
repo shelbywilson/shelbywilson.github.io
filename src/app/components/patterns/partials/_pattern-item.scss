@@ -37,4 +37,15 @@
 			stroke: $blue-medium;
 		}
 	}
+	.add-item {
+		cursor: pointer;
+		rect {
+			fill: $gray-light;
+			stroke-width: 1;
+			stroke: #000;
+			&:hover  {
+				fill: $gray-light-hover;
+			}
+		}
+	}
 }

@@ -35,7 +35,7 @@ class PatternBuilder extends React.Component {
 		if (data) {
 			this.state = data;
 		} else {
-			this.state = JSON.stringify(JSON.parse(defaultState));
+			this.state = JSON.parse(JSON.stringify(defaultState));
 		}
 
 		this.toggleVal = this.toggleVal.bind(this);
@@ -139,8 +139,7 @@ class PatternBuilder extends React.Component {
 				</div>
 
 				<div className='pattern-item'>
-					<PatternBuilderControls onModifyGrid={this.modifyGrid} 
-						onReset={this.reset} />
+					<PatternBuilderControls onReset={this.reset} />
 
 					{['threading', 'tie_up', 'treadling'].map(function (type) {
 						return (
