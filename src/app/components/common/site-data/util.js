@@ -19,6 +19,10 @@ let util = {
     return window.location.origin + '/files/' + file;
   },
 
+  getImagePath(img) {
+    return window.location.origin + '/img/' + img;
+  },
+
   getBinaryToDecimal(bin) {
     return parseInt(bin,2);
   },

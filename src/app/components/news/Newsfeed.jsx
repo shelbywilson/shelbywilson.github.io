@@ -5,7 +5,8 @@ import moment from 'moment';
 import NewsfeedArticle from './NewsfeedArticle.jsx';
 import NewsfeedFocusedArticle from './NewsfeedFocusedArticle.jsx';
 import NewsfeedBackground from './NewsfeedBackground.jsx';
-import ToggleAbout from './../common/header/ToggleAbout.jsx';
+import NewsfeedAbout from './NewsfeedAbout.jsx';
+import Loading from './../common/loading/Loading.jsx';
 
 const apiKey = 'cb15d26e791f471abee466ce78d79760';
 
@@ -38,7 +39,6 @@ class Newsfeed extends React.Component {
 		this.toggleSortedArray = this.toggleSortedArray.bind(this);
 		this.resetPage = this.resetPage.bind(this);
 		this.search = this.search.bind(this);
-		this.toggleAbout = this.toggleAbout.bind(this);
 
 		this.setSources();
 	}
@@ -72,10 +72,10 @@ class Newsfeed extends React.Component {
 		this.setArticles(0, 20);
 		setTimeout(function() {
 			this.setArticles(21, 40);
-		}.bind(this), 500)
+		}.bind(this), 1000)
 		setTimeout(function() {
 			this.setArticles(41, this.state.sources.length);
-		}.bind(this), 1000)
+		}.bind(this), 2000)
 	}
 	setSources() {
 		$.ajax({
@@ -208,9 +208,6 @@ class Newsfeed extends React.Component {
 			query: e.target.value.trim()
 		})
 	}
-	toggleAbout() {
-		console.log('toggle')
-	}
 	_getSortedArray(arr) {
 		return arr.sort(function (a, b) {
 			return moment(a.publishedAt).isBefore(b.publishedAt) ? 1 : -1
@@ -248,9 +245,7 @@ class Newsfeed extends React.Component {
 				<NewsfeedBackground clicks={this.state.clicks} 
 					count={this.state.count} />
 				{this.state.isLoaded === false ?
-					<div className='newsfeed-loading'>
-						loading...
-					</div>
+					<Loading />
 					:
 					<div>
 						<div className='newsfeed-actions'>
