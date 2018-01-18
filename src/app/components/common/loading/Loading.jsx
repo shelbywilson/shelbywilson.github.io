@@ -1,0 +1,22 @@
+import React from 'react';
+
+function Loading() {
+  	return (
+		<div className='newsfeed-loading'>
+			<svg width="60px"  height="60px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+			    <circle cy="50" cx="64.6667" fill="#45a6f3" r="20">
+			      <animate attributeName="cx" calcMode="linear" values="30;70;30" keyTimes="0;0.5;1" dur="1" begin="-0.5s" repeatCount="indefinite"></animate>
+			    </circle>
+			    <circle cy="50" cx="35.3333" fill="#dadada" r="10">
+			      <animate attributeName="cx" calcMode="linear" values="30;70;30" keyTimes="0;0.5;1" dur="1" begin="0s" repeatCount="indefinite"></animate>
+			    </circle>
+			    <circle cy="50" cx="64.6667" fill="#45a6f3" r="20">
+			      <animate attributeName="cx" calcMode="linear" values="30;70;30" keyTimes="0;0.5;1" dur="1" begin="-0.5s" repeatCount="indefinite"></animate>
+			      <animate attributeName="fill-opacity" values="0;0;1;1" calcMode="discrete" keyTimes="0;0.499;0.5;1" repeatCount="indefinite" dur="1s"></animate>
+			    </circle>
+			  </svg>
+		</div>
+  	);
+}
+
+export default Loading;

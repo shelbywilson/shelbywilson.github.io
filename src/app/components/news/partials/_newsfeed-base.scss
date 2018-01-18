@@ -29,6 +29,7 @@
 		font-size: 0.8rem;
 	}
 	&-loading {
+		margin-top: 5vh;
 		height: 50vh;
 		text-align: center;
 	}
@@ -58,7 +59,7 @@
 .article {
 	position: relative;
 	background: #fff;
-	margin: 3rem 0;
+	margin: 3.5rem 0;
 	&-load-more {
 		text-align: center;
 		padding: 30px;
