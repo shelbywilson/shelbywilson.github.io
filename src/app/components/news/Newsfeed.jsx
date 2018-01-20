@@ -39,6 +39,7 @@ class Newsfeed extends React.Component {
 		this.toggleSortedArray = this.toggleSortedArray.bind(this);
 		this.resetPage = this.resetPage.bind(this);
 		this.search = this.search.bind(this);
+		this.setAllArticles = this.setAllArticles.bind(this);
 
 		this.setSources();
 	}
@@ -66,16 +67,12 @@ class Newsfeed extends React.Component {
 			count: {},
 			countBySource: {},
 			clicks: 0,
-			articles: []
+			articles: [],
+			displayEnd: 20,
+			isSorted: false
 		});
 
-		this.setArticles(0, 20);
-		setTimeout(function() {
-			this.setArticles(21, 40);
-		}.bind(this), 1000)
-		setTimeout(function() {
-			this.setArticles(41, this.state.sources.length);
-		}.bind(this), 2000)
+		this.setAllArticles();
 	}
 	setSources() {
 		$.ajax({
@@ -85,15 +82,18 @@ class Newsfeed extends React.Component {
 					sources: this._getShuffledArray(data.sources),
 					sourcesDictionary: this._getSourcesDictionary(data.sources)
 				});
-				this.setArticles(0, 20);
-				setTimeout(function() {
-					this.setArticles(21, 40);
-				}.bind(this), 500)
-				setTimeout(function() {
-					this.setArticles(41, data.sources.length);
-				}.bind(this), 1000)
+				this.setAllArticles();
 		 	}.bind(this)
 		});
+	}
+	setAllArticles() {
+		this.setArticles(0, 20);
+		setTimeout(function() {
+			this.setArticles(21, 40);
+		}.bind(this), 1000)
+		setTimeout(function() {
+			this.setArticles(41, this.state.sources.length);
+		}.bind(this), 2000)
 	}
 	setArticles(start, end) {
 		let i;
