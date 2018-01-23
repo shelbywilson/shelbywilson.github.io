@@ -15,6 +15,7 @@ class NewsfeedAbout extends React.Component {
 
 		this.updateSvg = this.updateSvg.bind(this);
 		this.triggerUpdate = this.triggerUpdate.bind(this);
+		this.getData = this.getData.bind(this);
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.update !== prevState.update) {
@@ -27,49 +28,67 @@ class NewsfeedAbout extends React.Component {
 	    let j = 1;
 	    let bin;
 	    let i;
-	    let field;
+	    let circle;
 	    let group;
-	    const size = Math.min(window.innerHeight * 0.5, Math.min(window.innerWidth, 840));
 
 	   	svg.selectAll("*").remove();
-	    svg.attr('width', size);
-	    svg.attr('height', size);
+	    svg.attr('width', '100%');
+	    svg.attr('height', '100%');
 
-	    console.log(svg, this.props.count)
+	    const data = this.getData();
 
-	    for (i in this.props.count) {
-			group = svg.append('g');
+	    group = svg.selectAll('svg')
+	    	.data(data)
+	    	.enter()
+	    	.append('svg')	    	
+	    	.attr('x', function(d) { return d.x; })
+	    	.attr('y', function(d) { return d.y; })
+	    	.append('g');
 
-	    	field = group.selectAll('circle')
-	    		.data([this.props.count[i]])
-	    		.enter()
-	    		.append('circle');
+	    group.append('circle')	    	
+	    	.attr('r', function(d) { return d.r + '%'; })
+	    	.style("fill", function(d) { return d.color; });
 
-	    	bin = parseInt(j, 10).toString(2);
-
-	    	if (bin.length === 1) {
-	    		bin = '01';
-	    	} 
-
-	    	field.attr("cx", function (d) { return size/2 + (prevR * (bin[bin.length - 1] === '0' ? -1 : 1)); })
-				.attr("cy", function (d) { return size/2 + (prevR * (bin[bin.length - 2] === '0' ? -1 : 1)); })
-				.attr("r", function(d) { return d * size/45; })
-				.style("fill", colors[i]);
-
-			prevR = prevR + this.props.count[i] * size/60;
-			j += 1;
-	    }
+	    group.append('text')
+	    	.text(function(d) { return d.category; })
+	    	.style('font-size', 12);
 	}
 	triggerUpdate() {
 		this.setState({
 			update: !this.state.update
 		})
 	}
+	getData() {
+		let data = [];
+		let i;
+		let j = 1;
+		let prev = 0;
+		let bin;
+
+		for (i in this.props.count) {
+			bin = parseInt(j, 10).toString(2);
+
+	    	if (bin.length === 1) {
+	    		bin = '01';
+	    	} 
+
+			data.push({
+				category: i,
+				count: this.props.count[i],
+				r: this.props.count[i] * 1.1,
+				x: 50 + (prev * (bin[bin.length - 1] === '0' ? -1 : 1)) + '%',
+				y: 50 + (prev * (bin[bin.length - 2] === '0' ? -1 : 1)) + '%',
+				color: colors[i]
+			});
+			prev += this.props.count[i];
+			j += 1;
+		}
+
+		return data;
+	}
 	render() {
 		return (
 			<ToggleAbout onUpdate={this.triggerUpdate}>
-				{JSON.stringify(this.props)}
-
 				<svg ref='svg'></svg>
 			</ToggleAbout>
 		)
