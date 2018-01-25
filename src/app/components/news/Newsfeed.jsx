@@ -245,7 +245,8 @@ class Newsfeed extends React.Component {
 				<NewsfeedBackground clicks={this.state.clicks} 
 					count={this.state.count} />
 				<NewsfeedAbout count={this.state.count} 
-					countBySource={this.state.countBySource} />
+					countBySource={this.state.countBySource} 
+					sourcesDictionary={this.state.sourcesDictionary} />
 				{this.state.isLoaded === false ?
 					<Loading />
 					:

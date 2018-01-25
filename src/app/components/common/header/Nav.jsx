@@ -8,7 +8,7 @@ const pages = [
 	},
 	{
 		href: '/news',
-		name: 'news'
+		name: 'newsfeed'
 	},
 	{
 		href: '/patterns',

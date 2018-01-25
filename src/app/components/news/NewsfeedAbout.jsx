@@ -24,34 +24,45 @@ class NewsfeedAbout extends React.Component {
 	}
 	updateSvg() {
 		let svg = d3.select(this.refs.svg);
-	    let prevR = 1;
-	    let j = 1;
-	    let bin;
-	    let i;
-	    let circle;
-	    let group;
+		const data = this.getData();
 
-	   	svg.selectAll("*").remove();
-	    svg.attr('width', '100%');
-	    svg.attr('height', '100%');
+		if (data.children.length > 0) {
+		    //const sum = data.children.reduce((a, b) => a + b.value, 0);
+		    const height = this.refs.container.clientHeight - 20;
+		    const width = this.refs.container.clientWidth - 20;
+		    svg.attr('width', width);
+		    svg.attr('height', height);
 
-	    const data = this.getData();
+		    let g = svg.append('g');
+		    let layout = d3.pack()
+		    	.size([width, height])
+		    	.padding(5);
 
-	    group = svg.selectAll('svg')
-	    	.data(data)
-	    	.enter()
-	    	.append('svg')	    	
-	    	.attr('x', function(d) { return d.x; })
-	    	.attr('y', function(d) { return d.y; })
-	    	.append('g');
+	        let root = d3.hierarchy(data)
+	        	.sum(function (d) { return d.value; });
 
-	    group.append('circle')	    	
-	    	.attr('r', function(d) { return d.r + '%'; })
-	    	.style("fill", function(d) { return d.color; });
+	        let nodes = root.descendants();
+	        layout(root);
 
-	    group.append('text')
-	    	.text(function(d) { return d.category; })
-	    	.style('font-size', 12);
+	        let group = g.selectAll('g')        	
+	        	.data(nodes)
+	        	.enter()
+	        	.append('g');
+
+	        group.append('circle')
+	        	.style('fill', function(d,i) {return d.children ? 'transparent' : d.data.color;})
+	        	.attr('cx', function (d) { return d.x; })
+	            .attr('cy', function (d) { return d.y; })
+	            .attr('r', function (d) { return d.r; });
+
+	        group.append('text')  
+	        	.attr('class', 'label')
+	        	.attr('x', function (d) { return d.x; })
+	            .attr('y', function (d) { return d.y; })
+	            .append('tspan') 
+	        	.text(function(d) { return d.children ? '' : d.data.name; })
+	        	.style('text-anchor', 'middle');
+	    }
 	}
 	triggerUpdate() {
 		this.setState({
@@ -61,35 +72,24 @@ class NewsfeedAbout extends React.Component {
 	getData() {
 		let data = [];
 		let i;
-		let j = 1;
-		let prev = 0;
-		let bin;
 
-		for (i in this.props.count) {
-			bin = parseInt(j, 10).toString(2);
-
-	    	if (bin.length === 1) {
-	    		bin = '01';
-	    	} 
-
+		for (i in this.props.countBySource) {
 			data.push({
-				category: i,
-				count: this.props.count[i],
-				r: this.props.count[i] * 1.1,
-				x: 50 + (prev * (bin[bin.length - 1] === '0' ? -1 : 1)) + '%',
-				y: 50 + (prev * (bin[bin.length - 2] === '0' ? -1 : 1)) + '%',
-				color: colors[i]
+				category: this.props.sourcesDictionary[i].category,
+				name: this.props.sourcesDictionary[i].name,
+				value: this.props.countBySource[i],
+				color: colors[this.props.sourcesDictionary[i].category]
 			});
-			prev += this.props.count[i];
-			j += 1;
 		}
 
-		return data;
+		return {children: data};
 	}
 	render() {
 		return (
 			<ToggleAbout onUpdate={this.triggerUpdate}>
-				<svg ref='svg'></svg>
+				<div className='newsfeed-about' ref='container'>
+					<svg ref='svg'></svg>
+				</div>
 			</ToggleAbout>
 		)
 	}

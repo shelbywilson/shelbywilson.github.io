@@ -46,7 +46,7 @@ class Modal extends React.Component {
 		if (this.props.display) {
 			return (
 				<div className='modal-bg' onMouseUp={this.close}>
-					<div className={'modal ' + (this.props.customClass)} onMouseUp={this._stopPropagation}>
+					<div className={'modal ' + (this.props.customClass || '')} onMouseUp={this._stopPropagation}>
 						<div className='modal-content'>
 							{this.props.children}
 						</div>

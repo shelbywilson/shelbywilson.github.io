@@ -2,14 +2,6 @@ import React from 'react';
 
 import HomeBackground from './HomeBackground.jsx';
 
-
-    	// <div className='home-video'>
-	    // 	<video autoPlay={true} muted={true} loop={true}>
-	    // 		<source src='./files/nagano.mp4' type='video/mp4'>
-	    // 		</source>
-	    // 	</video>
-	    // </div>
-
 function Home() {
   return (
     <div className='content home'>
@@ -25,12 +17,12 @@ function Home() {
 	    	</section>
 	    	<section className='projects'>
 	    		<h2>
-	    			projects
+	    			in progress
 	    		</h2>
 		    	<ul className='home-links'>
 		    		<li>
 			    		<a href='/news'>
-			    			news
+			    			newsfeed
 			    		</a>
 			    	</li>
 			    	<li>
