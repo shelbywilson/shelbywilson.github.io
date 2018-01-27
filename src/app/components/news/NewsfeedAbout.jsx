@@ -5,6 +5,53 @@ import ToggleAbout from './../common/header/ToggleAbout.jsx';
 
 import colors from './data/colors';
 
+function wrap(text) {
+	//adapted from https://bl.ocks.org/mbostock/7555321
+  text.each(function() {
+    var text = d3.select(this),
+    	width = this.getBoundingClientRect().width,
+    	maxWidth = (text.data()[0].r * 2) - 5,
+    	fontSize = 0.65,
+        x = text.attr("x"),
+        y = text.attr("y");
+
+    if (width > maxWidth) {
+    	if (maxWidth < 70) {
+    		fontSize = 0.45;
+    	}
+    	text.style('font-size', fontSize + 'rem');
+
+    	var words = text.text().split(/\s+/).reverse(),
+    		word,
+	        line = [],
+	        lineNumber = 0,
+	        lineHeight = 1.1, // ems
+	        dy = 0,
+	        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+
+	    while (word = words.pop()) {
+	      line.push(word);
+	      tspan.text(line.join(" "));
+	      if (tspan.node().getComputedTextLength() > maxWidth) {
+	        line.pop();
+	        tspan.text(line.join(" "));
+	        line = [word];
+	        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+	      }
+	    }
+    }
+
+    if (!text.data()[0].children) {
+    	text.append('tspan')
+    		.attr("x", x)
+    		.attr("y", y)
+    		.attr('dy', '-1.4em')
+    		.style('font-size', '0.65rem')
+    		.style('font-weight', 'bold').text(text.data()[0].value);
+    }
+  });
+}
+
 class NewsfeedAbout extends React.Component {
 	constructor(props) {
 		super(props);
@@ -58,7 +105,7 @@ class NewsfeedAbout extends React.Component {
 	        group.append('text')  
 	        	.attr('class', 'label')
 	        	.attr('x', function (d) { return d.x; })
-	            .attr('y', function (d) { return d.y; })
+	            .attr('y', function (d) { return d.y + 3; })
 	        	.text(function(d) { return d.children ? '' : d.data.name; })
 	        	.style('text-anchor', 'middle')	        	
 	        	.call(wrap);
@@ -73,41 +120,27 @@ class NewsfeedAbout extends React.Component {
 		let data;
 		let temp;
 		let children = [];
+		let source;
+		let category;
 
-		let i;
-		let j;
-		for (i in this.props.count) {
+		for (category in this.props.count) {
 			temp = [];
-			for (j in this.props.countBySource) {
-				if (this.props.sourcesDictionary[j].category === i) {
+			for (source in this.props.countBySource) {
+				if (this.props.sourcesDictionary[source].category === category) {
 					temp.push({
-						category: this.props.sourcesDictionary[j].category,
-						name: this.props.sourcesDictionary[j].name,
-						value: this.props.countBySource[j],
+						category: this.props.sourcesDictionary[source].category,
+						name: this.props.sourcesDictionary[source].name,
+						value: this.props.countBySource[source],
 						color: 'rgba(255,255,255,0.25)'
 					});
 				}
 			}
 			children.push({
-				name: i,
-				color: colors[i],
+				name: category,
+				color: colors[category],
 				children: temp
 			})
 		}
-
-
-		// let temp = [];
-		// let data = {};
-		// let i;
-
-		// for (i in this.props.countBySource) {
-		// 	data.push({
-		// 		category: this.props.sourcesDictionary[i].category,
-		// 		name: this.props.sourcesDictionary[i].name,
-		// 		value: this.props.countBySource[i],
-		// 		color: colors[this.props.sourcesDictionary[i].category]
-		// 	});
-		// }
 
 		return {children: children};
 	}
