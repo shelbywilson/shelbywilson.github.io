@@ -21,6 +21,17 @@ button {
 		background: $pink-hover;
 	}
 }
+.btn-secondary {
+	font-size: 1rem;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+	background: #fff;
+	color: $orange-light;
+	&:hover {
+		color: $orange-dark;
+	}
+}
 .btn-transparent {
 	background: transparent;
 	padding: 0 8px;

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as d3 from "d3";
 
-import ToggleAbout from './../common/header/ToggleAbout.jsx';
+import Modal from './../common/modal/Modal.jsx';
 
 import colors from './data/colors';
 
@@ -15,30 +15,34 @@ function wrap(text) {
         x = text.attr("x"),
         y = text.attr("y");
 
-    if (width > maxWidth) {
-    	if (maxWidth < 70) {
-    		fontSize = 0.45;
-    	}
-    	text.style('font-size', fontSize + 'rem');
+    if (maxWidth > 45) {
+	    if (width > maxWidth) {
+	    	if (maxWidth < 70) {
+	    		fontSize = 0.45;
+	    	}
+	    	text.style('font-size', fontSize + 'rem');
 
-    	var words = text.text().split(/\s+/).reverse(),
-    		word,
-	        line = [],
-	        lineNumber = 0,
-	        lineHeight = 1.1, // ems
-	        dy = 0,
-	        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+	    	var words = text.text().split(/\s+/).reverse(),
+	    		word,
+		        line = [],
+		        lineNumber = 0,
+		        lineHeight = 1.1, // ems
+		        dy = 0,
+		        tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
 
-	    while (word = words.pop()) {
-	      line.push(word);
-	      tspan.text(line.join(" "));
-	      if (tspan.node().getComputedTextLength() > maxWidth) {
-	        line.pop();
-	        tspan.text(line.join(" "));
-	        line = [word];
-	        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-	      }
-	    }
+		    while (word = words.pop()) {
+		      line.push(word);
+		      tspan.text(line.join(" "));
+		      if (tspan.node().getComputedTextLength() > maxWidth) {
+		        line.pop();
+		        tspan.text(line.join(" "));
+		        line = [word];
+		        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+		      }
+		    }
+		}
+    } else {
+    	text.text(null);
     }
 
     if (!text.data()[0].children) {
@@ -57,15 +61,15 @@ class NewsfeedAbout extends React.Component {
 		super(props);
 
 		this.state = {
-			update: false
+			isFocused: false
 		}
 
 		this.updateSvg = this.updateSvg.bind(this);
-		this.triggerUpdate = this.triggerUpdate.bind(this);
 		this.getData = this.getData.bind(this);
+		this.toggleAbout = this.toggleAbout.bind(this);
 	}
 	componentDidUpdate(prevProps, prevState) {
-		if (this.state.update !== prevState.update) {
+		if (this.state.isFocused && !prevState.isFocused) {
 			this.updateSvg();
 		}
 	}
@@ -111,11 +115,6 @@ class NewsfeedAbout extends React.Component {
 	        	.call(wrap);
 	    }
 	}
-	triggerUpdate() {
-		this.setState({
-			update: !this.state.update
-		})
-	}
 	getData() {
 		let data;
 		let temp;
@@ -144,13 +143,31 @@ class NewsfeedAbout extends React.Component {
 
 		return {children: children};
 	}
+	toggleAbout() {
+		this.setState({
+			isFocused: !this.state.isFocused
+		})
+	}
 	render() {
 		return (
-			<ToggleAbout onUpdate={this.triggerUpdate}>
-				<div className='newsfeed-about' ref='container'>
-					<svg ref='svg'></svg>
-				</div>
-			</ToggleAbout>
+			<div className='newsfeed-about'>
+				<button type='button' className='newsfeed-about-toggle btn-secondary' onMouseUp={this.toggleAbout}>
+					what am i reading
+				</button>
+				<Modal onClose={this.toggleAbout}
+					display={this.state.isFocused}>
+
+					{Object.keys(this.props.count).length === 0 &&
+						<p className='msg-empty'>
+							No articles read
+						</p>
+					}
+				
+					<div className='newsfeed-about-content' ref='container'>
+						<svg ref='svg'></svg>
+					</div>
+				</Modal>
+			</div>
 		)
 	}
 }

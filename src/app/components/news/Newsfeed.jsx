@@ -24,6 +24,7 @@ class Newsfeed extends React.Component {
 			count: {},
 			clicks: 0,
 			countBySource: {},
+			categories: [],
 			focus: false,
 			numLoaded: 0,
 			isSorted: false,
@@ -80,7 +81,8 @@ class Newsfeed extends React.Component {
 			success: function(data){
 				this.setState({
 					sources: this._getShuffledArray(data.sources),
-					sourcesDictionary: this._getSourcesDictionary(data.sources)
+					sourcesDictionary: this._getSourcesDictionary(data.sources),
+					categories: this._getCategories(data.sources)
 				});
 				this.setAllArticles();
 		 	}.bind(this)
@@ -227,26 +229,28 @@ class Newsfeed extends React.Component {
 	    return arr;
 	}
 	_getSourcesDictionary(sources) {
-		let categories = {};
 		let dictionary = {};
 
 		sources.forEach(function(source) {
 			dictionary[source.id] = source;
-			categories[source.category] = categories[source.category] ? categories[source.category] + 1 : 1;
 		});
 
-		//console.log(categories)
-
 		return dictionary;
+	}
+	_getCategories(sources) {
+		let categories = {};
+
+		sources.forEach(function(source) {
+			categories[source.category] = true;
+		});
+
+		return Object.keys(categories);
 	}
 	render() {
 		return (
 			<div className='newsfeed container'>
 				<NewsfeedBackground clicks={this.state.clicks} 
 					count={this.state.count} />
-				<NewsfeedAbout count={this.state.count} 
-					countBySource={this.state.countBySource} 
-					sourcesDictionary={this.state.sourcesDictionary} />
 				{this.state.isLoaded === false ?
 					<Loading />
 					:
@@ -258,6 +262,7 @@ class Newsfeed extends React.Component {
 									sort by most recent
 								</label>
 							</div>
+
 							<button type='button' className='btn-primary newsfeed-refresh' onMouseUp={this.resetPage} >
 								Refresh
 								&nbsp;
@@ -268,6 +273,11 @@ class Newsfeed extends React.Component {
 							<input type='text' className={this.state.query.length === 0 ? 'empty' : ''} spellCheck={false} onKeyUp={this.search} placeholder={'search'}/>
 							{this.state.articles.length} articles
 						</div>
+						<NewsfeedAbout count={this.state.count} 
+							countBySource={this.state.countBySource} 
+							sourcesDictionary={this.state.sourcesDictionary} 
+							categories={this.state.categories}
+							articles={this.state.articles} />
 						<ul>
 							{this.state.articles.map(function (article, i) {
 								if (i <= this.state.displayEnd) {
@@ -283,6 +293,11 @@ class Newsfeed extends React.Component {
 						</ul>
 						{this.state.displayEnd < this.state.articles.length &&
 							<div className='article-load-more'>
+								<NewsfeedAbout count={this.state.count} 
+									countBySource={this.state.countBySource} 
+									sourcesDictionary={this.state.sourcesDictionary} 
+									categories={this.state.categories}
+									articles={this.state.articles} />
 								<button type="button" className='btn-primary' onMouseUp={this.loadMore} >
 									More + 
 								</button>

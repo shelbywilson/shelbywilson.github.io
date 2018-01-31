@@ -78,20 +78,3 @@ header {
 		}
 	}
 }
-.toggle-about {
-	width: 6rem;
-	top: 7rem;
-	left: 0;
-	position: fixed;
-	font-size: 3rem;
-	line-height: 1.5rem;
-	z-index: 1;
-	color: $blue-bright;
-	&:hover {
-		color: $blue-medium;
-	}
-	@include tablet {
-		position: absolute;
-		top: 6rem;
-	}
-}
