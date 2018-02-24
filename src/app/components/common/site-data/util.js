@@ -16,11 +16,11 @@ let util = {
   },
 
   getFilePath(file) {
-    return window.location.origin + '/files/' + file;
+    return window.location.origin + '/dist/files/' + file;
   },
 
   getImagePath(img) {
-    return window.location.origin + '/img/' + img;
+    return window.location.origin + '/dist/img/' + img;
   },
 
   getBinaryToDecimal(bin) {
