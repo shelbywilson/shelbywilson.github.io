@@ -23,16 +23,16 @@ let util = {
     return window.location.origin + '/dist/img/' + img;
   },
 
-  getBinaryToDecimal(bin) {
-    return parseInt(bin,2);
+  getBinaryToBase64(bin) {
+    return btoa(parseInt(bin,2));
   },
 
-  getDecimalToBinary(dec) {
-    return parseInt(dec,10).toString(2);
+  getBase64ToBinary(enc) {
+    return parseInt(atob(enc),10).toString(2);
   },
 
-  getPaddedBinary(n, dec) {
-    let bin = this.getDecimalToBinary(dec);
+  getPaddedBinary(n, enc) {
+    let bin = this.getBase64ToBinary(enc);
     while(bin.length < n) {
       bin = '0' + bin;
     }
@@ -46,21 +46,21 @@ let util = {
     url += 't-' + data.threading[0].length + ',' + data.threading.length + '-';
 
     data.threading.forEach(function(row) {
-      url += this.getBinaryToDecimal(row.toString().replace(/,/g, '')) + '.';
+      url += this.getBinaryToBase64(row.toString().replace(/,/g, '')) + '.';
     }.bind(this));
 
     url = url.slice(0,-1);
     url += '_tu-' + data.tie_up[0].length + ',' + data.tie_up.length + '-';
 
     data.tie_up.forEach(function(row) {
-      url += this.getBinaryToDecimal(row.toString().replace(/,/g, '')) + '.';
+      url += this.getBinaryToBase64(row.toString().replace(/,/g, '')) + '.';
     }.bind(this));
 
     url = url.slice(0,-1);
     url += '_to-' + data.tie_up[0].length + ',' + data.tie_up.length + '-';
 
     data.treadling.forEach(function(row) {
-      url += this.getBinaryToDecimal(row.toString().replace(/,/g, '')) + '.';
+      url += this.getBinaryToBase64(row.toString().replace(/,/g, '')) + '.';
     }.bind(this));
 
     url = url.slice(0,-1);
