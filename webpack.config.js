@@ -62,7 +62,11 @@ var webpackConfig = {
          new CopyWebpackPlugin([
             {from:'./src/img',to:'./dist/img'} 
         ]), 
-    ]
+    ],
+    node: {
+      fs: "empty",
+      child_process: "empty"
+    }
 };
 
 isProduction
