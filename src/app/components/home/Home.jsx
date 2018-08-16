@@ -53,7 +53,7 @@ function Home() {
 			    		</a>
 			    	</li>
 			    	<li>
-			    		<a href='mailto:west.south.east000@gmail.com'>
+			    		<a href='mailto:s.wilson024@gmail.com'>
 			    			email
 			    		</a>
 			    	</li>
