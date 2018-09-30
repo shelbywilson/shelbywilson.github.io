@@ -1,0 +1,21 @@
+.pattern {
+	&-app {
+		padding-top: 3rem;
+	}
+	&-tie_up {
+		margin-right: 16px;
+	}
+	&-notes {
+		margin: 2rem auto;
+		text-align: left;
+		max-width: 500px;
+		padding: 0 0.7rem;
+	}
+	&-about {
+		text-align: center;
+		margin: 8rem 0 3rem 0;
+	}
+	&-select {
+		text-align: center;
+	}
+}

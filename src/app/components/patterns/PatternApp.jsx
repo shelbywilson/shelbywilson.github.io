@@ -2,16 +2,17 @@ import React from 'react';
 
 import Dropdown from 'react-dropdown';
 
-import patternData from './data/patterns';
-import Pattern from './Pattern.jsx';
+import __patternData from './data/patterns';
+import PatternItem from './PatternItem.jsx';
 import PatternsAbout from './PatternsAbout.jsx';
 import PatternPreview from './PatternPreview.jsx';
+import PatternAppNav from './PatternAppNav.jsx';
 
 import util from './../common/site-data/util.js';
 
-const options = Object.keys(patternData);
+const options = Object.keys(__patternData);
 
-class Patterns extends React.Component {
+class PatternApp extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -23,8 +24,8 @@ class Patterns extends React.Component {
 
 		if (splitHash.length > 1) {
 			subActive = parseInt(splitHash[1], 10);
-			if (patternData[index]) {
-				if (!patternData[index].treadling[subActive]) {
+			if (__patternData[index]) {
+				if (!__patternData[index].treadling[subActive]) {
 					subActive = 0;
 				}
 			} else {
@@ -33,7 +34,7 @@ class Patterns extends React.Component {
 		}
 
 		this.state = {
-			active: patternData[index] ? index : 1,
+			active: __patternData[index] ? index : 1,
 			subActive: subActive
 		}
 
@@ -56,17 +57,17 @@ class Patterns extends React.Component {
 		}
 	}
 	navigatePatterns(increase) {
-		const lastPattern = Object.keys(patternData).reduce(function(a, b) { return Math.max(a, b); });;
+		const lastPattern = Object.keys(__patternData).reduce(function(a, b) { return Math.max(a, b); });;
 		let newState = this.state.active;
 
 		if (increase) {
 			newState = this.state.active === lastPattern ? 1 : this.state.active + 1;
-			while(!patternData[newState]) {
+			while(!__patternData[newState]) {
 				newState += 1;
 			} 
 		} else {
 			newState = this.state.active === 1 ? lastPattern : this.state.active - 1;
-			while (!patternData[newState]) {
+			while (!__patternData[newState]) {
 				newState -= 1;
 			} 
 		}
@@ -90,18 +91,16 @@ class Patterns extends React.Component {
 	}
 	render() {
 		return (
-			<div className='container patterns'>
-				<div className='pattern-builder-link'>
-					<a href='/patterns/builder'>
-						BYO &rarr;
-					</a>
-				</div>
+			<div className='container pattern-app'>
+
+				<PatternAppNav />
+
 				<div className='pattern-select'>
 					<Dropdown options={options}
 						placeholder={'№ ' + this.state.active}
 						onChange={this.selectPattern} />
 				</div>
-				<div className='pattern-nav'>
+				<div className='pattern-item-nav'>
 					<button type='button' className='btn-transparent' onMouseUp={this.navigatePatterns.bind(this, false)}>
 						&lt;
 					</button>
@@ -110,10 +109,10 @@ class Patterns extends React.Component {
 					</button>
 				</div>
 
-				<PatternPreview data={patternData[this.state.active]}
+				<PatternPreview data={__patternData[this.state.active]}
 					subActive={this.state.subActive} />
 					
-				<Pattern data={patternData[this.state.active]} 
+				<PatternItem data={__patternData[this.state.active]} 
 					patternNumber={this.state.active} 
 					subActive={this.state.subActive} 
 					onUpdateSubActive={this.updateSubActive} />
@@ -124,4 +123,4 @@ class Patterns extends React.Component {
 	}
 }
 
-export default Patterns;
+export default PatternApp;

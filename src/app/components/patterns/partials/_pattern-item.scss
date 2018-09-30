@@ -2,6 +2,21 @@
 	text-align: center;
 	margin: 0 auto;
 	display: block;
+	margin-right: 16px;
+	&-nav {
+		text-align: center;
+		button {
+			margin: 10px;
+			font-size: 2rem;
+			color: $blue-dark;
+			&:first-of-type {
+				margin-right: 80px;
+			}
+			&:last-of-type {
+				margin-left: 80px;
+			}
+		}
+	}
 	&-section {
 		margin: 20px;
 		display: inline-block;

@@ -1,0 +1,37 @@
+.pattern-preview {
+	display: inline-block;
+	.warp, .weft {
+		rect {
+			fill: $blue-dark;
+		}
+		line {
+			stroke: #000;
+		}
+	}
+	.secondary {
+		rect {
+			fill: #99dfe4;
+		}
+		line {
+			stroke: #00909a;
+		}
+	}
+	.default {
+		rect {
+			fill: $blue-bright;
+		}
+		line {
+			stroke-width: 0;
+		}
+	}
+	.contrast {
+		.default {
+			rect {
+				fill: #00909a;
+			}
+		}
+	}
+	line {
+		stroke-width: 1;
+	}
+}

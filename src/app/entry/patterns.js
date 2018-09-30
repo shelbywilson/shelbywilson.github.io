@@ -2,14 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './../components/App.jsx';
-import Patterns from './../components/patterns/Patterns.jsx';
+import PatternApp from './../components/patterns/PatternApp.jsx';
 
 import reducers from './../reducers';
 
 import './../components/bundle.scss';
 
 ReactDOM.render(
-  <App>
-    <Patterns />
-  </App>
+  <PatternApp />
   , document.getElementById('react-root'));

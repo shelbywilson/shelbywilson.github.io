@@ -6,11 +6,11 @@ import PatternGrid from './PatternGrid.jsx';
 
 import util from './../common/site-data/util.js';
 
-class Pattern extends React.Component {
+class PatternItem extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.content = util.getContent('en').patterns;
+		this.content = util.getContent('en').patternItems;
 
 		this.updateSubActive = this.props.onUpdateSubActive;
 		this._isEditable = this.isEditable.bind(this);
@@ -68,4 +68,4 @@ class Pattern extends React.Component {
 	}
 }
 
-export default Pattern;
+export default PatternItem;
