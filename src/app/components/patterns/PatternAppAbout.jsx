@@ -3,7 +3,7 @@ import React from 'react';
 import util from './../common/site-data/util.js';
 import Modal from './../common/modal/Modal.jsx';
 
-class PatternsAbout extends React.Component {
+class PatternAppAbout extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -20,15 +20,13 @@ class PatternsAbout extends React.Component {
 	}
 	render() {
 		return (
-			<div className='pattern-about'>
-				<button type='button' className='btn-primary' onMouseUp={this.toggle}>
-					<div className='btn-sublabel'>
-						{this.content['about-description']}
-					</div>
-					{this.content['about-name']}
+			<div className='pattern-app-about'>
+				<button type='button' onMouseUp={this.toggle}>
+					i
 				</button>
 				<Modal onClose={this.toggle}
-					display={this.state.modalDisplay} >
+					display={this.state.modalDisplay} 
+					customClass='pattern-app-about-modal'>
 					<h3>
 						{this.content['about-name']}
 					</h3>
@@ -49,4 +47,4 @@ class PatternsAbout extends React.Component {
 	}
 }
 
-export default PatternsAbout;
+export default PatternAppAbout;

@@ -3,6 +3,15 @@
 	margin: 0 auto;
 	display: block;
 	margin-right: 1rem;
+	&-edit {
+		margin-left: 1rem;
+		border: 2px dotted $blue-dark;
+		display: inline-block;
+		padding: 0.75rem 1rem;
+		&:hover, &:active {
+			border-style: solid;
+		}
+	}
 	&-nav {
 		text-align: center;
 		button {
@@ -43,13 +52,13 @@
 			fill: #fff;
 			stroke: #000;
 			&.primary {
-				fill: $blue-medium;
+				fill: $blue-dark;
 			}
 		}
 		circle {
 			fill: transparent;
 			stroke-width: 2;
-			stroke: $blue-medium;
+			stroke: $blue-dark;
 		}
 	}
 	.add-item {

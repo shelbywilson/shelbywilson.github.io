@@ -1,5 +1,4 @@
 .Dropdown {
-	background: #fff;
 	&-root {
 		display: inline-block;
 	}
@@ -7,36 +6,38 @@
 		position: relative;
 	}
 	&-control, &-menu {
-		min-width: 120px;
-		background: $pink-light;
+		min-width: 7.5rem;
+		background: $pink;
+		color: $blue-dark;
 	}
 	&-menu {
 		position: absolute;
 		max-height: 45vh;
 		overflow: auto;
 		z-index: 1;
+		border-top: none;
 	}
 	&-placeholder {
 		font-size: 1.5rem;
-		padding: 6px 25px;
+		padding: 0.375rem 1.5rem;
 		cursor: pointer;
 	}
 	&-option {
-		padding: 6px;
+		padding: 0.375rem;
 		cursor: pointer;
 		&:hover {
-			background: $pink;
+			background: $yellow-bright;
 		}
 	}
 	&-arrow {
-		border-color: $blue-medium transparent transparent;
+		border-color: $blue-dark transparent transparent;
 	    border-style: solid;
-	    border-width: 7px 7px 0;
+	    border-width: 0.4375rem 0.4375rem 0;
 	    content: ' ';
 	    display: block;
 	    height: 0;
 	    position: absolute;
-	    right: 8px;
+	    right: 0.5rem;
 	    top: 1rem;
 	    width: 0;
 	}

@@ -165,7 +165,7 @@ class PatternPreview extends React.Component {
 	}
 	render() {
 		return (
-			<div className='pattern-preview pattern-item'>
+			<div className='pattern-preview'>
 				<div className='pattern-item-section'>
 					<svg ref='svg'></svg>
 				</div>

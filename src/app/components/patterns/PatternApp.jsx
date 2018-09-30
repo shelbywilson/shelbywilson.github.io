@@ -4,7 +4,6 @@ import Dropdown from 'react-dropdown';
 
 import __patternData from './data/patterns';
 import PatternItem from './PatternItem.jsx';
-import PatternsAbout from './PatternsAbout.jsx';
 import PatternPreview from './PatternPreview.jsx';
 import PatternAppNav from './PatternAppNav.jsx';
 
@@ -101,10 +100,10 @@ class PatternApp extends React.Component {
 						onChange={this.selectPattern} />
 				</div>
 				<div className='pattern-item-nav'>
-					<button type='button' className='btn-transparent' onMouseUp={this.navigatePatterns.bind(this, false)}>
-						&lt;
+					<button type='button' className='btn-transparent' aria-label='Previous' onMouseUp={this.navigatePatterns.bind(this, false)}>
+						&lt; 
 					</button>
-					<button type='button' className='btn-transparent'  onMouseUp={this.navigatePatterns.bind(this, true)}>
+					<button type='button' className='btn-transparent' aria-label='Next' onMouseUp={this.navigatePatterns.bind(this, true)}>
 						&gt;
 					</button>
 				</div>
@@ -116,8 +115,6 @@ class PatternApp extends React.Component {
 					patternNumber={this.state.active} 
 					subActive={this.state.subActive} 
 					onUpdateSubActive={this.updateSubActive} />
-
-				<PatternsAbout />
 			</div>
 		)
 	}

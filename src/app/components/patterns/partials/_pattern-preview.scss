@@ -1,4 +1,7 @@
 .pattern-preview {
+	text-align: center;
+	margin: 0 auto;
+	display: block;
 	.warp, .weft {
 		rect {
 			fill: $blue-dark;
@@ -9,10 +12,10 @@
 	}
 	.secondary {
 		rect {
-			fill: #99dfe4;
+			fill: $yellow-bright;
 		}
 		line {
-			stroke: #00909a;
+			stroke: #dbc000;
 		}
 	}
 	.default {
@@ -26,7 +29,7 @@
 	.contrast {
 		.default {
 			rect {
-				fill: #00909a;
+				fill: $pink;
 			}
 		}
 	}

@@ -42,7 +42,7 @@ class PatternItem extends React.Component {
 
 				{this._isEditable ? 
 					<div>
-						<a href={'/patterns/builder' + '#' + util.getPatternEncodedUrl(this.props.data)}>
+						<a className='pattern-item-edit' href={'/patterns/builder' + '#' + util.getPatternEncodedUrl(this.props.data)}>
 							edit
 						</a>
 					</div>	
