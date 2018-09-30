@@ -2,18 +2,18 @@
 	text-align: center;
 	margin: 0 auto;
 	display: block;
-	margin-right: 16px;
+	margin-right: 1rem;
 	&-nav {
 		text-align: center;
 		button {
-			margin: 10px;
+			margin: 0.625rem;
 			font-size: 2rem;
 			color: $blue-dark;
 			&:first-of-type {
-				margin-right: 80px;
+				margin-right: 5rem;
 			}
 			&:last-of-type {
-				margin-left: 80px;
+				margin-left: 5rem;
 			}
 		}
 	}
@@ -23,20 +23,20 @@
 		text-align: left;
 		vertical-align: top;
 		overflow: auto;
-		max-width: calc(100% - 40px);
+		max-width: calc(100% - 2.5rem);
 		@include mobile {
 			display: block;
 			text-align: center;
 		}
 	}
 	h5, .content-tabs {
-		margin-left: 16px;
+		margin-left: 1rem;
 		@include mobile {
-			margin-left: 12px;
+			margin-left: 0.75rem;
 		}
 	}
 	.content-tabs {
-		margin-bottom: 6px;
+		margin-bottom: 0.375rem;
 	}
 	&-grid {
 		.square {

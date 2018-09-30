@@ -10,7 +10,7 @@ class PatternItem extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.content = util.getContent('en').patternItems;
+		this.content = util.getContent('en').patterns;
 
 		this.updateSubActive = this.props.onUpdateSubActive;
 		this._isEditable = this.isEditable.bind(this);
@@ -40,7 +40,7 @@ class PatternItem extends React.Component {
 		return (
 			<div className='pattern-item'>
 
-				{this.isEditable() ? 
+				{this._isEditable ? 
 					<div>
 						<a href={'/patterns/builder' + '#' + util.getPatternEncodedUrl(this.props.data)}>
 							edit
