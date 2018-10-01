@@ -34,7 +34,7 @@ function isSecondary(rows, index) {
 	return false;
 }
 
-class PatternPreview extends React.Component {
+class PatternSwatch extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -165,7 +165,7 @@ class PatternPreview extends React.Component {
 	}
 	render() {
 		return (
-			<div className='pattern-preview'>
+			<div className='pattern-swatch'>
 				<div className='pattern-item-section'>
 					<svg ref='svg'></svg>
 				</div>
@@ -173,4 +173,4 @@ class PatternPreview extends React.Component {
 		)
 	}
 }
-export default PatternPreview;
+export default PatternSwatch;

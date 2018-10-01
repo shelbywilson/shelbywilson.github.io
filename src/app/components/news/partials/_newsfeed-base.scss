@@ -55,31 +55,10 @@
 			}
 		}
 	}
-}
-.article {
-	position: relative;
-	background: #fff;
-	margin: 4rem 0;
-	&-load-more {
+	&-attribution-link {
+		margin: 5rem 0 2rem 0;
+		color: $gray-medium;
+		font-size: 0.8rem;
 		text-align: center;
-		padding: 30px;
-	}
-	a {
-		display: block;
-		padding: 30px;
-		color: inherit;
-		@include mobile {
-			padding: 20px;
-		}
-	}
-	&:hover, &-active {
-		background: $peach-light;
-	}
-	@include tablet {
-		background: #fff;
-		margin: 2rem 0 5rem 0;
-		&:hover, &-active {
-			background: #fff;
-		}
 	}
 }

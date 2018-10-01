@@ -156,7 +156,7 @@ class PatternGrid extends React.Component {
 		if (this.state.sections > 1) {
 			return (
 				<div>
-					<div className='content-tabs'>
+					<div className='pattern-item-tabs'>
 						{this.props.data.map(function(section, i) {
 							return (
 								<button className={i == this.props.subActive ? 'selected' : ''} type='button' onMouseUp={this.changeSection.bind(this, i)}>

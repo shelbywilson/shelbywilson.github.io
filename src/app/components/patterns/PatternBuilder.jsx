@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PatternPreview from './PatternPreview.jsx';
+import PatternSwatch from './PatternSwatch.jsx';
 import PatternSection from './PatternSection.jsx';
 import PatternGrid from './PatternGrid.jsx';
 import PatternBuilderControls from './PatternBuilderControls.jsx';
@@ -155,7 +155,7 @@ class PatternBuilder extends React.Component {
 							</PatternSection>
 						)
 					}.bind(this))}	
-					<PatternPreview data={this.state}
+					<PatternSwatch data={this.state}
 						subActive={0} />
 				</div>
 			</div>

@@ -308,7 +308,7 @@ class Newsfeed extends React.Component {
 				<NewsfeedFocusedArticle article={this.state.focus} 
 					source={this.state.focus ? this.state.sourcesDictionary[this.state.focus.source] : {}} 
 					onToggleFocusedArticle={this.toggleFocusedArticle} />
-				<p className='content-attribution-link'>
+				<p className='newsfeed-attribution-link'>
 					using <a href='https://newsapi.org/' target='_blank'>
 						{'https://newsapi.org/'}
 					</a>

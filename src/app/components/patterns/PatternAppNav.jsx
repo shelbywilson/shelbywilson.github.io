@@ -38,13 +38,15 @@ class PatternAppNav extends React.Component {
 							</li>
 						</ul>
 					</nav>
-					<button className='pattern-app-nav-link' type='button' aria-label='Open info' onMouseUp={this.toggleModal}>
-						{this.state.isModalDisplay ? 
+					{this.state.isModalDisplay ? 
+						<button className='pattern-app-nav-link' type='button' aria-label='Close info' onMouseUp={this.toggleModal}>
 							<span className='pattern-app-about-close'>&times;</span>
-							:
+						</button>
+						:
+						<button className='pattern-app-nav-link' type='button' aria-label='Open info' onMouseUp={this.toggleModal}>
 							<span className='pattern-app-nav-info'>i</span>
-						} 
-					</button>
+						</button>
+					} 
 				</header>
 
 				<PatternAppAbout isModalDisplay={this.state.isModalDisplay}
