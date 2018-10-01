@@ -21,10 +21,15 @@
 			font-size: 1.3rem;
 		}
 	}
-	h1, h2, h4 {
+	h1, h2, h4, .home-links a {
 	    @include transition(color 1s);
 	    transition-delay: 0.5s;
-		color: $home-blue-dark;
+		color: $black;
+	}
+	.home-links svg {
+ 		@include transition(fill 1s);
+	    transition-delay: 0.5s;
+		fill: $black;
 	}
 	.main {
 		justify-content: flex-end;
@@ -39,15 +44,17 @@
 			display: inline-block;
 		}
 		a {
-			font-weight: 400;
 			text-transform: uppercase;
 			display: block;
 			padding: 2vw;
-			color: #000;
-			background: $blue-light;
-			&:hover {
-				background: $blue-light-hover;
+			border: 0.35vw dotted;
+			@extend .font-heavy;
+			&:hover, &:active {
+				border-style: solid;
 			}
+		}
+		svg {
+			width: 3.5vw;
 		}
 	}
 	&-bg {
@@ -71,7 +78,8 @@
 	}
 }
 body.home-loaded {
-	h1, h2, h4 {
+	h1, h2, h4, .home-links a, .home-links svg{
 		color: $gray-light;
+		fill: $gray-light;
 	}
 }

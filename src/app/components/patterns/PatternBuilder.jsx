@@ -4,6 +4,7 @@ import PatternPreview from './PatternPreview.jsx';
 import PatternSection from './PatternSection.jsx';
 import PatternGrid from './PatternGrid.jsx';
 import PatternBuilderControls from './PatternBuilderControls.jsx';
+import PatternAppNav from './PatternAppNav.jsx';
 
 import util from './../common/site-data/util.js';
 
@@ -21,6 +22,10 @@ const defaultState = {
 		[0,0]
 	],
 	treadling: [
+		[0,0],
+		[0,0],
+		[0,0],
+		[0,0],
 		[0,0],
 		[0,0]
 	]
@@ -130,13 +135,9 @@ class PatternBuilder extends React.Component {
 	}
 	render() {
 		return (
-			<div className='pattern-builder container'>	
+			<div className='pattern-builder pattern-app container'>	
 
-				<div className='pattern-builder-link'>
-					<a href='/patterns'>
-						&larr; patterns 
-					</a>
-				</div>
+				<PatternAppNav />
 
 				<div className='pattern-item'>
 					<PatternBuilderControls onReset={this.reset} />

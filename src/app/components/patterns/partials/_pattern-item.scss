@@ -5,12 +5,7 @@
 	margin-right: 1rem;
 	&-edit {
 		margin-left: 1rem;
-		border: 2px dotted $blue-dark;
-		display: inline-block;
-		padding: 0.75rem 1rem;
-		&:hover, &:active {
-			border-style: solid;
-		}
+		@extend .btn-dotted;
 	}
 	&-nav {
 		text-align: center;
@@ -50,7 +45,7 @@
 	&-grid {
 		.square {
 			fill: #fff;
-			stroke: #000;
+			stroke: $black;
 			&.primary {
 				fill: $blue-dark;
 			}
@@ -59,17 +54,6 @@
 			fill: transparent;
 			stroke-width: 2;
 			stroke: $blue-dark;
-		}
-	}
-	.add-item {
-		cursor: pointer;
-		rect {
-			fill: $gray-light;
-			stroke-width: 1;
-			stroke: #000;
-			&:hover  {
-				fill: $gray-light-hover;
-			}
 		}
 	}
 }

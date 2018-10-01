@@ -2,4 +2,20 @@
 	&-link {
 		text-align: right;
 	}
+	&-controls {
+		&-reset {
+			@extend .btn-dotted;
+		}
+	}
+	&-add-item {
+		cursor: pointer;
+		rect {
+			fill: $pink;
+			stroke-width: 1;
+			stroke: $black;
+			&:hover  {
+				fill: $yellow-bright;
+			}
+		}
+	}
 }

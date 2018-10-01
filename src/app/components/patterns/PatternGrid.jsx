@@ -65,7 +65,7 @@ class PatternGrid extends React.Component {
 
     	if (isEditable) {
 	    	group = svg.append('g')
-	    		.attr('class', 'add-item')
+	    		.attr('class', 'pattern-builder-add-item')
 	    		.attr('transform', 'translate(' + (size*2) + ',' + (data.length * size) + ')')
 	    		.on('mouseup', this.props.onModifyGrid.bind(this, {
 		    			isTreadling: this.props.type === 'treadling', 
@@ -91,7 +91,7 @@ class PatternGrid extends React.Component {
 
     	if (isEditable) {
 	    	group =svg.append('g')
-	    		.attr('class', 'add-item')
+	    		.attr('class', 'pattern-builder-add-item')
 	    		.attr('transform', 'translate(' + size + ',' + 0 + ')')
 	    		.on('mouseup', this.props.onModifyGrid.bind(this, {
 		    			isTreadling: this.props.type === 'treadling', 

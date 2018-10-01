@@ -1,8 +1,13 @@
 .pattern-app-nav {
-	a, button {
-		height: 2.25rem;
-		width: 2.25rem;
-		line-height: 2.25rem;
+	ul {
+		transition: height 200ms;
+		transition-delay: 100ms;
+		overflow: hidden;
+	}
+	&-link {
+		height: 2.5rem;
+		width: 2.5rem;
+		line-height: 2.5rem;
 		padding: 0;
 		display: block;
 		background: $blue-dark;
@@ -14,7 +19,30 @@
 			color: $blue-dark;
 		}
 	}
-	ul {
-		margin: 1rem 0 0 0;
+	&-info {
+		font-family: monospace;
+	}
+	&-home {
+		margin-bottom: 1.5rem;
+		&-icon {
+			position: relative;
+			background: $yellow-bright;
+			border-radius: 100%;
+			height: 2rem;
+			width: 2rem;
+			top: 0.25rem;
+			left: 0.25rem;
+			transition: 200ms;
+		}
+		&:hover {
+			background: $blue-dark;
+			.pattern-app-nav-home-icon {
+				border-radius: 0;
+				height: 2.5rem;
+				width: 2.5rem;
+				top: 0;
+				left: 0;
+			}
+		}
 	}
 }

@@ -10,8 +10,8 @@ class PatternBuilderControls extends React.Component {
 		return (
 			<div className='pattern-builder-controls'>
 				<div>
-					<button type='button' className='btn-primary' onMouseUp={this.reset}>
-						Reset
+					<button type='button' className='pattern-builder-controls-reset' onMouseUp={this.reset}>
+						reset
 						&nbsp;
 						<span className='symbol-refresh'>&#x21bb;</span>
 					</button>

@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600&subset=cyrillic');
 
 $font-primary: 'Montserrat', sans-serif;
 
 .font-heavy {
 	font-weight: 600;
+}
+.font-medium {
+	font-weight: 500;
 }

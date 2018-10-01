@@ -1,13 +1,10 @@
 .content {
 	section {
 		padding: 7vh 7vw;
-		height: 100vh;
+		height: 70vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		@include mobile {
-			height: 80vh;
-		}
 	}
 	&-attribution-link {
 		margin: 5rem 0 2rem 0;

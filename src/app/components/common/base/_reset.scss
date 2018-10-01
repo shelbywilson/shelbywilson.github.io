@@ -10,6 +10,8 @@ html {
 	font-size: 16px;
 	font-weight: 200;
 	height: 100%;
+	color: $black;
+	font-weight: 400;
 	@include tablet {
 		font-size: 14px;
 	}
@@ -18,7 +20,7 @@ h1 {
 	font-weight: 600;
 	text-align: center;
 	margin: 0;
-	color: #000;
+	color: $black;
 	font-size: 3rem;
 	text-transform: uppercase;
 	@include tablet {
@@ -39,7 +41,7 @@ h3 {
 	font-size: 1.5rem;
 }
 h4 {
-	color: #000;
+	color: $black;
 	font-size: 0.8rem;
 	font-weight: 500;
 	margin: 1vw 0;
@@ -81,15 +83,10 @@ p {
 img {
 	max-width: 100%;
 }
-
 ul {
 	list-style: none;
 	padding: 0;
-	margin: 1.25rem;
-}
-table {
-	table-layout: fixed;
-	border-collapse: collapse;
+	margin: 0;
 }
 label {
 	padding: 1rem;
@@ -99,6 +96,7 @@ svg {
 	overflow: visible;
 }
 input {
+	color: $black;
 	::-webkit-input-placeholder { /* WebKit browsers */
     	color:    #999;
 	}
