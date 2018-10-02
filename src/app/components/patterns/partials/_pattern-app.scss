@@ -1,17 +1,11 @@
-.pattern {
-	&-app {
-		padding-top: 3rem;
-	}
-	&-tie_up {
-		margin-right: 1rem;
-	}
-	&-notes {
-		margin: 2rem auto;
-		text-align: left;
-		max-width: 500px;
-		padding: 0 0.7rem;
-	}
+.pattern-app {
+	padding-top: 3rem;
 	&-select {
 		text-align: center;
+	}
+	h5 {
+		margin: 0.5rem 0;
+		font-size: 0.8rem;
+		font-weight: 400;
 	}
 }

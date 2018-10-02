@@ -5,6 +5,7 @@ import moment from 'moment';
 import NewsfeedArticle from './NewsfeedArticle.jsx';
 import NewsfeedFocusedArticle from './NewsfeedFocusedArticle.jsx';
 import NewsfeedBackground from './NewsfeedBackground.jsx';
+import NewsfeedAppNav from './NewsfeedAppNav.jsx';
 import NewsfeedAbout from './NewsfeedAbout.jsx';
 import Loading from './../common/loading/Loading.jsx';
 
@@ -249,6 +250,9 @@ class Newsfeed extends React.Component {
 	render() {
 		return (
 			<div className='newsfeed container'>
+
+				<NewsfeedAppNav />
+
 				<NewsfeedBackground clicks={this.state.clicks} 
 					count={this.state.count} />
 				{this.state.isLoaded === false ?

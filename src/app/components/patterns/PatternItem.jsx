@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PatternNotes from './PatternNotes.jsx';
+import PatternItemNotes from './PatternItemNotes.jsx';
 import PatternSection from './PatternSection.jsx';
 import PatternGrid from './PatternGrid.jsx';
 
@@ -50,7 +50,7 @@ class PatternItem extends React.Component {
 					null
 				}
 						
-				<PatternNotes notes={this.props.data.notes || []} />
+				<PatternItemNotes notes={this.props.data.notes || []} />
 					
 				{['threading', 'tie_up', 'treadling'].map(function (type) {
 					return (

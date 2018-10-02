@@ -1,4 +1,8 @@
-.pattern-app-nav {
+.app-nav {
+	position: fixed;
+	left: 2rem;
+	top: 2rem;
+	z-index: $z-index-nav;
 	ul {
 		transition: height 200ms;
 		transition-delay: 100ms;
@@ -21,6 +25,10 @@
 	}
 	&-info {
 		font-family: monospace;
+		&-close {
+			font-size: 3.5rem;
+			font-weight: normal;
+		}
 	}
 	&-home {
 		margin-bottom: 1.5rem;
@@ -36,7 +44,7 @@
 		}
 		&:hover {
 			background: $blue-dark;
-			.pattern-app-nav-home-icon {
+			.app-nav-home-icon {
 				border-radius: 0;
 				height: 2.5rem;
 				width: 2.5rem;
@@ -44,5 +52,10 @@
 				left: 0;
 			}
 		}
+	}
+}
+body.loaded {
+	.app-nav {
+		height: 15rem;
 	}
 }

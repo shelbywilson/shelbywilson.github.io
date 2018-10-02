@@ -1,82 +1,43 @@
 .home {	
-	section {
-		padding: 7vh 7vw;
-		height: 70vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+	h1, h3 {
+		text-transform: uppercase;
+		font-size: 1.25rem;
 	}
-	h1 {
-		height: 8vw;
-		@include mobile {
-			height: 2.5rem;
-			margin-top: -2.5rem;
-		}
-	}
-	h1, h4 {
-		text-align: center;
-	}
-	h1, h2 {
-		font-size: 8vw;
-		@include mobile {
-			font-size: 2.25rem;
-		}
-	}
-	h4, .home-links a {
-		font-size: 2.5vw;
-		@include mobile {
-			font-size: 1.3rem;
-		}
-	}
-	h1, h2, h4, .home-links a {
-	    @include transition(color 1s);
-	    transition-delay: 0.5s;
-		color: $black;
-	}
-	.home-links svg {
- 		@include transition(fill 1s);
-	    transition-delay: 0.5s;
-		fill: $black;
-	}
-	.main {
+	&-info {
+		align-items: flex-end;
 		justify-content: flex-end;
-		@include mobile {
-			padding: 7vh 0;
-		}
-	}
-	&-links {
-		margin: 0;
-		li {
-			margin: 1.5vw 3vw 0 0;
-			display: inline-block;
-		}
-		a {
-			text-transform: uppercase;
-			display: block;
-			padding: 2vw;
-			border: 0.35vw dotted;
-			@extend .font-heavy;
-			&:hover, &:active {
-				border-style: solid;
+		&-box {
+			padding: 3.5rem 1rem;
+			background: $beige;
+			position: relative;
+			margin: 0 1vh 1vw 0;
+			&:before {
+				content: '';
+				height: 5rem;
+				width: 5rem;
+				background: $yellow-bright;
+				border-radius: 100%;
+				top: -166vh;
+				right: 2rem;
+				position: absolute;
+				transition: top 1.5s;
+				z-index: 1;
 			}
-		}
-		svg {
-			width: 3.5vw;
 		}
 	}
 	&-bg {
 		position: fixed;
-	    top: 5%;
-	    left: 5%;
-	    width: 90%;
-	    height: 90%;
-	    z-index: -100;
-	    background: $blue-dark;
-	    svg {
-	    	top: -5%;
-	    	left: -5%;
-	    	position: relative;
-	    }
+		top: 5%;
+		left: 5%;
+		width: 90%;
+		height: 90%;
+		z-index: -100;
+		background: $blue-dark;
+		svg {
+			top: -5%;
+			left: -5%;
+			position: relative;
+		}
 	}
 	.line {
 		stroke: $blue-bright;
@@ -84,9 +45,8 @@
 		fill: none;
 	}
 }
-body.home-loaded {
-	h1, h2, h4, .home-links a, .home-links svg{
-		color: $gray-light;
-		fill: $gray-light;
+body.loaded {
+	.home-info-box:before {
+		top: -2.5rem;
 	}
 }

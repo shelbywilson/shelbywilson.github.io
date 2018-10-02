@@ -8,68 +8,79 @@ html, body {
 html {
 	font-family: $font-primary;
 	font-size: 16px;
-	font-weight: 200;
-	height: 100%;
 	color: $black;
 	font-weight: 400;
 	@include tablet {
 		font-size: 14px;
 	}
 }
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+section {
+	padding: 7vh 7vw;
+	height: 70vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@include mobile {
+		height: 50vh;
+	}
+}
 h1 {
-	font-weight: 600;
-	text-align: center;
-	margin: 0;
-	color: $black;
-	font-size: 3rem;
-	text-transform: uppercase;
-	@include tablet {
-		font-size: 7vw;
-	}
+	// font-weight: 600;
+	// text-align: center;
+	// margin: 0;
+	// color: $black;
+	// font-size: 3rem;
+	// text-transform: uppercase;
+	// @include tablet {
+	// 	font-size: 7vw;
+	// }
 }
-h2 {
-	font-weight: 500;
-	font-size: 3rem;
-	margin: 0;
-	@include tablet {
-		font-size: 5vw;
-	}
-}
-h3 {
-	font-weight: 400;
-	margin: 0 0 1rem 0;
-	font-size: 1.5rem;
-}
-h4 {
-	color: $black;
-	font-size: 0.8rem;
-	font-weight: 500;
-	margin: 1vw 0;
-	text-align: center;
-	text-transform: uppercase;
-	@include tablet {
-		font-size: 2.5vw;
-	}
-}
-h5 {
-	margin: 0.5rem 0;
-	font-size: 0.8rem;
-	font-weight: 400;
-}
-h6 {
-	margin: 0.5rem 0;
-	font-size: 0.7rem;
-	letter-spacing: 0.1rem;
-	text-transform: uppercase;
-}
+// h2 {
+// 	font-weight: 500;
+// 	font-size: 3rem;
+// 	margin: 0;
+// 	@include tablet {
+// 		font-size: 5vw;
+// 	}
+// }
+// h3 {
+// 	font-weight: 400;
+// 	margin: 0 0 1rem 0;
+// 	font-size: 1.5rem;
+// }
+// h4 {
+// 	color: $black;
+// 	font-size: 0.8rem;
+// 	font-weight: 500;
+// 	margin: 1vw 0;
+// 	text-align: center;
+// 	text-transform: uppercase;
+// 	@include tablet {
+// 		font-size: 2.5vw;
+// 	}
+// }
+// h5 {
+// 	margin: 0.5rem 0;
+// 	font-size: 0.8rem;
+// 	font-weight: 400;
+// }
+// h6 {
+// 	margin: 0.5rem 0;
+// 	font-size: 0.7rem;
+// 	letter-spacing: 0.1rem;
+// 	text-transform: uppercase;
+// }
 a {
 	color: $blue-dark;
 	text-decoration: none;
+	font-size: inherit;
 }
 p {
-	margin: 0.5rem 0;
+	margin: 1rem 0;
 	font-size: 0.9rem;
-	font-weight: 300;
 	line-height: 1.8em;
 	@include tablet {
 		font-size: 1.1rem;

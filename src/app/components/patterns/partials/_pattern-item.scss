@@ -51,4 +51,10 @@
 			stroke: $blue-dark;
 		}
 	}
+	&-notes {
+		margin: 2rem auto;
+		text-align: left;
+		max-width: 500px;
+		padding: 0 0.7rem;
+	}
 }

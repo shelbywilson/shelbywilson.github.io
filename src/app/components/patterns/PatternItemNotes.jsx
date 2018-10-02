@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 
 import noteData from './data/notes.json';
 
-class PatternNotes extends React.Component {
+class PatternItemNotes extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 	render() {
 		return (
-			<div className='pattern-notes'>
+			<div className='pattern-item-notes'>
 				{this.props.notes.map(function (id) {
 					return (
 						<p className='small' key={id}>
@@ -21,8 +21,8 @@ class PatternNotes extends React.Component {
 	}
 }
 
-PatternNotes.propTypes = {
+PatternItemNotes.propTypes = {
 	notes: PropTypes.Array
 }
 
-export default PatternNotes;
+export default PatternItemNotes;

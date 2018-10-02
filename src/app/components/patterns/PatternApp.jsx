@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Dropdown from 'react-dropdown';
+import $ from 'jquery';
 
 import __patternData from './data/patterns';
 import PatternItem from './PatternItem.jsx';
@@ -44,6 +45,9 @@ class PatternApp extends React.Component {
 	}
 	componentDidMount() {
 		window.addEventListener("keyup", this.handleKeyUp);
+		setTimeout(function () {
+			$('body').addClass('loaded');
+		}, 400);
 	}
 	componentWillUnmount() {
 		window.removeEventListener("keyup", this.handleKeyUp);
@@ -94,7 +98,7 @@ class PatternApp extends React.Component {
 
 				<PatternAppNav />
 
-				<div className='pattern-select'>
+				<div className='pattern-app-select'>
 					<Dropdown options={options}
 						placeholder={'№ ' + this.state.active}
 						onChange={this.selectPattern} />
