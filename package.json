@@ -47,9 +47,9 @@
     "webpack-dev-server": "~1.16.2"
   },
   "scripts": {
-    "test": "mocha",
-    "build": "./node_modules/webpack/bin/webpack.js -p",
-    "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --progress --colors --inline"
+    "test": "mocha", 
+    "build": "webpack -p",
+    "start": "webpack-dev-server --hot --progress --colors --inline"
   },
   "repository": {
     "type": "git",

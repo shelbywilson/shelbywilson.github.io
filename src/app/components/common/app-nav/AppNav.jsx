@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PatternAppAbout from './../../patterns/PatternAppAbout.jsx';
+import Modal from './../modal/Modal.jsx';
 
 class Nav extends React.Component {
 	constructor(props) {	
@@ -55,12 +55,11 @@ class Nav extends React.Component {
 					} 
 				</header>
 
-				{app === 'patterns'?
-					<PatternAppAbout isModalDisplay={this.state.isModalDisplay}
-						onToggle={this.toggleModal} />
-					:
-					null
-				}
+				<Modal onClose={this.toggleModal}
+					display={this.state.isModalDisplay}
+					customClass='app-nav-modal'>
+					{this.props.children}
+				</Modal>
 			</span>
 		)
 	}

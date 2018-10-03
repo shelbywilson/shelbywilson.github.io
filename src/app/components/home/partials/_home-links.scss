@@ -21,15 +21,6 @@
 			padding: 0 0.5vw;
 			transition: all 0.3s;
 		}
-		&:hover, &:active {
-			color: $blue-dark;
-			&:before {
-				width: 7vw;
-				@include mobile {
-					width: 100%;
-				}
-			}
-		}
 	}
 	a {
 		display: block;
@@ -63,7 +54,19 @@
 	}
 }
 body.loaded {
-	li:before {
-		height: 2.5vw;
+	li {
+		&:before {
+			height: 2.5vw;
+		}
+		&:hover, &:active {
+			color: $blue-dark;
+			&:before {
+				width: 7vw;
+				@include mobile {
+					width: 100%;
+				}
+			}
+		}
 	}
+
 }

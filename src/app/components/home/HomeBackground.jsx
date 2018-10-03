@@ -26,7 +26,7 @@ class HomepageBackground extends React.Component {
 		setTimeout(function () {
 			this.updateSvg();
 			$('body').addClass('loaded');
-		}.bind(this), 2500);
+		}.bind(this), 700);
 	}
 	componentWillUnMount() {
 		window.removeEventListener("resize");

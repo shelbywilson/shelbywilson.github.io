@@ -1,6 +1,17 @@
 .newsfeed {
 	min-height: 70vh;
-	ul {
+	h3 {
+		font-weight: 400;
+		margin: 0 0 1rem 0;
+		font-size: 1.5rem;
+	}
+	h6 {
+		margin: 0.5rem 0;
+		font-size: 0.7rem;
+		letter-spacing: 0.1rem;
+		text-transform: uppercase;
+	}
+	&-articles {
 		@include tablet {
 			margin: 20px 0;
 		}

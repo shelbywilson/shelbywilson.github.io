@@ -282,7 +282,7 @@ class Newsfeed extends React.Component {
 							sourcesDictionary={this.state.sourcesDictionary} 
 							categories={this.state.categories}
 							articles={this.state.articles} />
-						<ul>
+						<ul className='newsfeed-articles'>
 							{this.state.articles.map(function (article, i) {
 								if (i <= this.state.displayEnd) {
 									return (

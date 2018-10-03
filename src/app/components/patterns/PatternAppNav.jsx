@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AppNav from './../common/app-nav/AppNav.jsx';
+import PatternAppAbout from './PatternAppAbout.jsx';
 
 const links = [
 	{
@@ -16,10 +17,12 @@ const links = [
 class PatternAppNav extends React.Component {
 	render() {
 		return (
-			<span className='pattern-app-nav'>
-				<AppNav links={links}
-					app='patterns' />
-			</span>
+			<AppNav links={links}
+				app='patterns'>
+
+				<PatternAppAbout />
+				
+			</AppNav>
 		)
 	}
 }
