@@ -251,7 +251,13 @@ class Newsfeed extends React.Component {
 		return (
 			<div className='newsfeed container'>
 
-				<NewsfeedAppNav />
+				<NewsfeedAppNav>
+					<NewsfeedAbout count={this.state.count} 
+						countBySource={this.state.countBySource} 
+						sourcesDictionary={this.state.sourcesDictionary} 
+						categories={this.state.categories}
+						articles={this.state.articles} />
+				</NewsfeedAppNav>
 
 				<NewsfeedBackground clicks={this.state.clicks} 
 					count={this.state.count} />
@@ -277,11 +283,6 @@ class Newsfeed extends React.Component {
 							<input type='text' className={this.state.query.length === 0 ? 'empty' : ''} spellCheck={false} onKeyUp={this.search} placeholder={'search'}/>
 							{this.state.articles.length} articles
 						</div>
-						<NewsfeedAbout count={this.state.count} 
-							countBySource={this.state.countBySource} 
-							sourcesDictionary={this.state.sourcesDictionary} 
-							categories={this.state.categories}
-							articles={this.state.articles} />
 						<ul className='newsfeed-articles'>
 							{this.state.articles.map(function (article, i) {
 								if (i <= this.state.displayEnd) {
@@ -297,11 +298,6 @@ class Newsfeed extends React.Component {
 						</ul>
 						{this.state.displayEnd < this.state.articles.length &&
 							<div className='article-load-more'>
-								<NewsfeedAbout count={this.state.count} 
-									countBySource={this.state.countBySource} 
-									sourcesDictionary={this.state.sourcesDictionary} 
-									categories={this.state.categories}
-									articles={this.state.articles} />
 								<button type="button" className='btn-primary' onMouseUp={this.loadMore} >
 									More + 
 								</button>
@@ -312,11 +308,6 @@ class Newsfeed extends React.Component {
 				<NewsfeedFocusedArticle article={this.state.focus} 
 					source={this.state.focus ? this.state.sourcesDictionary[this.state.focus.source] : {}} 
 					onToggleFocusedArticle={this.toggleFocusedArticle} />
-				<p className='newsfeed-attribution-link'>
-					using <a href='https://newsapi.org/' target='_blank'>
-						{'https://newsapi.org/'}
-					</a>
-				</p>
 			</div>
 		)
 	}

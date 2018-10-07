@@ -7,7 +7,7 @@ button {
 	font-size: 1.2rem;
 	font-family: $font-primary;
 	color: $black;
-	@extend .font-medium;
+	@extend .font-light;
 	&:active, &:focus {
 		outline: none;
 	}

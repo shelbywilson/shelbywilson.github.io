@@ -66,7 +66,6 @@ class NewsfeedAbout extends React.Component {
 
 		this.updateSvg = this.updateSvg.bind(this);
 		this.getData = this.getData.bind(this);
-		this.toggleAbout = this.toggleAbout.bind(this);
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.isFocused && !prevState.isFocused) {
@@ -143,30 +142,26 @@ class NewsfeedAbout extends React.Component {
 
 		return {children: children};
 	}
-	toggleAbout() {
-		this.setState({
-			isFocused: !this.state.isFocused
-		})
-	}
 	render() {
 		return (
-			<div className='newsfeed-about'>
-				<button type='button' className='newsfeed-about-toggle btn-secondary' onMouseUp={this.toggleAbout}>
-					what am i reading
-				</button>
-				<Modal onClose={this.toggleAbout}
-					display={this.state.isFocused}>
+			<div className='newsfeed-about container'>
+				<h2>Newsfeed</h2>
+				{Object.keys(this.props.count).length === 0 &&
+					<p className='msg-empty'>
+						No articles read
+					</p>
+				}
+			
+				<div className='newsfeed-about-content' ref='container'>
+					<svg ref='svg'></svg>
+				</div>
+				<p>
+					Built using <a href='https://newsapi.org/' target='_blank'>
+						{'https://newsapi.org/'}
+					</a>
+					.
+				</p>
 
-					{Object.keys(this.props.count).length === 0 &&
-						<p className='msg-empty'>
-							No articles read
-						</p>
-					}
-				
-					<div className='newsfeed-about-content' ref='container'>
-						<svg ref='svg'></svg>
-					</div>
-				</Modal>
 			</div>
 		)
 	}

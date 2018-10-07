@@ -35,8 +35,8 @@
 		}
 	}
 	svg {
-		fill: $gray-light;
-		width: 2rem;
+		fill: $beige;
+		width: 3vw;
 		@include mobile {
 			width: 1rem;
 		}
@@ -63,7 +63,7 @@ body.loaded {
 			&:before {
 				width: 7vw;
 				@include mobile {
-					width: 100%;
+					width: 2.5rem;
 				}
 			}
 		}

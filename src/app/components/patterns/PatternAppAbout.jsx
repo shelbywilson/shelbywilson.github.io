@@ -11,9 +11,9 @@ class PatternAppAbout extends React.Component {
 	render() {
 		return (
 			<div className='container'>
-				<h3>
+				<h2>
 					{this.content['about-name']}
-				</h3>
+				</h2>
 				<p>
 					This project began as a translation of the <a className='pseudo-btn-primary' href={util.getFilePath('weaving_patterns.pdf')} target='_blank'>
 						{this.content['about-name']}

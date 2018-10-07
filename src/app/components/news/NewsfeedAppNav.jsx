@@ -10,7 +10,9 @@ class NewsfeedAppNav extends React.Component {
 		return (
 			<span className='newsfeed-app-nav'>
 				<AppNav links={links}
-					app='newsfeed' />
+					app='newsfeed'>
+					{this.props.children}
+				</AppNav>
 			</span>
 		)
 	}

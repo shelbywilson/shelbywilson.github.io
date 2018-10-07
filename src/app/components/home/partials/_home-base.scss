@@ -2,6 +2,8 @@
 	h1, h3 {
 		text-transform: uppercase;
 		font-size: 1.25rem;
+		color: $black;
+		@extend .font-light;
 	}
 	&-info {
 		align-items: flex-end;
