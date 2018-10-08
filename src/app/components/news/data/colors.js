@@ -1,13 +1,13 @@
 const colors = {
-	'business': '#ff0',
-	'entertainment': '#9fc7a1',
-	'gaming': '#add',
+	'business': '#FFC107',
+	'entertainment': '#7ed3b1',
+	'gaming': '#80cbe6',
 	'general': '#f6befe',
 	'music': '#dde0ff',
-	'politics': '#fc8c28',
-	'science': '#3c709a',
-	'sports': '#f7002e',
-	'technology': '#6ba4a8'
+	'politics': '#fdec02',
+	'science': '#78abf1',
+	'sports': '#e35d84',
+	'technology': '#ffc0cb'
 };
 
 export default colors;

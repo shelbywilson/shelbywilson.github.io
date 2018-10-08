@@ -297,8 +297,8 @@ class Newsfeed extends React.Component {
 							}.bind(this))}
 						</ul>
 						{this.state.displayEnd < this.state.articles.length &&
-							<div className='article-load-more'>
-								<button type="button" className='btn-primary' onMouseUp={this.loadMore} >
+							<div className='newsfeed-load-more'>
+								<button type="button" onMouseUp={this.loadMore} >
 									More + 
 								</button>
 							</div>

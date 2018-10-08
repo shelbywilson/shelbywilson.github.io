@@ -3,14 +3,14 @@
 		min-height: 100%;
 		width: 100%;
 	}
-	.label {
-		font-size: 0.6rem;
-	}
 	&-toggle {
 		display: block;
 		margin: 2rem auto;
 	}
-	.msg-empty {
-		margin: 2rem 0;
+	svg {
+		max-height: 80vh;
+		width: 100%;
+		margin: 0 auto;
+		display: block;
 	}
 }
