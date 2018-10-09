@@ -22,5 +22,17 @@
 				top: -105vh;
 			}
 		}
+		&.loaded:before {
+			transition: top 0.5s;
+		}
+	}
+}
+
+body.loaded {
+	.home-info-box:before {
+		top: -2.5rem;
+	}
+	.home-info-box:hover:before {
+		top: -5.5rem;
 	}
 }

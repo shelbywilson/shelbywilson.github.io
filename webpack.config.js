@@ -48,7 +48,6 @@ var webpackConfig = {
          new CopyWebpackPlugin([
             {from:'./src/img',to:'./dist/img'} 
         ]), 
-        new Webpack.HotModuleReplacementPlugin(),
     ],
     node: {
       fs: "empty",
@@ -56,13 +55,26 @@ var webpackConfig = {
     }
 };
 
-webpackConfig.devServer = {
-    contentBase: Path.join(__dirname, './src/'),
-    hot: true,
-    port: port,
-    inline: true,
-    progress: true,
-    historyApiFallback: true,
-};
+if (process.env.NODE_ENV === 'production') {
+    webpackConfig.plugins.push(
+        new Webpack.optimize.UglifyJsPlugin({
+            compress: {
+                screw_ie8: true
+            }
+        })
+    )
+} else {
+    webpackConfig.devServer = {
+        contentBase: Path.join(__dirname, './src/'),
+        hot: true,
+        port: port,
+        inline: true,
+        progress: true,
+        historyApiFallback: true,
+    };
+    webpackConfig.plugins.push(
+        new Webpack.HotModuleReplacementPlugin()
+    );
+}
 
 module.exports = webpackConfig;

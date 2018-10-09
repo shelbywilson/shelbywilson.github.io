@@ -23,10 +23,13 @@ class HomepageBackground extends React.Component {
 		window.addEventListener("resize", this.resizeSvg);
 		this.setSvg();
 
-		setTimeout(function () {
+		setTimeout(() => {
 			this.updateSvg();
 			$('body').addClass('loaded');
-		}.bind(this), 1500);
+		}, 1500);
+		setTimeout(() => {
+			$('.home-info-box').addClass('loaded');
+		}, 2000);
 	}
 	componentWillUnMount() {
 		window.removeEventListener("resize");

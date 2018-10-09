@@ -54,7 +54,7 @@ function Home() {
 				</ul>
 			</section>
 			<section className='home-info'>
-				<div className='home-info-box'>
+				<a className='home-info-box' aria-label='Info card and email' href='mailto:s.wilson024@gmail.com'>
 					<h1>
 						Shelby Wilson
 					</h1>
@@ -64,7 +64,7 @@ function Home() {
 					<h3>
 					 	austin tx
 					</h3>
-				</div>
+				</a>
 			</section>
 		</div>
 	</div>
