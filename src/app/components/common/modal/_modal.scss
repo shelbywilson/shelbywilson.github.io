@@ -37,6 +37,9 @@
 	&-open {
 		@include mobile {
 			overflow: hidden;
+			.newsfeed-app-nav {
+				z-index: 1;
+			}
 		}
 	}
 }

@@ -6,12 +6,12 @@ import NewsfeedArticle from './NewsfeedArticle.jsx';
 import NewsfeedFocusedArticle from './NewsfeedFocusedArticle.jsx';
 import NewsfeedBackground from './NewsfeedBackground.jsx';
 import NewsfeedAppNav from './NewsfeedAppNav.jsx';
-import NewsfeedAbout from './NewsfeedAbout.jsx';
+import NewsfeedAppAbout from './NewsfeedAppAbout.jsx';
 import Loading from './../common/loading/Loading.jsx';
 
 const apiKey = 'cb15d26e791f471abee466ce78d79760';
 
-class Newsfeed extends React.Component {
+class NewsfeedApp extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -49,7 +49,8 @@ class Newsfeed extends React.Component {
 		setTimeout(function () {
 			if (!this.state.isLoaded) {
 				this.setState({
-					isLoaded: true
+					isLoaded: true,
+					initialArticles: this.state.articles.slice()
 				})
 			}
 		}.bind(this), 10000)
@@ -252,7 +253,7 @@ class Newsfeed extends React.Component {
 			<div className='newsfeed container'>
 
 				<NewsfeedAppNav>
-					<NewsfeedAbout count={this.state.count} 
+					<NewsfeedAppAbout count={this.state.count} 
 						countBySource={this.state.countBySource} 
 						sourcesDictionary={this.state.sourcesDictionary} 
 						categories={this.state.categories}
@@ -313,4 +314,4 @@ class Newsfeed extends React.Component {
 	}
 }
 
-export default Newsfeed;
+export default NewsfeedApp;

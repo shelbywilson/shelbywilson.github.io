@@ -7,7 +7,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import Home from './../components/home/Home.jsx';
 import PatternApp from './../components/patterns/PatternApp.jsx';
 import PatternBuilder from './../components/patterns/PatternBuilder.jsx';
-import Newsfeed from './../components/news/Newsfeed.jsx';
+import NewsfeedApp from './../components/news/NewsfeedApp.jsx';
 
 import reducers from './../reducers';
 
@@ -23,7 +23,7 @@ ReactDOM.render(
       </Route>
       <Route path="/patterns" component={PatternApp}>
       </Route>
-      <Route path="/news" component={Newsfeed}>
+      <Route path="/news" component={NewsfeedApp}>
       </Route>
       <Route path="/patterns/builder" component={PatternBuilder}>
       </Route>

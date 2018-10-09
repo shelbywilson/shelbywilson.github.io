@@ -18,4 +18,9 @@
 			}
 		}
 	}
+	.square:not(.primary) {
+		&:hover {
+			fill: $yellow-bright;
+		}
+	}
 }

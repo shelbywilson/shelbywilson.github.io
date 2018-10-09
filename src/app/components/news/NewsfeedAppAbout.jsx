@@ -48,7 +48,7 @@ function wrap(text) {
 	});
 }
 
-class NewsfeedAbout extends React.Component {
+class NewsfeedAppAbout extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -127,28 +127,30 @@ class NewsfeedAbout extends React.Component {
 	render() {
 		return (
 			<div className='newsfeed-about container'>
-				<h2>Newsfeed</h2>
+				<h2>Media Diet</h2>
+				<p>
+					This began as a way of tracking my own bias in media consumption. By stripping stories of source, the reader is left to determine interest based on the story (headline and description) itself. This also exposes the reader to sources and topics that may not be part of their typical news diet.
+				</p>
+				<p>
+					Approximately ten top stories of each available source are displayed in random order. They can also be sorted by most recent. Search allows a reader to determine popularity of a given search term in aggregate.
+				</p>
+				<p>
+					The background of this page will populate as articles in a given category (defined by <a href='https://newsapi.org/' target='_blank'>{"https://newsapi.org/"}</a>) are read. It is generated using d3.js.
+				</p>
+
 				{Object.keys(this.props.count).length === 0 &&
 					<p className='msg-empty'>
 						Click headlines to view analysis.
 					</p>
 				}
-			
+
 				<div className='newsfeed-about-content' style={{display: (Object.keys(this.props.count).length === 0 ? 'none' : '')}}>
 					<svg ref='svg'></svg>
 				</div>
-
-				<p>
-					The background will populate based on which articles are read (or at least clicked on). The color coding is based on  <a href='https://newsapi.org/' target='_blank'>{"https://newsapi.org/"}</a>{"'s"} categorizations.
-				</p>
-
-				<p>
-					This began as a way of tracking my own bias in media consumption. By stripping headlines of source, the reader is left to determine interest based on the story (headline and description) itself.
-				</p>
 
 			</div>
 		)
 	}
 }
 
-export default NewsfeedAbout;
+export default NewsfeedAppAbout;

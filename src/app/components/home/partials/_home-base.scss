@@ -2,30 +2,8 @@
 	h1, h3 {
 		text-transform: uppercase;
 		font-size: 1.25rem;
-		color: $black;
-		@extend .font-light;
-	}
-	&-info {
-		align-items: flex-end;
-		justify-content: flex-end;
-		&-box {
-			padding: 3.5rem 1rem;
-			background: $beige;
-			position: relative;
-			margin: 0 1vh 1vw 0;
-			&:before {
-				content: '';
-				height: 5rem;
-				width: 5rem;
-				background: $yellow-bright;
-				border-radius: 100%;
-				top: -166vh;
-				right: 2rem;
-				position: absolute;
-				transition: top 1.5s;
-				z-index: 1;
-			}
-		}
+		color: $blue-dark;
+		font-weight: 600;
 	}
 	&-bg {
 		position: fixed;
