@@ -14,7 +14,7 @@ function wrap(text) {
 		x = text.attr("x"),
 		y = text.attr("y");
 
-		text.style('font-size', function(d,i) { console.log(d, i); return Math.min(12, d.r/3.5); })
+		text.style('font-size', function(d,i) { return Math.min(12, d.r/3.5); })
 
 		if (width > maxWidth) {
 
@@ -54,6 +54,7 @@ class NewsfeedAppAbout extends React.Component {
 
 		this.updateSvg = this.updateSvg.bind(this);
 		this.getData = this.getData.bind(this);
+		this.getCategoryTags = this.getCategoryTags.bind(this);
 	}
 	componentDidMount() {
 		this.updateSvg();
@@ -102,15 +103,20 @@ class NewsfeedAppAbout extends React.Component {
 		let children = [];
 		let source;
 		let category;
+		const {
+			count,
+			countBySource,
+			sourcesDictionary
+		} = this.props;
 
-		for (category in this.props.count) {
+		for (category in count) {
 			temp = [];
-			for (source in this.props.countBySource) {
-				if (this.props.sourcesDictionary[source].category === category) {
+			for (source in countBySource) {
+				if (sourcesDictionary[source].category === category) {
 					temp.push({
-						category: this.props.sourcesDictionary[source].category,
-						name: this.props.sourcesDictionary[source].name,
-						value: this.props.countBySource[source],
+						category: sourcesDictionary[source].category,
+						name: sourcesDictionary[source].name,
+						value: countBySource[source],
 						color: 'rgba(255,255,255,0.25)'
 					});
 				}
@@ -124,9 +130,18 @@ class NewsfeedAppAbout extends React.Component {
 
 		return {children: children};
 	}
+	getCategoryTags() {
+		return this.props.categories.sort().map((category) => {
+			return (
+				<span className={'newsfeed-article-category ' + category} key={category} style={{background: colors[category]}}>
+					{category.replace(/-/g, ' ')}
+				</span>
+			)
+		});
+	}
 	render() {
 		return (
-			<div className='newsfeed-about container'>
+			<div className='newsfeed-app-about container'>
 				<h2>Media Diet</h2>
 				<p>
 					This began as a way of tracking my own bias in media consumption. By stripping stories of source, the reader is left to determine interest based on the story (headline and description) itself. This also exposes the reader to sources and topics that may not be part of their typical news diet.
@@ -143,6 +158,10 @@ class NewsfeedAppAbout extends React.Component {
 						Click headlines to view analysis.
 					</p>
 				}
+
+				<div className='newsfeed-app-about-categories'>
+					{this.getCategoryTags()}
+				</div>
 
 				<div className='newsfeed-about-content' style={{display: (Object.keys(this.props.count).length === 0 ? 'none' : '')}}>
 					<svg ref='svg'></svg>

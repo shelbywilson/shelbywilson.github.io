@@ -38,13 +38,4 @@
 			margin: 10px 0;
 		}
 	}
-	&-category {
-		padding: 0.25em 0.5em;
-		line-height: 1.8em;
-		margin: 0.5em 0;
-		display: inline-block;
-		&.sports, &.science, &.politics {
-			color: #fff;
-		}
-	}
 }

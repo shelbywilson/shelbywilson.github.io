@@ -16,6 +16,12 @@
 	}
 	&:hover, &-active {
 		background: $peach-light;
+	}	
+	&-category {
+		padding: 0.25em 0.5em;
+		line-height: 1.8em;
+		margin: 0.5em 0;
+		display: inline-block;
 	}
 	@include tablet {
 		background: #fff;
