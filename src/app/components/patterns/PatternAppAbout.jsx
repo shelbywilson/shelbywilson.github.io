@@ -23,7 +23,7 @@ class PatternAppAbout extends React.Component {
 					Floor loom weaving patterns have three parts: threading, tie-up, and treading order (or treadling). The threading is repeated horizontally to achieve the desired width while the treading order is repeated to achieve the desired length. Some patterns have multiple treading orders which will produce variations.
 				</p>
 				<p>
-					Clicking 'edit' will take you to the <a href='/patterns/builder' target='_blank'>pattern builder</a> module. As the patterns are edited, the url is updated with the a sharable encoded pattern.
+					Clicking 'edit' will take you to the <a href='/patterns/builder' target='_blank'>pattern builder</a> module. As the patterns are edited, the url is updated with a sharable encoded pattern.
 				</p>
 				<p>
 					A note about my translation process: because the source material is a pdf, I first transcribed it as written. Then, because it was published in 1912, and because of the <a href='https://en.wikipedia.org/wiki/Reforms_of_Russian_orthography#The_post-revolution_reform' target='_blank'>post-revolution reform</a> of Russian orthography, I translated old syntax to modern. Finally, I translated to English. This manual is fairly technical so I constructed a glossary of weaving terms.

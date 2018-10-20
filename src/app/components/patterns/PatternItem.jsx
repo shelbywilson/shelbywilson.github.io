@@ -37,12 +37,17 @@ class PatternItem extends React.Component {
 		return true;
 	}
 	render() {
+		const {
+			data,
+			patternNumber,
+			subActive
+		} = this.props;
 		return (
 			<div className='pattern-item'>
 
 				{this.isEditable() ? 
 					<div>
-						<a className='pattern-item-edit' href={'/patterns/builder' + '#' + util.getPatternEncodedUrl(this.props.data)}>
+						<a className='pattern-item-edit' href={'/patterns/builder' + '#' + util.getPatternEncodedUrl(data) + '_pn-' + patternNumber + '-' + subActive}>
 							edit
 						</a>
 					</div>	
@@ -50,15 +55,15 @@ class PatternItem extends React.Component {
 					null
 				}
 						
-				<PatternItemNotes notes={this.props.data.notes || []} />
+				<PatternItemNotes notes={data.notes || []} />
 					
 				{['threading', 'tie_up', 'treadling'].map(function (type) {
 					return (
 						<PatternSection label={this.content[type]} key={type}>
-							<PatternGrid data={this.props.data[type]} 
+							<PatternGrid data={data[type]} 
 								type={type} 
-								patternNumber={this.props.patternNumber}
-								subActive={this.props.subActive}
+								patternNumber={patternNumber}
+								subActive={subActive}
 								onUpdateSubActive={this.updateSubActive} />
 						</PatternSection>
 					)

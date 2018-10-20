@@ -8,7 +8,7 @@ import PatternAppNav from './PatternAppNav.jsx';
 
 import util from './../common/site-data/util.js';
 
-const defaultState = {
+let defaultState = {
 	threading: [
 		[0,0,0,0],
 		[0,0,0,0],
@@ -28,7 +28,8 @@ const defaultState = {
 		[0,0],
 		[0,0],
 		[0,0]
-	]
+	],
+	patternNumber: false
 }
 
 class PatternBuilder extends React.Component {
@@ -37,8 +38,11 @@ class PatternBuilder extends React.Component {
 
 		const data = util.getPatternDecodeFromUrl(window.location.hash.replace(/#/g, ''));
 
+		console.log(data)
+
 		if (data) {
 			this.state = data;
+			defaultState = JSON.parse(JSON.stringify(data));
 		} else {
 			this.state = JSON.parse(JSON.stringify(defaultState));
 		}
@@ -140,7 +144,8 @@ class PatternBuilder extends React.Component {
 				<PatternAppNav />
 
 				<div className='pattern-item'>
-					<PatternBuilderControls onReset={this.reset} />
+					<PatternBuilderControls onReset={this.reset} 
+						patternNumber={this.state.patternNumber} />
 
 					{['threading', 'tie_up', 'treadling'].map(function (type) {
 						return (

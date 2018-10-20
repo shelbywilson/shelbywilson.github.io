@@ -3,7 +3,9 @@
 		text-align: right;
 	}
 	&-controls {
-		&-reset {
+		&-action {
+			margin: 0 0.5rem;
+			line-height: 1.5rem;
 			@extend .btn-dotted;
 		}
 	}
