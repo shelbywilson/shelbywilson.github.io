@@ -6,7 +6,10 @@ import PatternGrid from './PatternGrid.jsx';
 import PatternBuilderControls from './PatternBuilderControls.jsx';
 import PatternAppNav from './PatternAppNav.jsx';
 
-import util from './../common/site-data/util.js';
+import getPatternDecodeFromUrl from './../../utility/getPatternDecodeFromUrl';
+import getPatternEncodedUrl from './../../utility/getPatternEncodedUrl';
+import getContent from './../../utility/getContent';
+import setUrlHash from './../../utility/setUrlHash';
 
 let defaultState = {
 	threading: [
@@ -36,10 +39,7 @@ class PatternBuilder extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const data = util.getPatternDecodeFromUrl(window.location.hash.replace(/#/g, ''));
-
-		console.log(data)
-
+		const data = getPatternDecodeFromUrl(window.location.hash.replace(/#/g, ''));
 		if (data) {
 			this.state = data;
 			defaultState = JSON.parse(JSON.stringify(data));
@@ -51,10 +51,10 @@ class PatternBuilder extends React.Component {
 		this.modifyGrid = this.modifyGrid.bind(this);
 		this.reset = this.reset.bind(this);
 
-		this.content = util.getContent('en').patterns;
+		this.content = getContent('en').patterns;
 	}
 	componentDidUpdate() {
-		util.setUrlHash(util.getPatternEncodedUrl(this.state));
+		setUrlHash(getPatternEncodedUrl(this.state));
 	}
 	toggleVal({type = 'threading', col = 0, row = 0, val = 0}) {
 		let grid = this.state[type].slice();
@@ -135,7 +135,9 @@ class PatternBuilder extends React.Component {
 		this.setState(update);
 	}
 	reset() {
-		this.setState(JSON.parse(JSON.stringify(defaultState)));
+		this.setState(
+			JSON.parse(JSON.stringify(defaultState))
+		);
 	}
 	render() {
 		return (

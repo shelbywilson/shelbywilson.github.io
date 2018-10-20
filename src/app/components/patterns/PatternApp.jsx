@@ -8,7 +8,7 @@ import PatternItem from './PatternItem.jsx';
 import PatternSwatch from './PatternSwatch.jsx';
 import PatternAppNav from './PatternAppNav.jsx';
 
-import util from './../common/site-data/util.js';
+import setUrlHash from './../../utility/setUrlHash';
 
 const options = Object.keys(__patternData);
 
@@ -85,7 +85,7 @@ class PatternApp extends React.Component {
 			subActive: 0
 		})
 
-		util.setUrlHash(number);
+		setUrlHash(number);
 	}
 	updateSubActive(subActive) {
 		this.setState({

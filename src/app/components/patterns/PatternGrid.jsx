@@ -2,7 +2,8 @@ import React from 'react';
 import * as d3 from "d3";
 import $ from 'jquery';
 
-import util from './../common/site-data/util.js';
+import setUrlHash from './../../utility/setUrlHash';
+import getContent from './../../utility/getContent';
 
 class PatternGrid extends React.Component {
 	constructor(props) {
@@ -12,7 +13,7 @@ class PatternGrid extends React.Component {
 			sections: Array.isArray(props.data[0][0]) ? props.data.length : 1
 		}	
 
-		this.content = util.getContent('en').patterns;
+		this.content = getContent('en').patterns;
 		this.updateSvg = this.updateSvg.bind(this);
 		this.changeSection = this.changeSection.bind(this);
 		this.toggleVal = this.toggleVal.bind(this);
@@ -143,7 +144,7 @@ class PatternGrid extends React.Component {
 	changeSection(i) {
 		this.props.onUpdateSubActive(i);
 
-		util.setUrlHash(this.props.patternNumber + '.' + i)
+		setUrlHash(this.props.patternNumber + '.' + i)
 	}
 	toggleVal(row, col, val) {
 		if (this.props.onToggleVal) {

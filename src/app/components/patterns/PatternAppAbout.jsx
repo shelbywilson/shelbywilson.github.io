@@ -1,12 +1,13 @@
 import React from 'react';
 
-import util from './../common/site-data/util.js';
+import util from './../../utility/util';
+import getContent from './../../utility/getContent';
 
 class PatternAppAbout extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.content = util.getContent('en').patterns;
+		this.content = getContent('en').patterns;
 	}
 	render() {
 		return (

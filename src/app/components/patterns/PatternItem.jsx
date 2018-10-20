@@ -4,13 +4,14 @@ import PatternItemNotes from './PatternItemNotes.jsx';
 import PatternSection from './PatternSection.jsx';
 import PatternGrid from './PatternGrid.jsx';
 
-import util from './../common/site-data/util.js';
+import getContent from './../../utility/getContent';
+import getPatternEncodedUrl from './../../utility/getPatternEncodedUrl';
 
 class PatternItem extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.content = util.getContent('en').patterns;
+		this.content = getContent('en').patterns;
 
 		this.updateSubActive = this.props.onUpdateSubActive;
 		this.isEditable = this.isEditable.bind(this);
@@ -47,7 +48,7 @@ class PatternItem extends React.Component {
 
 				{this.isEditable() ? 
 					<div>
-						<a className='pattern-item-edit' href={'/patterns/builder' + '#' + util.getPatternEncodedUrl(data) + '_pn-' + patternNumber + '-' + subActive}>
+						<a className='pattern-item-edit' href={'/patterns/builder' + '#' + getPatternEncodedUrl(data) + '_pn-' + patternNumber + '-' + subActive}>
 							edit
 						</a>
 					</div>	
