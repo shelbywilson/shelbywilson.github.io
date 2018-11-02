@@ -5,7 +5,7 @@ const colors = {
 	'general': '#f6befe',
 	'music': '#dde0ff',
 	'politics': '#fdec02',
-	'science': '#78abf1',
+	'science': '#90bfff',
 	'sports': '#FF8A65',
 	'technology': '#ffc0cb'
 };

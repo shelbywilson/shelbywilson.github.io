@@ -9,6 +9,8 @@ import NewsfeedAppNav from './NewsfeedAppNav.jsx';
 import NewsfeedAppAbout from './NewsfeedAppAbout.jsx';
 import Loading from './../common/loading/Loading.jsx';
 
+import getShuffledArray from './../../utility/getShuffledArray';
+
 const apiKey = 'cb15d26e791f471abee466ce78d79760';
 
 class NewsfeedApp extends React.Component {
@@ -27,21 +29,18 @@ class NewsfeedApp extends React.Component {
 			countBySource: {},
 			categories: [],
 			focus: false,
-			numLoaded: 0,
 			isSorted: false,
 			query: ''
 		}
 
-		this.getArticles = this.getArticles.bind(this);
 		this.loadMore = this.loadMore.bind(this);
 		this.toggleFocusedArticle = this.toggleFocusedArticle.bind(this);
 		this.track = this.track.bind(this);
 		this.setSources = this.setSources.bind(this);
-		this.setArticles = this.setArticles.bind(this);
 		this.toggleSortedArray = this.toggleSortedArray.bind(this);
-		this.resetPage = this.resetPage.bind(this);
+		this.refreshPage = this.refreshPage.bind(this);
 		this.search = this.search.bind(this);
-		this.setAllArticles = this.setAllArticles.bind(this);
+		this.setArticles = this.setArticles.bind(this);
 
 		this.setSources();
 	}
@@ -49,80 +48,57 @@ class NewsfeedApp extends React.Component {
 		setTimeout(function () {
 			if (!this.state.isLoaded) {
 				this.setState({
-					isLoaded: true,
-					initialArticles: this.state.articles.slice()
+					isLoaded: true
 				})
 			}
 		}.bind(this), 10000)
 	}
-	componentDidUpdate(prevProps, prevState) {
-		if (this.state.numLoaded === this.state.sources.length && !this.state.isLoaded) {
-			this.setState({
-				isLoaded: true,
-				initialArticles: this.state.articles.slice()
-			})
-		}
-	}
-	resetPage() {
+	refreshPage() {
 		this.setState({
-			isLoaded: false,
-			numLoaded: 0,
 			count: {},
 			countBySource: {},
 			clicks: 0,
 			articles: [],
+			initialArticles: [],
 			displayEnd: 20,
-			isSorted: false
+			isSorted: false,
+			isLoaded: false
 		});
 
-		this.setAllArticles();
+		this.setArticles(1, []);
 	}
 	setSources() {
 		$.ajax({
 			url: "https://newsapi.org/v1/sources?language=en",
 			success: function(data){
 				this.setState({
-					sources: this._getShuffledArray(data.sources),
+					sources: data.sources,
 					sourcesDictionary: this._getSourcesDictionary(data.sources),
 					categories: this._getCategories(data.sources)
 				});
-				this.setAllArticles();
+				this.setArticles();
 		 	}.bind(this)
 		});
 	}
-	setAllArticles() {
-		this.setArticles(0, 20);
-		setTimeout(function() {
-			this.setArticles(21, 40);
-		}.bind(this), 1000)
-		setTimeout(function() {
-			this.setArticles(41, this.state.sources.length);
-		}.bind(this), 2000)
-	}
-	setArticles(start, end) {
-		let i;
+	setArticles(page = 1, articles = this.state.articles.slice()) {	
+		let allSources = '';
 
-		for (i = start; i <= end; i += 1) {
-			if (this.state.sources[i]) {
-				this.getArticles(this.state.sources[i]);
-			}
-		}
-	}
-	getArticles(source) {		
-		let articles;
+		this.state.sources.forEach((source) => {
+			allSources += source.id + ',';
+		});
+
+		allSources = allSources.slice(0,-1);
 
 		$.ajax({
-			url: "https://newsapi.org/v1/articles?"
-				+ "source=" + source.id
-				+ "&sortBy=" + source.sortBysAvailable[0]
-				+ "&apiKey=" + apiKey,
+			url: "https://newsapi.org/v2/top-headlines?"
+				+ "sources=" + allSources
+				+ "&apiKey=" + apiKey
+				+ "&pageSize=" + 100
+				+ "&page=" + page
+			,
 			success: function(data){
-				articles = this.state.articles;
-				//articles[data.source] = data.articles;
-
-				data.articles.forEach(function (article){
-					article.source = data.source;
-					article.category = source.category;
+				data.articles.forEach((article) => {
+					article.source = article.source.id;
 
 					if (article.title && article.publishedAt) {
 						articles.push(article);
@@ -130,14 +106,22 @@ class NewsfeedApp extends React.Component {
 				});
 
 				this.setState({
-					articles: this._getShuffledArray(articles),
-					numLoaded: this.state.numLoaded + 1
+					articles: articles,
+					initialArticles: articles.slice()
 				});
+
+				if (data.totalResults/100 > page) {
+					this.setArticles(page + 1);
+				} else {
+					articles = getShuffledArray(articles);
+					this.setState({
+						isLoaded: true,
+						articles: articles,
+						initialArticles: articles.slice()
+					})
+				}
 		 	}.bind(this),
 		 	error: function (xhr, status) {
-		 		this.setState({
-		 			numLoaded: this.state.numLoaded + 1
-		 		})
 		 		console.log(xhr, status)
 		 	}.bind(this)
 		});
@@ -186,7 +170,7 @@ class NewsfeedApp extends React.Component {
 		if (newState) {
 			arr = this._getSortedArray(this.state.articles);
 		} else {
-			arr = this._getShuffledArray(this.state.articles);
+			arr = getShuffledArray(this.state.articles);
 		}
 
 		this.setState({
@@ -217,19 +201,6 @@ class NewsfeedApp extends React.Component {
 			return moment(a.publishedAt).isBefore(b.publishedAt) ? 1 : -1
 		})
 	}
-	_getShuffledArray(arr) {
-		let ctr = arr.length, temp, index;
-
-		while (ctr > 0) {
-			index = Math.floor(Math.random() * ctr);
-			ctr--;
-			temp = arr[ctr];
-			arr[ctr] = arr[index];
-			arr[index] = temp;
-	    }
-
-	    return arr;
-	}
 	_getSourcesDictionary(sources) {
 		let dictionary = {};
 
@@ -249,44 +220,56 @@ class NewsfeedApp extends React.Component {
 		return Object.keys(categories);
 	}
 	render() {
+		const {
+			count,
+			countBySource,
+			sourcesDictionary,
+			categories,
+			articles,
+			clicks,
+			isLoaded,
+			isSorted,
+			displayEnd,
+			query
+		} = this.state;
 		return (
 			<div className='newsfeed container'>
 
 				<NewsfeedAppNav>
-					<NewsfeedAppAbout count={this.state.count} 
-						countBySource={this.state.countBySource} 
-						sourcesDictionary={this.state.sourcesDictionary} 
-						categories={this.state.categories}
-						articles={this.state.articles} />
+					<NewsfeedAppAbout count={count} 
+						countBySource={countBySource} 
+						sourcesDictionary={sourcesDictionary} 
+						categories={categories}
+						articles={articles} />
 				</NewsfeedAppNav>
 
-				<NewsfeedBackground clicks={this.state.clicks} 
-					count={this.state.count} />
-				{this.state.isLoaded === false ?
+				<NewsfeedBackground clicks={clicks} 
+					count={count} />
+				{isLoaded === false ?
 					<Loading />
 					:
 					<div>
 						<div className='newsfeed-actions'>
 							<div className='newsfeed-sort'>				
 								<label>
-									<input type='checkbox' checked={this.state.isSorted} onChange={this.toggleSortedArray} />
+									<input type='checkbox' checked={isSorted} onChange={this.toggleSortedArray} />
 									sort by most recent
 								</label>
 							</div>
 
-							<button type='button' className='btn-primary newsfeed-refresh' onMouseUp={this.resetPage} >
+							<button type='button' className='btn-primary newsfeed-refresh' onMouseUp={this.refreshPage} >
 								Refresh
 								&nbsp;
 								<span className='symbol-refresh'>&#x21bb;</span>
 							</button>
 						</div>
 						<div className='newsfeed-search'> 
-							<input type='text' className={this.state.query.length === 0 ? 'empty' : ''} spellCheck={false} onKeyUp={this.search} placeholder={'search'}/>
-							{this.state.articles.length} articles
+							<input type='text' className={query.length === 0 ? 'empty' : ''} spellCheck={false} onKeyUp={this.search} placeholder={'search'}/>
+							{articles.length} articles
 						</div>
 						<ul className='newsfeed-articles'>
-							{this.state.articles.map(function (article, i) {
-								if (i <= this.state.displayEnd) {
+							{articles.map(function (article, i) {
+								if (i <= displayEnd) {
 									return (
 										<NewsfeedArticle article={article} 
 											key={article.url + '_' + i}
@@ -297,7 +280,7 @@ class NewsfeedApp extends React.Component {
 								}
 							}.bind(this))}
 						</ul>
-						{this.state.displayEnd < this.state.articles.length &&
+						{displayEnd < articles.length &&
 							<div className='newsfeed-load-more'>
 								<button type="button" onMouseUp={this.loadMore} >
 									More + 
@@ -307,7 +290,7 @@ class NewsfeedApp extends React.Component {
 					</div>
 				}
 				<NewsfeedFocusedArticle article={this.state.focus} 
-					source={this.state.focus ? this.state.sourcesDictionary[this.state.focus.source] : {}} 
+					source={this.state.focus ? sourcesDictionary[this.state.focus.source] : {}} 
 					onToggleFocusedArticle={this.toggleFocusedArticle} />
 			</div>
 		)
