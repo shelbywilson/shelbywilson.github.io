@@ -96,7 +96,7 @@ class PatternApp extends React.Component {
 		return (
 			<div className='container pattern-app'>
 
-				<PatternAppNav />
+				<PatternAppNav activeLink={'Patterns main'}/>
 
 				<div className='pattern-app-select'>
 					<Dropdown options={options}

@@ -23,7 +23,8 @@ class Nav extends React.Component {
 	render() {
 		const {
 			links,
-			app
+			app,
+			activeLink
 		} = this.props;
 		return (
 			<span>
@@ -36,7 +37,7 @@ class Nav extends React.Component {
 							{links.map(function(link, i) {
 								return (
 									<li key={i}>
-										<a className='app-nav-link' href={link.href} aria-label={link.label}>
+										<a className={'app-nav-link ' + (activeLink === link.label ? ' app-nav-link-active' : '')} href={link.href} aria-label={link.label}>
 											{i + 1}
 										</a>
 									</li>

@@ -21,7 +21,7 @@ class PatternAppAbout extends React.Component {
 					</a> for my mom, who is a weaver. 
 				</p>
 				<p>
-					Floor loom weaving patterns have three parts: threading, tie-up, and treading order (or treadling). The threading is repeated horizontally to achieve the desired width while the treading order is repeated to achieve the desired length. Some patterns have multiple treading orders which will produce variations.
+					Floor loom weaving drafts are composed of three parts: threading, tie-up, and treadling sequence. The threading is repeated horizontally to achieve the desired fabric width while the treadling is repeated to achieve the desired length. Some patterns have multiple treadlings which will produce variations.
 				</p>
 				<p>
 					Clicking 'edit' will take you to the <a href='/patterns/builder' target='_blank'>pattern builder</a> module. As the patterns are edited, the url is updated with a sharable encoded pattern.

@@ -18,7 +18,7 @@
 		color: $white;
 		text-align: center;
 		@extend .font-heavy;
-		&:hover {
+		&:hover, &-active {
 			background: $yellow-bright;
 			color: $blue-dark;
 		}

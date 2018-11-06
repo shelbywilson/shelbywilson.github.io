@@ -143,7 +143,7 @@ class PatternBuilder extends React.Component {
 		return (
 			<div className='pattern-builder pattern-app container'>	
 
-				<PatternAppNav />
+				<PatternAppNav activeLink={'Builder'}/>
 
 				<div className='pattern-item'>
 					<PatternBuilderControls onReset={this.reset} 

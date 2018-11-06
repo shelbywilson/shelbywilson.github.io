@@ -18,7 +18,8 @@ class PatternAppNav extends React.Component {
 	render() {
 		return (
 			<AppNav links={links}
-				app='patterns'>
+				app='patterns'
+				activeLink={this.props.activeLink}>
 
 				<PatternAppAbout />
 				

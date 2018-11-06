@@ -1,9 +1,9 @@
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var Path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var Webpack = require('webpack');
-var port = 3000;
-var CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Webpack = require('webpack');
+const port = 3000;
+const CopyWebpackPlugin = require('copy-webpack-plugin');  
 
 var webpackConfig = {
     entry: {
@@ -14,7 +14,7 @@ var webpackConfig = {
         'pattern-builder': './src/app/entry/pattern-builder.js'
     },
     output: {
-        filename: "./dist/scripts/[name].min.js"
+        filename: "./dist/scripts/[name].[hash].min.js"
     },
     devtool: 'source-map',
     module: {
