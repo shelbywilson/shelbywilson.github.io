@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Webpack = require('webpack');
 const port = 3000;
 const CopyWebpackPlugin = require('copy-webpack-plugin');  
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var webpackConfig = {
     entry: {
@@ -14,7 +15,7 @@ var webpackConfig = {
         'pattern-builder': './src/app/entry/pattern-builder.js'
     },
     output: {
-        filename: "./dist/scripts/[name].[hash].min.js"
+        filename: "./dist/scripts/[name].[hash:7].min.js"
     },
     devtool: 'source-map',
     module: {
@@ -39,6 +40,7 @@ var webpackConfig = {
         ]
     },
     plugins: [    
+        new CleanWebpackPlugin(['./dist']),
         new ExtractTextPlugin('dist/styles/main.css', {
             allChunks: true
         }),

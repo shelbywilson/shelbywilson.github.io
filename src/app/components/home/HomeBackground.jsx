@@ -19,17 +19,28 @@ class HomepageBackground extends React.Component {
 		this.setSvg = this.setSvg.bind(this);
 		this.resizeSvg = this.resizeSvg.bind(this);
 	}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.toggleReset !== this.props.toggleReset) {
+			if (nextProps.toggleReset === true) {
+				this.updateSvg(true);
+			} else {
+				this.updateSvg();
+			}
+		}
+	}
 	componentDidMount() {
 		window.addEventListener("resize", this.resizeSvg);
 		this.setSvg();
 
 		setTimeout(() => {
-			this.updateSvg();
-			$('body').addClass('loaded');
+			this.updateSvg();			
 		}, 1500);
 		setTimeout(() => {
+			$('body').addClass('loaded');
+		}, 2200);
+		setTimeout(() => {			
 			$('.home-info-box').addClass('loaded');
-		}, 2000);
+		}, 2700);
 	}
 	componentWillUnMount() {
 		window.removeEventListener("resize");
@@ -56,18 +67,17 @@ class HomepageBackground extends React.Component {
 			.attr('d', function(d) { return lineFunction(d); })
 			.attr('transform', 'rotate(0)');
 	}
-	updateSvg() {
+	updateSvg(isReset = false) {
 		let svg = d3.select(this.refs.svg);
+		const data = isReset ? this._getInitialData() : this._getUpdatedData();
 
 		svg.attr('width',this.state.width);
 		svg.attr('height',this.state.height);
 
-		const data = this._getUpdatedData();
-
 		svg.selectAll('.line')
 			.data(data)
 			.transition()
-			.attr('transform', function(d,i) { return 'rotate(' + i + ')'; })
+			.attr('transform', isReset ? 'rotate(0)' : function(d,i) { return 'rotate(' + i + ')'; })
 			.duration(1200)
 			.attr('d', function(d) { return lineFunction(d); });
 	}
