@@ -25,12 +25,12 @@ class Home extends React.Component {
 					<section className='home-projects'>
 						<ul className='home-links'>
 							<li>
-								<a href='/news'>
+								<a href='/news' aria-label='Media diet project'>
 									media diet
 								</a>
 							</li>
 							<li>
-								<a href='/patterns'>
+								<a href='/patterns' aria-label='Weaving patterns project'>
 									weaving
 								</a>
 							</li>

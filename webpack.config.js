@@ -15,7 +15,8 @@ var webpackConfig = {
         'pattern-builder': './src/app/entry/pattern-builder.js'
     },
     output: {
-        filename: "./dist/scripts/[name].[hash:7].min.js"
+        //filename: "./dist/scripts/[name].[hash:7].min.js"
+        filename: "./dist/scripts/[name].min.js"
     },
     devtool: 'source-map',
     module: {
@@ -40,7 +41,7 @@ var webpackConfig = {
         ]
     },
     plugins: [    
-        new CleanWebpackPlugin(['./dist']),
+        new CleanWebpackPlugin(['./dist/scripts']),
         new ExtractTextPlugin('dist/styles/main.css', {
             allChunks: true
         }),
