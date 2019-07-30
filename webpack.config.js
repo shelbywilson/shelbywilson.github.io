@@ -16,7 +16,7 @@ var webpackConfig = {
     },
     output: {
         //filename: "./dist/scripts/[name].[hash:7].min.js"
-        filename: "./dist/scripts/[name].min.js"
+        filename: "./dist/scripts/[name].[hash:7].min.js"
     },
     devtool: 'source-map',
     module: {
@@ -36,15 +36,13 @@ var webpackConfig = {
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                loader: ExtractTextPlugin.extract('css!sass')
+                loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
             }
         ]
     },
     plugins: [    
-        new CleanWebpackPlugin(['./dist/scripts']),
-        new ExtractTextPlugin('dist/styles/main.css', {
-            allChunks: true
-        }),
+        new CleanWebpackPlugin(['./dist/']),
+        new ExtractTextPlugin('dist/styles/[name].[hash:7].css'),
          new CopyWebpackPlugin([
             {from:'./src/files',to:'./dist/files'} 
         ]), 
@@ -58,15 +56,15 @@ var webpackConfig = {
     }
 };
 
-if (process.env.NODE_ENV === 'production') {
-    webpackConfig.plugins.push(
-        new Webpack.optimize.UglifyJsPlugin({
-            compress: {
-                screw_ie8: true
-            }
-        })
-    )
-} else {
+// if (process.env.NODE_ENV === 'production') {
+//     webpackConfig.plugins.push(
+//         new Webpack.optimize.UglifyJsPlugin({
+//             compress: {
+//                 screw_ie8: true
+//             }
+//         })
+//     )
+// } else {
     webpackConfig.devServer = {
         contentBase: Path.join(__dirname, './src/'),
         hot: true,
@@ -78,6 +76,6 @@ if (process.env.NODE_ENV === 'production') {
     webpackConfig.plugins.push(
         new Webpack.HotModuleReplacementPlugin()
     );
-}
+//}
 
 module.exports = webpackConfig;
