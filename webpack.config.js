@@ -46,6 +46,10 @@ var webpackConfig = {
          new CopyWebpackPlugin([
             {from:'./src/files',to:'./dist/files'} 
         ]), 
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: './index.html'
+        }), 
          new CopyWebpackPlugin([
             {from:'./src/img',to:'./dist/img'} 
         ]), 

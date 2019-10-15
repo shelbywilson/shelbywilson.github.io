@@ -54,7 +54,7 @@ class Home extends React.Component {
 								</a>
 							</li>
 							<li>
-								<a href='https://github.com/shelby-' aria-label='Shelby Wilson Github' target='_blank'>
+								<a href='https://github.com/shelbywilson' aria-label='Shelby Wilson Github' target='_blank'>
 									github
 								</a>
 							</li>
