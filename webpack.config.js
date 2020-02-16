@@ -12,8 +12,9 @@ const webpackConfig = {
          dev: './src/app/entry/dev.js',
     },
     output: {
-        filename: "./scripts/[name].[hash:7].min.js",
-        publicPath: '/',
+        filename: "scripts/[name].[hash:7].min.js",
+        path: Path.resolve('dist'),
+        publicPath: './dist/',
     },
     module: {
         rules: [
