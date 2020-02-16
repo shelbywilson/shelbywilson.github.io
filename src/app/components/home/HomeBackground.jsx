@@ -12,16 +12,12 @@ class HomepageBackground extends React.Component {
 
 		this.state = {
 			width: window.innerWidth,
-			height: window.innerHeight
+			height: window.innerHeight,
 		}
-
-		this.updateSvg = this.updateSvg.bind(this);
-		this.setSvg = this.setSvg.bind(this);
-		this.resizeSvg = this.resizeSvg.bind(this);
 	}
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.toggleReset !== this.props.toggleReset) {
-			if (nextProps.toggleReset === true) {
+	componentDidUpdate(prevProps, nextProps) {
+		if (prevProps.toggleReset !== this.props.toggleReset) {
+			if (this.props.toggleReset === true) {
 				this.updateSvg(true);
 			} else {
 				this.updateSvg();
@@ -45,7 +41,7 @@ class HomepageBackground extends React.Component {
 	componentWillUnMount() {
 		window.removeEventListener("resize");
 	}
-	setSvg() {
+	setSvg = () => {
 		let svg = d3.select(this.refs.svg);
 		let group;
 
@@ -67,7 +63,7 @@ class HomepageBackground extends React.Component {
 			.attr('d', function(d) { return lineFunction(d); })
 			.attr('transform', 'rotate(0)');
 	}
-	updateSvg(isReset = false) {
+	updateSvg = (isReset = false) => {
 		let svg = d3.select(this.refs.svg);
 		const data = isReset ? this._getInitialData() : this._getUpdatedData();
 
@@ -81,7 +77,7 @@ class HomepageBackground extends React.Component {
 			.duration(1200)
 			.attr('d', function(d) { return lineFunction(d); });
 	}
-	resizeSvg() {
+	resizeSvg = () => {
 		if (this.state.width !== window.innerWidth) {
 			let svg = d3.select(this.refs.svg);
 

@@ -14,9 +14,6 @@ class PatternGrid extends React.Component {
 		}	
 
 		this.content = getContent('en').patterns;
-		this.updateSvg = this.updateSvg.bind(this);
-		this.changeSection = this.changeSection.bind(this);
-		this.toggleVal = this.toggleVal.bind(this);
 	}
 	componentDidMount() {
 		window.addEventListener("resize", this.updateSvg);
@@ -25,19 +22,19 @@ class PatternGrid extends React.Component {
 	componentWillUnMount() {
 		window.removeEventListener("resize");
 	}
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.data != this.props.data) {
+	componentDidUpdate(prevProps, prevState) {
+		const {
+			data,
+		} = this.props;
+
+		if (prevProps.data != data) {
+			this.updateSvg();
 			this.setState({
-				sections: Array.isArray(nextProps.data[0][0]) ? nextProps.data.length : 1
+				sections: Array.isArray(data[0][0]) ? data.length : 1
 			})
 		}
 	}
-	componentDidUpdate(prevProps, prevState) {
-		if (prevProps.data != this.props.data) {
-			this.updateSvg();
-		}
-	}
-	updateSvg() {
+	updateSvg = () => {
 		const size = window.innerWidth > 450 ? 16 : 12;
 		const fontSize = window.innerWidth > 450 ? 12 : 9;
 		const data = this.props.data;
@@ -141,12 +138,12 @@ class PatternGrid extends React.Component {
 				.text(function (d, i) { return data[0].length - i; })
 		}
 	}
-	changeSection(i) {
+	changeSection = (i) => {
 		this.props.onUpdateSubActive(i);
 
 		setUrlHash(this.props.patternNumber + '.' + i)
 	}
-	toggleVal(row, col, val) {
+	toggleVal = (row, col, val) => {
 		if (this.props.onToggleVal) {
 			val = val === 0 ? 1 : 0; //val === 0 ? 1 : val === 1 && this.props.type !== 'tie_up' ? 2 : 0;
 

@@ -4,12 +4,6 @@ import PropTypes from 'prop-types';
 import $ from 'jquery';
 
 class Modal extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.close = this.close.bind(this);		
-		this.handleKeyDown = this.handleKeyDown.bind(this);
-	}
 	componentDidMount() {
 		window.addEventListener("keydown", this.handleKeyDown);
 	}
@@ -17,23 +11,23 @@ class Modal extends React.Component {
 		window.removeEventListener("keydown", this.handleKeyDown);
 		$('body').removeClass('modal-open');
 	}
-	componentWillReceiveProps(nextProps) {
-		if (nextProps.display !== this.props.display) {
-			if (nextProps.display) {
+	componentDidUpdate(prevProps) {
+		if (prevProps.display !== this.props.display) {
+			if (this.props.display) {
 				$('body').addClass('modal-open');
 			} else {
 				$('body').removeClass('modal-open');
 			}
 		}
 	}
-	close(e) {
+	close = (e) => {
 		if (e) {
 			this._stopPropagation(e);
 		}
 
 		this.props.onClose();
 	}
-	handleKeyDown(e) {
+	handleKeyDown = (e) => {
 		if (this.props.display) {
 			if (e.which === 27) {
 				this.close(false);

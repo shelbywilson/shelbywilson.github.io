@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom';
 
 import Home from './../components/home/Home.jsx';
 
-import reducers from './../reducers';
-
 import './../components/bundle.scss';
 
 ReactDOM.render(
-  <div>
+  <main>
     <Home />
-  </div>
+  </main>
   , document.getElementById('react-root'));

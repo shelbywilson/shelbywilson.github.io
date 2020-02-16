@@ -12,11 +12,8 @@ class PatternItem extends React.Component {
 		super(props);
 
 		this.content = getContent('en').patterns;
-
-		this.updateSubActive = this.props.onUpdateSubActive;
-		this.isEditable = this.isEditable.bind(this);
 	}
-	isEditable() {
+	isEditable = () => {
 		let i;
 		if (this.props.data.threading[0].length > 24) {
 			return false;
@@ -41,7 +38,8 @@ class PatternItem extends React.Component {
 		const {
 			data,
 			patternNumber,
-			subActive
+			subActive,
+			onUpdateSubActive,
 		} = this.props;
 		return (
 			<div className='pattern-item'>
@@ -65,7 +63,7 @@ class PatternItem extends React.Component {
 								type={type} 
 								patternNumber={patternNumber}
 								subActive={subActive}
-								onUpdateSubActive={this.updateSubActive} />
+								onUpdateSubActive={onUpdateSubActive} />
 						</PatternSection>
 					)
 				}.bind(this))}		

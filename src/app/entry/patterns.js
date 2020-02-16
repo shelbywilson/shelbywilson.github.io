@@ -6,5 +6,7 @@ import PatternApp from './../components/patterns/PatternApp.jsx';
 import './../components/bundle.scss';
 
 ReactDOM.render(
-  <PatternApp />
+	<main>
+ 	 <PatternApp />
+ 	</main>
   , document.getElementById('react-root'));

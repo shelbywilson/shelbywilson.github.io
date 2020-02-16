@@ -37,11 +37,6 @@ class PatternApp extends React.Component {
 			active: __patternData[index] ? index : 1,
 			subActive: subActive
 		}
-
-		this.navigatePatterns = this.navigatePatterns.bind(this);
-		this.handleKeyUp = this.handleKeyUp.bind(this);
-		this.selectPattern = this.selectPattern.bind(this);
-		this.updateSubActive = this.updateSubActive.bind(this);
 	}
 	componentDidMount() {
 		window.addEventListener("keyup", this.handleKeyUp);
@@ -52,14 +47,14 @@ class PatternApp extends React.Component {
 	componentWillUnmount() {
 		window.removeEventListener("keyup", this.handleKeyUp);
 	}
-	handleKeyUp(e) {
+	handleKeyUp = (e) => {
 		if (e.which === 37) {
 			this.navigatePatterns(false);
 		} else if (e.which === 39) {
 			this.navigatePatterns(true);
 		}
 	}
-	navigatePatterns(increase) {
+	navigatePatterns = (increase) => {
 		const lastPattern = Object.keys(__patternData).reduce(function(a, b) { return Math.max(a, b); });;
 		let newState = this.state.active;
 
@@ -77,7 +72,7 @@ class PatternApp extends React.Component {
 
 		this.selectPattern(newState);
 	}
-	selectPattern(number) {
+	selectPattern = (number) => {
 		number = number.value || number;
 
 		this.setState({
@@ -87,7 +82,7 @@ class PatternApp extends React.Component {
 
 		setUrlHash(number);
 	}
-	updateSubActive(subActive) {
+	updateSubActive = (subActive) => {
 		this.setState({
 			subActive: subActive
 		})

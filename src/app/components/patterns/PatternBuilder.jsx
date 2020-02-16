@@ -9,7 +9,7 @@ import PatternAppNav from './PatternAppNav.jsx';
 import getPatternDecodeFromUrl from './../../utility/getPatternDecodeFromUrl';
 import getPatternEncodedUrl from './../../utility/getPatternEncodedUrl';
 import getContent from './../../utility/getContent';
-import setUrlHash from './../../utility/setUrlHash';
+import setUrlHash from './../../utility/util';
 
 let defaultState = {
 	threading: [
@@ -47,16 +47,12 @@ class PatternBuilder extends React.Component {
 			this.state = JSON.parse(JSON.stringify(defaultState));
 		}
 
-		this.toggleVal = this.toggleVal.bind(this);
-		this.modifyGrid = this.modifyGrid.bind(this);
-		this.reset = this.reset.bind(this);
-
 		this.content = getContent('en').patterns;
 	}
 	componentDidUpdate() {
 		setUrlHash(getPatternEncodedUrl(this.state));
 	}
-	toggleVal({type = 'threading', col = 0, row = 0, val = 0}) {
+	toggleVal = ({type = 'threading', col = 0, row = 0, val = 0}) => {
 		let grid = this.state[type].slice();
 		let update = {};
 
@@ -73,7 +69,7 @@ class PatternBuilder extends React.Component {
 
 		this.setState(update);
 	}
-	modifyGrid({isAddCol = false, isAddRow = false, isRemoveCol = false, isRemoveRow = false, isTreadling = false, isThreading = false}) {
+	modifyGrid = ({isAddCol = false, isAddRow = false, isRemoveCol = false, isRemoveRow = false, isTreadling = false, isThreading = false}) => {
 		let update = {};
 		let threading = this.state.threading.slice();
 		let treadling = this.state.treadling.slice();
@@ -134,7 +130,7 @@ class PatternBuilder extends React.Component {
 
 		this.setState(update);
 	}
-	reset() {
+	reset = () => {
 		this.setState(
 			JSON.parse(JSON.stringify(defaultState))
 		);

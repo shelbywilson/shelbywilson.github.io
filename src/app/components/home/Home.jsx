@@ -10,9 +10,9 @@ class Home extends React.Component {
 			toggleReset: false
 		}
 
-		this.reset = this.reset.bind(this);
+		console.log('hello')
 	}
-	reset() {
+	reset = () => {
 		this.setState({
 			toggleReset: !this.state.toggleReset
 		})
@@ -42,6 +42,11 @@ class Home extends React.Component {
 							<li>
 								<a href='https://vurvco.github.io/network-viz/' aria-label="vurv network diagram" target='_blank'>
 									network viz
+								</a>
+							</li>
+							<li>
+								<a href='http://shelby.cool/sfpc' aria-label="sfpc" target='_blank'>
+									sfpc
 								</a>
 							</li>
 						</ul>

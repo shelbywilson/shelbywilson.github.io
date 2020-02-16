@@ -6,5 +6,7 @@ import PatternBuilder from './../components/patterns/PatternBuilder.jsx';
 import './../components/bundle.scss';
 
 ReactDOM.render(
-    <PatternBuilder />
+	<main>
+    	<PatternBuilder />
+    </main>
   , document.getElementById('react-root'));

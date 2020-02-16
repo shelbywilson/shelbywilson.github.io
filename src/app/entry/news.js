@@ -6,5 +6,7 @@ import NewsfeedApp from './../components/news/NewsfeedApp.jsx';
 import './../components/bundle.scss';
 
 ReactDOM.render(
-	<NewsfeedApp />
+	<main>
+		<NewsfeedApp />
+	</main>
   , document.getElementById('react-root'));
