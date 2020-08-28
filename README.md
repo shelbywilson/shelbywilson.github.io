@@ -1,4 +1,4 @@
-## www.westsoutheast.com
+## https://shelby.cool / https://shelbywilson.github.io
 
 ##### start dev server
 ```
