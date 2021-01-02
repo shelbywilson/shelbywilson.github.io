@@ -1,0 +1,21 @@
+.split-word {
+    display: flex;
+    span {
+        transition: transform 300ms;
+        height: 30px;
+        &:nth-child(3), &:nth-child(4), &:nth-child(11), &:nth-child(12), &:nth-child(17), &:nth-child(18), &:nth-child(27) {
+            transform: translateY(1.25rem);
+        }
+        &:nth-child(2), &:nth-child(7), &:nth-child(8), &:nth-child(14), &:nth-child(15), &:nth-child(25), &:nth-child(26) {
+            transform: translateY(2.75rem);
+        }
+        &:nth-child(5), &:nth-child(9), &:nth-child(13), &:nth-child(21), &:nth-child(23), &:nth-child(24) {
+            transform: translateY(4rem);
+        }
+    }
+    &.collapse {
+        span {
+            transform: translateY(0);;
+        }
+    }
+}

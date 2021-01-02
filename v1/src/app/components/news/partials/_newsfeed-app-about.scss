@@ -1,0 +1,19 @@
+.newsfeed-app-about {
+	&-content {
+		min-height: 100%;
+		width: 100%;
+	}
+	&-toggle {
+		display: block;
+		margin: 2rem auto;
+	}
+	svg {
+		max-height: 80vh;
+		width: 100%;
+		margin: 0 auto;
+		display: block;
+	}
+	.newsfeed-article-category {
+		margin: 0.5rem 0.5rem 0.5rem 0;
+	}
+}

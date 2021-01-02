@@ -1,0 +1,48 @@
+@import './../../base/base';
+
+.pattern-finder {
+    font-family: sans-serif;
+    padding: 1rem 0;
+    min-height: 800px;
+    a {
+        text-align: center;
+        display: block;
+    }
+    &-checkboxes {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 2rem 0;
+        &-column {
+            display: flex;
+            flex-direction: column;
+            margin: 0 2rem;
+        }
+    }
+    &-squares {
+        display: flex; 
+        flex-direction: row;
+        flex-wrap: wrap; 
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 460px;
+        transform: translateX(-50%) scale(.6);
+        left: 50%;
+        position: absolute;
+        transform-origin: top;
+        @include breakpoint(sm) {
+            transform: scale(1);
+            left: 0;
+            position: relative;
+        }
+    }
+    &-square {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 6px;
+        > div {
+            position: absolute;
+        }
+    }
+}

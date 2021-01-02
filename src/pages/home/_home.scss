@@ -1,0 +1,156 @@
+@import './../../base/base';
+@import './partials/animations';
+@import './partials/variables';
+@import './partials/split-word';
+@import './partials/typography';
+
+@import './partials/footer';
+@import './partials/header';
+@import './partials/time-background';
+@import './partials/home-detail';
+@import './partials/decimal-clock';
+
+html {
+    background: white;
+}
+
+body {
+    overflow: hidden;
+}
+
+.home {
+    &-content {
+        &-year {
+            margin-top: $margin * 5;
+            text-align: right;
+        }
+    }
+
+    &:not(.scrolled) {
+        h1 {
+            @extend .collapse;
+        }
+    }
+    &.scrolled {
+        header a:hover h1 {
+            @extend .collapse;
+        }
+    }
+
+    .img {
+        transition: filter 300ms;
+        width: 100%;
+        max-width: 700px;
+        min-height: 100px;
+        margin: 0 auto;
+        filter: hue-rotate(45deg);
+        position: relative;
+        border-bottom: 1px solid #000;
+        &.inverse {
+            filter: hue-rotate(-40deg);
+        }
+        img {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        &.dark {
+            background: #272727;
+            a {
+                color: #fff;
+            }
+        }
+        a {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            justify-content: flex-end;
+            color: #000;
+            padding: 10px;
+            top: 0;
+            right: 0;
+            text-transform: uppercase;
+            @extend .split-word;
+            &:hover {
+                @extend .collapse;
+            }
+        }
+        h4 {
+            position: absolute;
+            color: #000;
+            bottom: 0;
+            left: $margin;
+            font-style: normal;
+        }
+        &.table {
+            img {
+                @extend .spin;
+                max-width: 433px;
+                @include breakpoint(xs) {
+                    max-width: 80%;
+                }
+            }
+        }
+        &.amandamodo {
+            padding: 0 20px;
+            h4 {
+                bottom: 40px;
+            }
+        }
+        &.vurv {
+            background: #272727;
+            padding: 30px 30px 80px 30px;
+            h4 {
+                color: #fff;
+                bottom: 80px;
+            }
+        }
+        &.weavingpatterns {
+            padding: 60px 30px;
+            img {
+                max-width: 500px;
+            }
+        }
+        &.cloudtown {
+            img {
+                padding: $margin * 2;
+            }
+        }
+        &.sfpcShowcase {
+            h4 {
+                color: #fff;
+            }
+        }
+
+        &:hover {
+            filter: none;
+        }
+    }
+}
+
+.main {
+    margin: $margin;
+    height: calc(100vh - #{$margin * 2});
+    overflow: auto;
+    &:before {
+        content: '';
+        position: fixed;
+        border: 1px solid #000;
+        z-index: 1;
+        pointer-events: none;
+        width: calc(100% - #{$margin * 2});
+        max-width: 700px;
+        transform: translateX(50%);
+        right: calc(50% - #{$margin});
+        top: $margin;
+        height: calc(100vh - #{1 + $margin * 2});
+        margin: 0 $margin;
+    }
+
+    @include breakpoint(xs) {
+        a span {
+            transform: translateY(0) !important;
+        }
+    }
+}

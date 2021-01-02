@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	margin: 0;
+	font-size: 16px;
+	min-width: 100%;
+}
+
+html {
+	background: $lilac;
+	height: 100%;
+}
+
+body {
+	background: $white;
+	min-height: 100%;
+	/* mobile viewport bug fix */
+	min-height: -webkit-fill-available;
+}
+
+h1, h2, h3, h4, h5, h6, button, a, p, button {
+	@extend .default-font;
+}
+
+a {
+	color: $blue;
+	text-decoration: none;
+}
+
+button {
+	outline: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+}

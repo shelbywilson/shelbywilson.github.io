@@ -1,0 +1,44 @@
+.Dropdown {
+	&-root {
+		display: inline-block;
+	}
+	&-control {
+		position: relative;
+	}
+	&-control, &-menu {
+		min-width: 7.5rem;
+		background: $pink;
+		color: $blue-dark;
+	}
+	&-menu {
+		position: absolute;
+		max-height: 45vh;
+		overflow: auto;
+		z-index: 1;
+		border-top: none;
+	}
+	&-placeholder {
+		font-size: 1.5rem;
+		padding: 0.375rem 1.5rem;
+		cursor: pointer;
+	}
+	&-option {
+		padding: 0.375rem;
+		cursor: pointer;
+		&:hover {
+			background: $yellow-bright;
+		}
+	}
+	&-arrow {
+		border-color: $blue-dark transparent transparent;
+	    border-style: solid;
+	    border-width: 0.4375rem 0.4375rem 0;
+	    content: ' ';
+	    display: block;
+	    height: 0;
+	    position: absolute;
+	    right: 0.5rem;
+	    top: 1rem;
+	    width: 0;
+	}
+}

@@ -1,0 +1,28 @@
+.pattern-builder {
+	&-link {
+		text-align: right;
+	}
+	&-controls {
+		&-action {
+			margin: 0 0.5rem;
+			line-height: 1.5rem;
+			@extend .btn-dotted;
+		}
+	}
+	&-add-item {
+		cursor: pointer;
+		rect {
+			fill: $pink;
+			stroke-width: 1;
+			stroke: $black;
+			&:hover  {
+				fill: $yellow-bright;
+			}
+		}
+	}
+	.square:not(.primary) {
+		&:hover {
+			fill: $yellow-bright;
+		}
+	}
+}

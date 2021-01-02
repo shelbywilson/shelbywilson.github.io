@@ -1,0 +1,27 @@
+.home {	
+	h1, h3 {
+		text-transform: uppercase;
+		font-size: 1.25rem;
+		color: $blue-dark;
+		font-weight: 600;
+	}
+	&-bg {
+		position: fixed;
+		top: 5%;
+		left: 5%;
+		width: 90%;
+		height: 90%;
+		z-index: -100;
+		background: $blue-dark;
+		svg {
+			top: -5%;
+			left: -5%;
+			position: relative;
+		}
+	}
+	.line {
+		stroke: $blue-bright;
+		stroke-width: 1;
+		fill: none;
+	}
+}

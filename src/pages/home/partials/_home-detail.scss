@@ -1,0 +1,100 @@
+.home-detail {
+    &-scroll {
+        margin: 0;
+        padding-left: 280px;
+        height: 100vh;
+        overflow: auto;
+        @include breakpoint(xs) {
+            margin: 0 20px;
+            padding-left: 0;
+        }
+        &-container {
+            max-width: 1200px;
+            padding-top: 162px;
+            padding-bottom: 200px;
+            margin: 0 auto 0 0;
+            padding-right: 40px;
+            @include breakpoint(xs) {
+                padding-right: 0;
+                padding-top: 130px;
+            }
+        }
+        &-right-align {
+            max-width: 620px;
+            margin: 0 0 0 auto;
+        }
+    }
+    iframe {
+        border: none;
+        height: 450px;
+        width: 100%;
+        display: block;
+        @include breakpoint(xs) {
+            height: 350px;
+        }
+    }
+    img, video {
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    .img-container {
+        max-width: 450px;
+        margin: 20vh auto 0 auto;
+        overflow: hidden;
+        &.first {
+            margin-top: $margin * 3;
+        }
+    }
+    &-content { 
+        .sky-above-clouds {
+            height: 320px;
+        }
+        &.home-detail {
+            &-stillLife {
+                iframe {
+                    height: 480px;
+                    @include breakpoint(xs) {
+                        transform: scale(0.7);
+                        margin-left: -20%;
+                        margin-top: -40px;
+                        margin-bottom: -40px;
+                        width: 140%;
+                        height: 400px;
+                    }
+                }
+            }
+            &-cloudtown {
+                iframe {
+                    @include breakpoint(xs) {
+                        transform: scale(0.8);
+                        transform-origin: top left;
+                        width: 126%;
+                        height: 460px;
+                        margin-bottom: -90px;
+                    }
+                }
+            }
+            &-muriel {
+                .img-container {
+                    max-width: 100%;
+                }
+            }
+            &-vurv {
+                .iframe-container {
+                    background: #272727;
+                    iframe {
+                        height: 600px;
+                        width: 400px;
+                        display: block;
+                        margin: 0 auto;
+                        @include breakpoint(xs) {
+                            width: 90%;
+                            height: 400px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

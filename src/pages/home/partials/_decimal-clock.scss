@@ -1,0 +1,24 @@
+.decimal-clock {
+    margin: 20vh 0;
+    .hour, .hour-decimal, .minute, .minute-decimal, .second, .second-decimal {
+        height: $margin;
+        border: 1px solid #000;
+        border-left: none;
+        display: flex;
+        justify-content: space-evenly;
+        margin: $margin 0;
+        > div {
+            border-left: 1px solid #000;
+            flex: 1 1;
+        }
+        .active {
+            background: #000;
+        }
+    }
+    @include breakpoint(xs) {
+        transform: scale(0.5);
+        width: 200%;
+        transform-origin: top left;
+        height: 140px;
+    }
+}

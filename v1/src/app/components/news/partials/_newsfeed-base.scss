@@ -1,0 +1,80 @@
+.newsfeed {
+	min-height: 70vh;
+	padding-bottom: 10rem;
+	h3 {
+		font-weight: 400;
+		margin: 0 2rem 1rem 0;
+		font-size: 1.5rem;
+	}
+	h6 {
+		margin: 0.5rem 0;
+		font-size: 0.7rem;
+		letter-spacing: 0.1rem;
+		text-transform: uppercase;
+	}
+	&-load-more, &-actions {
+		button {
+			@extend .btn-dotted;
+			background: #fff;
+		}
+	}
+	&-load-more {
+		margin: 5rem 0;
+		text-align: center;
+	}
+	&-articles {
+		@include tablet {
+			margin: 20px 0;
+		}
+	}
+	&-actions {
+		position: relative;
+		padding: 1rem 0;
+		margin: 1rem 0;
+		overflow: hidden;
+		button {
+			margin: 0 1rem;	
+			@include mobile {
+				margin: 1rem auto;
+				position: relative;
+				display: block;
+			}
+		}
+	}
+	&-refresh {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	&-sort {
+		text-align: center;
+		font-size: 0.8rem;
+	}
+	&-loading {
+		margin-top: 5vh;
+		height: 50vh;
+		text-align: center;
+	}
+	&-bg {
+		position: fixed;
+		z-index: -1;
+		top: 0;
+		left: 0;
+	}
+	&-search {
+		text-align: center;
+		margin: 0 1rem;
+		input {
+			outline: none;
+			border: none;
+			font-size: 3rem;
+			width: 100%;
+			background: transparent;
+			text-align: center;
+			margin: 1rem 0;
+			&.empty {
+				opacity: 0.4;
+			}
+		}
+	}
+}

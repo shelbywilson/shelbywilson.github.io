@@ -1,0 +1,46 @@
+.set-card {
+    border: 1px solid #959595;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    height: $card-height; 
+    width: $card-width; 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    transition: background-color 1000ms;
+
+    &-selected {
+        border: 3px solid #959595;
+    }
+
+    &-placeholder {
+        border: none;
+        background: transparent;
+    }
+
+    &__symbol {
+        margin: 0.25rem 0;
+        border-width: 2px;
+        border-style: solid;
+        opacity: 1;
+        // transition: opacity 600ms;
+
+        &-circle {
+            border-radius: 100%;
+            height: 2rem;
+            width: 2rem;
+        } 
+        &-rectangle {
+            height: 1.25rem;
+            width: 2rem;
+            margin: 0.625rem 0;
+        }
+        &-diamond {
+            height: 2rem;
+            width: 1.625rem;
+        }
+    }
+}

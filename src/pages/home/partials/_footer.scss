@@ -1,0 +1,107 @@
+@import './variables';
+
+footer {
+    position: fixed;
+    left: $margin;
+    height: 100px;
+    text-align: center;
+    bottom: 0px;
+    border-top: 1px solid #000;
+    backdrop-filter: hue-rotate(45deg) blur(2px);
+    transition: all 300ms;
+    width: calc(100% - #{$margin * 2});
+    cursor: crosshair;
+    &.expand {
+        height: calc(100vh - 150px);
+        background: rgba(255,255,255,0.6);
+        .footer-links {
+            margin-top: 0;
+            opacity: 1;
+        }
+        &:after {
+            content: '';
+            height: 150px;
+            width: 100%;
+            position: absolute;
+            top: -150px;
+            left: 0;
+        }
+        @include breakpoint(xs) {
+            height: calc(100vh - 120px);
+        }
+    }
+    &:focus, &:active {
+        outline: none;
+    }
+    .container {
+        display: flex;
+        padding: 30px 0;
+        height: 100%;
+        align-items: flex-end;
+        justify-content: flex-end;
+        @include breakpoint(xs) {
+            padding: 10px 30px 30px 30px;
+        }
+    }
+    img {
+        height: 70px;
+    }
+    .footer {
+        &-indicator {
+            width: 80px;
+            height: 40px;
+            background: #F0F4C3;
+            transition: all 1.5s;
+            border-radius: 100%;
+            position: absolute;
+        }
+        &-links {
+            max-height: 100%;
+            overflow: auto;
+            transition: margin 300ms, opacity 300ms;
+            transition-delay: opacity 500ms;
+            margin-top: 100px;
+            align-self: flex-start;
+            margin-right: auto;
+            text-align: right;
+            opacity: 0.5;
+            padding-right: 8px;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                a {
+                    display: block;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    margin-bottom: 8px;
+                    white-space: nowrap;
+                    font-style: normal;
+                    color: #00f;
+                    &:hover, &.active {
+                        font-style: italic;
+                    }
+                }
+            }
+
+            .link {
+                &-toggle {
+                    position: absolute;
+                    bottom: 30px;
+                    margin-top: $margin;
+                }
+                &-about {
+                    margin-top: $margin * 3;
+                }
+            }
+            @include breakpoint(xs) {
+                padding-bottom: 40px;
+            }
+        }
+    }
+    @include breakpoint(xs) {
+        height: 80px;
+        width: 100%;
+        left: 0;
+    }
+}

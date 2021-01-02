@@ -1,0 +1,51 @@
+.set-deck {
+    &__card {
+        @extend .set-card;
+        position: absolute;
+        transform: scale(0.75);
+        transform-origin: top left;
+        background: #feedc5;
+        @include breakpoint(xs) {
+            transform: scale(0.6);
+        }
+
+        // stack decks
+        @for $i from 1 through 27 {
+            &:nth-child(#{$i}) {
+                top: #{(4 - $i) * 0.25rem};
+            }
+        }
+    }
+
+    &.slide-appear, &.slide-enter {
+        opacity: 0;
+        .set-deck__card {
+            // stack decks
+            @for $i from 1 through 27 {
+                &:nth-child(#{$i}) {
+                    top: -100%;
+                }
+            }
+        }
+    }
+    &.slide-appear-active, &.slide-enter-active {
+        opacity: 1;
+        transition: opacity 1ms;
+        transition-delay: 1150ms;
+        .set-deck__card {
+            transition: top 500ms;
+            transition-delay: 500ms;
+            transition-delay: 1150ms;
+            // stack decks
+            @for $i from 1 through 27 {
+                &:nth-child(#{$i}) {
+                    top: #{(4 - $i) * 0.25rem};
+                }
+            }
+        }
+    }
+
+    &.slide-leave-active {
+        opacity: 0;
+    }
+}

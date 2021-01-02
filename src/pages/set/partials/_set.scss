@@ -1,0 +1,208 @@
+$metadata-width: $card-width + $card-margin * 2;
+$metadata-padding: 3rem;
+$visible-cards-width: $card-width * 4 + $card-margin * 3; 
+$set-help-height: 10rem;
+$visible-card-height-mobile: 29rem;
+
+#root {
+    overflow: auto;
+}
+
+.set {
+    &__container {
+        margin-bottom: $set-help-height;
+        min-height: 100vh;
+        background: linear-gradient(#e6cfff, #ffedc3);
+        position: relative;
+        overflow: hidden;
+        &-inner {
+            position: relative;
+            margin: 4rem auto 0 auto;
+            transition: height 600ms;
+            @include breakpoint(xs) {
+                margin-top: 2rem;
+                padding-top: $visible-card-height-mobile;
+                height: 0;
+                min-height: 12.5rem;
+                transition: height 200ms;
+                box-sizing: content-box;
+            }
+            @include breakpoint(xxs) {
+                transform: scale(0.85);
+                transform-origin: top center;
+            }
+        }
+        @include breakpoint(xs) {
+            padding-top: 120px;
+        }
+    }
+    &__metadata {
+        position: absolute;
+        top: 0;
+        width: $metadata-width;
+        right: 0;
+        @include breakpoint(xs) {
+            left: 0;
+            position: relative;
+            width: 100%;
+        }
+
+        &__remaining {
+            top: 0;
+            left: 0;
+            position: absolute;
+            @include breakpoint(xs) {
+                transform: scale(1.667);
+            }
+        }
+    }
+    
+    &__in-play {
+        width: #{$visible-cards-width + $metadata-width + $metadata-padding};
+        height: #{$card-height * 4 + $card-margin * 4};
+        margin: 0 auto;
+        position: relative;
+        > span {
+            display: block;
+            @include breakpoint(xs) {
+                position: absolute;
+                top: #{-$visible-card-height-mobile * 1.667};
+            }
+        }
+
+        @include breakpoint(xs) {
+            height: auto;
+            width: $visible-cards-width;
+            transform: translateX(-50%) scale(0.6);
+            transform-origin: top center;
+            left: 50%;
+        }
+
+        // layout cards
+        @for $i from 0 through 15 {
+            .set-card__container {
+                position: absolute;
+                &[data-i="#{$i}"] {
+                    &.deal-enter, &.deal-appear {
+                        top: 0;
+                        left: #{$visible-cards-width + $metadata-padding};
+                        transform: scale(0.75);
+                        transform-origin: top left;
+                        z-index: #{20 - $i};
+                        @include breakpoint(xs) {
+                            top: $visible-card-height-mobile * 1.667;
+                            left: 0;
+                            transform: scale(1);
+                        }
+                    }
+
+                    &, &.deal-enter-active, &.deal-appear-active, &.deal-leave {
+                        top: #{floor($i/4) * $card-height + floor($i/4) * $card-margin};
+                        left: #{$i%4 * $card-width + $i%4 * $card-margin};
+                        transform: scale(1);
+                    }
+
+                    &.deal-leave-active {
+                        transform: scale(0.38);
+                        transform-origin: top left;
+                        z-index: 1;
+                        .set-card:not(.set-card__placeholder) {
+                            border: 1px solid $gray;
+                            background: $mint;
+                            .set-card__symbol {
+                                opacity: 0;
+                            }
+                        }
+
+                        @include breakpoint(xs) {
+                            transform: scale(0.5);
+                        }
+                    }
+
+                    &.deal-enter-active, &.deal-appear-active, &.deal-leave-active {
+                        transition: all 1200ms ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+    &__game-over {
+        position: fixed;
+        top: 5rem;
+        left: 50%;
+        min-width: 16rem;
+        transform: translate(-50%, -50%);
+        background: orangered;
+        color: $white;
+        padding: 2rem 5rem;
+        z-index: 1;
+        @include breakpoint(xs) {
+            padding: 1rem;
+            font-size: 0.75rem;
+        }
+    }
+
+    &__found {
+        top: #{$card-height};
+        position: absolute;
+        transition: margin 600ms;
+
+        .set-deck {
+            &__card {
+                width: #{$card-width/2};
+                height: #{$card-height/2};
+                background: $mint;
+            }
+        }
+
+        @include breakpoint(xs) {
+            transform: scale(1.667);
+            transform-origin: top left;
+            top: -0.25rem;
+            left: 10rem;
+        }
+
+        // layout found sets 3 to a row, 5 on mobile
+        @for $i from 0 through 27 {
+            .set-deck:nth-child(#{$i + 1}) {
+                position: relative;
+                top: #{$card-height * 0.5 * floor($i/3)};
+                left: #{$card-width * 0.5 * ($i%3)};
+                @include breakpoint(xs) {
+                    top: #{$card-height * 0.4 * floor($i/5)};
+                    left: #{$card-width * 0.4 * ($i%5)};
+                }
+            }
+        }
+    }
+
+    // determine where found sets animate to
+    @for $i from 0 through 27 {
+        &[data-found="#{$i}"] {
+            .set-card__container {
+                &.deal-leave-active {
+                    top: #{10rem + ($card-height * 0.5 * floor($i/3))};
+                    left: #{$visible-cards-width + $metadata-padding + $card-width * 0.5 * ($i%3)};
+                    @include breakpoint(xs) {
+                        top: #{-0.25rem + ($visible-card-height-mobile * 1.667) + ($card-height * 0.667 * floor($i/5))};
+                        left: #{10rem + ($card-width * 0.667 * ($i%5))}; 
+                    }
+                }
+            }
+
+            // dynamically increase height depending on found sets
+            .set__container-inner {
+                height: #{18rem + ($card-height * 0.5 * floor($i/3))};
+                @include breakpoint(xs) {
+                    height: #{($card-height * 0.667 * floor($i/5)) * 0.9};
+                }
+            }
+            // .sets-possible {
+            //     margin-top: #{18rem + ($card-height * 0.5 * floor($i/3))};
+            //     @include breakpoint(xs) {
+            //         margin-top: #{($card-height * 0.667 * floor($i/5)) * 0.9};
+            //     }
+            // }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+@import './../../../base/base';
+
+.cloud-diary {
+    margin: 0 auto;
+    max-width: 63rem;
+    iframe {
+        width: 100%;
+        max-width: 50vh;
+        height: 50vh;
+        border: 2px dashed $blue;
+        transform: scale(0.8) translateX(10%);
+
+        @include breakpoint(xs) {
+            max-width: 100%;
+            height: 100vh;
+            transform: scale(0.9);
+        }
+    }
+}
