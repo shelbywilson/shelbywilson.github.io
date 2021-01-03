@@ -28,7 +28,7 @@ export default () => {
             </a>
 
             <p className='home-content-year'>
-                Last updated 2 Jan 2021 □
+                Last updated 3 Jan 2021 □
             </p>
             
         </div>

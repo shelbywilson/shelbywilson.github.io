@@ -42,14 +42,72 @@ import clouds21 from './../../../images/clouds/clouds21.jpg';
 import clouds21_small from './../../../images/clouds/clouds21_small.jpg';
 import clouds22 from './../../../images/clouds/clouds22.jpg';
 import clouds22_small from './../../../images/clouds/clouds22_small.jpg';
-import clouds23 from './../../../images/clouds/clouds23.jpg';
-import clouds23_small from './../../../images/clouds/clouds23.jpg';
 import clouds24 from './../../../images/clouds/clouds24.jpg';
 import clouds24_small from './../../../images/clouds/clouds24.jpg';
 import clouds25 from './../../../images/clouds/clouds25.jpg';
 import clouds25_small from './../../../images/clouds/clouds25.jpg';
+import clouds26 from './../../../images/clouds/clouds26.jpg';
+import clouds26_small from './../../../images/clouds/clouds26.jpg';
+import clouds27 from './../../../images/clouds/clouds27.jpg';
+import clouds27_small from './../../../images/clouds/clouds27.jpg';
+import clouds28 from './../../../images/clouds/clouds28.jpg';
+import clouds28_small from './../../../images/clouds/clouds28.jpg';
+import clouds29 from './../../../images/clouds/clouds29.jpg';
+import clouds29_small from './../../../images/clouds/clouds29.jpg';
+import clouds30 from './../../../images/clouds/clouds30.jpg';
+import clouds30_small from './../../../images/clouds/clouds30.jpg';
+import clouds31 from './../../../images/clouds/clouds31.jpg';
+import clouds31_small from './../../../images/clouds/clouds31.jpg';
 
 export default {
+    'clouds31': {
+        src: clouds31,
+        src_small: clouds31_small,
+        caption: '',
+        city: 'Austin, TX',
+        date: '2020-06-24',
+        time: '20:50 CDT',
+    },
+    'clouds30': {
+        src: clouds30,
+        src_small: clouds30_small,
+        caption: '',
+        city: 'Austin, TX',
+        date: '2020-12-25',
+        time: '17:54 CST',
+    },
+    'clouds29': {
+        src: clouds29,
+        src_small: clouds29_small,
+        caption: '',
+        city: 'Austin, TX',
+        date: '2020-06-25',
+        time: '20:43 CDT',
+    },
+    'clouds28': {
+        src: clouds28,
+        src_small: clouds28_small,
+        caption: '',
+        city: 'Austin, TX',
+        date: '2020-12-23',
+        time: '17:38 CST',
+    },
+    'clouds27': {
+        src: clouds27,
+        src_small: clouds27_small,
+        caption: '',
+        city: 'Austin, TX',
+        date: '2020-12-25',
+        time: '17:47 CST',
+    },
+    'clouds26': {
+        src: clouds26,
+        src_small: clouds26_small,
+        caption: '',
+        city: 'Austin, TX',
+        date: '2020-12-11',
+        time: '17:43 CST',
+    },
     'clouds01': {
         src: clouds01,
         src_small: clouds01_small,
