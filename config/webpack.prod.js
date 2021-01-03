@@ -50,6 +50,7 @@ module.exports = merge(common, {
       template: paths.src + '/template/template.html', 
       filename: './../' + paths.apps.cloudTown.output, // output file
       chunks: ['vendors', 'runtime', 'cloud-town'],
+      title: 'Shelby Wilson — Cloud Town',
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/images/favicon.ico',
