@@ -41,7 +41,7 @@ body {
         transition: filter 300ms;
         width: 100%;
         max-width: 700px;
-        min-height: 100px;
+        min-height: 200px;
         margin: 0 auto;
         filter: hue-rotate(45deg);
         position: relative;
@@ -71,6 +71,7 @@ body {
             top: 0;
             right: 0;
             text-transform: uppercase;
+            font-style: normal;
             @extend .split-word;
             &:hover {
                 @extend .collapse;
@@ -82,6 +83,9 @@ body {
             bottom: 0;
             left: $margin;
             font-style: normal;
+            @include breakpoint(xs) {
+                left: 10px;
+            }
         }
         &.table {
             img {
@@ -96,6 +100,9 @@ body {
             padding: 0 20px;
             h4 {
                 bottom: 40px;
+                @include breakpoint(xs) {
+                    bottom: 0;
+                }
             }
         }
         &.vurv {
@@ -104,12 +111,20 @@ body {
             h4 {
                 color: #fff;
                 bottom: 80px;
+                @include breakpoint(xs) {
+                    bottom: 50px;
+                }
             }
         }
         &.weavingpatterns {
             padding: 60px 30px;
             img {
                 max-width: 500px;
+            }
+        }
+        &.muriel {
+            h4 {
+                background: #fff;
             }
         }
         &.cloudtown {
@@ -130,9 +145,11 @@ body {
 }
 
 .main {
-    margin: $margin;
+    margin: $margin 0;
+    padding: 0 $margin;
     height: calc(100vh - #{$margin * 2});
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     &:before {
         content: '';
         position: fixed;

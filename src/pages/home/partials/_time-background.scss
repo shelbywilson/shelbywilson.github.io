@@ -1,6 +1,6 @@
 .time-background {
-    transition: all 1.5s;
-    background: linear-gradient(#F0F4C3 0%, transparent 130px);
+    transition: all 3s;
+    background: linear-gradient(#F0F4C3 0%, rgba(255,255,255,0) 130px);
     z-index: 1;
     position: fixed; 
     pointer-events: none;

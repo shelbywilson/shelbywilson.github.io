@@ -3,10 +3,11 @@
         margin: 0;
         padding-left: 280px;
         height: 100vh;
-        overflow: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
         @include breakpoint(xs) {
-            margin: 0 20px;
-            padding-left: 0;
+            margin: 0;
+            padding: 0 $margin;
         }
         &-container {
             max-width: 1200px;

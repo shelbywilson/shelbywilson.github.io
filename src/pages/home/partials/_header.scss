@@ -12,6 +12,7 @@ header {
         height: 100px;
         display: inline-block;
         text-decoration: none;
+        font-style: normal;
         &:hover h1 {
             @extend .collapse;
         }
@@ -29,8 +30,10 @@ header {
     @include breakpoint(xs) {
         padding-left: 10px;
         h1 {
-            transform: scale(0.6);
+            transform: scale(0.65);
             transform-origin: top left;
+            font-weight: 500;
+            margin-top: 1px;
         }
     }
 }

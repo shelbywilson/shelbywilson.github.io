@@ -7,12 +7,14 @@ footer {
     text-align: center;
     bottom: 0px;
     border-top: 1px solid #000;
-    backdrop-filter: hue-rotate(45deg) blur(2px);
+    backdrop-filter: blur(2px);
+    background: rgba(255,255,255,0.1);
     transition: all 300ms;
     width: calc(100% - #{$margin * 2});
     cursor: crosshair;
     &.expand {
         height: calc(100vh - 150px);
+        backdrop-filter: hue-rotate(45deg) blur(2px);
         background: rgba(255,255,255,0.6);
         .footer-links {
             margin-top: 0;
@@ -27,7 +29,7 @@ footer {
             left: 0;
         }
         @include breakpoint(xs) {
-            height: calc(100vh - 120px);
+            height: 85vh;
         }
     }
     &:focus, &:active {
@@ -51,7 +53,7 @@ footer {
             width: 80px;
             height: 40px;
             background: #F0F4C3;
-            transition: all 1.5s;
+            transition: all 3s;
             border-radius: 100%;
             position: absolute;
         }
@@ -89,6 +91,9 @@ footer {
                     position: absolute;
                     bottom: 30px;
                     margin-top: $margin;
+                    @include breakpoint(xs) {
+                        left: 30px;
+                    }
                 }
                 &-about {
                     margin-top: $margin * 3;
