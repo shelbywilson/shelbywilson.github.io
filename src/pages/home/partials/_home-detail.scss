@@ -1,5 +1,6 @@
 .home-detail {
     padding-left: 280px;
+    padding-right: $margin;
     &-container {
         max-width: 1200px;
         padding-top: 162px;
@@ -11,6 +12,9 @@
             padding-top: 150px;
             padding-bottom: 240px;
         }
+    }
+    @include breakpoint(xs) {
+        padding-left: $margin;
     }
     &-right-align {
         max-width: 620px;
