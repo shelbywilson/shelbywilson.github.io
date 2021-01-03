@@ -81,7 +81,7 @@ export const routes = {
         dark: true,
         content: <Vurv />,
         year: '2018, 2019',
-        type: 'web site',
+        type: 'website',
     },
     table: {
         id: 'table',

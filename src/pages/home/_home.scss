@@ -15,7 +15,8 @@ html {
 }
 
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .home {
@@ -117,12 +118,8 @@ body {
         &.vurv {
             background: #272727;
             padding: 30px;
-            margin-bottom: 120px;
             h4 {
                 color: #fff;
-            }
-            @include breakpoint(xs) {
-                margin-bottom: 140px;
             }
         }
         &.weavingpatterns {
@@ -155,12 +152,10 @@ body {
 }
 
 .main {
-    padding: 0 $margin;
-    height: calc(100vh);
-    overflow-y: auto;
-    overflow-x: hidden;
+    padding: 0 $margin 120px $margin;
 
     @include breakpoint(xs) {
+        margin-bottom: 140px;
         a span {
             transform: translateY(0) !important;
         }

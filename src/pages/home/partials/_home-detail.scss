@@ -1,30 +1,20 @@
 .home-detail {
-    &-scroll {
-        margin: 0;
-        padding-left: 280px;
-        height: 100vh;
-        overflow-y: auto;
-        overflow-x: hidden;
+    padding-left: 280px;
+    &-container {
+        max-width: 1200px;
+        padding-top: 162px;
+        padding-bottom: 200px;
+        margin: 0 auto 0 0;
+        padding-right: 40px;
         @include breakpoint(xs) {
-            margin: 0;
-            padding: 0 $margin;
+            padding-right: 0;
+            padding-top: 150px;
+            padding-bottom: 240px;
         }
-        &-container {
-            max-width: 1200px;
-            padding-top: 162px;
-            padding-bottom: 200px;
-            margin: 0 auto 0 0;
-            padding-right: 40px;
-            @include breakpoint(xs) {
-                padding-right: 0;
-                padding-top: 150px;
-                padding-bottom: 240px;
-            }
-        }
-        &-right-align {
-            max-width: 620px;
-            margin: 0 0 0 auto;
-        }
+    }
+    &-right-align {
+        max-width: 620px;
+        margin: 0 0 0 auto;
     }
     iframe {
         border: none;

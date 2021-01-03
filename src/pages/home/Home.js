@@ -7,7 +7,7 @@ import { routes } from './routes';
 
 export const Home = (props) => {
     const [expand, setExpand] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(true)
+    const [scrollTop, setScrollTop] = useState(3);
     const [detail, setDetail] = useState(null)
     const [time, setTime] = useState(new Date().getMinutes() * 6 + (new Date().getMinutes() % 2 === 0 ? 90 : 0));
     const [init, setInit] = useState(false);
@@ -31,8 +31,17 @@ export const Home = (props) => {
     }, [])
 
     useEffect(() => {
+        const onScroll = e => {
+          setScrollTop(e.target.documentElement.scrollTop);
+        };
+        window.addEventListener("scroll", onScroll);
+    
+        return () => window.removeEventListener("scroll", onScroll);
+      }, [scrollTop]);
+
+    useEffect(() => {
         if (detail) {
-            setIsScrolled(true)
+            setScrollTop(3)
         }
     }, [detail])
 
@@ -41,10 +50,6 @@ export const Home = (props) => {
 
         setDetail(routes[key]);
         setInit(true);
-    }
-
-    const trackScroll = (e) => {
-        setIsScrolled(e.target.scrollTop > 2);
     }
 
     const toggle = () => {
@@ -65,7 +70,7 @@ export const Home = (props) => {
     ];
 
     return (
-        <div className={`home ${isScrolled ? 'scrolled' : ''}`}>
+        <div className={`home ${scrollTop > 2 ? 'scrolled' : ''}`}>
             {/* <div className={`time-background ${detail ? 'visible': ''}`} style={{filter: `hue-rotate(${time}deg)`}}>          
             </div> */}
 
@@ -76,7 +81,7 @@ export const Home = (props) => {
                     />
                 :
                 init ?
-                    <div className='main' onScroll={trackScroll}>
+                    <div className='main'>
                         {sections.map(key => (
                             <div className={`img ${key} ${routes[key].inverse ? 'inverse': ''} ${routes[key].dark ? 'dark' : ''}`}
                                 key={key}>
