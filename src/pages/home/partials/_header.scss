@@ -9,12 +9,20 @@ header {
 	position: fixed;
     left: $margin;
     a {
-        height: 100px;
         display: inline-block;
         text-decoration: none;
         font-style: normal;
+        height: 100px;
         &:hover h1 {
-            @extend .collapse;
+            @include breakpoint(sm) {
+                span {
+                    transform: translateY(0);;
+                }
+            }
+        }
+        @include breakpoint(xs) {
+            height: 73px;
+            width: 160px;
         }
     }
     h1 {
@@ -29,10 +37,10 @@ header {
     }
     @include breakpoint(xs) {
         padding-left: 10px;
+        position: absolute;
         h1 {
-            transform: scale(0.65);
+            transform: scale(0.75);
             transform-origin: top left;
-            font-weight: 500;
             margin-top: 1px;
         }
     }

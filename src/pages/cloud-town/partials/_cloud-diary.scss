@@ -3,17 +3,20 @@
 .cloud-diary {
     margin: 0 auto;
     max-width: 63rem;
+    overflow-x: hidden;
     iframe {
         width: 100%;
         max-width: 50vh;
         height: 50vh;
-        border: 2px dashed $blue;
         transform: scale(0.8) translateX(10%);
+        border: none;
 
         @include breakpoint(xs) {
-            max-width: 100%;
+            width: 110%;
+            max-width: 110%;
             height: 100vh;
-            transform: scale(0.9);
+            margin: 0 0 10vh 0;
+            transform: scale(.8) translateX(-5%)
         }
     }
 }

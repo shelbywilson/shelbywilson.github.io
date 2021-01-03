@@ -32,7 +32,9 @@ footer {
             left: 0;
         }
         @include breakpoint(xs) {
-            height: 85vh;
+            height: 540px;
+            max-height: 90%;
+            z-index: 3;
         }
     }
     &:focus, &:active {

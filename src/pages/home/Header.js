@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default (props) => {
-    const noHeader = window.location.search === '?no-header';
+    const noHeader = window.location.hash.indexOf('_no-header') > -1;
 
     if (noHeader) {
         return null;

@@ -1,3 +1,5 @@
+@import './../../../base/base';
+
 .cloud-town {
     display: flex;
     flex-direction: row;
@@ -32,7 +34,7 @@
         align-items: center;
     
         @include breakpoint(xs) {
-            transform: scale(0.6);
+            transform: scale(0.5);
             max-width: 100vw;
             padding-top: 0;
         }
@@ -62,9 +64,10 @@
         font-weight: 100;
         text-transform: uppercase;
         font-style: italic;
-        left: 2rem;
-        bottom: 2rem;
-        color: #000;
+        left: 1rem;
+        bottom: 0;
+        color: #fff;
+        line-height: 1.5;
 
         @include breakpoint(xs) {
             font-size: 0.75rem;

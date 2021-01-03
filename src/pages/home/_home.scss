@@ -27,9 +27,13 @@ body {
         }
     }
 
-    &:not(.scrolled) {
-        h1 {
-            @extend .collapse;
+    @include breakpoint(sm){ 
+        &:not(.scrolled) {
+            h1 {
+                span {
+                    transform: translateY(0);;
+                }
+            }
         }
     }
     &.scrolled {
@@ -134,9 +138,9 @@ body {
             }
         }
         &.cloudtown {
-            margin-top: $margin;
+            margin-top: $margin * 2;
             img {
-                padding: $margin * 2;
+                padding: $margin * 2.5;
             }
         }
         &.sfpcShowcase {
@@ -153,9 +157,10 @@ body {
 
 .main {
     padding: 0 $margin 120px $margin;
+    overflow-x: hidden;
 
     @include breakpoint(xs) {
-        margin-bottom: 140px;
+        padding-top: 80px;
         a span {
             transform: translateY(0) !important;
         }

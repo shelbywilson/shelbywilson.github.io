@@ -38,10 +38,10 @@ import clouds19 from './../../../images/clouds/clouds19.jpg';
 import clouds19_small from './../../../images/clouds/clouds19_small.jpg';
 import clouds20 from './../../../images/clouds/clouds20.jpg';
 import clouds20_small from './../../../images/clouds/clouds20_small.jpg';
-import clouds21 from './../../../images/clouds/clouds21.jpg';
-import clouds21_small from './../../../images/clouds/clouds21_small.jpg';
 import clouds22 from './../../../images/clouds/clouds22.jpg';
 import clouds22_small from './../../../images/clouds/clouds22_small.jpg';
+import clouds23 from './../../../images/clouds/clouds23.jpg';
+import clouds23_small from './../../../images/clouds/clouds23.jpg';
 import clouds24 from './../../../images/clouds/clouds24.jpg';
 import clouds24_small from './../../../images/clouds/clouds24.jpg';
 import clouds25 from './../../../images/clouds/clouds25.jpg';
@@ -268,14 +268,14 @@ export default {
         date: '2020-08-14',
         time: '19:48 MDT',
     },
-    'clouds21': {
-        src: clouds21,
-        src_small: clouds21_small,
-        caption: '',
-        city: 'Vashon, WA',
-        date: '2020-09-11',
-        time: '08:09 PDT',
-    },
+    // 'clouds21': {
+    //     src: clouds21,
+    //     src_small: clouds21_small,
+    //     caption: '',
+    //     city: 'Vashon, WA',
+    //     date: '2020-09-11',
+    //     time: '08:09 PDT',
+    // },
     'clouds22': {
         src: clouds22,
         src_small: clouds22_small,
@@ -284,14 +284,14 @@ export default {
         date: '2020-09-06',
         time: '19:54 CDT',
     },
-    // 'clouds23': {
-    //     src: clouds23,
-    //     src_small: clouds23_small,
-    //     caption: '',
-    //     city: 'Vashon, WA',
-    //     date: '2020-09-25',
-    //     time: '18:50 PDT',
-    // },
+    'clouds23': {
+        src: clouds23,
+        src_small: clouds23_small,
+        caption: '',
+        city: 'Vashon, WA',
+        date: '2020-09-25',
+        time: '18:50 PDT',
+    },
     'clouds24': {
         src: clouds24,
         src_small: clouds24_small,
