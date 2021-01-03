@@ -7,7 +7,7 @@ export default (props) => {
     const clouds = Object.keys(data).sort((a,b) => {
         return data[b].date.localeCompare(data[a].date)
     });
-    const hash = window.location.hash.replace('_no-header', '').split('#');
+    const hash = window.location.hash.replace('_no-header', '').replace('/', '').split('#');
     const hashCloudIndex = hash[hash.length - 1];
 
     // if not specified, allow to be changed
