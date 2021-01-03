@@ -16,7 +16,7 @@ import StillLife from './content/StillLife';
 import WeavingPatterns from './content/WeavingPatterns';
 import SFPCShowcase from './content/SFPCShowcase';
 import TableTwoWays from './content/TableTwoWays';
-import CloudDiary from './content/CloudDiary';
+import CloudTown from './content/CloudTown';
 import Set from './content/Set';
 import Muriel from './content/Muriel';
 import About from './content/About';
@@ -47,9 +47,9 @@ export const routes = {
     cloudtown: {
         id: 'cloudtown',
         img: cloudtown,
-        url: '/#/cloud-diary',
-        title: 'cloud diary',
-        content: <CloudDiary />,
+        url: '/#/cloud-town',
+        title: 'cloud town',
+        content: <CloudTown />,
         year: 2020,
         type: 'web experiment',
     },

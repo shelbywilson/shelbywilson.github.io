@@ -10,7 +10,7 @@ import Header from '../pages/home/Header';
 
 ReactDOM.render(
     <Fragment>
-      <Header url='/#/cloud-diary' />
+      <Header url='/#/cloud-town' />
       <CloudTown />
     </Fragment> 
   , document.getElementById('root'));

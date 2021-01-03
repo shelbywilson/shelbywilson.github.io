@@ -9,7 +9,7 @@ import Header from '../pages/home/Header';
 
 ReactDOM.render(
   <Fragment>
-    <Header url='/#/cloud-diary'/>
+    <Header url='/#/cloud-town'/>
     <CloudDiary />
   </Fragment>
   , document.getElementById('root'));
