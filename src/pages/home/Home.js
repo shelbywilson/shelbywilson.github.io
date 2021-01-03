@@ -66,8 +66,8 @@ export const Home = (props) => {
 
     return (
         <div className={`home ${isScrolled ? 'scrolled' : ''}`}>
-            <div className={`time-background ${detail ? 'visible': ''}`} style={{filter: `hue-rotate(${time}deg)`}}>          
-            </div>
+            {/* <div className={`time-background ${detail ? 'visible': ''}`} style={{filter: `hue-rotate(${time}deg)`}}>          
+            </div> */}
 
             <Header onClick={setDetail} />
 

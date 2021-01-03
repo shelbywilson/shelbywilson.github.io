@@ -75,12 +75,18 @@ export default () => {
                 <img src={gearsOnWall2} alt='gears on wall' />
             </div>
 
-            <div className='img-container' style={{height: 520}}>
-                <video autoPlay='autoplay' loop={true} muted={true}>
-                    <source src={gearsVideo} type="video/mp4" />
+            {window.innerWidth < 767 ?
+                <div className='img-container'>
                     <img src={gearsVideoStill} alt='gears and lightbulbs mounted to wall'/>
-                </video>
-            </div>
+                </div>
+            :
+                <div className='img-container' style={{height: 520}}>
+                    <video autoPlay='autoplay' loop={true} muted={true}>
+                        <source src={gearsVideo} type="video/mp4" />
+                        <img src={gearsVideoStill} alt='gears and lightbulbs mounted to wall'/>
+                    </video>
+                </div>
+            }
 
             <div className='img-container'>
                 <img src={gearsOnWall} alt='gears and lightbulbs mounted to wall'/>

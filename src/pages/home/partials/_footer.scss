@@ -20,6 +20,9 @@ footer {
             margin-top: 0;
             opacity: 1;
         }
+        .footer-toggle {
+            opacity: 1;
+        }
         &:after {
             content: '';
             height: 150px;
@@ -35,6 +38,19 @@ footer {
     &:focus, &:active {
         outline: none;
     }
+
+    a {
+        display: block;
+        cursor: pointer;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        font-style: normal;
+        color: #00f;
+        &:hover, &.active {
+            font-style: italic;
+        }
+    }
     .container {
         display: flex;
         padding: 30px 0;
@@ -42,7 +58,7 @@ footer {
         align-items: flex-end;
         justify-content: flex-end;
         @include breakpoint(xs) {
-            padding: 10px 30px 30px 30px;
+            padding: 30px;
         }
     }
     img {
@@ -56,45 +72,38 @@ footer {
             transition: all 3s;
             border-radius: 100%;
             position: absolute;
+            margin: 0;
         }
+
+        &-toggle {
+            position: absolute;
+            bottom: 30px;
+            margin-top: $margin;
+            left: 0;
+            opacity: 0.5;
+            transition: opacity 800ms;
+            @include breakpoint(xs) {
+                left: 30px;
+            }
+        }
+
         &-links {
             max-height: 100%;
             overflow: auto;
-            transition: margin 300ms, opacity 300ms;
+            transition: margin 300ms;
             transition-delay: opacity 500ms;
             margin-top: 100px;
             align-self: flex-start;
             margin-right: auto;
             text-align: right;
-            opacity: 0.5;
             padding-right: 8px;
             ul {
                 list-style: none;
                 margin: 0;
                 padding: 0;
-                a {
-                    display: block;
-                    cursor: pointer;
-                    text-transform: uppercase;
-                    margin-bottom: 8px;
-                    white-space: nowrap;
-                    font-style: normal;
-                    color: #00f;
-                    &:hover, &.active {
-                        font-style: italic;
-                    }
-                }
             }
 
             .link {
-                &-toggle {
-                    position: absolute;
-                    bottom: 30px;
-                    margin-top: $margin;
-                    @include breakpoint(xs) {
-                        left: 30px;
-                    }
-                }
                 &-about {
                     margin-top: $margin * 3;
                 }
@@ -105,7 +114,7 @@ footer {
         }
     }
     @include breakpoint(xs) {
-        height: 80px;
+        height: 90px;
         width: 100%;
         left: 0;
     }

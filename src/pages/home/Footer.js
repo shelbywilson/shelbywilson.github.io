@@ -35,17 +35,18 @@ export default (props) => {
                                     </a>
                                 </li>
                             ))}
-                            <li className={`link-toggle`}>
-                                <a 
-                                    onClick={(e) => {
-                                        e.stopPropagation(); 
-                                        toggle();
-                                    }}>
-                                        Menu
-                                </a>
-                            </li>
                         </ul>
                     </nav>
+                </div>
+
+                <div className={`footer-toggle`}>
+                    <a 
+                        onClick={(e) => {
+                            e.stopPropagation(); 
+                            toggle();
+                        }}>
+                            Menu
+                    </a>
                 </div>
                 <a href='/#/about'  
                     onClick={(e) => onClickLink(e, 'about')}

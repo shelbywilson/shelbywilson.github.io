@@ -150,20 +150,20 @@ body {
     height: calc(100vh - #{$margin * 2});
     overflow-y: auto;
     overflow-x: hidden;
-    &:before {
-        content: '';
-        position: fixed;
-        border: 1px solid #000;
-        z-index: 1;
-        pointer-events: none;
-        width: calc(100% - #{$margin * 2});
-        max-width: 700px;
-        transform: translateX(50%);
-        right: calc(50% - #{$margin});
-        top: $margin;
-        height: calc(100vh - #{1 + $margin * 2});
-        margin: 0 $margin;
-    }
+    // &:before {
+    //     content: '';
+    //     position: fixed;
+    //     border: 1px solid #000;
+    //     z-index: 1;
+    //     pointer-events: none;
+    //     width: calc(100% - #{$margin * 2});
+    //     max-width: 700px;
+    //     transform: translateX(50%);
+    //     right: calc(50% - #{$margin});
+    //     top: $margin;
+    //     height: calc(100vh - #{1 + $margin * 2});
+    //     margin: 0 $margin;
+    // }
 
     @include breakpoint(xs) {
         a span {
