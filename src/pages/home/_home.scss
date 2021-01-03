@@ -49,6 +49,12 @@ body {
         &.inverse {
             filter: hue-rotate(-40deg);
         }
+
+        @include breakpoint(xs) {
+            &, &.inverse {
+                filter: none;
+            }
+        }
         img {
             display: block;
             width: 100%;
@@ -104,26 +110,23 @@ body {
                     bottom: 0;
                 }
             }
+            @include breakpoint(xs) {
+                padding: 0;
+            }
         }
         &.vurv {
             background: #272727;
             padding: 30px;
+            margin-bottom: 120px;
             h4 {
                 color: #fff;
-                bottom: 80px;
-                @include breakpoint(xs) {
-                    bottom: 60px;
-                }
             }
-            img {
-                margin-bottom: 80px;
-                @include breakpoint(xs) {
-                    margin-bottom: 60px;
-                }
+            @include breakpoint(xs) {
+                margin-bottom: 140px;
             }
         }
         &.weavingpatterns {
-            padding: 60px 30px;
+            padding: 50px 30px 60px 30px;
             img {
                 max-width: 500px;
             }
@@ -134,6 +137,7 @@ body {
             }
         }
         &.cloudtown {
+            margin-top: $margin;
             img {
                 padding: $margin * 2;
             }
@@ -151,25 +155,10 @@ body {
 }
 
 .main {
-    margin: $margin 0;
     padding: 0 $margin;
-    height: calc(100vh - #{$margin * 2});
+    height: calc(100vh);
     overflow-y: auto;
     overflow-x: hidden;
-    // &:before {
-    //     content: '';
-    //     position: fixed;
-    //     border: 1px solid #000;
-    //     z-index: 1;
-    //     pointer-events: none;
-    //     width: calc(100% - #{$margin * 2});
-    //     max-width: 700px;
-    //     transform: translateX(50%);
-    //     right: calc(50% - #{$margin});
-    //     top: $margin;
-    //     height: calc(100vh - #{1 + $margin * 2});
-    //     margin: 0 $margin;
-    // }
 
     @include breakpoint(xs) {
         a span {

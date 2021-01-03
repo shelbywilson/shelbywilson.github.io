@@ -10,7 +10,7 @@ export default () => {
                 In collaboration with <a href='https://spacefiller.space/' target='_blank'>Alex Miller</a>.
             </p>
             <p>
-                Using: baltic birch, dado blade
+                Using: Baltic birch, dado blade
             </p>
             <div style={{marginTop: 60}}>
                 <img src={table2} alt='table sideways' className='spin' />
