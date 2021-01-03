@@ -7,14 +7,15 @@ export default (props) => {
     const clouds = Object.keys(data).sort((a,b) => {
         return data[b].date.localeCompare(data[a].date)
     });
-    const hash = window.location.hash.replace('_no-header', '').replace('/', '').split('#');
-    const hashCloudIndex = hash[hash.length - 1];
+
+    const query = window.location.search.replace('_no-header', '').replace('/', '').replace('?', '');
+    const queryCloudIndex = query[query.length - 1];
 
     // if not specified, allow to be changed
     let cloudIndex = props.cloudIndex || -1;
 
-    if (hashCloudIndex !== '') {
-        cloudIndex = parseInt(hashCloudIndex, 10) - 1;
+    if (queryCloudIndex > -1) {
+        cloudIndex = parseInt(queryCloudIndex, 10) - 1;
 
         if (cloudIndex > clouds.length) {
             cloudIndex = -1;

@@ -3,7 +3,7 @@ import React from 'react';
 export default () => {
     return (
         <div>
-            <iframe src='/cloud-town#_no-header' 
+            <iframe src='/cloud-town?_no-header' 
                 scrolling='no' 
                 referrerPolicy='no-referrer' 
                 loading='lazy'></iframe>

@@ -4,7 +4,7 @@ export default () => {
     return (
         <div>
             <div style={{height: 340}}>
-                <iframe src='/set#_no-header' 
+                <iframe src='/set?_no-header' 
                     style={{transform: 'scale(0.5)', transformOrigin: 'top left', height: '200%', width: '200%'}}
                     referrerPolicy='no-referrer' 
                     loading='lazy'></iframe>
