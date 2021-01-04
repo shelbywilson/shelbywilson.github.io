@@ -5,9 +5,13 @@
     max-width: 63rem;
     text-align: center;
     overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     &__container {
         max-width: 50vh;
-        min-width: 300px;
+        min-width: 20rem;
         width: 100%;
         @include breakpoint(xs) {
             min-width: 100%;

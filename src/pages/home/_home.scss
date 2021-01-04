@@ -96,9 +96,11 @@ body {
             font-style: normal;
             @include breakpoint(xs) {
                 left: 10px;
+                margin-bottom: 10px;
             }
         }
         &.table {
+            padding: $margin * 2;
             img {
                 @extend .spin;
                 max-width: 433px;
@@ -112,7 +114,7 @@ body {
             h4 {
                 bottom: 40px;
                 @include breakpoint(xs) {
-                    bottom: 0;
+                    bottom: 30px;
                 }
             }
             @include breakpoint(xs) {

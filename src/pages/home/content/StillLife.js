@@ -37,7 +37,7 @@ export default () => {
             </a>
 
             <img style={{margin: '60px auto', height: 120}} src={peach} alt='peach'/>
-            <img style={{margin: '60px auto', height: 180}} src={cup1} alt='upside down glass' />
+            <img style={{margin: '60px auto', height: 180}} className='spin' src={cup1} alt='upside down glass' />
             <img style={{margin: '60px auto', height: 260}} src={cup2} alt='glass with strawberries'/>
             <img style={{margin: '60px auto', height: 80, transform: 'rotate(-10deg)'}} src={plum} alt='plum'/>
             <img style={{margin: '60px auto', height: 100}} src={cherry} alt='cherry'/>
