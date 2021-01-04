@@ -1,40 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 
 import CloudBlock from './CloudBlock';
 import data from './data';
 
 export default (props) => {
-    const clouds = Object.keys(data).sort((a,b) => {
-        return data[b].date.localeCompare(data[a].date)
-    });
-
-    const query = window.location.search.replace('_no-header', '').replace('/', '').replace('?', '');
-    const queryCloudIndex = query[query.length - 1];
-
-    // if not specified, allow to be changed
-    let cloudIndex = props.cloudIndex || -1;
-
-    if (queryCloudIndex > -1) {
-        cloudIndex = parseInt(queryCloudIndex, 10) - 1;
-
-        if (cloudIndex > clouds.length) {
-            cloudIndex = -1;
-        }
-    }
-
-    const getCloud = () => (
-        cloudIndex > -1 ? 
-            data[ clouds[ cloudIndex ] ]
-            :
-            data[ clouds[Math.floor(Math.random() * clouds.length)] ]
-    )
-
     const [state, setState] = useState({
-        cloud: getCloud(),
         bgVisible: false,
         row1: Math.floor(Math.random() * 3) + 2,
         row2: Math.floor(Math.random() * 3) + 2,
     })
+    const locked = useRef(window.location.search.indexOf('_locked') > -1);
+    const showLabel = useRef(window.location.search.indexOf('_show-label') > -1);
+
+    const clouds = Object.keys(data).sort((a,b) => {
+        return data[b].date.localeCompare(data[a].date)
+    });
+
+    const getDefaultCloudIndex = () => {
+        const queryCloudIndex = window.location.search.replace('_no-header', '')
+            .replace('_locked', '')
+            .replace('_show-label', '')
+            .replace('/', '')
+            .replace('?', '');
+
+        if (!isNaN(queryCloudIndex)) {
+            const defaultCloudIndex = parseInt(queryCloudIndex, 10) - 1;
+
+            if (clouds[defaultCloudIndex]) {
+               return defaultCloudIndex
+            }
+        }
+
+        return Math.floor(Math.random() * clouds.length);
+    }
+
+    const [cloudIndex, setCloudIndex] = useState(getDefaultCloudIndex())
 
     const onHover = bgVisible => setState(prevState => ({...prevState, bgVisible}));
 
@@ -43,13 +43,15 @@ export default (props) => {
     const reset = () => {
         setState(prevState => ({
             ...prevState, 
-            cloud: getCloud(),
             bgVisible: false,
         }))
+
+        setCloudIndex(prev => !locked.current ? Math.floor(Math.random() * clouds.length) : prev.cloudIndex,)
     }
 
+    const cloud = data[ clouds [cloudIndex] ];
     const useSmall = window.innerWidth < 800;
-    const src = state.cloud[useSmall ? 'src_small' : 'src'];
+    const src = cloud[useSmall ? 'src_small' : 'src'];
 
     return (
         <React.Fragment>
@@ -79,18 +81,21 @@ export default (props) => {
                 </div>
             </div>
 
-            {cloudIndex === -1 ?
+            {!locked.current ?
                 <button onClick={reset} className='cloud-town__reset'></button>
                 :
                 null
             }
             
-            {cloudIndex !== -1 ?
-                <p className='cloud-town__label'>
-                    {state.cloud.city}
-                    <br/>
-                    {state.cloud.date} {state.cloud.time} 
-                </p>
+            {showLabel.current ?
+                <a className='cloud-town__label'
+                    href='/cloud-diary'>
+                    <p>
+                        {cloud.city}
+                        <br/>
+                        {cloud.date} {cloud.time} 
+                    </p>
+                </a>
                 :
                 null 
             }

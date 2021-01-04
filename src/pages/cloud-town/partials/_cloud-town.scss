@@ -60,17 +60,27 @@
     }
 
     &__label {
-        position: fixed;
+        position: absolute;
         font-weight: 100;
         text-transform: uppercase;
         font-style: italic;
-        left: 1rem;
-        bottom: 0;
+        left: 20px;
+        bottom: 20px;
+        margin: 0;
+        padding: 0.75rem;
         color: #fff;
         line-height: 1.5;
+        transition: color 500ms;
+
+        &:hover {
+            color: #000;
+        }
 
         @include breakpoint(xs) {
             font-size: 0.75rem;
+            left: 0;
+            bottom: 0;
+            color: #000;
         }
     }
 }

@@ -3,20 +3,76 @@
 .cloud-diary {
     margin: 0 auto;
     max-width: 63rem;
-    overflow-x: hidden;
-    iframe {
-        width: 100%;
+    text-align: center;
+    overflow: hidden;
+    &__container {
         max-width: 50vh;
-        height: 50vh;
-        transform: scale(0.8) translateX(10%);
+        min-width: 300px;
+        width: 100%;
+        @include breakpoint(xs) {
+            min-width: 100%;
+        }
+
+        &:first-child {
+            @include breakpoint(xs) {
+                margin-top: 80px;
+            }
+        }
+    }
+    iframe {
         border: none;
+        height: 100%;
+        width: 100%;
 
         @include breakpoint(xs) {
-            width: 110%;
-            max-width: 110%;
+            width: 125%;
+            max-width: 125%;
+            transform: scale(.8) translateX(-12.5%);
+        }
+    }
+    &__container {
+        position: relative;
+        display: block;
+        float: left;
+        height: 50vh;
+        min-height: 400px;
+        @include breakpoint(xs) {
             height: 100vh;
-            margin: 0 0 10vh 0;
-            transform: scale(.8) translateX(-5%)
+            margin-bottom: 100px;
+            max-width: 100%;
+            padding: 0 20px;
+            min-height: 300px;
+        }
+    }
+
+    &__label {
+        position: absolute;
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-weight: 100;
+        text-transform: uppercase;
+        font-style: italic;
+        left: 0;
+        margin: 0;
+        padding: 0.75rem;
+        color: #fff;
+        line-height: 1.5;
+        font-size: 0.625rem;
+        bottom: 20px;
+        transition: color 500ms;
+
+        p {
+            margin: 0;
+        }
+        &:hover {
+            color: #000;
+        }
+
+        @include breakpoint(xs) {
+            font-size: 0.75rem;
+            bottom: -10px;
+            color: #000;
         }
     }
 }

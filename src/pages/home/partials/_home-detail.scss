@@ -63,11 +63,11 @@
             &-cloudtown {
                 iframe {
                     @include breakpoint(xs) {
-                        transform: scale(0.8);
+                        transform: scale(.75);
                         transform-origin: top left;
-                        width: 126%;
-                        height: 460px;
-                        margin-bottom: -90px;
+                        width: 134%;
+                        height: 476px;
+                        margin-bottom: -116px;
                     }
                 }
             }
