@@ -76,12 +76,12 @@ export const routes = {
     vurv: {
         id: 'vurv',
         img: vurv,
-        title: 'vurv',
-        url: '/#/vurv',
+        title: 'vurvey',
+        url: '/#/vurvey',
         dark: true,
         content: <Vurv />,
         year: '2018, 2019',
-        type: 'website',
+        type: 'data visualization',
     },
     table: {
         id: 'table',
