@@ -4,6 +4,8 @@ import img1a from './../../../images/clouds/sf.1a.jpg';
 import img1b from './../../../images/clouds/sf.1b.jpg';
 import img2a from './../../../images/clouds/vashon.1a.jpg';
 import img2b from './../../../images/clouds/vashon.1b.jpg';
+import img3a from './../../../images/clouds/aus.5a.jpg';
+import img3b from './../../../images/clouds/aus.5b.jpg';
 
 export default () => {
     return (
@@ -41,6 +43,16 @@ export default () => {
             <a href='/cloud-diary'>
                 <div className='img-container first'>
                     <img src={img2b} alt='still from Cloud Town' />
+                </div>
+            </a>
+            <a href='/cloud-diary'>
+                <div className='img-container first'>
+                    <img src={img3a} alt='still from Cloud Town' />
+                </div>
+            </a>
+            <a href='/cloud-town'>
+                <div className='img-container first'>
+                    <img src={img3b} alt='still from Cloud Town' />
                 </div>
             </a>
         </div>
