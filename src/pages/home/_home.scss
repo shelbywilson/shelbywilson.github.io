@@ -114,7 +114,7 @@ body {
             h4 {
                 bottom: 40px;
                 @include breakpoint(xs) {
-                    bottom: 30px;
+                    bottom: 12px;
                 }
             }
             @include breakpoint(xs) {
