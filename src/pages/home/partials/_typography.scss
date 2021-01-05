@@ -53,7 +53,7 @@ p, figcaption {
     font-family: sans-serif;
     a {
         &:after, &.arrow {
-            content: '↗';
+            content: '\2197 \FE0E';
             margin-left: 2px;
             font-size: 0.75em;
             margin-left: 0.25em;

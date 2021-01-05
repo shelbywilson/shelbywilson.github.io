@@ -5,7 +5,6 @@ div {
 }
 
 .window {
-    width: 50%;
     height: 60%;
     position: absolute;
     background: rgba(255,255,255,0);
@@ -22,10 +21,46 @@ div {
         &:first-child {
             top: 0;
             height: 60%;
+
+            &:before {
+                content: '';
+                position: absolute;
+                height: 33.3%;
+                top: 33.3%;
+                width: 100%;
+                border-bottom: 2px solid #fff;
+                border-top: 2px solid #fff;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                width: 33.3%;
+                left: 33.3%;
+                height: 100%;
+                border-left: 2px solid #fff;
+                border-right: 2px solid #fff;
+            }
         }
         &:last-child {
             top: 60%;
             height: 40%;
+            &:before {
+                content: '';
+                position: absolute;
+                height: 50%;
+                top: 50%;
+                width: 100%;
+                border-top: 2px solid #fff;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                width: 33.3%;
+                left: 33.3%;
+                height: 100%;
+                border-left: 2px solid #fff;
+                border-right: 2px solid #fff;
+            }
         }
     }
     &:hover {

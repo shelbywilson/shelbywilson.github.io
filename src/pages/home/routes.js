@@ -123,6 +123,25 @@ export const routes = {
         content: <Set />,
         type: 'web game',
     },
+    sketches: {
+        id: 'sketches',
+        img: '',
+        title: 'sketches',
+        url: '/#/sketches',
+        content: <div>
+            <iframe src='/monolith?_no-header'></iframe>
+            <p>
+                View&nbsp;
+                <a href='/monolith'>
+                    Monolith
+                </a>.
+            </p>
+            <p>
+                Using: Three.js
+            </p>
+        </div>,
+        type: 'web experiments',
+    },
     about: {
         id: 'about',
         img: '',

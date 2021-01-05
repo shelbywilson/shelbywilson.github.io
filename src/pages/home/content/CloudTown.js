@@ -19,11 +19,11 @@ export default () => {
             </p>
             <p>
                 View
-                <a href='/cloud-town'> full screen </a> or 
+                <a href='/cloud-town'> full screen</a> or 
                 <a href='/cloud-diary'> all together</a>.
             </p>
             <p>
-                Using: HTML, CSS, a fraction of the photos of clouds on my phone
+                Using: HTML, CSS, some of the photos of clouds on my phone
             </p>
             <a href='/cloud-diary'>
                 <figure className='img-container'>

@@ -8,9 +8,7 @@ export default () => {
                 <div 
                     style={{
                     position: 'fixed',
-                    //background: '#123123',
                     background: 'rgba(255,255,255,1)',
-                    //boxShadow: 'inset -12px 5px 0 3px #fff', //'0 0 25px 25px rgba(240, 248, 255, 0.46)',
                     boxShadow: '0 0 25px 25px rgba(240, 248, 255, 0.46)',
                     width: '50px',
                     height: '50px',
@@ -20,7 +18,6 @@ export default () => {
                 }}></div>
                 <div style={{
                     position: 'relative',
-                    //background: '#123123',
                     width: '100%',
                     height: '80vh',
                     marginTop: '-60vh',
@@ -28,19 +25,17 @@ export default () => {
                 <div style={{            
                     marginLeft: 'auto',
                     position: 'relative',
-                    //background: '#8e8fab',
                     height: '100vh',
                     width: '40%',
                 }}>
                     <div style={{
                         height: '100%',
                         position: 'absolute',
-                        width: '100%',
-                        left: '-150%',
+                        width: '100vw',
+                        left: 'calc(-100vw - 300px)',
                         background: '#fff',
-                        //background: '#ca1111',
                     }}>
-                        <div className='window'>
+                        <div className='window' style={{width: 300}}>
                             <div></div>
                             <div></div>
                         </div>

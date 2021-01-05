@@ -52,18 +52,8 @@ figure, figcaption {
         max-width: 700px;
         min-height: 200px;
         margin: 0 auto;
-        // filter: hue-rotate(45deg);
         position: relative;
         border-bottom: 1px solid #000;
-        // &.inverse {
-        //     filter: hue-rotate(-40deg);
-        // }
-
-        // @include breakpoint(xs) {
-        //     &, &.inverse {
-        //         filter: none;
-        //     }
-        // }
         img {
             display: block;
             width: 100%;

@@ -66,7 +66,8 @@ export const Home = (props) => {
         'muriel', 
         'amandamodo', 
         'set',
-        'vurv'
+        'vurv',
+        'sketches',
     ];
 
     return (
