@@ -1,11 +1,11 @@
 @import './../../base/base';
-@import './partials/animations';
+@import './../../util/split-word';
+@import './../../util/animations';
+
 @import './partials/variables';
-@import './partials/split-word';
 @import './partials/typography';
 
 @import './partials/footer';
-@import './partials/header';
 @import './partials/time-background';
 @import './partials/home-detail';
 @import './partials/decimal-clock';
@@ -17,6 +17,10 @@ html {
 body {
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+figure, figcaption {
+    margin: 0;
 }
 
 .home {

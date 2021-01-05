@@ -70,7 +70,7 @@ export const routes = {
         title: 'amandamodo',
         url: '/#/amandamodo',
         content: <Amandamodo />,
-        year: '2019, 2020',
+        year: '2019 – 2021',
         type: 'website',
     },
     vurv: {
@@ -129,5 +129,6 @@ export const routes = {
         title: 'about',
         url: '/#/about',
         content: <About />,
+        year: 'Last updated 4 Jan 2021',
     },
 }

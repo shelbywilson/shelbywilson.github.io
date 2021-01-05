@@ -35,15 +35,16 @@ module.exports = merge(common, {
      */
     new HtmlWebpackPlugin({
       favicon: paths.src + '/images/favicon.ico',
-      template: paths.src + '/template/home.html', 
+      template: paths.src + '/template/template.html', 
       filename: './../' + paths.apps.home.output, // output file
       chunks: ['vendors', 'runtime', 'home'],
+      title: paths.apps.home.title,
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/images/favicon.ico',
       template: paths.src + '/template/template.html', 
       filename: './../' + paths.apps.skyAboveClouds.output, // output file
-      title: 'Shelby Wilson',
+      title: paths.apps.skyAboveClouds.title,
       chunks: ['vendors', 'runtime', 'sky-above-clouds'],
     }),
     new HtmlWebpackPlugin({
@@ -51,35 +52,35 @@ module.exports = merge(common, {
       template: paths.src + '/template/template.html', 
       filename: './../' + paths.apps.cloudTown.output, // output file
       chunks: ['vendors', 'runtime', 'cloud-town'],
-      title: 'Shelby Wilson — Cloud Town',
+      title: paths.apps.cloudTown.title,
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/images/favicon.ico',
       template: paths.src + '/template/template.html', 
       filename: './../' + paths.apps.albumOfWeavingPatterns.output, // output file
       chunks: ['vendors', 'runtime', 'album-of-weaving-patterns'],
-      title: 'Shelby Wilson',
+      title: paths.apps.albumOfWeavingPatterns.title,
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/images/favicon.ico',
       template: paths.src + '/template/template.html', 
       filename: './../' + paths.apps.cloudDiary.output, // output file
       chunks: ['vendors', 'runtime', 'cloud-diary'],
-      title: 'Shelby Wilson — Cloud Diary',
+      title: paths.apps.cloudDiary.title,
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/images/favicon.ico',
       template: paths.src + '/template/template.html', 
       filename: './../' + paths.apps.set.output, // output file
       chunks: ['vendors', 'runtime', 'set'],
-      title: 'Set',
+      title: paths.apps.set.title,
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/images/favicon.ico',
-      template: paths.src + '/template/still-life.html', 
-      filename: './../' + paths.apps['still_life'].output, // output file
-      chunks: ['vendors', 'runtime', 'still_life'],
-      title: '',
+      template: paths.src + '/template/template.html', 
+      filename: './../' + paths.apps['monolith'].output, // output file
+      chunks: ['vendors', 'runtime', 'monolith'],
+      title: paths.apps.monolith.title,
     }),
     new HtmlWebpackPlugin({
       favicon: paths.src + '/images/favicon.ico',
@@ -87,7 +88,7 @@ module.exports = merge(common, {
       template: paths.src + '/template/template.html', 
       filename: './../' + paths.apps['pattern_finder'].output, // output file
       chunks: ['vendors', 'runtime', 'pattern_finder'],
-      title: 'Pattern Finder',
+      title: paths.apps.pattern_finder.title,
     }),
   ],
   module: {

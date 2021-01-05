@@ -16,7 +16,7 @@ module.exports = {
     'cloud-diary': paths.src + '/entry/cloud-diary.js',
     'set': paths.src + '/entry/set.js',
     'checkers': paths.src + '/entry/checkers.js',
-    'still_life': paths.src + '/entry/still-life.js',
+    'monolith': paths.src + '/entry/monolith.js',
     'pattern_finder': paths.src + '/entry/pattern-finder.js',
   },
 

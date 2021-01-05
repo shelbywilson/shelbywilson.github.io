@@ -21,9 +21,12 @@ import gearsVideoStill from './../../../images/1010/gears-video-still.jpg';
 export default () => {
     return (
         <div>
-            <div className='img-container first' style={{marginTop: 0, marginBottom: '20vh'}}>
+            <figure className='img-container first' style={{marginTop: 0, marginBottom: '20vh'}}>
                 <img src={full} alt='full installation mounted on wall with a shelf of lit candles and horseradish root below'/>
-            </div>          
+                <figcaption>
+                    <a href='https://www.filipwolak.com/' target='_blank'>Photo by Filip Wolak</a>
+                </figcaption>
+            </figure>          
             <p>
                 A clock representing decimal time — a timekeeping system in which each day consists of 10 hours, each hour consists of 100 minutes, and each minute consists of 100 seconds. 
             </p>
@@ -44,41 +47,41 @@ export default () => {
             <p>
                 Covered by&nbsp;
                 <a href='https://www.creativeapplications.net/education/sfpc-fall-2019-student-showcase/' target='_blank'>
-                    Creative Applications.
-                </a>
+                    Creative Applications
+                </a>.
             </p>
             <p>
                 Materials: incandescent lightbulbs, thermochromic pigment, acrylic medium, stepper motors, arduino, candles, horseradish root
             </p>
-            <div className='img-container'>
+            <figure className='img-container'>
                 <img src={progress1} alt='painted surface held by hand'/>
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={progressPaint1} alt='painted surface with lightbulb above'/>
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={progressPaint2} alt='painted surface with lightbulb beneath' />
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={progressLamp} alt='lamp and hand' />
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={progressArduino} alt='two arduinos with wires' />
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={progressMotors} alt='motors' />
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={schematic} alt='hand drawn schematic' />
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={gearsOnWall2} alt='gears on wall' />
-            </div>
+            </figure>
 
             {window.innerWidth < 767 ?
-                <div className='img-container'>
+                <figure className='img-container'>
                     <img src={gearsVideoStill} alt='gears and lightbulbs mounted to wall'/>
-                </div>
+                </figure>
             :
                 <div className='img-container' style={{height: 520}}>
                     <video autoPlay='autoplay' loop={true} muted={true}>
@@ -88,18 +91,18 @@ export default () => {
                 </div>
             }
 
-            <div className='img-container'>
+            <figure className='img-container'>
                 <img src={gearsOnWall} alt='gears and lightbulbs mounted to wall'/>
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={full1} alt='full installation and two people pointing'/>
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={candles} alt='lit candles and horseradish root' />
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <img src={full2} alt='full installation and one person looking'/>
-            </div>
+            </figure>
         </div>
     )
 }

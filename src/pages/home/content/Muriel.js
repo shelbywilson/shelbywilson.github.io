@@ -23,45 +23,45 @@ export default () => {
             <p>
                 View <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/muriel' target='_blank'>Source code</a> and <a href='https://github.com/shelbywilson/sfpc-rtp' target='_blank'>more examples</a>.
             </p>
-            <div className='img-container first'>
+            <figure className='img-container first'>
                 <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/muriel' 
                     target='_blank'>
                     <img src={muriel2} alt='' />
                 </a>
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/muriel' 
                     target='_blank'>
                     <img src={muriel} alt='' />
                 </a>
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/muriel' 
                     target='_blank'
                     className='img-container'>
                     <img src={murielGif} alt='' />
                 </a>
-            </div>
-            <div className='img-container'>
+            </figure>
+            <figure className='img-container'>
                 <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/muriel3' 
                     target='_blank'
                     className='img-container'>
                     <img src={murielrotating} alt='' />
                 </a>
-            </div>
+            </figure>
             <p>
                 Another experiment in which characters appear to rotate as if looking at them from the side.
             </p>
             <p>
                 View <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/muriel3' target='_blank'>Source code</a>.
             </p>
-            <div className='img-container first' style={{height: 200, overflow: 'hidden'}}>
+            <figure className='img-container first' style={{height: 200, overflow: 'hidden'}}>
                 <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/muriel3' 
                     target='_blank'
                     className='img-container'>
                     <img src={murielrotating2} alt='' />
                 </a>
-            </div>
+            </figure>
         </div>
     )
 }

@@ -9,7 +9,7 @@ export default () => {
                     loading='lazy'></iframe>
             </div>
             <p>
-                An interactive visualization of <a href='https://vurv.co/' target='_blank'>vûrv Collective </a> in Austin, TX based on a survey sent to members.
+                An interactive visualization of <a href='https://vurv.co/' target='_blank'>vûrv Collective</a> in Austin, TX based on a survey sent to members.
             </p>
             <p>
                 In collaboration with <a href='https://dezein.co/' target="_blank">Adam Zeiner</a> and <a href='https://www.marioezekiel.com' target='_blank'>Mario Ezekiel H</a>.

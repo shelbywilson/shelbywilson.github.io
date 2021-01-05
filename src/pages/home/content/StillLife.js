@@ -25,22 +25,36 @@ export default () => {
                 Using: p5.js
             </p>
 
-            <img style={{height: 100}} src={cherries} alt="cherries"/>
+            <figure>
+                <img style={{height: 100}} src={cherries} alt="cherries"/>
+            </figure>
 
-            <a href='https://www.instagram.com/p/CF785-vhhaG/'
-                className='underline' 
-                target='_blank'>
+            <figure>
                 <img style={{height: 400}} src={stilllifephoto} alt='Still Life photo by Victoria Jane Photo'/>
-                <p style={{textAlign: 'center'}}>
-                    @victoriajane_photo
-                </p>
-            </a>
+                <figcaption>
 
-            <img style={{margin: '60px auto', height: 120}} src={peach} alt='peach'/>
-            <img style={{margin: '60px auto', height: 180}} className='spin' src={cup1} alt='upside down glass' />
-            <img style={{margin: '60px auto', height: 260}} src={cup2} alt='glass with strawberries'/>
-            <img style={{margin: '60px auto', height: 80, transform: 'rotate(-10deg)'}} src={plum} alt='plum'/>
-            <img style={{margin: '60px auto', height: 100}} src={cherry} alt='cherry'/>
+                    <a href='https://www.instagram.com/p/CGICi-sl4nH/'
+                    target='_blank'>
+                        @victoriajane_photo
+                    </a>
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img style={{margin: '60px auto', height: 120}} src={peach} alt='peach'/>
+            </figure>
+            <figure>
+                <img style={{margin: '60px auto', height: 180}} className='spin' src={cup1} alt='upside down glass' />
+            </figure>
+            <figure>
+                <img style={{margin: '60px auto', height: 260}} src={cup2} alt='glass with strawberries'/>
+            </figure>
+            <figure>
+                <img style={{margin: '60px auto', height: 80, transform: 'rotate(-10deg)'}} src={plum} alt='plum'/>
+            </figure>
+            <figure>
+                <img style={{margin: '60px auto', height: 100}} src={cherry} alt='cherry'/>
+            </figure>
         </div>
     )
 }

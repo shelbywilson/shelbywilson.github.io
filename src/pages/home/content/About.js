@@ -10,7 +10,9 @@ export default () => {
             <div className='img-container first'>
                 <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/lillian'
                     target='_blank'>
-                        <img src={shelby} alt='Shelby' />
+                        <figure>
+                            <img src={shelby} alt='Shelby' />
+                        </figure>
                 </a>
                 <p style={{display: 'flex', justifyContent: 'space-between', margin: '60px 0'}}>
                     <a href='mailto:s.wilson024@gmail.com'>Email</a>
@@ -19,17 +21,15 @@ export default () => {
                 </p>
             </div>
 
-            <a href='/#/still-life'>
-                <img style={{margin: '0 auto', height: 260}} src={cup2} alt='glass with strawberries'/>
-            </a>
+            <figure style={{margin: '0 auto'}}>
+                <a href='/#/still-life'>
+                    <img style={{height: 260}} src={cup2} alt='glass with strawberries'/>
+                </a>
+            </figure>
 
             <a href='/#/1010'>
                 <DecimalClock />
             </a>
-
-            <p className='home-content-year'>
-                Last updated 3 Jan 2021 □
-            </p>
             
         </div>
     )

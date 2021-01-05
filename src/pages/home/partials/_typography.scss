@@ -44,21 +44,24 @@ a {
     color: #000;
     font-style: italic;
     text-transform: uppercase;
-    &.underline {
-        &:hover {
-            text-decoration: #dadada underline wavy;
-        }
-    }
 }
-p {
+p, figcaption {
     font-size: 1rem;
     letter-spacing: $letter-spacing;
     font-weight: lighter;
     line-height: 2rem;
     font-family: sans-serif;
     a {
-        &:hover {
-            text-decoration: #dadada underline wavy;
+        &:after, &.arrow {
+            content: '↗';
+            margin-left: 2px;
+            font-size: 0.75em;
+            margin-left: 0.25em;
         }
     }
+}
+
+figcaption {
+    text-align: center;
+    font-size: 0.875rem;
 }

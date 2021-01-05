@@ -5,8 +5,8 @@ import './../pages/set/_set.scss';
 
 import Set from './../pages/set/Set';
 
-import './../pages/home/partials/_header.scss';
-import Header from '../pages/home/Header';
+import './../header/_header.scss';
+import Header from '../header/Header';
 
 ReactDOM.render(
     <Fragment>

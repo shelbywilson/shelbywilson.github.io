@@ -7,30 +7,38 @@ module.exports = {
   apps: {
     home: {
       output: 'index.html',
+      title: 'Shelby Wilson',
     },
     skyAboveClouds: {
       output: 'sky-above-clouds/index.html',
+      title: 'Sky Above Clouds',
     },
     cloudTown: {
       output: 'cloud-town/index.html',
+      title: 'Shelby Wilson — Cloud Town',
     },
     albumOfWeavingPatterns: {
       output: 'album-of-weaving-patterns/index.html',
+      title: 'Shelby Wilson',
     },
     cloudDiary: {
       output: 'cloud-diary/index.html',
+      title: 'Shelby Wilson — Cloud Diary',
     },
     set: {
       output: 'set/index.html',
+      title: 'Set',
     },
     checkers: {
       output: 'checkers/index.html',
     },
-    still_life: {
-      output: 'still-life/index.html',
+    monolith: {
+      output: 'monolith/index.html',
+      title: 'Monolith',
     },
     pattern_finder: {
       output: 'pattern-finder/index.html',
+      title: 'pattern finder',
     }
   }
 }

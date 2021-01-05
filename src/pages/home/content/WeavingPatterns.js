@@ -8,12 +8,18 @@ export default () => {
     return (
         <div>
             <a href='/v1/patterns.html#84' target='_blank'>
-                <div className='img-container first'>
+                <figure className='img-container first'>
                     <img style={{marginBottom: -1, marginTop: -120}} src={gif} alt=''/>
-                </div>
+                </figure>
             </a>
             <p>
                 A translation, encoding, and interactive weaving pattern builder.
+            </p>
+            <p>
+                View <a href='/v1/patterns.html' target='_blank'>V1 Patterns</a> and <a href='/v1/patterns/builder.html' target='_blank'>V1 Pattern Builder</a>.
+            </p>
+            <p>
+                View <a href='https://docs.google.com/spreadsheets/d/14cHiAR2vfwNmJ0CbpPeCxDsDBv_r5AJEE3nTOH_kOj0/edit?usp=sharing' target='_blank'>glossary of weaving terms</a>.
             </p>
             <p>
                 This project began in 2013 as a translation of a 1912 Russian <a href={pdf} target="_blank">Album of Weaving Patterns</a> for my mom, who is a weaver.
@@ -27,15 +33,11 @@ export default () => {
             <p>
                 In order to produce dynamically generated swatch, I encoded each pattern as an array of binary. An SVG is then created from the three parts of each pattern.
             </p>
-            <div className='img-container first' style={{marginTop: 0}}>
-                <img src={img} alt='Swatch, treadling, tie-up, and treading' />
-            </div>
-            <p>
-                View <a href='/v1/patterns.html' target='_blank'>V1 Patterns</a> and <a href='/v1/patterns/builder.html' target='_blank'>V1 Pattern Builder</a>.
-            </p>
-            <p>
-                View <a href='https://docs.google.com/spreadsheets/d/14cHiAR2vfwNmJ0CbpPeCxDsDBv_r5AJEE3nTOH_kOj0/edit?usp=sharing' target='_blank'>glossary of weaving terms</a>.
-            </p>
+            <a href='/v1/patterns.html' target='_blank'>
+                <figure className='img-container first'>
+                    <img src={img} alt='Swatch, treadling, tie-up, and treading' />
+                </figure>
+            </a>
             <p>
                 Using: d3.js, React.js
             </p>

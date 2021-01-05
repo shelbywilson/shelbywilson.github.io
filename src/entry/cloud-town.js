@@ -6,8 +6,8 @@ import './../pages/cloud-town/_cloud-town.scss';
 
 import CloudTown from './../pages/cloud-town/CloudTown';
 
-import './../pages/home/partials/_header.scss';
-import Header from '../pages/home/Header';
+import './../header/_header.scss';
+import Header from '../header/Header';
 
 ReactDOM.render(
     <Fragment>

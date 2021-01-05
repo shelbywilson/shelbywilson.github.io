@@ -26,34 +26,34 @@ export default () => {
                 Using: HTML, CSS, a fraction of the photos of clouds on my phone
             </p>
             <a href='/cloud-diary'>
-                <div className='img-container'>
+                <figure className='img-container'>
                     <img src={img1a} alt='still from Cloud Town' />
-                </div>
+                </figure>
             </a>
             <a href='/cloud-town'>
-                <div className='img-container first'>
+                <figure className='img-container first'>
                     <img src={img1b} alt='still from Cloud Town' />
-                </div>
+                </figure>
             </a>
             <a href='/cloud-town'>
-                <div className='img-container first'>
+                <figure className='img-container first'>
                     <img src={img2a} alt='still from Cloud Town' />
-                </div>
+                </figure>
             </a>
             <a href='/cloud-diary'>
-                <div className='img-container first'>
+                <figure className='img-container first'>
                     <img src={img2b} alt='still from Cloud Town' />
-                </div>
+                </figure>
             </a>
             <a href='/cloud-diary'>
-                <div className='img-container first'>
+                <figure className='img-container first'>
                     <img src={img3a} alt='still from Cloud Town' />
-                </div>
+                </figure>
             </a>
             <a href='/cloud-town'>
-                <div className='img-container first'>
+                <figure className='img-container first'>
                     <img src={img3b} alt='still from Cloud Town' />
-                </div>
+                </figure>
             </a>
         </div>
     )

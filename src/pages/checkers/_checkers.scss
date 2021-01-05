@@ -1,0 +1,36 @@
+@import './../../util/animations';
+
+div {
+    background: #fff;
+}
+
+.window {
+    width: 50%;
+    height: 60%;
+    position: absolute;
+    background: rgba(255,255,255,0);
+    left: 100%;
+    > div {
+        border-bottom: 2px solid #fff;
+        border-top: 2px solid #fff;
+        position: absolute;
+        background: rgba(255,255,255,0);
+        left: 0;
+        width: 100%;
+        backdrop-filter: sepia(0.01);
+        transition: top 500ms;
+        &:first-child {
+            top: 0;
+            height: 60%;
+        }
+        &:last-child {
+            top: 60%;
+            height: 40%;
+        }
+    }
+    &:hover {
+        > div:last-child {
+            top: 20%;
+        }
+    }
+}
