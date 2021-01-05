@@ -1,5 +1,5 @@
 # shelbywilson.github.io
-codebase for website
+codebase for website [shelby.cool](https://shelby.cool)
 
 ##### start dev server
 ```
