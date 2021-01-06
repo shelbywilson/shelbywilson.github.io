@@ -9,19 +9,19 @@ module.exports = {
       output: 'index.html',
       title: 'Shelby Wilson',
     },
-    skyAboveClouds: {
+    'sky-above-clouds': {
       output: 'sky-above-clouds/index.html',
       title: 'Sky Above Clouds',
     },
-    cloudTown: {
+    'cloud-town': {
       output: 'cloud-town/index.html',
       title: 'Shelby Wilson — Cloud Town',
     },
-    albumOfWeavingPatterns: {
+    'album-of-weaving-patterns': {
       output: 'album-of-weaving-patterns/index.html',
       title: 'Shelby Wilson',
     },
-    cloudDiary: {
+    'cloud-diary': {
       output: 'cloud-diary/index.html',
       title: 'Shelby Wilson — Cloud Diary',
     },
@@ -29,14 +29,15 @@ module.exports = {
       output: 'set/index.html',
       title: 'Set',
     },
-    checkers: {
-      output: 'checkers/index.html',
+    windows: {
+      output: 'windows/index.html',
+      title: '□ ⊞ □ ⊞',
     },
     monolith: {
       output: 'monolith/index.html',
       title: 'Monolith',
     },
-    pattern_finder: {
+    'pattern-finder': {
       output: 'pattern-finder/index.html',
       title: 'pattern finder',
     }

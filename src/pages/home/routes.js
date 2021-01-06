@@ -22,6 +22,7 @@ import Muriel from './content/Muriel';
 import About from './content/About';
 import Amandamodo from './content/Amandamodo';
 import Vurv from './content/Vurv';
+import Sketches from './content/Sketches';
 
 export const routes = {
     stillLife: {
@@ -128,18 +129,7 @@ export const routes = {
         img: '',
         title: 'sketches',
         url: '/#/sketches',
-        content: <div>
-            <iframe src='/monolith?_no-header'></iframe>
-            <p>
-                View&nbsp;
-                <a href='/monolith'>
-                    Monolith
-                </a>.
-            </p>
-            <p>
-                Using: Three.js
-            </p>
-        </div>,
+        content: <Sketches />,
         type: 'web experiments',
     },
     about: {
@@ -148,6 +138,6 @@ export const routes = {
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 4 Jan 2021',
+        year: 'Last updated 5 Jan 2021',
     },
 }

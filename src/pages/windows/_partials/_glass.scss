@@ -1,0 +1,97 @@
+.glass {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &-material {
+        position: absolute;
+        backdrop-filter: brightness(0.9) sepia(0.7);
+        &, &:before, &:after {
+            transition: top 500ms, left 500ms, border-color 500ms;
+        }
+    }
+
+    &.up {
+        .pane-bottom{
+            top: 20%;
+        }
+    }
+
+    &.open {
+        .pane-left {
+            left: 40%;
+        }
+    }
+
+    .pane {
+        &-left, &-right {
+            @extend .glass-material;
+            backdrop-filter: blur(3px);
+            border-right: 2px solid $white-lights-off;
+            border-left: 2px solid $white-lights-off;
+            height: 100%;
+        }
+        &-left {
+            left: 0;
+            width: 40%;
+        }
+        &-right {
+            right: 0;
+            width: 60%;
+            &:after {
+                content: '';
+                position: absolute;
+                height: 100%;
+                border-left: 2px solid $white-lights-off;
+                left: 33.3%;
+            }
+        }
+        &-top, &-bottom {
+            @extend .glass-material;
+            width: 100%;
+            border-bottom: 2px solid $white-lights-off;
+            &:before, &:after {
+                content: '';
+                position: absolute;
+            }
+        }
+        &-top {
+            height: 60%;
+            top: 0;
+
+            &:before {
+                height: 33.3%;
+                top: 33.3%;
+                width: 100%;
+                border-bottom: 2px solid $white-lights-off;
+                border-top: 2px solid $white-lights-off;
+            }
+            &:after {
+                width: 33.3%;
+                left: 33.3%;
+                height: 100%;
+                border-left: 2px solid $white-lights-off;
+                border-right: 2px solid $white-lights-off;
+            }
+        }
+        &-bottom{
+            top: 60%;
+            height: 40%;
+            border-top: 5px solid $white-lights-off;
+            border-bottom: 5px solid $white-lights-off;
+            &:before {
+                height: 50%;
+                top: 50%;
+                width: 100%;
+                border-top: 2px solid $white-lights-off;
+            }
+            &:after {
+                width: 33.3%;
+                left: 33.3%;
+                height: 100%;
+                border-left: 2px solid $white-lights-off;
+                border-right: 2px solid $white-lights-off;
+            }
+        }
+    }
+}

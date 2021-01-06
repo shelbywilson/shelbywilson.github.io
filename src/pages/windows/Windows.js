@@ -1,79 +1,62 @@
-import React    from 'react';
+import React, { useState, useEffect } from 'react';
+import Window from './Window';
+import BlindsUp from './coverings/BlindsUp';
+import GlassUp from './coverings/GlassUp';
+import BlindsOpen from './coverings/BlindsOpen';
+import BlindsUpOpen from './coverings/BlindsUpOpen';
+import GlassSlide from './coverings/GlassSlide';
 
 export default () => {
-    return (
-        <div style={{
-            background: 'linear-gradient(black, navy)'
-            }}>
-                <div 
-                    style={{
-                    position: 'fixed',
-                    background: 'rgba(255,255,255,1)',
-                    boxShadow: '0 0 25px 25px rgba(240, 248, 255, 0.46)',
-                    width: '50px',
-                    height: '50px',
-                    borderRadius: '100%',
-                    top: '50%',
-                    left: '50%',
-                }}></div>
-                <div style={{
-                    position: 'relative',
-                    width: '100%',
-                    height: '80vh',
-                    marginTop: '-60vh',
-                }}></div>
-                <div style={{            
-                    marginLeft: 'auto',
-                    position: 'relative',
-                    height: '100vh',
-                    width: '40%',
-                }}>
-                    <div style={{
-                        height: '100%',
-                        position: 'absolute',
-                        width: '100vw',
-                        left: 'calc(-100vw - 300px)',
-                        background: '#fff',
-                    }}>
-                        <div className='window' style={{width: 300}}>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </div>
-                </div>
-                <div style={{
-                    position: 'relative',
-                    //background: 'white',
-                    width: '100%',
-                    height: '80vh',
-                    marginTop: '-40vh',
-                }}></div>
-                <div style={{
-                    position: 'relative',
-                    width: '40%',
-                    right: '0',
-                    height: '100vh',
-                    //background: '#9018ca',
-                }}>
-                    <div style={{
-                        height: '100%',
-                        position: 'absolute',
-                        width: '100%',
-                        right: '-200%',
-                        background: '#fff',
-                        //background: '#ab1918',
-                    }}>
+    const [light, setLight] = useState(false);
+    const [init, setInit] = useState(false);
 
-                    </div>
-                </div>
-                <div style={{
-                    position: 'relative',
-                    //background: '#de7777',
+    const toggleLight = () => {
+        setLight(prev => !prev);
+    }
+
+    useEffect(() => {
+        setInit(true)
+    }, [])
+    return (
+        <div className={`sky ${light ? 'light-on' : ''}`}>
+            <div className='moon'></div>
+            <div className='main'>
+                <div className='spacer' style={{
                     width: '100%',
-                    height: '80vh',
-                    marginTop: '-40vh',
+                    height: '20vh',
                 }}></div>
-            <div>
+
+                <Window width={340} height={'70vh'}>
+                    <GlassUp />
+                </Window>
+
+                <Window width={46} widthUnits={'vw'}>
+                    <BlindsOpen />
+                </Window>
+
+                <Window width={400}>
+                    <BlindsUp />
+                </Window>
+
+                {/* <Window width={700}
+                    >
+                    <BlindsUp />
+                </Window>
+
+                <Window width={400}
+                    >
+                    <BlindsUpOpen />
+                </Window> */}
+
+                <Window width={56} widthUnits='vw' height={'40vh'}>
+                    <GlassSlide />
+                </Window>
+
+                <div className={`light`}>
+                </div>
+                <div className={`light-switch ${init ? light ? 'on' : 'off' : ''}`} onClick={toggleLight}>
+
+                </div>
             </div>
         </div>
     )

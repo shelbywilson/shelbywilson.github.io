@@ -15,9 +15,9 @@ module.exports = {
     'album-of-weaving-patterns': paths.src + '/entry/album-of-weaving-patterns.js',
     'cloud-diary': paths.src + '/entry/cloud-diary.js',
     'set': paths.src + '/entry/set.js',
-    'checkers': paths.src + '/entry/checkers.js',
+    'windows': paths.src + '/entry/windows.js',
     'monolith': paths.src + '/entry/monolith.js',
-    'pattern_finder': paths.src + '/entry/pattern-finder.js',
+    'pattern-finder': paths.src + '/entry/pattern-finder.js',
   },
 
   /**

@@ -1,0 +1,94 @@
+.blinds {
+    height: 100%;
+    position: relative;
+    perspective: 500px;
+    transform-style: preserve-3d;
+    // perspective-origin: center 65%;
+    z-index: 1;
+    border-top: 7px solid $white-lights-off;
+    > div {
+        background: hsl(240deg, 100%, 40%);
+        width: 100%;
+        height: 40px;
+        transition: all 500ms;
+        height: 7.5%;
+        margin-bottom: 2px;
+        // transform: translateZ(-5px);
+    }
+    &:before, &:after {
+        content: '';
+        transition: all 500ms;
+        top: 0;
+        position: absolute;
+        border-right: 2px solid $white-lights-off;
+    }
+    &:before {
+        height: 110%;
+        right: 10px;
+    }
+
+    &:after {
+        height: 98%;
+        left: 10px;
+    }
+    &.closed {
+        > div {
+            transform: rotate3d(1,0,0,2deg);
+        }
+    }
+    &.open {
+        > div {
+            transform: rotate3d(1,0,0,58deg);
+        }
+    }
+}
+
+.blinds-1, .blinds-horizontal {
+    @extend .blinds;
+}
+
+.blinds-1 {
+    perspective-origin: center 90%;
+    &:after {
+        left: auto;
+        right: 15px;
+    }
+    &.open {
+        &:after {
+            height: 120%;
+        }
+    }
+}
+
+.blinds-horizontal {
+    width: 102%;
+    left: -1%;
+    transition: all 500ms;
+    > div {
+        position: absolute;
+        transition: all 500ms;
+        height: 14px;
+        transform: rotate3d(1, 0, 0, 58deg);
+        @for $i from 1 through 24 {
+            &:nth-child(#{$i}) {
+                top: #{percentage(($i - 1)/24)};
+            }
+        }
+    }
+    &.up {
+        @extend .open;
+        > div {
+            @for $i from 1 through 24 {
+                &:nth-child(#{$i}) {
+                    top: #{($i - 1) * 3px - 8px};
+                }
+            }
+        }
+        &:before {
+            height: 150%;
+        }
+        &:after {
+            height: 73px;
+        }
+    }
+}
