@@ -74,7 +74,8 @@ html {
     height: 100%;
     left: 100%;
     background: rgba(0,0,0,0);
-    transition: all 500ms;
+    transition: background-color 500ms;
+    z-index: 10;
     cursor: pointer;
     // .shelf {
     //     background: blue;

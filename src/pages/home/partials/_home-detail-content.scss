@@ -1,0 +1,65 @@
+.home-detail-content { 
+    .sky-above-clouds {
+        height: 320px;
+    }
+    &.home-detail {
+        &-stillLife {
+            iframe {
+                height: 480px;
+                @include breakpoint(xs) {
+                    transform: scale(0.7);
+                    margin-left: -20%;
+                    margin-top: -40px;
+                    margin-bottom: -40px;
+                    width: 140%;
+                    height: 400px;
+                }
+            }
+        }
+        &-cloudtown {
+            iframe {
+                @include breakpoint(xs) {
+                    transform: scale(.75);
+                    transform-origin: top left;
+                    width: 134%;
+                    height: 476px;
+                    margin-bottom: -116px;
+                }
+            }
+        }
+        &-muriel {
+            .img-container {
+                max-width: 100%;
+            }
+        }
+        &-vurv {
+            .iframe-container {
+                background: #272727;
+                iframe {
+                    height: 600px;
+                    width: 400px;
+                    display: block;
+                    margin: 0 auto;
+                    @include breakpoint(xs) {
+                        width: 90%;
+                        height: 400px;
+                    }
+                }
+            }
+        }
+        &-about {
+            .window {
+                background: #f4d3ff;
+                .blinds {
+                    border-top-color: #3c333f;
+                    &:before, &:after {
+                        border-right-color: #3c333f;
+                    }
+                    > div {
+                        background: #cf7337;
+                    }
+                }
+            }
+        }
+    }
+}

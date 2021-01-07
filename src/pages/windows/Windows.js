@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Window from './Window';
 import BlindsUp from './coverings/BlindsUp';
 import GlassUp from './coverings/GlassUp';
 import BlindsOpen from './coverings/BlindsOpen';
 import BlindsUpOpen from './coverings/BlindsUpOpen';
 import GlassSlide from './coverings/GlassSlide';
+import WindowContainer from './WindowContainer';
 
 export default () => {
     const [light, setLight] = useState(false);
@@ -26,31 +26,31 @@ export default () => {
                     height: '20vh',
                 }}></div>
 
-                <Window width={340} height={'70vh'}>
+                <WindowContainer width={340} height={'70vh'}>
                     <GlassUp />
-                </Window>
+                </WindowContainer>
 
-                <Window width={46} widthUnits={'vw'}>
+                <WindowContainer width={46} widthUnits={'vw'}>
                     <BlindsOpen />
-                </Window>
+                </WindowContainer>
 
-                <Window width={400}>
+                <WindowContainer width={400}>
                     <BlindsUp />
-                </Window>
+                </WindowContainer>
 
-                {/* <Window width={700}
+                {/* <WindowContainer width={700}
                     >
                     <BlindsUp />
-                </Window>
+                </WindowContainer>
 
-                <Window width={400}
+                <WindowContainer width={400}
                     >
                     <BlindsUpOpen />
-                </Window> */}
+                </WindowContainer> */}
 
-                <Window width={56} widthUnits='vw' height={'40vh'}>
+                <WindowContainer width={56} widthUnits='vw' height={'40vh'}>
                     <GlassSlide />
-                </Window>
+                </WindowContainer>
 
                 <div className={`light`}>
                 </div>

@@ -12,6 +12,7 @@ footer {
     transition: all 300ms;
     width: calc(100% - #{$margin * 2});
     cursor: crosshair;
+    z-index: 100;
     &.expand {
         height: calc(100vh - 150px);
         backdrop-filter: hue-rotate(45deg) blur(2px);
@@ -34,7 +35,6 @@ footer {
         @include breakpoint(xs) {
             height: 540px;
             max-height: 90%;
-            z-index: 3;
         }
     }
     &:focus, &:active {

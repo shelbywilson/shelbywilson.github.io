@@ -25,11 +25,17 @@ export default (props) => {
                 <div className='footer-links'>
                     <nav>
                         <ul>
+                            <li className={`link-home`}>
+                                <a className={`${!detail ? 'active' : ''}`} 
+                                    onClick={(e) => onClickLink(e, null)}>
+                                        Home
+                                </a>
+                            </li>
                             {[...sections, 'about'].map(key => (
                                 <li className={`link-${key}`}
                                     key={key}>
                                     <a href={routes[key].url} 
-                                        className={`${routes[key].dark ? 'dark' : ''} ${(detail || {}).id === key ? 'active' : ''}`} 
+                                        className={`${(detail || {}).id === key ? 'active' : ''}`} 
                                         onClick={(e) => onClickLink(e, key)}>
                                             {routes[key].title}
                                     </a>

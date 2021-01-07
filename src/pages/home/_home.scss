@@ -8,7 +8,10 @@
 @import './partials/footer';
 @import './partials/time-background';
 @import './partials/home-detail';
+@import './partials/home-detail-content';
 @import './partials/decimal-clock';
+
+@import './../../pages/windows/windows';
 
 html {
     background: white;

@@ -1,39 +1,23 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import { max } from 'd3';
+import React from 'react';
 
 export default (props) => {
     const {
         width = 400,
         widthUnits = 'px',
         height = '60vh',
+        maxWidth = 100,
+        maxWidthUnits = 'vw',
     } = props;
 
     return (
-        <Fragment>
-            <div className='spacer' style={{            
-                right: 0,
+        <div className={`window`} style={{
+                width: `${width}${widthUnits}`,
+                left: `calc(${maxWidth/2}${maxWidthUnits} - ${width/2}${widthUnits})`,
                 height: height,
-                position: 'absolute',
-                width: `calc(50vw - ${width/2}${widthUnits})`,
+                top: 0,
             }}>
-                <div className={`window`} style={{
-                        width: `${width}${widthUnits}`,
-                        left: `${-width}${widthUnits}`
-                    }}>
-                    {props.children}
-                </div>
-            </div>
-
-            <div className='spacer' style={{
-                height: height,
-                width: `calc(50vw - ${width/2}${widthUnits})`,
-                left: 0,
-            }}></div>
-
-            <div className='spacer' style={{
-                width: '100%',
-                height: '80vh',
-            }}></div>
-
-        </Fragment>
+            {props.children}
+        </div>
     )
 }

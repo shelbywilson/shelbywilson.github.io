@@ -30,7 +30,6 @@ export default () => {
             <a href='/#/1010'>
                 <DecimalClock />
             </a>
-            
         </div>
     )
 }
