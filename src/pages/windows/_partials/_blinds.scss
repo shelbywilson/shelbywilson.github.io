@@ -6,6 +6,9 @@
     // perspective-origin: center 65%;
     z-index: 1;
     border-top: 7px solid $white-lights-off;
+
+    // this is to prevent weird safari bug; without z transform blinds get cut off only when light is off 
+    transform: translateZ(8px);
     > div {
         background: hsl(240deg, 100%, 40%);
         width: 100%;

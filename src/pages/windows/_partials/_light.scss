@@ -29,7 +29,7 @@
     top: 0;
     pointer-events: none;
     transition: all 500ms;
-    background: radial-gradient(circle at 87% -20%,#fff,transparent 46%);
+    background: radial-gradient(circle at 87% -20%,#fff,rgba(255,255,255,0) 46%);
     opacity: 0;
     &-switch {
         cursor: pointer;
