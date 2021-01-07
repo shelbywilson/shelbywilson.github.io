@@ -12,5 +12,5 @@ import Header from '../header/Header';
 Monolith();
 
 ReactDOM.render(
-    <Header url='' />
+    <Header url='/#/sketches' />
   , document.getElementById('root'));

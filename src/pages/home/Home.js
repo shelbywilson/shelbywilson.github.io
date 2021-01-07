@@ -61,13 +61,13 @@ export const Home = (props) => {
         'stillLife',  
         'sfpcShowcase', 
         'table', 
+        'sketches',
         'skyAboveClouds',
         'weavingpatterns', 
         'muriel', 
         'amandamodo', 
         'set',
         'vurv',
-        'sketches',
     ];
 
     return (

@@ -10,6 +10,7 @@ import table from './../../images/home/table.png';
 import muriel from './../../images/home/muriel-3.png';
 import sfpcShowcase from './../../images/home/1010.jpg';
 import set from './../../images/home/set.jpg';
+import windows from './../../images/home/windows.jpg';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -126,7 +127,7 @@ export const routes = {
     },
     sketches: {
         id: 'sketches',
-        img: '',
+        img: windows,
         title: 'sketches',
         url: '/#/sketches',
         content: <Sketches />,
