@@ -31,7 +31,7 @@ module.exports = {
     },
     windows: {
       output: 'windows/index.html',
-      title: '□ ⊞ □ ⊞',
+      title: '⊞ □ ⊞ □ ⊞',
     },
     monolith: {
       output: 'monolith/index.html',
@@ -42,8 +42,8 @@ module.exports = {
       title: 'pattern finder',
     },
     rooms: {
-      output: 'rooms/index.html',
-      title: '|_|',
+      output: 'room-with-a-window/index.html',
+      title: '⊞ □ ⊞ □ ⊞',
     }
   }
 }

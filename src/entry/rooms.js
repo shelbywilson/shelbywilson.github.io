@@ -8,11 +8,11 @@ import Header from '../header/Header';
 import './../pages/windows/_windows.scss';
 import './../pages/rooms/partials/_room-1.scss';
 
-import Shadows from '../pages/rooms/Room1Shadows';
+import Room1 from '../pages/rooms/Room1Shadows';
 
 ReactDOM.render(
   <Fragment>
-    <Header url='' />
-    <Shadows />
+    <Header url='/#/sketches' />
+    <Room1 />
   </Fragment>
   , document.getElementById('root'));
