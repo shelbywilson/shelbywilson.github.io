@@ -2,23 +2,26 @@ const paths = require('./paths')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
+let entry = {};
+Object.keys(paths.apps).forEach(app => entry[app] = `${paths.src}/entry/${app}.js`);
+
 module.exports = {
   /**
    * Entry
    *
    * The first place Webpack looks to start building the bundle.
    */
-  entry: {
-    'home': paths.src + '/entry/home.js',
-    'sky-above-clouds': paths.src + '/entry/sky-above-clouds.js',
-    'cloud-town': paths.src + '/entry/cloud-town.js',
-    'album-of-weaving-patterns': paths.src + '/entry/album-of-weaving-patterns.js',
-    'cloud-diary': paths.src + '/entry/cloud-diary.js',
-    'set': paths.src + '/entry/set.js',
-    'windows': paths.src + '/entry/windows.js',
-    'monolith': paths.src + '/entry/monolith.js',
-    'pattern-finder': paths.src + '/entry/pattern-finder.js',
-  },
+  entry: entry,
+  //   'home': paths.src + '/entry/home.js',
+  //   'sky-above-clouds': paths.src + '/entry/sky-above-clouds.js',
+  //   'cloud-town': paths.src + '/entry/cloud-town.js',
+  //   'album-of-weaving-patterns': paths.src + '/entry/album-of-weaving-patterns.js',
+  //   'cloud-diary': paths.src + '/entry/cloud-diary.js',
+  //   'set': paths.src + '/entry/set.js',
+  //   'windows': paths.src + '/entry/windows.js',
+  //   'monolith': paths.src + '/entry/monolith.js',
+  //   'pattern-finder': paths.src + '/entry/pattern-finder.js',
+  // },
 
   /**
    * Output
