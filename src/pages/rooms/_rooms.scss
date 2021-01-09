@@ -1,0 +1,98 @@
+@import './../../base/partials/mixins';
+
+html {
+    background: hsl(0, 27%, 23%);
+}
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+@keyframes sun {
+    0% {
+        transform: translate(-500px, 200px) skew(-40deg,0deg);
+    }
+    100% {
+        transform: translate(0, 120px) skew(35deg,0deg);
+    }
+}
+
+.rooms {
+    top: 0;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    position: relative;
+    height: 500px;
+
+    @include breakpoint(xs) {
+        transform: scale(0.5);
+        width: 200%;
+        height: 200%;
+        transform-origin: top left;
+        padding-top: 76px;
+    }
+    .window {
+        background: linear-gradient(#6f96ff, #afc4ff);
+        // background-image: url('https://shelby.cool/dist/images/clouds/clouds10_small.jpg');
+        background-size: cover;
+        border: 2px solid hsl(0, 27%, 13%);
+        .blinds-horizontal {
+            > div {
+                background: beige;
+            }
+        //     border-top: 7px solid #ff0000;
+        //     &:before, &:after {
+        //         border-right: 2px solid #bf00ff;
+        //     }
+        }
+    }
+    .wall {
+        // background-color: hsl(0, 27%, 61%);
+        // background-color: hsl(221, 55%, 31%);
+        // color: hsl(0, 27%, 13%);
+        // color:hsl(0, 27%, 13%);
+        padding: 100px;
+        // background-image: linear-gradient(currentColor 1px, rgba(255,255,255,0) 1px),linear-gradient(to right, currentColor 1px, rgba(255,255,255,0) 1px);
+        // background-size: 25px 25px;
+        &.shadow {
+            // background: hsl(0, 27%, 39%);
+            background-color: hsl(221, 55%, 16%);;
+        }
+    }
+    .sun-spot {
+        width: 400px;
+        // transform: translate(0, 120px) skew(35deg,0deg);
+        -webkit-animation: sun 70s 1 linear;
+        animation: sun 70s 1 linear;
+        transform: translate(0, 120px) skew(35deg,0deg);
+        left: 50%;
+        position: absolute;
+        height: 400px;
+        background: #ffff7a17;
+        &.shadows {
+            > div {
+                top: 0;
+            }
+        }
+        > div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 100%;
+            left: 0;
+            transition: top 500ms;
+            background-size: 20px 20px;
+        }
+    }
+}
+.floor, .ceiling, .wall {
+    transition: background-color 500ms;
+}
+
+.ceiling {
+    position: fixed;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}

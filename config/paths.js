@@ -40,6 +40,10 @@ module.exports = {
     'pattern-finder': {
       output: 'pattern-finder/index.html',
       title: 'pattern finder',
+    },
+    rooms: {
+      output: 'rooms/index.html',
+      title: '|_|',
     }
   }
 }

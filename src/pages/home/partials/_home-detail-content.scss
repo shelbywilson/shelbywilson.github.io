@@ -47,19 +47,19 @@
                 }
             }
         }
-        &-about {
-            .window {
-                background: #f4d3ff;
-                .blinds {
-                    border-top-color: #3c333f;
-                    &:before, &:after {
-                        border-right-color: #3c333f;
-                    }
-                    > div {
-                        background: #cf7337;
-                    }
-                }
-            }
-        }
+        // &-about {
+        //     .window {
+        //         background: #f4d3ff;
+        //         .blinds {
+        //             border-top-color: #3c333f;
+        //             &:before, &:after {
+        //                 border-right-color: #3c333f;
+        //             }
+        //             > div {
+        //                 background: #cf7337;
+        //             }
+        //         }
+        //     }
+        // }
     }
 }

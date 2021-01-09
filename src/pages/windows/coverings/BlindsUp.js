@@ -1,7 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default () => {
+export default (props) => {
     const [up, setUp] = useState(false);
+
+    useEffect(() => {
+        if (props.toggle) {
+            props.toggle(up)
+        }
+    }, [up]);
 
     const toggle = () => {
         setUp(prev => !prev);
