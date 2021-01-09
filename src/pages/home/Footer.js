@@ -20,46 +20,44 @@ export default (props) => {
     }
 
     return (
-        <footer onClick={toggle} role='button' tabIndex='1' className={expand ? 'expand' : ''}>
-            <div className='container'>
-                <div className='footer-links'>
-                    <nav>
-                        <ul>
-                            <li className={`link-home`}>
-                                <a className={`${!detail ? 'active' : ''}`} 
-                                    onClick={(e) => onClickLink(e, null)}>
-                                        Home
+        <footer className={expand ? 'expand' : ''}>
+            <div className='footer-links' onClick={toggle} role='button' tabIndex='0'>
+                <nav>
+                    <ul>
+                        <li className={`link-home`}>
+                            <a className={`${!detail ? 'active' : ''}`} 
+                                onClick={(e) => onClickLink(e, null)}>
+                                    Home
+                            </a>
+                        </li>
+                        {[...sections, 'about'].map(key => (
+                            <li className={`link-${key}`}
+                                key={key}>
+                                <a href={routes[key].url} 
+                                    className={`${(detail || {}).id === key ? 'active' : ''}`} 
+                                    onClick={(e) => onClickLink(e, key)}>
+                                        {routes[key].title}
                                 </a>
                             </li>
-                            {[...sections, 'about'].map(key => (
-                                <li className={`link-${key}`}
-                                    key={key}>
-                                    <a href={routes[key].url} 
-                                        className={`${(detail || {}).id === key ? 'active' : ''}`} 
-                                        onClick={(e) => onClickLink(e, key)}>
-                                            {routes[key].title}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </nav>
-                </div>
+                        ))}
+                    </ul>
+                </nav>
+            </div>
 
-                <div className={`footer-toggle`}>
-                    <a 
-                        onClick={(e) => {
-                            e.stopPropagation(); 
-                            toggle();
-                        }}>
-                            Menu
-                    </a>
-                </div>
-                <a href='/#/about'  
-                    onClick={(e) => onClickLink(e, 'about')}
-                    style={props.indicatorStyle}
-                    className='footer-indicator'>    
+            <div className={`footer-toggle`}>
+                <a 
+                    onClick={(e) => {
+                        e.stopPropagation(); 
+                        toggle();
+                    }}>
+                        Menu
                 </a>
             </div>
+            <a href='/#/about'  
+                onClick={(e) => onClickLink(e, 'about')}
+                style={props.indicatorStyle}
+                className='footer-indicator'>    
+            </a>
         </footer>
     )
 }

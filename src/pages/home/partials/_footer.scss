@@ -3,25 +3,21 @@
 footer {
     position: fixed;
     left: $margin;
-    height: 100px;
+    height: 0;
     text-align: center;
     bottom: 0px;
     transition: all 600ms;
-    width: calc(100% - #{$margin * 2});
-    cursor: crosshair;
     z-index: 100;
 
     @include breakpoint(xs) {
-        height: 90px;
         width: 100%;
         left: 0;
-        // background: rgba(255,255,255,0.8);
     }
 
     &.expand {
-        height: calc(100vh - 150px);
         .footer-links {
-            margin-top: 0;
+            // margin-top: 0;
+            bottom: 0;
             opacity: 1;
         }
         .footer-toggle {
@@ -35,11 +31,11 @@ footer {
             top: -150px;
             left: 0;
         }
-        @include breakpoint(xs) {
-            height: 540px;
-            max-height: 90%;
-            background: rgba(255,255,255,0.8);
-        }
+        // @include breakpoint(xs) {
+        //     height: 540px;
+        //     max-height: 90%;
+        //     background: rgba(255,255,255,0.8);
+        // }
     }
     &:focus, &:active {
         outline: none;
@@ -57,16 +53,6 @@ footer {
             font-style: italic;
         }
     }
-    .container {
-        display: flex;
-        padding: 30px 0;
-        height: 100%;
-        align-items: flex-end;
-        justify-content: flex-end;
-        @include breakpoint(xs) {
-            padding: 30px;
-        }
-    }
     img {
         height: 70px;
     }
@@ -77,32 +63,62 @@ footer {
             background: #F0F4C3;
             transition: all 3s;
             border-radius: 100%;
-            position: absolute;
+            position: fixed;
             margin: 0;
+            bottom: 30px;
+            right: $margin;
+            z-index: 1;
         }
 
         &-toggle {
             position: absolute;
-            bottom: 30px;
+            bottom: 10px;
             margin-top: $margin;
-            left: 0;
+            left: -$margin;
             opacity: 0.5;
-            transition: opacity 800ms;
+            transition: opacity 600ms;
+            padding: $margin;
+            z-index: 1;
             @include breakpoint(xs) {
-                left: 30px;
+                left: 0;
             }
         }
 
         &-links {
-            max-height: 100%;
+            max-height: calc(100vh - 230px);
+            height: 100%;
+            margin-bottom: 80px;
             overflow: auto;
-            transition: margin 300ms;
-            transition-delay: opacity 500ms;
-            margin-top: 100px;
+            bottom: -100%;
+            left: $margin;
+            position: fixed;
+            transition: bottom 600ms;
             align-self: flex-start;
             margin-right: auto;
             text-align: right;
             padding-right: 8px;
+            &:active, &:focus {
+                outline: none;
+            }
+
+            @include breakpoint(xs) {
+                padding-top: $margin;
+                height: 430px;
+                max-height: 100%;
+                display: flex;
+                padding-bottom: 80px;
+                margin-bottom: 0;
+                height: 540px;
+                max-height: 90vh;
+                background: rgba(255,255,255,0.8);
+                width: 100%;
+                
+                nav {
+                    display: inline-block;
+                    overflow: auto;
+                }
+            }
+
             ul {
                 list-style: none;
                 margin: 0;
@@ -112,10 +128,16 @@ footer {
             .link {
                 &-about {
                     margin-top: $margin * 3;
+                    @include breakpoint(xs) {
+                        margin-top: $margin * 1.5;
+                    }
                 }
-            }
-            @include breakpoint(xs) {
-                padding-bottom: 40px;
+                &-home {
+                    margin-bottom: $margin * 2;
+                    @include breakpoint(xs) {
+                        margin-bottom: $margin * 1.5;
+                    }
+                }
             }
         }
     }
