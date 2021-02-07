@@ -57,6 +57,7 @@ body {
         position: absolute;
         height: 400px;
         background: #ffff7a17;
+        overflow: hidden;
         &.shadows {
             > div {
                 top: 0;

@@ -22,6 +22,9 @@ export default () => {
                 View <a href="https://editor.p5js.org/shelbyw/present/WZD9BWwwQ" target='_blank'>full screen</a> or <a href="https://editor.p5js.org/shelbyw/sketches/WZD9BWwwQ" target='_blank'>online editor</a>.
             </p>
             <p>
+                View <a href="https://vimeo.com/509329812" target="-blank">time lapse</a>.
+            </p>
+            <p>
                 Using: p5.js
             </p>
 
@@ -39,6 +42,11 @@ export default () => {
                     </a>
                 </figcaption>
             </figure>
+            
+            <iframe style={{margin: '60px 0 0 0'}} src="https://player.vimeo.com/video/509329812" width="480" height="785" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <p style={{textAlign: 'center'}}>
+                View <a href="https://vimeo.com/509329812" target="-blank">time lapse</a>.
+            </p>
 
             <figure>
                 <img style={{margin: '60px auto', height: 120}} src={peach} alt='peach'/>
