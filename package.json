@@ -31,6 +31,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
+    "d3-simple-slider": "^1.10.3",
     "eslint": "^6.8.0",
     "eslint-loader": "^3.0.4",
     "eslint-plugin-react": "^7.22.0",

@@ -43,7 +43,7 @@ export default () => {
                 </figcaption>
             </figure>
             
-            <iframe style={{margin: '60px 0 0 0'}} src="https://player.vimeo.com/video/509329812" width="480" height="785" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <iframe style={{margin: '60px 0 0 0'}} src="https://player.vimeo.com/video/509329812" width="480" height="785" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture" allowFullscreen></iframe>
             <p style={{textAlign: 'center'}}>
                 View <a href="https://vimeo.com/509329812" target="-blank">time lapse</a>.
             </p>

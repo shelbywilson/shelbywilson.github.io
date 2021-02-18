@@ -1,8 +1,16 @@
 import React from 'react';
+import Corners from '../../corners';
 
 export default () => {
     return (
         <div>
+            <h3>
+                17 February 2021
+            </h3>
+            <Corners />
+            <p style={{marginBottom: '140px'}}>
+                Using: d3.js
+            </p>
             <h3>
                 8 January 2021
             </h3>
