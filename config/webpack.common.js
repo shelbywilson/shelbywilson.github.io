@@ -12,16 +12,13 @@ module.exports = {
    * The first place Webpack looks to start building the bundle.
    */
   entry: entry,
-  //   'home': paths.src + '/entry/home.js',
-  //   'sky-above-clouds': paths.src + '/entry/sky-above-clouds.js',
-  //   'cloud-town': paths.src + '/entry/cloud-town.js',
-  //   'album-of-weaving-patterns': paths.src + '/entry/album-of-weaving-patterns.js',
-  //   'cloud-diary': paths.src + '/entry/cloud-diary.js',
-  //   'set': paths.src + '/entry/set.js',
-  //   'windows': paths.src + '/entry/windows.js',
-  //   'monolith': paths.src + '/entry/monolith.js',
-  //   'pattern-finder': paths.src + '/entry/pattern-finder.js',
-  // },
+
+  /**
+   * Resolve extensions
+   */
+  resolve: {
+    extensions: [".js", ".json", ".ts", ".tsx"],
+  },
 
   /**
    * Output
@@ -61,7 +58,7 @@ module.exports = {
        * Use Babel to transpile JavaScript files.
        */
       {
-        test: /\.js$/,
+        test: /\.(js|tsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
       },

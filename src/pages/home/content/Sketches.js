@@ -1,5 +1,5 @@
 import React from 'react';
-import Corners from '../../corners';
+import Corners from './../../sketches/corners';
 
 export default () => {
     return (

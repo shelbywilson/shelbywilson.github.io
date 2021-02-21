@@ -12,16 +12,17 @@ export default () => {
             const svg = d3.select(container.current)
                 .append('svg')
 
-            const slider = sliderBottom()
-                .min(0)
-                .max(360)
-                .step(1)
-                .width(360)
+            const scale = d3.scaleLinear()
+                .domain([0, 360])
+                .range([0, 360])
+
+            // @ts-ignore
+            const slider = sliderBottom(scale).step(1)
                 .ticks(0)
                 .tickFormat('')
                 .default(angle)
                 .on('onchange', setAngle)
-                .displayFormat(d => `${d > 180 ? 360 - d : d}°`)
+                .displayFormat((d: number) => `${d > 180 ? 360 - d : d}°`)
 
             svg.attr('width', 460)
                 .attr('height', 340)
@@ -93,9 +94,9 @@ export default () => {
             .outerRadius(20) 
             .startAngle(0) 
             .endAngle((angle > 180 ? 360 - angle : angle) * Math.PI/180)
-            
-        d3.select('#corner-arc')
-            .attr('d', arc) 
+        
+        // @ts-ignore
+        d3.select('#corner-arc').attr('d', arc) 
             .attr('fill','lavender')
             .style('transform', `rotate(${angle < 180 ? 90 : -270 + angle}deg)`)
             
