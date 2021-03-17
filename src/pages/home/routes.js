@@ -24,6 +24,7 @@ import About from './content/About';
 import Amandamodo from './content/Amandamodo';
 import Vurv from './content/Vurv';
 import Sketches from './content/Sketches';
+import Windows from '../windows/Windows';
 
 export const routes = {
     stillLife: {
@@ -139,6 +140,16 @@ export const routes = {
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 8 Jan 2021',
+        year: 'Last updated 16 Mar 2021',
     },
 }
+
+export const sketches = [
+    {
+        id: 'windows1',
+        img: windows,
+        title: '⊞ □ ⊞ □ ⊞',
+        url: '/#/sketches/windows',
+        content: <Windows />
+    }
+]

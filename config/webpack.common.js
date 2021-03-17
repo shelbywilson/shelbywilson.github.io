@@ -1,6 +1,4 @@
 const paths = require('./paths')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 let entry = {};
 Object.keys(paths.apps).forEach(app => entry[app] = `${paths.src}/entry/${app}.js`);
@@ -37,12 +35,6 @@ module.exports = {
    * Customize the Webpack build process.
    */
   plugins: [
-    /**
-     * CleanWebpackPlugin
-     *
-     * Removes/cleans build folders and unused assets when rebuilding.
-     */
-    new CleanWebpackPlugin(),
   ],
 
   /**

@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = merge(common, {
   mode: 'production',
@@ -15,6 +16,14 @@ module.exports = merge(common, {
     filename: '[name].[contenthash].bundle.js',
   },
   plugins: [
+
+    /**
+     * CleanWebpackPlugin
+     *
+     * Removes/cleans build folders and unused assets when rebuilding.
+     */
+    new CleanWebpackPlugin(),
+
     /**
      * MiniCssExtractPlugin
      *

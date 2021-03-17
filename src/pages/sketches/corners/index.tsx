@@ -6,11 +6,20 @@ export default () => {
     const container = useRef(null);
     const [angle, setAngle] = useState(90);
     const [init, setInit] = useState(false);
+    const width = 460;
+    const height = 340;
 
     useEffect(() => {
         if (container.current && !init) {
             const svg = d3.select(container.current)
-                .append('svg')
+                // .append('svg')
+                // .attr('viewBox', '0 0 460 340')
+                // .style('width', '100%')
+                // .style('height', '1px')
+                // .style('overflow', 'visible')
+                // .attr('preserveAspectRatio', 'xMidYMin slice')
+                // .style('padding-bottom', (height/width * 100) + '%')
+                .append('g')
 
             const scale = d3.scaleLinear()
                 .domain([0, 360])
@@ -23,14 +32,9 @@ export default () => {
                 .default(angle)
                 .on('onchange', setAngle)
                 .displayFormat((d: number) => `${d > 180 ? 360 - d : d}°`)
-
-            svg.attr('width', 460)
-                .attr('height', 340)
-                .style('margin', '0 auto')
-                .style('display', 'block')
             
             svg.append('g')
-                .attr('transform', 'translate(50,30)')
+                .style('transform', 'translate(50px,30px)')
                 .call(slider)
 
             const lines = svg.append('g')
@@ -103,8 +107,19 @@ export default () => {
     }, [angle])
 
     return (
-        <div ref={container}>
+        <div className='corners' 
+            >
+            <div 
+                style={{maxWidth: width, margin: '0 auto'}}
+                >
+                <svg viewBox={`0 0 ${width} ${height}`}
+                    preserveAspectRatio="none"
+                    style={{width: '100%'}}
+                    ref={container}>
 
+                </svg>
+
+            </div>
         </div>
     )
 }

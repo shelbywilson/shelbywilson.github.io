@@ -22,6 +22,10 @@ body {
     overflow-y: auto;
 }
 
+section {
+    margin-bottom: 8rem;
+}
+
 figure, figcaption {
     margin: 0;
 }
@@ -56,10 +60,10 @@ figure, figcaption {
         min-height: 200px;
         margin: 0 auto;
         position: relative;
+        overflow: visible;
         img {
             display: block;
             width: 100%;
-            overflow: hidden;
             margin: 0 auto;
         }
         &.dark {

@@ -86,7 +86,9 @@ export const Home = (props) => {
                         {sections.map(key => (
                             <div className={`img ${key} ${routes[key].inverse ? 'inverse': ''} ${routes[key].dark ? 'dark' : ''}`}
                                 key={key}>
-                                <img src={routes[key].img} alt="" />
+                                <div>
+                                    <img src={routes[key].img} alt="" />
+                                </div>
                                 <h4>&#9724;&nbsp;{routes[key].type}</h4>
                                 <a href={routes[key].url} 
                                     onClick={() => setDetail(routes[key])}>

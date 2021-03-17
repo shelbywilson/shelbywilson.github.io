@@ -16,7 +16,9 @@ export default () => {
                 Using: Baltic birch, dado blade
             </p>
             <figure className='img-container' style={{overflow: 'visible'}}>
-                <img src={table2} alt='table sideways' className='spin' />
+                <div className='spin'>
+                    <img src={table2} alt='table sideways' />
+                </div>
             </figure>
         </div>
     )
