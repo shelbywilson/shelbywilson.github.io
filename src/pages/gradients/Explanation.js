@@ -113,11 +113,11 @@ export default ({layers, state, getStyle}) => {
             </p>
 
             <div style={{width: 260, height: 260, position: 'relative', margin: '60px auto', border: '1px solid #000'}}>
-                <div style={{...getStyle(state.opacity, layers[state.opacity]), opacity: 1, zIndex: 1}}>
+                <div style={{...getStyle(state.opacity, layers[state.opacity]), opacity: 1, zIndex: 1, position: 'absolute', height: '100%', width: '100%'}}>
                 </div>
-                <div style={{...getStyle((state.opacity + 1)%2, layers[(state.opacity + 1)%2]), opacity: 1, zIndex: 2}}>
+                <div style={{...getStyle((state.opacity + 1)%2, layers[(state.opacity + 1)%2]), opacity: 1, zIndex: 2, position: 'absolute', height: '100%', width: '100%'}}>
                 </div>
-                <div style={{...getStyle('base', state.base), transition: 'none'}}>
+                <div style={{...getStyle('base', state.base), transition: 'none', position: 'absolute', height: '100%', width: '100%'}}>
                 </div>
             </div>
 

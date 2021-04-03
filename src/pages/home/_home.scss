@@ -152,6 +152,7 @@ figure, figcaption {
         }
         &.gradients {
             margin-top: $margin * 2;
+            overflow: hidden;
             h4 {
                 color: #fff;
             }

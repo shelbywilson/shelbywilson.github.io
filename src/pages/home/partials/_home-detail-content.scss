@@ -50,7 +50,10 @@
         &-gradients {
             .gradients {
                 position: relative;
-                height: 600px;
+                height: 400px;
+                @include breakpoint(sm) {
+                    height: 600px;
+                }
             }
         }
         // &-about {
