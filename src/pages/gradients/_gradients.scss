@@ -2,6 +2,15 @@
 
 .gradients {
     overflow: hidden;
+    &-layer {
+        position: absolute;
+        height: 200%;
+        width: 200%;
+        @include breakpoint(sm) {
+            height: 100%;
+            width: 100%;
+        }
+    }
     &-chart {
         width: 100%;
         height: 200px;
@@ -13,8 +22,11 @@
     }
     &-layers {
         transform: scale(0.7);
+        transform-origin: top;
+        margin-bottom: -50%;
         @include breakpoint(sm) {
             transform: none;
+            margin-bottom: 0;
         }
     }
 }

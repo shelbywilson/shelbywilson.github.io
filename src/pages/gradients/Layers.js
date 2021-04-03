@@ -26,7 +26,7 @@ export default ({layers, state, getStyle}) => {
                                     textAlign: i % 2 === 0 ? 'right' : 'left'
                                 }
                             }>
-                                layer {1 + i%2}, fade {(i + state.opacity) % 2 === 1 ? 'in' : 'out'}
+                                layer {1 + i%2}, fade {(i + state.opacity) % 2 === 0 ? 'in' : 'out'}
                             </div>
                         }
                 </div>
@@ -72,7 +72,7 @@ export default ({layers, state, getStyle}) => {
                                 transition: `border ${state.interval}ms`,
                                 position: 'relative',
                             }}>
-                            <div style={style}>
+                            <div style={{...style, width: '100%', height: '100%', position: 'absolute'}}>
                             </div>
                         </div>
                     </div>

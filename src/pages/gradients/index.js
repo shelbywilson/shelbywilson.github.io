@@ -68,9 +68,6 @@ export default ({explain, children}) => {
     }, [state.timer])
 
     const getStyle = (layer, color, toWhite) => ({
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
         background: layer === 'base' ?
             `rgb(${state.base.r},${state.base.g},${state.base.b})`
             :
@@ -90,11 +87,11 @@ export default ({explain, children}) => {
             <div className='gradients' 
                 >
                 {layers.map((color, i) => 
-                    <div key={`layer_${i + 1}`} style={{...getStyle(i, color), zIndex: 100 - i}}>
+                    <div key={`layer_${i + 1}`} className='gradients-layer' style={{...getStyle(i, color), zIndex: 100 - i}}>
                     </div>
                 )}
 
-                <div style={{...getStyle('base'), zIndex: 5}}>
+                <div className='gradients-layer' style={{...getStyle('base'), zIndex: 5}}>
                 </div>
             </div>
 
