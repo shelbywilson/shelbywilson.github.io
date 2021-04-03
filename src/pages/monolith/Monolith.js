@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { WEBGL } from './static/webgl';
+import { WEBGL } from './../../util/webgl';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import dn from './../../images/monolith/majik/majik_dn.jpg';

@@ -1,0 +1,19 @@
+@import './../../base/_base.scss';
+
+.gradients {
+    &-chart {
+        width: 100%;
+        height: 200px;
+        path {
+            stroke: #000;
+            stroke-width: 1;
+            fill: none;
+        }
+    }
+    &-layers {
+        transform: scale(0.7);
+        @include breakpoint(sm) {
+            transform: none;
+        }
+    }
+}

@@ -25,14 +25,25 @@ import Amandamodo from './content/Amandamodo';
 import Vurv from './content/Vurv';
 import Sketches from './content/Sketches';
 import Windows from '../windows/Windows';
+import Gradients from '../gradients';
+import GradientsAbout from './content/GradientsAbout';
 
 export const routes = {
+    gradients: {
+        id: 'gradients',
+        url: '/#/gradients',
+        title: 'gradients',
+        dark: true,
+        homeBanner: <Gradients />,
+        content: <GradientsAbout />,
+        year: 2021,
+        type: 'web experiment',
+    },
     stillLife: {
         id: 'stillLife',
         img: stillLife,
         url: '/#/still-life',
         title: 'still life',
-        inverse: true,
         dark: true,
         content: <StillLife />,
         year: 2020,
@@ -61,7 +72,6 @@ export const routes = {
         img: weavingpatterns,
         title: 'album of weaving patterns',
         url: '/#/album-of-weaving-patterns',
-        inverse: true,
         content: <WeavingPatterns />,
         subtitle: 'альбомъ ткацихъ узоровъ',
         year: '2013, 2018',
@@ -91,7 +101,6 @@ export const routes = {
         img: table,
         title: 'table two ways',
         url: '/#/table-two-ways',
-        inverse: true,
         content: <TableTwoWays />,
         year: 2020,
         type: 'furniture',
@@ -101,7 +110,6 @@ export const routes = {
         img: muriel,
         title: 'muriel',
         url: '/#/muriel',
-        inverse: true,
         dark: true,
         year: 2019,
         content: <Muriel />,
@@ -112,7 +120,6 @@ export const routes = {
         img: sfpcShowcase,
         title: '1010 (wax and horseradish)',
         url: '/#/1010',
-        inverse: true,
         content: <SFPCShowcase />,
         year: 2019,
         type: 'installation',
@@ -140,7 +147,7 @@ export const routes = {
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 16 Mar 2021',
+        year: 'Last updated 2 Apr 2021',
     },
 }
 

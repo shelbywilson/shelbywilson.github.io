@@ -7,16 +7,16 @@ import { sketches } from '../routes';
 export default () => {
     return (
         <div>
-            <section>
+            {/* <section>
                 <h3>
                     20 February 2021
                 </h3>
-                {/* <NoiseCanvas /> */}
+                <NoiseCanvas /> 
                 <NoiseD3 />
                 <p>
                     Using: d3.js, Perlin noise
                 </p>
-            </section>
+            </section> */}
             <section>
                 <h3>
                     17 February 2021

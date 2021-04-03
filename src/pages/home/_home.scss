@@ -54,7 +54,6 @@ figure, figcaption {
     }
 
     .img {
-        transition: filter 300ms;
         width: 100%;
         max-width: 700px;
         min-height: 200px;
@@ -83,6 +82,7 @@ figure, figcaption {
             right: 0;
             text-transform: uppercase;
             font-style: normal;
+            z-index: 100;
             @extend .split-word;
             &:hover {
                 @extend .collapse;
@@ -94,6 +94,7 @@ figure, figcaption {
             bottom: 0;
             left: $margin;
             font-style: normal;
+            z-index: 100;
             @include breakpoint(xs) {
                 left: 10px;
                 margin-bottom: 10px;
@@ -145,9 +146,17 @@ figure, figcaption {
                 padding: $margin * 2.5;
             }
         }
-        &.sfpcShowcase {
+        &.sfpcShowcase{
             h4 {
                 color: #fff;
+            }
+        }
+        &.gradients {
+            h4 {
+                color: #fff;
+            }
+            .gradients {
+                height: 700px;
             }
         }
 

@@ -70,13 +70,13 @@ export default () => {
                 .append('svg')
                 .attr('id', 'tapestry-svg')
 
-            svg.attr('width', w * size + 120)
-                .attr('height', h * size)
+            svg.attr('viewBox', `0 0 ${w * size} ${h * size}`)
+                .attr('preserveAspectRatio', "xMidYMid meet")
+                .style('max-width', `${w * size}px`)
                 .style('margin', '0 auto')
                 .style('display', 'block')
 
             const rows = svg.append('g')
-                .style('transform', `translate(${60}px)`)
                 .selectAll('.row')
                 .data(noise)
                 .enter()

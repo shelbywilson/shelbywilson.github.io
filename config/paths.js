@@ -44,6 +44,14 @@ module.exports = {
     rooms: {
       output: 'room-with-a-window/index.html',
       title: '⊞ □ ⊞ □ ⊞',
+    },
+    // daffodils: {
+    //   output: 'daffodils/index.html',
+    //   title: 'daffodils',
+    // },
+    gradients: {
+      output: 'gradients/index.html',
+      title: '⧚',
     }
   }
 }

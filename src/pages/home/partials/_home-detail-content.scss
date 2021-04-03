@@ -47,6 +47,12 @@
                 }
             }
         }
+        &-gradients {
+            .gradients {
+                position: relative;
+                height: 600px;
+            }
+        }
         // &-about {
         //     .window {
         //         background: #f4d3ff;

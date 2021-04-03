@@ -57,6 +57,7 @@ export const Home = (props) => {
     }
     
     const sections = [
+        'gradients',
         'cloudtown', 
         'stillLife',  
         'sfpcShowcase', 
@@ -84,10 +85,14 @@ export const Home = (props) => {
                 init ?
                     <div className='main'>
                         {sections.map(key => (
-                            <div className={`img ${key} ${routes[key].inverse ? 'inverse': ''} ${routes[key].dark ? 'dark' : ''}`}
+                            <div className={`img ${key} ${routes[key].dark ? 'dark' : ''}`}
                                 key={key}>
                                 <div>
-                                    <img src={routes[key].img} alt="" />
+                                    {routes[key].img ?
+                                        <img src={routes[key].img} alt="" />
+                                        :
+                                        routes[key].homeBanner
+                                    }
                                 </div>
                                 <h4>&#9724;&nbsp;{routes[key].type}</h4>
                                 <a href={routes[key].url} 
