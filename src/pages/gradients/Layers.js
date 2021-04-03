@@ -53,15 +53,14 @@ export default ({layers, state, getStyle}) => {
                         base color
                     </div>
             </div>
-            {[...layers, 'base'].map((color, i) => {
+            {['base', ...layers.map((l, i) => layers[layers.length - i - 1])].map((color, i) => {
                 const style = getStyle(color === 'base' ? 'base' : i, color, true);
                 return (
                     <div key={`layer_${i + 1}`}
                         style={{
                             height: 250,
                             width: 250,
-                            top: `${i * -180}px`,
-                            zIndex: 100 - i,
+                            top: `${i * -250 + ((layers.length - i) * 70)}px`,
                             position: 'relative',
                             margin: '0 auto',
                         }}>

@@ -48,6 +48,7 @@
             }
         }
         &-gradients {
+            overflow-x: hidden;
             .gradients {
                 position: relative;
                 height: 600px;
