@@ -141,7 +141,6 @@ figure, figcaption {
             }
         }
         &.cloudtown {
-            margin-top: $margin * 2;
             img {
                 padding: $margin * 2.5;
             }
@@ -152,11 +151,15 @@ figure, figcaption {
             }
         }
         &.gradients {
+            margin-top: $margin * 2;
             h4 {
                 color: #fff;
             }
             .gradients {
                 height: 700px;
+                @include breakpoint(xs) {
+                    height: 300px;
+                }
             }
         }
 
