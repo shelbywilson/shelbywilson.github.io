@@ -22,11 +22,12 @@
     }
     &-layers {
         transform: scale(0.7);
-        transform-origin: top;
-        margin-bottom: -50%;
+        margin-bottom: -15%;
+        margin-top: -15%;
         @include breakpoint(sm) {
             transform: none;
             margin-bottom: 0;
+            margin-top: 0;
         }
     }
 }
