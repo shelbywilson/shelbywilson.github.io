@@ -12,8 +12,10 @@
         }
     }
     &-chart {
-        width: 100%;
+        display: block;
+        margin: 0 auto;
         height: 200px;
+        overflow: hidden;
         path {
             stroke: #000;
             stroke-width: 1;

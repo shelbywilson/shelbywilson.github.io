@@ -6,7 +6,9 @@ export default ({layers, state, getStyle}) => {
     const chart = useRef(null);
     const chart2 = useRef(chart2);
 
-    const sineData = d3.range(0, 40 * 6 + 1)
+    const numPoints = useRef(40 * 3.5 + 1)
+
+    const sineData = d3.range(0, numPoints.current)
         .map(x => x * Math.PI/40)
         .map((x) => {
             return {x: x, y: - Math.sin(x)};
@@ -36,19 +38,45 @@ export default ({layers, state, getStyle}) => {
             .datum(sineData)
             .attr('d', curve);
 
-        addPoints(path, sineData)
+        svg.append('g')
+            .append('circle')
+            .attr('id', 'animate-point')
+            .attr('r', 4)
+            .style('stroke', '#000')
+            .style('transform', `translate(${xScale(sineData[0].x)}px, ${yScale(sineData[0].y)}px)`)
+    }
+
+    useEffect(() => {
+        update();
+    }, [state.timer])
+
+    const update = () => {
+        const i = (state.timer * 2 / 100) % sineData.length;
+        const d = sineData[i];
+        d3.select('#animate-point')
+            .style('transition', i < 2 ? 'none' : 'transform 100ms')
+            .style('opacity', i < 2 ? 0 : 1)
+            .style('transform', `translate(${xScale(d.x)}px, ${yScale(d.y)}px)`)
+            .transition()
+                .style('fill', `rgb(${(-d.y + 1) * 128}, ${(-d.y + 1) * 128}, ${(-d.y + 1) * 128})`)
+                .duration(100)
     }
 
     const setChart2 = () => {
         const svg = d3.select(chart2.current)
             .append('g')
             .style('height', 300)
+            .style('transform', 'translate(0, -100px)')
 
         const path = svg.append('g')
-        setChart(path)
+
+        path.append('path')
+            .datum(sineData)
+            .attr('d', curve)
+        
+        addPoints(path, sineData)
 
         const path2 = svg.append('g')
-            .style('transform', 'translate(0, -100px)')
             
         path2.append('path')
             .datum(sineDataAlternate)
@@ -90,22 +118,25 @@ export default ({layers, state, getStyle}) => {
 
     return (
         <div className='gradients-explanation'>
+            <p>
+                Gradients created with CSS cannot be animated, meaning an HTML element styled with a gradient background cannot gradually transition from one gradient to another over time.  Other CSS properties, however, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank">can be animated</a>. The method described below leverages opacity and solid backgrounds to create the appearance of smoothly transitioning gradients, using stacked layers that fade in and out.
+            </p>
             <Layers layers={[layers[0], layers[1]]}
                 state={state}
                 getStyle={getStyle}
                 />
             <p>
-                While CSS gradients cannot be animated, other properties can. The method described leverages opacity and solid backgrounds to smoothly transition gradients, using stacked layers that fade in and out. All gradients are partially transparent and use a single base layer that continously transitions to the next color, creating a seemless animation between gradients.
+                These layered gradients are partially transparent and are stacked on top of a single base layer, a solid color that continously transitions to the next color. This creates a seemless animation between gradients.
             </p>
 
-            <svg className='gradients-chart' ref={chart}>
+            <svg style={{width: numPoints.current * 2.4 + 'px'}} className='gradients-chart' ref={chart}>
             </svg>
 
             <p>
                 Layers have alternating cycles of opacity. When a layer is fully transparent, a new gradient style is applied to the hidden layer. 
             </p>
 
-            <svg className='gradients-chart' ref={chart2}>
+            <svg style={{width: numPoints.current * 2.4 + 'px'}} className='gradients-chart' ref={chart2}>
             </svg>
         
             <p>
