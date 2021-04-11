@@ -147,7 +147,7 @@ export const routes = {
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 4 Apr 2021',
+        year: 'Last updated 11 Apr 2021',
     },
 }
 

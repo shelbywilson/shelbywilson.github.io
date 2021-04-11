@@ -2,7 +2,7 @@ import React from 'react';
 
 export default ({layers, state, getStyle}) => {
     return (
-        <div className='gradients-layers' style={{height: layers.length * 70 + 275, position: 'relative'}}>
+        <div className='gradients-layers-diagram gradients-layers' style={{height: layers.length * 70 + 275, position: 'relative'}}>
             {layers.map((color, i) => 
                 <div key={`line_${i}`}
                     style={{

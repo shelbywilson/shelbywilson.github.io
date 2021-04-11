@@ -1,5 +1,23 @@
 @import './../../base/_base.scss';
 
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.animate {
+    animation: fade 8000ms infinite;
+    transform: translateZ(0);
+}
+
 .gradients {
     overflow: hidden;
     &-layer {
@@ -9,6 +27,9 @@
         @include breakpoint(sm) {
             height: 100%;
             width: 100%;
+        }
+        &-base {
+            transition: background-color 4000ms;
         }
     }
     &-chart {
@@ -30,6 +51,22 @@
             transform: none;
             margin-bottom: 0;
             margin-top: 0;
+        }
+    }
+    &-helper-text {
+        color: rgba(255,255,255,0.8);
+        position: fixed;
+        z-index: 10000;
+        font-weight: normal;
+        transition: opacity 500ms;
+        pointer-events: none;
+        top: 140px;
+        left: 30px;
+        transform: none;
+        @include breakpoint(sm) {
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
 }

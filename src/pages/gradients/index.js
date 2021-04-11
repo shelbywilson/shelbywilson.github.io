@@ -71,7 +71,7 @@ export default ({explain, children}) => {
         background: layer === 'base' ?
             `rgb(${state.base.r},${state.base.g},${state.base.b})`
             :
-            `radial-gradient(ellipse at ${((color.r + color.g)/510) * 110 - 0.1}% ${(((color.b)/255) * 110 - 0.1)}%, rgb(${color.r},${color.g},${color.b}) 0%, rgba(255,255,255,${toWhite ? '0.95' : '0'}) 80%)`,
+            `radial-gradient(ellipse at ${((color.r + color.g)/510) * 140 - 0.2}% ${(((color.b)/255) * 140 - 0.2)}%, rgb(${color.r},${color.g},${color.b}) 0%, rgba(255,255,255,${toWhite ? '0.95' : '0'}) 80%)`,
         transition: layer === 'base' ?
             `background ${state.interval/2}ms` 
             : 

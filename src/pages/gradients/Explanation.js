@@ -1,5 +1,5 @@
 import React from 'react';
-import Layers from './Layers';
+import LayersDiagram from './LayersDiagram';
 import TransitionChart from './TransitionChart';
 import TransitionChartTwo from './TransitionChartTwo';
 
@@ -9,7 +9,7 @@ export default ({layers, state, getStyle}) => {
             <p>
                 Gradients created with CSS cannot be animated, meaning an HTML element styled with a gradient background cannot gradually transition from one gradient to another over time.  Other CSS properties, however, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank">can be animated</a>. The method described below leverages opacity and solid backgrounds to create the appearance of smoothly transitioning gradients, using stacked layers that fade in and out.
             </p>
-            <Layers layers={[layers[0], layers[1]]}
+            <LayersDiagram layers={[layers[0], layers[1]]}
                 state={state}
                 getStyle={getStyle}
                 />
@@ -47,7 +47,7 @@ export default ({layers, state, getStyle}) => {
                 Any number of gradients can be added to each layer.
             </p>
 
-            <Layers layers={layers}
+            <LayersDiagram layers={layers}
                 state={state}
                 getStyle={getStyle}
                 />

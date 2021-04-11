@@ -52,6 +52,10 @@ module.exports = {
     gradients: {
       output: 'gradients/index.html',
       title: '\u2591 \u2591 \u2593 \u2588',
+    },
+    gradientsInteractive: {
+      output: 'gradients/2.html',
+      title: '\u2591 \u2591 \u2593 \u2588',
     }
   }
 }
