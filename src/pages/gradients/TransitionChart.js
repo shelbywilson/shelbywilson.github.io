@@ -36,7 +36,7 @@ export default ({}) => {
         const d = SineWave.data[i];
         d3.select('#animate-point')
             .style('opacity', i < 2 ? 0 : 1)
-            .style('transition', i < 2 ? 'none' : 'transform 100ms, fill 100ms')
+            .style('transition', i < 2 ? 'none' : 'transform 200ms, fill 200ms')
             .style('transform', `translate(${SineWave.xScale(d.x)}px, ${SineWave.yScale(d.y)}px)`)
             .style('fill', `rgb(${(-d.y + 1) * 128}, ${(-d.y + 1) * 128}, ${(-d.y + 1) * 128})`)
     }

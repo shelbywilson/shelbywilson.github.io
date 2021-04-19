@@ -2,6 +2,7 @@ import React from 'react';
 import LayersDiagram from './LayersDiagram';
 import TransitionChart from './TransitionChart';
 import TransitionChartTwo from './TransitionChartTwo';
+import InteractiveGradients from './index-2';
 
 export default ({layers, state, getStyle}) => {
     return (
@@ -51,6 +52,14 @@ export default ({layers, state, getStyle}) => {
                 state={state}
                 getStyle={getStyle}
                 />
+
+            <div style={{position: 'relative', marginTop: 60}}>
+                <InteractiveGradients
+                    />
+            </div>
+            <p>
+                View <a href='/gradients/2.html'>interactive version</a>.    
+            </p>
         </div>
     )
 }
