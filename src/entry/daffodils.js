@@ -7,9 +7,10 @@ import './../header/_header.scss';
 import './../header/_header-light.scss';
 import Header from '../header/Header';
 import Daffodils from '../pages/sketches/daffodils/Daffodils';
+import '../pages/sketches/daffodils/scss/daffodils.scss';
 
 Daffodils();
 
 ReactDOM.render(
-    <Header url='/#/sketches' />
+    <Header />
   , document.getElementById('root'));

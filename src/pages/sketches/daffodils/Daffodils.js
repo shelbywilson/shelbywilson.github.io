@@ -1,135 +1,149 @@
 import * as THREE from 'three';
 import { WEBGL } from '../../../util/webgl';
-// import Stats from './jsm/libs/stats.module.js';
+import { petal } from './components/petal';
+import Stats from 'three/examples/jsm/libs/stats.module'
+import { stem } from './components/stem';
 
 export default () => {
     if (WEBGL.isWebGLAvailable()) {
-        let container;
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color( 0x000);
+        const camera = new THREE.PerspectiveCamera(64, window.innerWidth / window.innerHeight, 1, 10);
+        let flowers = [];
+        let focusPoints = [];
+        let petals = [];
+        let stats;
 
-        let camera, scene, renderer;
+        const light = new THREE.PointLight(0xffffff, 0.5);
+        light.position.set(-10, 10, 10);
+        scene.add(light);
 
-        let mouseX = 0, mouseY = 0;
+        const hemiLight = new THREE.HemisphereLight( 0xffffbb, 0x001d81, 0.3 );
+        scene.add( hemiLight );
 
-        let windowHalfX = window.innerWidth / 2;
-        let windowHalfY = window.innerHeight / 2;
-        let daffodils = [];
+        const ambientLight = new THREE.AmbientLight(0xf7bf16);
+        ambientLight.intensity = 0.3;
+        scene.add(ambientLight);
 
-        init();
-        animate();
+        camera.position.set(0, 0, 5);
+        const renderer = new THREE.WebGLRenderer({
+            antialias: true,
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
 
-        function init() {
-            const div = document.createElement('div')
-            container = document.body.appendChild(div);
-
-            camera = new THREE.PerspectiveCamera( 20, window.innerWidth / window.innerHeight, 1, 10000 );
-            camera.position.z = 1800;
-
-            scene = new THREE.Scene();
-            scene.background = new THREE.Color( 0xffffff );
-
-            const light = new THREE.DirectionalLight( 0xffffff );
-            light.position.set( 0, 0, 1 );
-            scene.add( light );
-
-            // shadow
-
-            const canvas = document.createElement( 'canvas' );
-            canvas.width = 128;
-            canvas.height = 128;
-
-            const context = canvas.getContext( '2d' );
-            const gradient = context.createRadialGradient( canvas.width / 2, canvas.height / 2, 0, canvas.width / 2, canvas.height / 2, canvas.width / 2 );
-            gradient.addColorStop( 0.1, 'rgba(210,210,210,1)' );
-            gradient.addColorStop( 1, 'rgba(155,255,195,1)' );
-
-            context.fillStyle = gradient;
-            context.fillRect( 0, 0, canvas.width, canvas.height );
-
-            const material = new THREE.MeshPhongMaterial( {
-                color: 0xffff00,
-                // flatShading: true,
-                // vertexColors: true,
-                // shininess: 0
-            } );
-            const geometry = new THREE.ConeGeometry( 50, 120, 32, 32, true );
-            const cone = new THREE.Mesh( geometry, material );
-            // const a = new THREE.Vector3( 0, 0, 1);
-            // cone.rotateOnAxis(a, Math.PI)
-            // cone.applyMatrix( new THREE.Matrix4().makeTranslation( 0, 120/2, 0 ) );
-            scene.add( cone );
-
-            daffodils.push({
-                geometry: cone,
-                rotation: 0,
-            })
-
-            renderer = new THREE.WebGLRenderer( { antialias: true } );
-            renderer.setPixelRatio( window.devicePixelRatio );
-            renderer.setSize( window.innerWidth, window.innerHeight );
-            container.appendChild( renderer.domElement );
-
-            // stats = new Stats();
-            // container.appendChild( stats.dom );
-
-            document.addEventListener( 'mousemove', onDocumentMouseMove );
-
-            window.addEventListener( 'resize', onWindowResize );
-
+        
+        // FPS counter
+        function createStats() {
+            stats = new Stats();
+            stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+            document.body.appendChild(stats.dom);
         }
 
-        function onWindowResize() {
+        // createStats()
 
-            windowHalfX = window.innerWidth / 2;
-            windowHalfY = window.innerHeight / 2;
+        for (let i = 0; i < 10; i += 1) {
+            let daffodil = new THREE.Group();
+            let daffodilFlower = new THREE.Group();
+            let daffodilFlowerCenter = new THREE.Group();
 
+            let trumpetGeom = new THREE.CylinderGeometry(0.1, 0.33, 0.75, 12);
+            trumpetGeom.translate(0, -0.375, 0);
+            trumpetGeom.rotateX(Math.PI * 3/2);
+            let trumpetMat = new THREE.MeshPhongMaterial({color: 0xffdb99});
+            let trumpet = new THREE.Mesh(trumpetGeom, trumpetMat);
+
+            let flowerPetals = [];
+
+            for (let j = 0; j < 6; j += 1) {
+                let p = petal(j%2);
+
+                p.geometry.rotateZ(Math.PI/3 * j) 
+                p.lookAt(new THREE.Vector3(0, 1, 0));
+                flowerPetals.push(p);
+
+                daffodilFlower.add(p)
+            }
+            petals.push(flowerPetals)
+            daffodilFlowerCenter.add(trumpet);
+
+            daffodilFlower.add(daffodilFlowerCenter);
+            daffodilFlower.position.set(0.16, 0.09, 0)
+            daffodil.add(stem())
+            daffodil.add(daffodilFlower);
+
+            flowers.push(daffodilFlowerCenter);
+            focusPoints.push(new THREE.Vector2());
+
+            daffodil.position.set(
+                ((i % 5) - 2) * 2.25 - 0.5 + (i%2 * 1), 
+                (i % 2) * -1.5, 
+                -2 - ((i % 2) * 1))
+
+            scene.add(daffodil);
+        }
+
+        const marker = new THREE.Mesh(new THREE.SphereGeometry(0.062, 14, 12), new THREE.MeshBasicMaterial({
+            color: "white"
+        }));
+        scene.add(marker);
+
+        window.addEventListener("mousemove", onmousemove, false);
+        window.addEventListener( 'resize', onWindowResize, false );
+
+        function onWindowResize(){
+        
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
-
+        
             renderer.setSize( window.innerWidth, window.innerHeight );
-
+        
         }
 
-        function onDocumentMouseMove( event ) {
+        const plane = new THREE.Plane(new THREE.Vector3(0, 0, 2), 0);
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        const intersectPoint = new THREE.Vector3();
 
-            mouseX = ( event.clientX - windowHalfX );
-            mouseY = ( event.clientY - windowHalfY );
+        onmousemove({clientX: window.innerWidth/2, clientY: 0})
+
+        function onmousemove(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            
+            focusPoints[0].set(mouse.x, mouse.y);
         }
 
-        //
-
-        function animate() {
-
-            requestAnimationFrame( animate );
-
-            render();
-            // stats.update();
-
-        }
+        render();
 
         function render() {
+            // stats.begin()
+            requestAnimationFrame(render);
 
-            // camera.position.x += ( mouseX - camera.position.x ) * 0.05;
-            // camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
-
-            // camera.lookAt( scene.position );
-            const vector = new THREE.Vector3(mouseX, mouseY, 0.5);
-            vector.unproject( camera );
-            var dir = vector.sub( camera.position ).normalize();
-            var distance = - camera.position.z / dir.z;
-            var pos = camera.position.clone().add( dir.multiplyScalar( distance ) );
-
-            daffodils.forEach(el => {
-                const z = new THREE.Vector3( 0, 0, 1);
-                // const a = new THREE.Vector3( 0, 0, mouseX);
-                // el.rotation = z.angleTo(a) - el.rotation;
-
-                // console.log(el.rotation)
-                // el.geometry.rotateOnAxis(z, mouseX)
-                // el.geometry.position.copy(pos);
+            for (var i = 1; i < focusPoints.length; i++) {
+                focusPoints[i].lerp(focusPoints[i-1], 0.2);
+            }
+            
+            flowers.forEach((flower, index) => {
+                raycaster.setFromCamera(focusPoints[index], camera);
+                raycaster.ray.intersectPlane(plane, intersectPoint);
+                flower.children.forEach(child => {
+                    child.lookAt(intersectPoint)
+                })
+                if (index === 0) {
+                    marker.position.copy(intersectPoint);
+                }
+                petals[index].forEach((petal, i) => {
+                    if (i === 0 && intersectPoint.y < 0) {
+                        petal.lookAt(new THREE.Vector3(intersectPoint.x, 0, 0))
+                    } else {
+                        petal.lookAt(intersectPoint)
+                    }
+                })
             })
 
-            renderer.render( scene, camera );
-
+            renderer.render(scene, camera);
+            // stats.end()
         }
     } else {
         var warning = WEBGL.getWebGLErrorMessage()

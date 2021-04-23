@@ -11,6 +11,7 @@ import muriel from './../../images/home/muriel-3.png';
 import sfpcShowcase from './../../images/home/1010.jpg';
 import set from './../../images/home/set.jpg';
 import windows from './../../images/home/windows.jpg';
+import daffodils from './../../images/home/daffodils.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -29,6 +30,27 @@ import Gradients from '../gradients';
 import GradientsAbout from './content/GradientsAbout';
 
 export const routes = {
+    daffodils: {
+        id: 'daffodils',
+        url: '/#/daffodils',
+        img: daffodils,
+        title: 'Daffodils',
+        dark: true,
+        content: <div>
+            <iframe src='/daffodils?_no-header' 
+                scrolling='no' 
+                referrerPolicy='no-referrer' 
+                loading='lazy'></iframe>
+            <p>
+                Using: Three.js
+            </p>
+            <p>
+                View <a href='/daffodils'>full screen</a>.    
+            </p>
+        </div>,
+        year: 2021,
+        type: 'web experiment',
+    },
     gradients: {
         id: 'gradients',
         url: '/#/gradients',
@@ -147,7 +169,7 @@ export const routes = {
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 11 Apr 2021',
+        year: 'Last updated 23 Apr 2021',
     },
 }
 

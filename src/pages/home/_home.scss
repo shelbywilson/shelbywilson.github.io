@@ -53,13 +53,16 @@ figure, figcaption {
         }
     }
 
-    .img {
+    .img-container {
         width: 100%;
         max-width: 700px;
         min-height: 200px;
         margin: 0 auto;
         position: relative;
         overflow: visible;
+        &:first-child {
+            margin-top: $margin * 2;
+        }
         img {
             display: block;
             width: 100%;
@@ -67,7 +70,7 @@ figure, figcaption {
         }
         &.dark {
             background: #272727;
-            a {
+            a, h4 {
                 color: #fff;
             }
         }
@@ -125,9 +128,7 @@ figure, figcaption {
         &.vurv {
             background: #272727;
             padding: 30px;
-            h4 {
-                color: #fff;
-            }
+            
         }
         &.weavingpatterns {
             padding: 50px 30px 60px 30px;
@@ -151,11 +152,7 @@ figure, figcaption {
             }
         }
         &.gradients {
-            margin-top: $margin * 2;
             overflow: hidden;
-            h4 {
-                color: #fff;
-            }
             .gradients {
                 height: 700px;
                 @include breakpoint(xs) {
