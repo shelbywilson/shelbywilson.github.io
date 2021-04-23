@@ -12,5 +12,5 @@ import '../pages/sketches/daffodils/scss/daffodils.scss';
 Daffodils();
 
 ReactDOM.render(
-    <Header />
+    <Header url='/#/daffodils' />
   , document.getElementById('root'));
