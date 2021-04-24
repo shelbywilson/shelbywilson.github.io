@@ -1,3 +1,12 @@
-canvas {
+body {
     cursor: none;
+}
+
+#marker {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 100%;
+    position: absolute;
+    box-shadow: 0 0 50px 20px #ffffff;
 }

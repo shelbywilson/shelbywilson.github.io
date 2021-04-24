@@ -7,8 +7,8 @@ import { stem } from './components/stem';
 export default () => {
     if (WEBGL.isWebGLAvailable()) {
         const scene = new THREE.Scene();
-        scene.background = new THREE.Color( 0x000);
-        const camera = new THREE.PerspectiveCamera(64, window.innerWidth / window.innerHeight, 1, 10);
+        // scene.background = new THREE.Color( `hsl(240, 87%, 91%)`);
+        const camera = new THREE.PerspectiveCamera(74, window.innerWidth / window.innerHeight, 1, 10);
         let flowers = [];
         let focusPoints = [];
         let petals = [];
@@ -18,7 +18,7 @@ export default () => {
         light.position.set(-10, 10, 10);
         scene.add(light);
 
-        const hemiLight = new THREE.HemisphereLight( 0xffffbb, 0x001d81, 0.3 );
+        const hemiLight = new THREE.HemisphereLight( 0xffffbb, 0x001d81, 0.4 );
         scene.add( hemiLight );
 
         const ambientLight = new THREE.AmbientLight(0xf7bf16);
@@ -50,7 +50,7 @@ export default () => {
             let trumpetGeom = new THREE.CylinderGeometry(0.1, 0.33, 0.75, 12);
             trumpetGeom.translate(0, -0.375, 0);
             trumpetGeom.rotateX(Math.PI * 3/2);
-            let trumpetMat = new THREE.MeshPhongMaterial({color: 0xffdb99});
+            let trumpetMat = new THREE.MeshPhongMaterial({color: 0xf8b602});
             let trumpet = new THREE.Mesh(trumpetGeom, trumpetMat);
 
             let flowerPetals = [];
@@ -58,7 +58,7 @@ export default () => {
             for (let j = 0; j < 6; j += 1) {
                 let p = petal(j%2);
 
-                p.geometry.rotateZ(Math.PI/3 * j) 
+                p.geometry.rotateZ(Math.PI/6 + Math.PI/3 * j) 
                 p.lookAt(new THREE.Vector3(0, 1, 0));
                 flowerPetals.push(p);
 
@@ -83,13 +83,15 @@ export default () => {
             scene.add(daffodil);
         }
 
-        const marker = new THREE.Mesh(new THREE.SphereGeometry(0.062, 14, 12), new THREE.MeshBasicMaterial({
-            color: "white"
-        }));
-        scene.add(marker);
+        // const marker = new THREE.Mesh(new THREE.SphereGeometry(0.062, 14, 12), new THREE.MeshBasicMaterial({
+        //     color: "white"
+        // }));
+        // scene.add(marker);
+        const marker = document.body.appendChild(document.createElement("div"));
+        marker.id = "marker";
 
         window.addEventListener("mousemove", onmousemove, false);
-        window.addEventListener( 'resize', onWindowResize, false );
+        window.addEventListener( "resize", onWindowResize, false );
 
         function onWindowResize(){
         
@@ -112,6 +114,11 @@ export default () => {
             mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
             
             focusPoints[0].set(mouse.x, mouse.y);
+
+            marker.style.left = `${event.clientX}px`;
+            marker.style.top = `${event.clientY}px`;
+
+            light.position.set(mouse.x, mouse.y)
         }
 
         render();
@@ -130,11 +137,8 @@ export default () => {
                 flower.children.forEach(child => {
                     child.lookAt(intersectPoint)
                 })
-                if (index === 0) {
-                    marker.position.copy(intersectPoint);
-                }
                 petals[index].forEach((petal, i) => {
-                    if (i === 0 && intersectPoint.y < 0) {
+                    if ((i === 0 || i === 5) && intersectPoint.y < 0) {
                         petal.lookAt(new THREE.Vector3(intersectPoint.x, 0, 0))
                     } else {
                         petal.lookAt(intersectPoint)

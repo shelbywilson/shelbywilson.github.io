@@ -125,6 +125,16 @@ figure, figcaption {
                 padding: 0;
             }
         }
+        &.stillLife, &.muriel {
+            h4 {
+                color: #000;
+            }
+        }
+        &.sfpcShowcase {
+            h4 {
+                color: #fff;
+            }
+        }
         &.vurv {
             background: #272727;
             padding: 30px;
@@ -144,11 +154,6 @@ figure, figcaption {
         &.cloudtown {
             img {
                 padding: $margin * 2.5;
-            }
-        }
-        &.sfpcShowcase{
-            h4 {
-                color: #fff;
             }
         }
         &.gradients {
