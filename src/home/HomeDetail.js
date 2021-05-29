@@ -15,7 +15,7 @@ export default (props) => {
                         </span>
                     </h2>
 
-                    {props.detail.subtitle  && <h3>{props.detail.subtitle}</h3>}
+                    {props.detail.subtitle && <h3>{props.detail.subtitle}</h3>}
                     
                     <div className={`home-detail-content home-detail-${props.detail.id}`}>
                         {props.detail.type  && <h4>&#9724;&nbsp;{props.detail.type}</h4>}

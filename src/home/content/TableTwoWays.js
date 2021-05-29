@@ -1,7 +1,7 @@
 import React from 'react';
 
-import table from './../../../images/home/table.png';
-import table2 from './../../../images/home/table-2.png';
+import table from './../../images/home/table.png';
+import table2 from './../../images/home/table-2.png';
 
 export default () => {
     return (

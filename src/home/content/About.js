@@ -1,10 +1,10 @@
 import React from 'react';
 
-import shelby from './../../../images/home/shelby.jpg';
-import cup2 from './../../../images/still-life/cup-2.png';
+import shelby from './../../images/home/shelby.jpg';
+import cup2 from './../../images/still-life/cup-2.png';
 import DecimalClock from './1010/DecimalClock';
-import Window from './../../windows/Window';
-import GlassUp from './../../windows/coverings/GlassUp';
+import Window from '../../pages/windows/Window';
+import GlassUp from '../../pages/windows/coverings/GlassUp';
 
 export default () => {
     return (

@@ -1,17 +1,17 @@
 import React from 'react';
 
-import stillLife from './../../images/home/still-life.jpg';
-import skyAboveClouds from './../../images/home/sky-above-clouds.jpg';
-import cloudtown from './../../images/home/cloud-town.jpg';
-import weavingpatterns from './../../images/home/weaving-patterns.jpg';
-import amandamodo from './../../images/home/amandamodo.jpg';
-import vurv from './../../images/home/vurv.jpg';
-import table from './../../images/home/table.png';
-import muriel from './../../images/home/muriel-3.png';
-import sfpcShowcase from './../../images/home/1010.jpg';
-import set from './../../images/home/set.jpg';
-import windows from './../../images/home/windows.jpg';
-import daffodils from './../../images/home/daffodils.png';
+import stillLife from './../images/home/still-life.jpg';
+import skyAboveClouds from './../images/home/sky-above-clouds.jpg';
+import cloudtown from './../images/home/cloud-town.jpg';
+import weavingpatterns from './../images/home/weaving-patterns.jpg';
+import amandamodo from './../images/home/amandamodo.jpg';
+import vurv from './../images/home/vurv.jpg';
+import table from './../images/home/table.png';
+import muriel from './../images/home/muriel-3.png';
+import sfpcShowcase from './../images/home/1010.jpg';
+import set from './../images/home/set.jpg';
+import windows from './../images/home/windows.jpg';
+import daffodils from './../images/home/daffodils.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -25,8 +25,8 @@ import About from './content/About';
 import Amandamodo from './content/Amandamodo';
 import Vurv from './content/Vurv';
 import Sketches from './content/Sketches';
-import Windows from '../windows/Windows';
-import Gradients from '../gradients';
+import Windows from './../pages/windows/Windows';
+import Gradients from './../pages/gradients';
 import GradientsAbout from './content/GradientsAbout';
 
 export const routes = {
@@ -36,6 +36,9 @@ export const routes = {
         img: daffodils,
         title: 'Daffodils',
         dark: true,
+        using: [
+            "Three.js",
+        ],
         content: <div>
             <iframe src='/daffodils?_no-header' 
                 scrolling='no' 

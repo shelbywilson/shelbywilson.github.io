@@ -2,21 +2,21 @@ import React from 'react';
 
 import DecimalClock from './1010/DecimalClock';
 
-import full from './../../../images/home/1010.jpg';
-import full1 from './../../../images/1010/full-1.jpg';
-import full2 from './../../../images/1010/full-2.jpg';
-import progress1 from './../../../images/1010/progress-1.jpg';
-import progressMotors from './../../../images/1010/progress-motors.jpg';
-import progressArduino from './../../../images/1010/progress-arduino.jpg';
-import progressPaint1 from './../../../images/1010/progress-paint-1.jpg';
-import progressPaint2 from './../../../images/1010/progress-paint-2.jpg';
-import progressLamp from './../../../images/1010/progress-lamp.jpg';
-import schematic from './../../../images/1010/schematic.jpg';
-import gearsOnWall from './../../../images/1010/gears-on-wall-still.png';
-import gearsOnWall2 from './../../../images/1010/gears-on-wall-still-2.jpg';
-import candles from './../../../images/1010/candles.png';
-import gearsVideo from './../../../images/1010/gears-2-slow-compressed.mp4';
-import gearsVideoStill from './../../../images/1010/gears-video-still.jpg';
+import full from './../../images/home/1010.jpg';
+import full1 from './../../images/1010/full-1.jpg';
+import full2 from './../../images/1010/full-2.jpg';
+import progress1 from './../../images/1010/progress-1.jpg';
+import progressMotors from './../../images/1010/progress-motors.jpg';
+import progressArduino from './../../images/1010/progress-arduino.jpg';
+import progressPaint1 from './../../images/1010/progress-paint-1.jpg';
+import progressPaint2 from './../../images/1010/progress-paint-2.jpg';
+import progressLamp from './../../images/1010/progress-lamp.jpg';
+import schematic from './../../images/1010/schematic.jpg';
+import gearsOnWall from './../../images/1010/gears-on-wall-still.png';
+import gearsOnWall2 from './../../images/1010/gears-on-wall-still-2.jpg';
+import candles from './../../images/1010/candles.png';
+import gearsVideo from './../../images/1010/gears-2-slow-compressed.mp4';
+import gearsVideoStill from './../../images/1010/gears-video-still.jpg';
 
 export default () => {
     return (

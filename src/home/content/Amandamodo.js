@@ -1,6 +1,6 @@
 import React from 'react';
 
-import amandamodo from './../../../images/home/amandamodo.jpg';
+import amandamodo from './../../images/home/amandamodo.jpg';
 
 export default () => {
     return (

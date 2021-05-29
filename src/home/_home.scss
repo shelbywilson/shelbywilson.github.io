@@ -1,6 +1,6 @@
-@import './../../base/base';
-@import './../../util/split-word';
-@import './../../util/animations';
+@import './../base/base';
+@import './../util/split-word';
+@import './../util/animations';
 @import './partials/home-reset';
 
 @import './partials/variables';
@@ -12,7 +12,7 @@
 @import './partials/home-detail-content';
 @import './partials/decimal-clock';
 
-@import './../../pages/windows/windows';
+@import './../pages/windows/windows';
 
 .home {
     &-content {

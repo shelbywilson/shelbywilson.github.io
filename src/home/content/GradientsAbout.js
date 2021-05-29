@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Gradients from './../../gradients';
+import Gradients from './../../pages/gradients';
 export default () => {
     return (
         <div>

@@ -1,7 +1,7 @@
 import React from 'react';
-import Corners from './../../sketches/corners';
-import NoiseD3 from '../../sketches/noise/NoiseD3';
-import NoiseCanvas from '../../sketches/noise/NoiseCanvas';
+import Corners from './../../pages/sketches/corners';
+import NoiseD3 from './../../pages/sketches/noise/NoiseD3';
+import NoiseCanvas from './../../pages/sketches/noise/NoiseCanvas';
 import { sketches } from '../routes';
 
 export default () => {

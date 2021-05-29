@@ -1,5 +1,5 @@
 import React from 'react';
-import SkyAboveClouds from '../../sky-above-clouds/SkyAboveClouds';
+import SkyAboveClouds from './../../pages/sky-above-clouds/SkyAboveClouds';
 
 export default () => {
     return (

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import gif from './../../../images/weaving/weaving-1.gif';
-import pdf from './../../../images/files/weaving_patterns.pdf';
-import img from './../../../images/home/weaving-patterns.jpg';
+import gif from './../../images/weaving/weaving-1.gif';
+import pdf from './../../images/files/weaving_patterns.pdf';
+import img from './../../images/home/weaving-patterns.jpg';
 
 export default () => {
     return (

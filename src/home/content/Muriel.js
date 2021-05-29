@@ -1,11 +1,11 @@
 import React from 'react';
 
-import muriel3 from './../../../images/home/muriel-3.png';
-import muriel from './../../../images/muriel/muriel.jpg';
-import muriel2 from './../../../images/muriel/muriel-2.jpg';
-import murielGif from './../../../images/muriel/muriel.gif';
-import murielrotating from './../../../images/muriel/muriel-rotating.png';
-import murielrotating2 from './../../../images/muriel/muriel-rotating-2.gif';
+import muriel3 from './../../images/home/muriel-3.png';
+import muriel from './../../images/muriel/muriel.jpg';
+import muriel2 from './../../images/muriel/muriel-2.jpg';
+import murielGif from './../../images/muriel/muriel.gif';
+import murielrotating from './../../images/muriel/muriel-rotating.png';
+import murielrotating2 from './../../images/muriel/muriel-rotating-2.gif';
 
 export default () => {
     return (

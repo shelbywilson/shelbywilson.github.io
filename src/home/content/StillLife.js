@@ -1,12 +1,12 @@
 import React from 'react';
 
-import cherries from './../../../images/still-life/cherries-1.png';
-import cup1 from './../../../images/still-life/cup-1.png';
-import cup2 from './../../../images/still-life/cup-2.png';
-import peach from './../../../images/still-life/peach.png';
-import plum from './../../../images/still-life/plum.png';
-import cherry from './../../../images/still-life/cherry.png';
-import stilllifephoto from './../../../images/still-life/still-life-photo.jpg';
+import cherries from './../../images/still-life/cherries-1.png';
+import cup1 from './../../images/still-life/cup-1.png';
+import cup2 from './../../images/still-life/cup-2.png';
+import peach from './../../images/still-life/peach.png';
+import plum from './../../images/still-life/plum.png';
+import cherry from './../../images/still-life/cherry.png';
+import stilllifephoto from './../../images/still-life/still-life-photo.jpg';
 
 export default () => {
     return (

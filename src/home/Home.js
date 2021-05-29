@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import HomeDetail from './HomeDetail';
-import Header from './../../header/Header';
+import Header from './../header/Header';
 import Footer from './Footer';
 import { withRouter } from 'react-router-dom';
 import { routes } from './routes';
