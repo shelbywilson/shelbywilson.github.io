@@ -1,6 +1,7 @@
 @import './../../base/base';
 @import './../../util/split-word';
 @import './../../util/animations';
+@import './partials/home-reset';
 
 @import './partials/variables';
 @import './partials/typography';
@@ -12,23 +13,6 @@
 @import './partials/decimal-clock';
 
 @import './../../pages/windows/windows';
-
-html {
-    background: white;
-}
-
-body {
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-section {
-    margin-bottom: 8rem;
-}
-
-figure, figcaption {
-    margin: 0;
-}
 
 .home {
     &-content {

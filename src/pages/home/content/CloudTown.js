@@ -26,32 +26,32 @@ export default () => {
                 Using: HTML, CSS, some of the photos of clouds on my phone
             </p>
             <a href='/cloud-diary'>
-                <figure className='img-container'>
+                <figure className='img-container-padded'>
                     <img src={img1a} alt='still from Cloud Town' />
                 </figure>
             </a>
             <a href='/cloud-town'>
-                <figure className='img-container first'>
+                <figure className='img-container-padded first'>
                     <img src={img1b} alt='still from Cloud Town' />
                 </figure>
             </a>
             <a href='/cloud-town'>
-                <figure className='img-container first'>
+                <figure className='img-container-padded first'>
                     <img src={img2a} alt='still from Cloud Town' />
                 </figure>
             </a>
             <a href='/cloud-diary'>
-                <figure className='img-container first'>
+                <figure className='img-container-padded first'>
                     <img src={img2b} alt='still from Cloud Town' />
                 </figure>
             </a>
             <a href='/cloud-diary'>
-                <figure className='img-container first'>
+                <figure className='img-container-padded first'>
                     <img src={img3a} alt='still from Cloud Town' />
                 </figure>
             </a>
             <a href='/cloud-town'>
-                <figure className='img-container first'>
+                <figure className='img-container-padded first'>
                     <img src={img3b} alt='still from Cloud Town' />
                 </figure>
             </a>

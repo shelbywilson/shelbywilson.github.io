@@ -8,7 +8,7 @@ export default () => {
     return (
         <div>
             <a href='/v1/patterns.html#84' target='_blank'>
-                <figure className='img-container first'>
+                <figure className='img-container-padded first'>
                     <img style={{marginBottom: -1, marginTop: -120}} src={gif} alt=''/>
                 </figure>
             </a>
@@ -34,7 +34,7 @@ export default () => {
                 In order to produce dynamically generated swatch, I encoded each pattern as an array of binary. An SVG is then created from the three parts of each pattern.
             </p>
             <a href='/v1/patterns.html' target='_blank'>
-                <figure className='img-container first'>
+                <figure className='img-container-padded first'>
                     <img src={img} alt='Swatch, treadling, tie-up, and treading' />
                 </figure>
             </a>

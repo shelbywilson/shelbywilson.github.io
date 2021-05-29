@@ -9,7 +9,7 @@ import GlassUp from './../../windows/coverings/GlassUp';
 export default () => {
     return (
         <div>
-            <div className='img-container first'>
+            <div className='img-container-padded first'>
                 <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/lillian'
                     target='_blank'>
                         <figure>

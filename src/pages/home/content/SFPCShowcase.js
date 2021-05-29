@@ -21,7 +21,7 @@ import gearsVideoStill from './../../../images/1010/gears-video-still.jpg';
 export default () => {
     return (
         <div>
-            <figure className='img-container first' style={{marginTop: 0, marginBottom: '20vh'}}>
+            <figure className='img-container-padded first' style={{marginTop: 0, marginBottom: '20vh'}}>
                 <img src={full} alt='full installation mounted on wall with a shelf of lit candles and horseradish root below'/>
                 <figcaption>
                     <a href='https://www.filipwolak.com/' target='_blank'>Photo by Filip Wolak</a>
@@ -53,37 +53,37 @@ export default () => {
             <p>
                 Materials: incandescent lightbulbs, thermochromic pigment, acrylic medium, stepper motors, arduino, candles, horseradish root
             </p>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={progress1} alt='painted surface held by hand'/>
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={progressPaint1} alt='painted surface with lightbulb above'/>
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={progressPaint2} alt='painted surface with lightbulb beneath' />
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={progressLamp} alt='lamp and hand' />
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={progressArduino} alt='two arduinos with wires' />
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={progressMotors} alt='motors' />
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={schematic} alt='hand drawn schematic' />
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={gearsOnWall2} alt='gears on wall' />
             </figure>
 
             {window.innerWidth < 767 ?
-                <figure className='img-container'>
+                <figure className='img-container-padded'>
                     <img src={gearsVideoStill} alt='gears and lightbulbs mounted to wall'/>
                 </figure>
             :
-                <div className='img-container' style={{height: 520}}>
+                <div className='img-container-padded' style={{height: 520}}>
                     <video autoPlay='autoplay' loop={true} muted={true}>
                         <source src={gearsVideo} type="video/mp4" />
                         <img src={gearsVideoStill} alt='gears and lightbulbs mounted to wall'/>
@@ -91,16 +91,16 @@ export default () => {
                 </div>
             }
 
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={gearsOnWall} alt='gears and lightbulbs mounted to wall'/>
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={full1} alt='full installation and two people pointing'/>
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={candles} alt='lit candles and horseradish root' />
             </figure>
-            <figure className='img-container'>
+            <figure className='img-container-padded'>
                 <img src={full2} alt='full installation and one person looking'/>
             </figure>
         </div>
