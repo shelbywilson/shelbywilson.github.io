@@ -14,6 +14,7 @@ export default () => {
             <iframe src='https://editor.p5js.org/shelbyw/present/WZD9BWwwQ' 
             scrolling='no' 
             referrerPolicy='no-referrer' 
+            className="full-mobile"
             loading='lazy'></iframe>
             <p>
                 A response to <a href='https://www.instagram.com/stillherestilllife/' target='_blank'>@stillherestilllife</a> week <a href='https://www.instagram.com/p/CF785-vhhaG/' target='_blank'>27</a>. Click to rotate, pan, zoom.

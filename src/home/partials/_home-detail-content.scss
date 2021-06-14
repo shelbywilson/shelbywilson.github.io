@@ -11,8 +11,12 @@
                     margin-left: -20%;
                     margin-top: -40px;
                     margin-bottom: -40px;
-                    width: 140%;
                     height: 400px;
+                }
+                &.full-mobile {
+                    @include breakpoint(xs) {
+                        width: 142.8%;
+                    }
                 }
             }
         }
