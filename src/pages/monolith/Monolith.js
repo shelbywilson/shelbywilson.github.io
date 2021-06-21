@@ -2,12 +2,12 @@ import * as THREE from 'three';
 import { WEBGL } from './../../util/webgl';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-import dn from './../../images/monolith/majik/majik_dn.jpg';
-import up from './../../images/monolith/majik/majik_up.jpg';
-import bk from './../../images/monolith/majik/majik_bk.jpg';
-import lf from './../../images/monolith/majik/majik_lf.jpg';
-import rt from './../../images/monolith/majik/majik_rt.jpg';
-import ft from './../../images/monolith/majik/majik_ft.jpg';
+import dn from './../../images/monolith/arid2/arid2_dn.jpg';
+import up from './../../images/monolith/arid2/arid2_up.jpg';
+import bk from './../../images/monolith/arid2/arid2_bk.jpg';
+import lf from './../../images/monolith/arid2/arid2_lf.jpg';
+import rt from './../../images/monolith/arid2/arid2_rt.jpg';
+import ft from './../../images/monolith/arid2/arid2_ft.jpg';
 
 export default () => {
     if (WEBGL.isWebGLAvailable()) {

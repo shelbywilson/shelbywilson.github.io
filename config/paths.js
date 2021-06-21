@@ -56,6 +56,22 @@ module.exports = {
     gradientsInteractive: {
       output: 'gradients/2.html',
       title: '\u2591 \u2591 \u2593 \u2588',
+    },
+    follow_field_1: {
+      output: 'sketches/follow-field/1.html',
+      title: 'follow field',
+    },
+    follow_field_2: {
+      output: 'sketches/follow-field/2.html',
+      title: 'follow field',
+    },
+    noise_1: {
+      output: 'sketches/noise/1.html',
+      title: 'noise',
+    },
+    noise_2: {
+      output: 'sketches/noise/2.html',
+      title: 'noise',
     }
   }
 }

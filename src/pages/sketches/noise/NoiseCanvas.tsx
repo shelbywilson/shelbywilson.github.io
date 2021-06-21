@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 // @ts-ignore
 import Perlin from 'perlin.js';
 
+import "./_noise.scss";
+
 interface Color {
     r: number,
     g: number,

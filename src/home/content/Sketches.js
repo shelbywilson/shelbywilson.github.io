@@ -1,91 +1,42 @@
 import React from 'react';
-import Corners from './../../pages/sketches/corners';
-import NoiseD3 from './../../pages/sketches/noise/NoiseD3';
-import NoiseCanvas from './../../pages/sketches/noise/NoiseCanvas';
-import { sketches } from '../routes';
+import UsingList from '../../util/UsingList';
+import { sketches_content } from '../sketches-content';
 
-export default () => {
+import "../partials/_home-detail-sketches.scss";
+
+export default ({props}) => {
+    if (!sketches_content) return null;
+
     return (
-        <div>
-            {/* <section>
-                <h3>
-                    20 February 2021
-                </h3>
-                <NoiseCanvas /> 
-                <NoiseD3 />
-                <p>
-                    Using: d3.js, Perlin noise
-                </p>
-            </section> */}
-            <section>
-                <h3>
-                    17 February 2021
-                </h3>
-                <Corners />
-                <p>
-                    Using: d3.js
-                </p>
-            </section>
-            <section>
-                <h3>
-                    8 January 2021
-                </h3>
-                <iframe src='/room-with-a-window?_no-header' style={{
-                    transform: 'scale(0.5)',
-                    width: '200%',
-                    height: '1000px',
-                    transformOrigin: 'top left',
-                    marginBottom: '-500px',
-                }}></iframe>
-                <p>
-                    View&nbsp;
-                    <a href='/room-with-a-window'>
-                        A room with a window
-                    </a>.
-                </p>
-                <p>
-                    Using: React.js, SCSS
-                </p>
-            </section>
-            <section>
-                <h3>
-                    5 January 2021
-                </h3>
-                <iframe src='/windows?_no-header' style={{
-                    transform: 'scale(0.5)',
-                    width: '200%',
-                    height: '1000px',
-                    transformOrigin: 'top left',
-                    marginBottom: '-500px',
-                }}></iframe>
-                <p>
-                    View&nbsp;
-                    <a href='/windows'>
-                        windows
-                    </a>.
-                </p>
-                <p>
-                    Using: React.js, SCSS
-                </p>
-            </section>
-            <section>
-                <h3>
-                    November 2020
-                </h3>
-                <iframe src='/monolith?_no-header'></iframe>
-                <p>
-                    View&nbsp;
-                    <a href='/monolith'>
-                        Monolith
-                    </a>.
-                </p>
-                <p>
-                    Following Red Stapler's <a href='https://redstapler.co/create-3d-world-with-three-js-and-skybox-technique/' target='_blank'>tutorial</a>.
-                </p>
-                <p>
-                    Using: Three.js
-                </p>
-            </section>
+        <div className="home-detail-sketches">
+            <div className="grid">
+                {sketches_content.sort((a, b) => b.date.localeCompare(a.date)).map(sketch => (
+                    <div key={sketch.id}>
+                        <div className="title">
+                            <a href={sketch.url}>View</a>
+                            <h3>
+                                {sketch.title}
+                            </h3>
+                        </div>
+                        <div className="img">
+                            <a href={sketch.url}>
+                                <img src={sketch.thumb} alt={sketch.thumb_alt} />
+                            </a>
+                        </div>
+                        <div>
+                            {sketch.desc}
+
+                            <UsingList list={sketch.using} />
+
+                            {sketch.related &&
+                                <p>
+                                    Related: <a href={sketch.related.url}>{sketch.related.title}</a>
+                                </p>
+                            }
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

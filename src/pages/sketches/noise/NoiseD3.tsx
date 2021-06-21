@@ -3,6 +3,8 @@ import * as d3 from 'd3';
 // @ts-ignore
 import Perlin from 'perlin.js';
 
+import "./_noise.scss";
+
 interface Color {
     r: number,
     g: number,

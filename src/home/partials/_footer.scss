@@ -61,13 +61,16 @@ footer {
             width: 80px;
             height: 40px;
             background: #F0F4C3;
-            transition: all 3s;
+            transition: all 3s, height 0.5s;
             border-radius: 100%;
             position: fixed;
             margin: 0;
             bottom: 30px;
             right: $margin;
             z-index: 1;
+            &:hover {
+                height: 80px;
+            }
         }
 
         &-toggle {

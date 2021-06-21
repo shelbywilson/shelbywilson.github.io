@@ -4,22 +4,18 @@ import Header from './../header/Header';
 import Footer from './Footer';
 import { withRouter } from 'react-router-dom';
 import { routes } from './routes';
+import { sketches_content } from './sketches-content';
+import UsingList from '../util/UsingList';
 
-export const Home = (props) => {
+export const Home = () => {
     const [expand, setExpand] = useState(false);
     const [scrollTop, setScrollTop] = useState(3);
     const [detail, setDetail] = useState(null)
     const [time, setTime] = useState(new Date().getMinutes() * 6 + (new Date().getMinutes() % 2 === 0 ? 90 : 0));
     const [init, setInit] = useState(false);
 
-    useEffect(() => {
-        const { location: { hash } } = props;   
-
-        setInitialDetail(hash);
-    }, [props])
-
     useEffect( () => {
-        setInitialDetail(window.location.hash);
+        setDetailFromHash();
 
         let interval = setInterval(() => {
             setTime(new Date().getMinutes() * 6 + (new Date().getMinutes() % 2 === 0 ? 90 : 0))
@@ -28,6 +24,14 @@ export const Home = (props) => {
         return () => {
             clearInterval(interval);
         }
+    }, [])
+
+    useEffect(() => {
+        setDetailFromHash();
+
+        window.addEventListener("hashchange", setDetailFromHash);
+    
+        // return () => window.removeEventListener("hashchange", onHashChange);
     }, [])
 
     useEffect(() => {
@@ -45,11 +49,31 @@ export const Home = (props) => {
         }
     }, [detail])
 
-    const setInitialDetail = (hash) => {
-        const key = Object.keys(routes).find(key => routes[key].url === `/${hash}`);
+    const setDetailFromHash = () => {
+        const hash = window.location.hash;
 
-        setDetail(routes[key]);
-        setInit(true);
+        if (hash.indexOf("#/sketch/") === 0) {
+            const sketch = sketches_content.find(sketch => hash === `#/sketch/${sketch.id}` )
+
+            if (sketch) {
+                setDetail({
+                    ...sketch,
+                    year: sketch.date.substring(0, 4),
+                    type: "sketch",
+                    content: <div>
+                        {sketch.desc}
+                        {sketch.sketch}
+                        <UsingList list={sketch.using} />
+                    </div>
+                });
+                setInit(true);
+            }
+        } else {
+            const key = Object.keys(routes).find(key => routes[key].url === `/${hash}`);
+
+            setDetail(routes[key]);
+            setInit(true);
+        }
     }
 
     const toggle = () => {
@@ -74,10 +98,9 @@ export const Home = (props) => {
 
     return (
         <div className={`home ${scrollTop > 2 ? 'scrolled' : ''}`}>
-            {/* <div className={`time-background ${detail ? 'visible': ''}`} style={{filter: `hue-rotate(${time}deg)`}}>          
-            </div> */}
-
-            <Header onClick={setDetail} />
+            <Header onClick={setDetail} 
+                url={detail ? detail.type === "sketch" ? "/#/sketches" : null : null}
+                />
 
             {detail ? 
                 <HomeDetail detail={detail}

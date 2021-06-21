@@ -1,0 +1,42 @@
+.home-detail-sketches {
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+        padding-left: 1px;
+        padding-right: 1px;
+        grid-auto-rows: 20rem;
+        h3, p {
+            margin: 0;
+        }
+        p {
+            font-size: 0.825rem;
+            line-height: 1.4;
+            &:not(:first-child) {
+                margin-top: 0.5rem;
+            }
+        }
+        > div {
+            outline: 1px solid black;
+            margin-top: 1px;
+            margin-left: 1px;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .img {
+            overflow: hidden;
+            margin: 1rem auto 0.5rem auto;
+            height: 10rem;
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+        .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { WEBGL } from '../../../util/webgl';
+import { WEBGL } from '../../../../util/webgl';
 
 export default () => {
     if (WEBGL.isWebGLAvailable()) {
@@ -31,7 +31,7 @@ export default () => {
 
             daffodil.add(cone);
 
-            daffodil.position.set(Math.round(i / 5) - 5, (i % 5) - 2, -1 * Math.ceil(Math.random() * 4))
+            daffodil.position.set(Math.round(i / 5) - 5, (i % 5) - 2, -1 - (i % 5))
 
             scene.add(daffodil);
         }

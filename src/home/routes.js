@@ -25,9 +25,12 @@ import About from './content/About';
 import Amandamodo from './content/Amandamodo';
 import Vurv from './content/Vurv';
 import Sketches from './content/Sketches';
-import Windows from './../pages/windows/Windows';
-import Gradients from './../pages/gradients';
+import Gradients from '../pages/gradients';
 import GradientsAbout from './content/GradientsAbout';
+
+import UsingList from '../util/UsingList';
+
+import { sketches_content } from './sketches-content';
 
 export const routes = {
     daffodils: {
@@ -44,9 +47,7 @@ export const routes = {
                 scrolling='no' 
                 referrerPolicy='no-referrer' 
                 loading='lazy'></iframe>
-            <p>
-                Using: Three.js
-            </p>
+            <UsingList list={["Three.js"]} />
             <p>
                 View <a href='/daffodils'>full screen</a>.    
             </p>
@@ -165,6 +166,7 @@ export const routes = {
         url: '/#/sketches',
         content: <Sketches />,
         type: 'web experiments',
+        wide: true,
     },
     about: {
         id: 'about',
@@ -175,13 +177,3 @@ export const routes = {
         year: 'Last updated 24 Apr 2021',
     },
 }
-
-export const sketches = [
-    {
-        id: 'windows1',
-        img: windows,
-        title: '⊞ □ ⊞ □ ⊞',
-        url: '/#/sketches/windows',
-        content: <Windows />
-    }
-]

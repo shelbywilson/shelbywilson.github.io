@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { WEBGL } from '../../../util/webgl';
+import { WEBGL } from '../../../../util/webgl';
 
 export default () => {
     if (WEBGL.isWebGLAvailable()) {
@@ -25,10 +25,11 @@ export default () => {
         });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.body.appendChild(renderer.domElement);
+        document.body.style.cursor = "none";
 
         let coneGeom, coneMat, cone, daffodil;
 
-        for (let i = 0; i < 45; i += 1) {
+        for (let i = 0; i < 48; i += 1) {
             daffodil = new THREE.Group();
 
             coneGeom = new THREE.ConeGeometry(0.25, 0.75, 36);
