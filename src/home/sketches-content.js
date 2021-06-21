@@ -95,7 +95,7 @@ export const sketches_content = [
         thumb: noise_canvas_thumb,
         thumb_alt: "A gradient of blue and pink.",
         date: "2021-02-24",
-        url: "/noise/2.html",
+        url: "/sketches/noise/2.html",
         using: ["Perlin noise", "Canvas"],
         related: {
             url: "/#/gradients",
