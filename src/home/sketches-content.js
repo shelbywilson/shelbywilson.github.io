@@ -64,7 +64,7 @@ export const sketches_content = [
             url: "/#/daffodils",
             title: "Daffodils",
         },
-        url: "/follow-field/1.html",
+        url: "/sketches/follow-field/1.html",
         // sketch: <div>
         //     <iframe src="https://shelby.cool/sketches/follow-field/1.html"
         //         referrerPolicy='no-referrer' 
@@ -82,7 +82,7 @@ export const sketches_content = [
         thumb_alt: "A gradient of green and peachy orange.",
         date: "2021-02-20",
         using: ["Perlin noise", "D3.js"],
-        url: "/noise/1.html",
+        url: "/sketches/noise/1.html",
         related: {
             url: "/#/gradients",
             title: "Gradients",

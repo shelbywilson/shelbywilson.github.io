@@ -13,7 +13,9 @@ export default ({props}) => {
                 {sketches_content.sort((a, b) => b.date.localeCompare(a.date)).map(sketch => (
                     <div key={sketch.id}>
                         <div className="title">
-                            <a href={sketch.url}>View</a>
+                            <p>
+                                <a href={sketch.url}>View</a>
+                            </p>
                             <h3>
                                 {sketch.title}
                             </h3>
