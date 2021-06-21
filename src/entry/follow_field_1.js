@@ -2,6 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 
 import Cones_light from '../pages/sketches/daffodils/experiments/Cones_light';
+import Header from '../header/Header';
 
 import '../pages/monolith/_main.scss';
 
