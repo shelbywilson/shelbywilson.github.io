@@ -14,7 +14,7 @@ export default (props) => {
         e.stopPropagation();
         setDetail(routes[key]);
 
-        if (expand) {
+        if (expand && window.innerWidth < 767) {
             toggle();
         }
     }

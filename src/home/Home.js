@@ -81,13 +81,13 @@ export const Home = () => {
     }
     
     const sections = [
+        'sketches',
         'daffodils',
         'gradients',
-        'cloudtown', 
-        'stillLife',  
+        'stillLife', 
+        'cloudtown',  
         'sfpcShowcase', 
         'table', 
-        'sketches',
         'skyAboveClouds',
         'weavingpatterns', 
         'muriel', 
@@ -110,15 +110,16 @@ export const Home = () => {
                     <div className='main'>
                         {sections.map(key => (
                             <div className={`img-container ${key} ${routes[key].dark ? 'dark' : ''}`}
+                                style={!routes[key].img && !routes[key].homeBanner ? {minHeight: 102, border: "1px solid #000"} : {}}
                                 key={key}>
                                 <div>
                                     {routes[key].img ?
-                                        <img src={routes[key].img} alt="" />
+                                        <img src={routes[key].img} alt={routes[key].alt} />
                                         :
                                         routes[key].homeBanner
                                     }
                                 </div>
-                                <h4>&#9724;&nbsp;{routes[key].type}</h4>
+                                {routes[key].type ? <h4>&#9724;&nbsp;{routes[key].type}</h4> : null}
                                 <a href={routes[key].url} 
                                     onClick={() => setDetail(routes[key])}>
                                     {routes[key].title.split('').map((letter, i) => 

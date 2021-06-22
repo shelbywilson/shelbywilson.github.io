@@ -14,28 +14,22 @@ footer {
         left: 0;
     }
 
+    // &:before {
+    //     @include breakpoint(xs) {
+    //         background: rgba(255,255,255,0.2);
+    //         content: '';
+    //         height: 90px;
+    //         width: 100%;
+    //         position: absolute;
+    //         top: -90px;
+    //         left: 0;
+    //     }
+    // }
+
     &.expand {
         .footer-links {
-            // margin-top: 0;
             bottom: 0;
-            opacity: 1;
         }
-        .footer-toggle {
-            opacity: 1;
-        }
-        &:after {
-            content: '';
-            height: 150px;
-            width: 100%;
-            position: absolute;
-            top: -150px;
-            left: 0;
-        }
-        // @include breakpoint(xs) {
-        //     height: 540px;
-        //     max-height: 90%;
-        //     background: rgba(255,255,255,0.8);
-        // }
     }
     &:focus, &:active {
         outline: none;
@@ -69,7 +63,9 @@ footer {
             right: $margin;
             z-index: 1;
             &:hover {
-                height: 80px;
+                @include breakpoint(sm) {
+                    height: 80px;
+                }
             }
         }
 
@@ -78,8 +74,6 @@ footer {
             bottom: 10px;
             margin-top: $margin;
             left: -$margin;
-            opacity: 0.5;
-            transition: opacity 600ms;
             padding: $margin;
             z-index: 1;
             @include breakpoint(xs) {
@@ -88,7 +82,7 @@ footer {
         }
 
         &-links {
-            max-height: calc(100vh - 230px);
+            max-height: calc(100vh - 240px);
             height: 100%;
             margin-bottom: 80px;
             overflow: auto;
@@ -104,21 +98,30 @@ footer {
                 outline: none;
             }
 
+            a {
+                &:before {
+                    content: '\2192';
+                    visibility: hidden;
+                }
+                &.active {
+                    &:before {
+                        visibility: visible;
+                    }
+                }
+            }
+
             @include breakpoint(xs) {
-                padding-top: $margin;
-                height: 430px;
-                max-height: 100%;
-                display: flex;
-                padding-bottom: 80px;
+                padding: $margin $margin 80px $margin;
                 margin-bottom: 0;
-                height: 540px;
+                height: 560px;
                 max-height: 90vh;
-                background: rgba(255,255,255,0.8);
+                background: rgba(255,255,255,0.9);
                 width: 100%;
+                left: 0;
                 
                 nav {
-                    display: inline-block;
                     overflow: auto;
+                    display: block;
                 }
             }
 
@@ -130,15 +133,15 @@ footer {
 
             .link {
                 &-about {
-                    margin-top: $margin * 3;
+                    margin-top: 34px;
                     @include breakpoint(xs) {
-                        margin-top: $margin * 1.5;
+                        margin-top: $margin;
                     }
                 }
                 &-home {
-                    margin-bottom: $margin * 2;
+                    margin-bottom: 34px;
                     @include breakpoint(xs) {
-                        margin-bottom: $margin * 1.5;
+                        margin-bottom: $margin;
                     }
                 }
             }

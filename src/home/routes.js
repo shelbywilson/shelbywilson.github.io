@@ -10,7 +10,6 @@ import table from './../images/home/table.png';
 import muriel from './../images/home/muriel-3.png';
 import sfpcShowcase from './../images/home/1010.jpg';
 import set from './../images/home/set.jpg';
-import windows from './../images/home/windows.jpg';
 import daffodils from './../images/home/daffodils.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
@@ -29,8 +28,6 @@ import Gradients from '../pages/gradients';
 import GradientsAbout from './content/GradientsAbout';
 
 import UsingList from '../util/UsingList';
-
-import { sketches_content } from './sketches-content';
 
 export const routes = {
     daffodils: {
@@ -54,6 +51,7 @@ export const routes = {
         </div>,
         year: 2021,
         type: 'web experiment',
+        alt: "Computer generated daffodils against a dark background angled toward a bright light."
     },
     gradients: {
         id: 'gradients',
@@ -74,6 +72,7 @@ export const routes = {
         content: <StillLife />,
         year: 2020,
         type: 'web experiment',
+        alt: "A still life of computer generated abstract fruit."
     },
     skyAboveClouds: {
         id: 'skyAboveClouds',
@@ -83,6 +82,7 @@ export const routes = {
         content: <SkyAboveClouds />,
         year: 2020,
         type: 'web experiment',
+        alt: "Abstract clouds."
     },
     cloudtown: {
         id: 'cloudtown',
@@ -92,6 +92,7 @@ export const routes = {
         content: <CloudTown />,
         year: 2020,
         type: 'web experiment',
+        alt: "Photos of clouds arranged into a 3D box shape."
     },
     weavingpatterns: {
         id: 'weavingpatterns',
@@ -102,6 +103,7 @@ export const routes = {
         subtitle: 'альбомъ ткацихъ узоровъ',
         year: '2013, 2018',
         type: 'web experiment',
+        alt: "Weaving diagrams."
     },
     amandamodo: {
         id: 'amandamodo',
@@ -111,6 +113,7 @@ export const routes = {
         content: <Amandamodo />,
         year: '2019 – 2021',
         type: 'website',
+        alt: "Screenshot of portfolio website."
     },
     vurv: {
         id: 'vurv',
@@ -130,6 +133,7 @@ export const routes = {
         content: <TableTwoWays />,
         year: 2020,
         type: 'furniture',
+        alt: "Wooden side table made of birch."
     },
     muriel: {
         id: 'muriel',
@@ -140,15 +144,17 @@ export const routes = {
         year: 2019,
         content: <Muriel />,
         type: 'graphics experiment',
+        alt: "Abstract colorful graphics."
     }, 
     sfpcShowcase: {
         id: 'sfpcShowcase',
         img: sfpcShowcase,
-        title: '1010 (wax and horseradish)',
+        title: '1010',
         url: '/#/1010',
         content: <SFPCShowcase />,
         year: 2019,
         type: 'installation',
+        alt: "Installation mounted to the wall, using ligtbulbs behind a painted surface."
     },
     set: {
         id: 'set',
@@ -161,11 +167,9 @@ export const routes = {
     },
     sketches: {
         id: 'sketches',
-        img: windows,
         title: 'sketches',
         url: '/#/sketches',
         content: <Sketches />,
-        type: 'web experiments',
         wide: true,
     },
     about: {
@@ -174,6 +178,6 @@ export const routes = {
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 24 Apr 2021',
+        year: 'Last updated 21 June 2021',
     },
 }
