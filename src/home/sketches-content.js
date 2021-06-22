@@ -102,4 +102,14 @@ export const sketches_content = [
             title: "Gradients",
         },
     },
+    {
+        title: "John Whitney-esque",
+        id: "john-whitney",
+        desc: <p>Inspired by motion graphics of John Whitney.</p>,
+        date: "2019-10-21",
+        thumb: "https://raw.githubusercontent.com/shelbywilson/sfpc-rtp/master/whitney/images/harmonic-lines.gif",
+        thumb_alt: "Colorful sine waves.",
+        using: ["openFrameworks"],
+        url: "https://vimeo.com/367877072",
+    }
 ]
