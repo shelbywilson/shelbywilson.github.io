@@ -31,6 +31,9 @@ $visible-card-height-mobile: 29rem;
                 transform: scale(0.85);
                 transform-origin: top center;
             }
+            &-auto {
+                height: auto !important;
+            }
         }
         @include breakpoint(xs) {
             padding-top: 120px;
@@ -59,7 +62,7 @@ $visible-card-height-mobile: 29rem;
     
     &__in-play {
         width: #{$visible-cards-width + $metadata-width + $metadata-padding};
-        height: #{$card-height * 4 + $card-margin * 4};
+        height: #{($card-height + $card-margin) * 4};
         margin: 0 auto;
         position: relative;
         > span {

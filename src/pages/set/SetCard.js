@@ -1,4 +1,5 @@
 import React from 'react';
+import SetSquiggle from './SetSquiggle';
 
 export default (props) => {
     const {
@@ -16,19 +17,24 @@ export default (props) => {
             {!card.placeholder ?
                 // get number of symbols on card
                 Array.apply(null, Array(card.m + 1)).map(() => {}).map((_, i) => 
-                    <div key={i}
-                        style={{transform: card.j === 1 ? 'rotate(-30deg)' : ''}}>
-                        <div
-                            className={'set-card__symbol set-card__symbol-' + (card.j === 0 ? 'circle' : card.j === 1 ? 'diamond' : 'rectangle')}
-                            style={{
-                            background: card.k === 0 ? colors[card.i] : null,
-                            backgroundImage: card.k === 1 ? `repeating-linear-gradient(45deg, ${colors[card.i]} 0, ${colors[card.i]} 1px, transparent 0, transparent 50%)` : null,
-                            backgroundSize: card.k === 1 ? '5px 5px' : '',
-                            color: colors[card.i],
-                            transform: card.j === 1 ? 'skew(30deg, 0deg) rotateX(45deg)' : null,
-                            }} 
-                        >
-                        </div>
+                    <div key={i}>
+                            {card.j === 1 ?
+                                <SetSquiggle 
+                                    color={colors[card.i]}
+                                    card={card}
+                                    />
+                                :
+                                <div
+                                    className={'set-card__symbol set-card__symbol-' + (card.j === 0 ? 'circle' : 'rectangle')}
+                                    style={{
+                                        background: card.k === 0 ? colors[card.i] : null,
+                                        backgroundImage: card.k === 1 ? `repeating-linear-gradient(135deg, ${colors[card.i]} 0, ${colors[card.i]} 1px, transparent 0, transparent 50%)` : null,
+                                        backgroundSize: card.k === 1 ? '5px 5px' : '',
+                                        color: colors[card.i],
+                                    }} 
+                                >
+                                </div>
+                            }
                     </div>
                 )
                 :

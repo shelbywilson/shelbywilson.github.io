@@ -180,7 +180,7 @@ export default () => {
                 />
 
             <div className='set__container'>
-                <div className='set__container-inner'>
+                <div className={`set__container-inner ${showPossibleSets ? "set__container-inner-auto" : ""}`}>
                     <div className='set__in-play'>
                         <div className='set__metadata'>
                             <div className='set__metadata__remaining'>
@@ -226,15 +226,16 @@ export default () => {
                             ))}
                         </CSSTransitionGroup>
                     </div>
-                </div>
 
-                {showPossibleSets ?
-                    <SetsPossible 
-                        sets={sets} />
-                    :
-                    null
-                }
+                    {showPossibleSets ?
+                            <SetsPossible 
+                                sets={sets} />
+                            :
+                            null
+                        }
+                </div>
             </div>
+
             {gameOver ? 
                 <button className='set__game-over' onClick={() => resetGame()}>
                     <div>Game over! Click for new game</div>
