@@ -7,12 +7,10 @@ export default (props) => {
         expand,
         detail,
         sections,
-        setDetail,
     } = props;
 
     const onClickLink = (e, key) => {
         e.stopPropagation();
-        setDetail(routes[key]);
 
         if (expand && window.innerWidth < 767) {
             toggle();
@@ -26,7 +24,8 @@ export default (props) => {
                     <ul>
                         <li className={`link-home`}>
                             <a className={`${!detail ? 'active' : ''}`} 
-                                onClick={(e) => onClickLink(e, null)}>
+                                href={"/#"}
+                                onClick={(e) => onClickLink(e)}>
                                     Home
                             </a>
                         </li>
@@ -35,7 +34,7 @@ export default (props) => {
                                 key={key}>
                                 <a href={routes[key].url} 
                                     className={`${(detail || {}).id === key ? 'active' : ''}`} 
-                                    onClick={(e) => onClickLink(e, key)}>
+                                    onClick={(e) => onClickLink(e)}>
                                         {routes[key].title}
                                 </a>
                             </li>
@@ -54,7 +53,7 @@ export default (props) => {
                 </a>
             </div>
             <a href='/#/about'  
-                onClick={(e) => onClickLink(e, 'about')}
+                onClick={(e) => onClickLink(e)}
                 style={props.indicatorStyle}
                 className='footer-indicator'>    
             </a>

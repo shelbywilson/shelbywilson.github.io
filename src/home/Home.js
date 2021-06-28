@@ -140,7 +140,6 @@ export const Home = () => {
                 expand={expand}
                 detail={detail}
                 sections={sections}
-                setDetail={setDetail}
                 indicatorStyle={{filter: `hue-rotate(${time - 180}deg)`}}
                 />
         </div>

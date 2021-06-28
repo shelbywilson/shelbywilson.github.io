@@ -7,10 +7,23 @@ import windows_thumb from './../images/sketches/thumbnails/windows.png';
 import cones_thumb from './../images/sketches/thumbnails/cones.png';
 import noise_d3_thumb from './../images/sketches/thumbnails/noise_d3.png';
 import noise_canvas_thumb from './../images/sketches/thumbnails/noise_canvas.png';
+import cistercian_numerals_thumb from './../images/sketches/thumbnails/cistercian_numerals.png';
 
 import Corners from '../pages/sketches/corners';
+import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
 
 export const sketches_content = [
+    {
+        title: "Cistercian Numerals",
+        id: "cistercian-numerals",
+        desc: <p>A numbering system developed by 13th century monks. Each glyph represents an integer from 1 to 9,999.</p>,
+        thumb: cistercian_numerals_thumb,
+        thumb_alt: "A numbering system representing 1 + 4 = 5",
+        date: "2021-06-26",
+        using: ["SVG"],
+        url: "/#/sketch/cistercian-numerals",
+        sketch: <CistercianNumerals />
+    },
     {
         title: "Monolith",
         id: "monolith",
