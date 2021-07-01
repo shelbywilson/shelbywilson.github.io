@@ -8,11 +8,23 @@ import cones_thumb from './../images/sketches/thumbnails/cones.png';
 import noise_d3_thumb from './../images/sketches/thumbnails/noise_d3.png';
 import noise_canvas_thumb from './../images/sketches/thumbnails/noise_canvas.png';
 import cistercian_numerals_thumb from './../images/sketches/thumbnails/cistercian_numerals.png';
+import stairs_stars_thumb from './../images/sketches/thumbnails/stairs_stars.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
 
 export const sketches_content = [
+    {
+        title: "Stairs Stars",
+        id: "stairs-stars",
+        desc: <p></p>,
+        thumb: stairs_stars_thumb,
+        thumb_alt: "Stairs",
+        date: "2020-03-31",
+        using: ["p5.js"],
+        newTab: true,
+        url: "https://editor.p5js.org/shelbyw/full/P9mRZN8Xk",
+    },
     {
         title: "Cistercian Numerals",
         id: "cistercian-numerals",
@@ -123,6 +135,7 @@ export const sketches_content = [
         thumb: "https://raw.githubusercontent.com/shelbywilson/sfpc-rtp/master/whitney/images/harmonic-lines.gif",
         thumb_alt: "Colorful sine waves.",
         using: ["openFrameworks"],
+        newTab: true,
         url: "https://vimeo.com/367877072",
     }
 ]
