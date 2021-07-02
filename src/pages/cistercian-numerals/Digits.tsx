@@ -1,14 +1,11 @@
-import React, { CSSProperties, FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
+import { width, height, outline } from '.';
 
 interface DigitsProps {
     digits: string,
 }
 
 export const Digits: FunctionComponent<DigitsProps> = ({ digits }) => {
-    const height = 80;
-    const width = 50;
-    const outline: CSSProperties = {stroke: "#000", strokeWidth: 2, strokeLinecap: "round"};
-
     return (
         <div style={{width: width + 2, height: height + 2 + 40, margin: "1rem"}}>
             <svg className="w-100 h-100">

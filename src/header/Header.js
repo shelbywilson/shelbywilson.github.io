@@ -9,7 +9,7 @@ export default (props) => {
 
     return (
         <header>
-            <a href={props.url || '/#'} onClick={() => props.onClick ? props.onClick() : null}>
+            <a href={props.url || '/#'}>
                 <h1>
                     <span>S</span><span>h</span><span>e</span><span>l</span><span>b</span><span>y</span>
                     &nbsp;

@@ -98,8 +98,7 @@ export const Home = () => {
 
     return (
         <div className={`home ${scrollTop > 2 ? 'scrolled' : ''}`}>
-            <Header onClick={setDetail} 
-                url={detail ? detail.type === "sketch" ? "/#/sketches" : null : null}
+            <Header url={detail ? detail.type === "sketch" ? "/#/sketches" : null : null}
                 />
 
             {detail ? 
@@ -120,8 +119,7 @@ export const Home = () => {
                                     }
                                 </div>
                                 {routes[key].type ? <h4>&#9724;&nbsp;{routes[key].type}</h4> : null}
-                                <a href={routes[key].url} 
-                                    onClick={() => setDetail(routes[key])}>
+                                <a href={routes[key].url}>
                                     {routes[key].title.split('').map((letter, i) => 
                                         letter.replace(/^\s+|\s+$/g, '').length === 0 ? 
                                             <Fragment key={i}>&nbsp;</Fragment> 

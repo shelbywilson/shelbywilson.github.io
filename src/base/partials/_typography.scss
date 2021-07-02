@@ -7,3 +7,8 @@
 .font-mono{
 	font-family: monospace;
 }
+.text {
+	&-small {
+		font-size: 0.75rem;;
+	}
+}
