@@ -18,7 +18,7 @@ export default () => {
 
     const width = Math.min(600, window.innerWidth - 40);
     const height = width * 4/3;
-    const r = width/6;
+    const d = width/6;
 
     return (
         <div className="pos-relative container" style={{height, width}}>
@@ -28,8 +28,9 @@ export default () => {
                     <div className="pos-absolute" style={{
                         borderRadius: "100%", 
                         background: "#fff",
-                        width: r, 
-                        height: r, 
+                        width: d - 2, 
+                        height: d - 2, 
+                        margin: 1,
                     }}>
                     </div>
                     <div className={`pos-absolute circle ${state ? "open" : ""}`} 
@@ -38,10 +39,10 @@ export default () => {
                         tabIndex="0" 
                         onKeyPress={(e) => handleKeyPress(e, togglePersist(i))}
                         style={{
-                            width: r, 
-                            height: r, 
-                            backgroundPositionX: `calc(${Math.floor(i/5) * 20}% - ${Math.floor(i/5) * r/5}px - 10px)`, 
-                            backgroundPositionY: `calc(${i%5 * 20}% - ${i%5 * r/5}px - 10px)`,
+                            width: d, 
+                            height: d, 
+                            backgroundPositionX: `calc(${Math.floor(i/5) * 20}% - ${Math.floor(i/5) * d/5}px - 10px)`, 
+                            backgroundPositionY: `calc(${i%5 * 20}% - ${i%5 * d/5}px - 10px)`,
                             backgroundImage: `url(${flower})`, 
                             backgroundSize: `${width}px, ${height}px`,
                         }}>  
