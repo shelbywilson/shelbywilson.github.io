@@ -23,9 +23,9 @@ export const sketches_content = [
         date: "2021-07-01",
         url: "/#/sketch/2021-07-01",
         thumb: _2021_07_01_thumb,
-        desc: <p>Hover or click.</p>,
+        desc: <p>Deconstructing an image. Hover or click.</p>,
         sketch: <Sketch_2021_07_01 />,
-        using: ["SCSS"],
+        using: ["CSS"],
     },
     {
         title: "Cistercian Numerals",

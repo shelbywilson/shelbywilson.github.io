@@ -41,9 +41,9 @@
 .circle {
     transition: all 500ms;
     border-radius: 100%;
+    z-index: 1;
     &.open {
         transform: translateX(30px) translateY(30px);
-        z-index: 1;
     }
 }
 
