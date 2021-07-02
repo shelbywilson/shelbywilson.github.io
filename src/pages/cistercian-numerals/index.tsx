@@ -67,8 +67,8 @@ export default () => {
                 </div>
             </div>
 
-            <input type="text" 
-                className="w-100"
+            <input type="number" 
+                className="w-100 text-right"
                 style={{padding: 10}}
                 onChange={(e) => setValue(e.target.value.replace(/\D/g,''))}
                 placeholder="Type any number"

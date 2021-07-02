@@ -50,7 +50,7 @@ module.exports = {
        * Use Babel to transpile JavaScript files.
        */
       {
-        test: /\.(js|tsx)$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
       },

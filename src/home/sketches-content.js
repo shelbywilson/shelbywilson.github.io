@@ -9,21 +9,23 @@ import noise_d3_thumb from './../images/sketches/thumbnails/noise_d3.png';
 import noise_canvas_thumb from './../images/sketches/thumbnails/noise_canvas.png';
 import cistercian_numerals_thumb from './../images/sketches/thumbnails/cistercian_numerals.png';
 import stairs_stars_thumb from './../images/sketches/thumbnails/stairs_stars.png';
+import _2021_07_01_thumb from './../images/sketches/thumbnails/2021_07_01.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
+import Sketch_2021_07_01 from "../pages/sketches/2021-07-01";
+
 
 export const sketches_content = [
     {
-        title: "Stairs Stars",
-        id: "stairs-stars",
-        desc: <p></p>,
-        thumb: stairs_stars_thumb,
-        thumb_alt: "Stairs",
-        date: "2020-03-31",
-        using: ["p5.js"],
-        newTab: true,
-        url: "https://editor.p5js.org/shelbyw/full/P9mRZN8Xk",
+        title: "2021-07-01",
+        id: "2021-07-01",
+        date: "2021-07-01",
+        url: "/#/sketch/2021-07-01",
+        thumb: _2021_07_01_thumb,
+        desc: <p>Hover or click.</p>,
+        sketch: <Sketch_2021_07_01 />,
+        using: ["SCSS"],
     },
     {
         title: "Cistercian Numerals",
@@ -64,7 +66,7 @@ export const sketches_content = [
         thumb: room_with_a_view_thumb,
         thumb_alt: "A dark room and window with blinds. Light through the window creates shadows on the floor.",
         date: "2021-01-08",
-        using: ["CSS"],
+        using: ["SCSS"],
         url: "/room-with-a-window",
     },
     {
@@ -74,7 +76,7 @@ export const sketches_content = [
         thumb: windows_thumb,
         thumb_alt: "The moon peaks through a windows blinds.",
         date: "2021-01-05",
-        using: ["CSS"],
+        using: ["SCSS"],
         url: "/windows",
     },
     {
@@ -137,5 +139,16 @@ export const sketches_content = [
         using: ["openFrameworks"],
         newTab: true,
         url: "https://vimeo.com/367877072",
-    }
+    },
+    {
+        title: "Stairs Stars",
+        id: "stairs-stars",
+        desc: <p></p>,
+        thumb: stairs_stars_thumb,
+        thumb_alt: "Stairs",
+        date: "2020-03-31",
+        using: ["p5.js"],
+        newTab: true,
+        url: "https://editor.p5js.org/shelbyw/full/P9mRZN8Xk",
+    },
 ]

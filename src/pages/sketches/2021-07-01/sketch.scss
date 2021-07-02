@@ -1,0 +1,49 @@
+@import "./../../../base/partials/mixins";
+// @keyframes move {
+//     0% {
+//       transform: translateX(0) translateY(0);
+//     }
+  
+//     50% {
+//       transform: translateX(20px) translateY(20px);
+//     }
+
+//     100% {
+//         transform: translateX(0) translateY(0);
+//     }
+//   }
+
+// span {
+//     &:nth-child(3n) {
+//         > .circle {
+//             animation: move infinite 4s;
+//             animation-delay: 500ms;
+//         }
+//     }
+//     &:nth-child(3n + 2) {
+//         > .circle {
+//             animation: move infinite 4s;
+//             animation-delay: 1500ms;
+//         }
+//     }
+// }
+
+.container > span {
+    cursor: pointer;
+    @include breakpoint(md) {
+        &:hover .circle {
+            transform: translateX(30px) translateY(30px);
+            z-index: 1;
+        }
+    }
+}
+
+.circle {
+    transition: all 500ms;
+    border-radius: 100%;
+    &.open {
+        transform: translateX(30px) translateY(30px);
+        z-index: 1;
+    }
+}
+
