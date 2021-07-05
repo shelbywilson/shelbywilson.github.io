@@ -35,8 +35,8 @@ export const Digits: FunctionComponent<DigitsProps> = ({ digits }) => {
                         })}
                     </g>
                 </g>
-                <g style={{transform: `translate(0, ${height + 30}px)`}}>
-                    <text style={{textAnchor: "middle", transform: "translate(50%, 0)"}}>
+                <g style={{transform: `translate(${width/2}px, ${height + 30}px)`}}>
+                    <text style={{textAnchor: "middle"}}>
                         {digits.split('').map((digit, place) => (
                             <tspan key={`${digit}-${place}`}>
                                 {digit}

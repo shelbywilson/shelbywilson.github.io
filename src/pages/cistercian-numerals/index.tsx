@@ -70,6 +70,7 @@ export default () => {
             <input type="number" 
                 className="w-100 text-right"
                 style={{padding: 10}}
+                min={0}
                 onChange={(e) => setValue(e.target.value.replace(/\D/g,''))}
                 placeholder="Type any number"
                 value={value}
