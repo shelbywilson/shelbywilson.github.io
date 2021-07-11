@@ -203,7 +203,7 @@ export const routes = {
                 Contact Alex Miller to take the survey.
             </p>
             <p>
-                TODO: add search by keyword and neighborhood labels.
+                TODO: add search by keyword, add neighborhood labels, add map label collision handling.
             </p>
 
             <UsingList list={["d3.js", "GeoJSON", "React.js"]} />
