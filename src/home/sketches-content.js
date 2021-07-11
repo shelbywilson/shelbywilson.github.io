@@ -55,7 +55,7 @@ export const sketches_content = [
         thumb: corners_thumb,
         thumb_alt: "A diagram of an interior angle (el rincón) and an exterior one (la esquina).",
         date: "2021-02-20",
-        using: ["D3.js"],
+        using: ["d3.js"],
         url: "/#/sketch/corners",
         sketch: <Corners />
     },
@@ -108,7 +108,7 @@ export const sketches_content = [
         thumb: noise_d3_thumb,
         thumb_alt: "A gradient of green and peachy orange.",
         date: "2021-02-20",
-        using: ["Perlin noise", "D3.js"],
+        using: ["Perlin noise", "d3.js"],
         url: "/sketches/noise/1.html",
         related: {
             url: "/#/gradients",

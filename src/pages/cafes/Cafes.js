@@ -96,6 +96,12 @@ export default () => {
     
     return (
         <div className="cafes" style={{minHeight: "100vh", background: "linear-gradient(0deg, rgb(185 225 254), rgb(226 246 255))"}}>
+            <header>
+                <h1>An Informal Survey of Seattle Cafés</h1>
+                <a href={'/#/cafes'}>
+                    <h3>info</h3>
+                </a>
+           </header>
             <Map 
                 filters={filters}
                 selected={selected}
@@ -107,11 +113,7 @@ export default () => {
                 })}
                 />
             <div className="cafes-sidebar d-flex">
-                <div>
-                    {/* <header style={{position: "relative"}}> */}
-                        <h1>{filteredList.length} Cafés</h1>
-                    {/* </header> */}
-
+                <div className="cafes-sidebar-filters">
                     <div style={{margin: "1rem 0"}}>
                         <Filters 
                             filters={filters}
@@ -123,6 +125,18 @@ export default () => {
                             sorting={sorting}
                             setSorting={(key, val) => setSorting(prev => ({...prev, [key]: val}))}
                             />
+                    </div>
+                    <div className="cafes-sidebar-filters-info d-flex flex-row">
+                        <h3>{filteredList.length} Cafés: </h3>
+                        {selected.length > 0 ?
+                            <button type="button"
+                                onClick={() => setSelected([])}
+                                >
+                                    Reset Map
+                            </button>
+                            :
+                            null 
+                        }
                     </div>
                 </div>
                 <div style={{overflow: "auto"}}>

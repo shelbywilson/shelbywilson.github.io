@@ -2,6 +2,25 @@
 @import "./../../base/partials/mixins";
 
 .cafes {
+    header {
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 20px 10px 0 10px;
+        @include breakpoint(sm) {
+            padding: 20px 20px 0 20px;
+            max-width: 400px;
+        }
+        h1 {
+            line-height: 1.4;
+        }
+        h1, h3, a {
+            display: inline;
+        }
+        h3 {
+            margin-left: 10px;
+        }
+    }
     h1 {
         font-weight: 100;
     }
@@ -22,19 +41,19 @@
     blockquote {
         margin: 1.25rem 0 1.25rem 1rem;
         line-height: 1.4;
-        font-size: 0.85rem;
+        font-size: 0.875rem;
     }
     select {
         border-color: #cccccc;
         padding: 7px;
     }
-    .select-name, label {
-        font-size: 0.85rem;
+    .select-name, label, p {
+        font-size: 0.875rem;
     }
     &-map {
         margin-left: auto;
-        padding-top: 120px;
         overflow: hidden;
+        padding-top: 100px;
         @include breakpoint(sm) {
             padding-top: 0;
         }
@@ -48,9 +67,10 @@
     }
     &-ranking {
         margin: 1rem 0;
-        padding: 0 1rem 0.5rem 0;
-        &:not(:last-child) {
-            border-bottom: 1px solid #000;
+        padding: 1rem 1rem 0.5rem 0;
+        border-top: 1px solid #000;
+        &:first-child {
+            margin-top: 0;
         }
         button {
             font-size: 1.75rem;
@@ -61,8 +81,27 @@
     &-sidebar {
         flex-direction: column;
         padding: 20px;
+        &-filters {
+            h3 {
+                margin: 2px 0;
+                display: inline-block;
+            }
+            button {
+                background: #029be5;
+                color: white;
+                border-radius: 5px;
+            }
+            &-info {
+                justify-content: space-between;
+                background: #ffedb5;
+                margin-bottom: -1px;
+                padding: 8px;
+                border-bottom: 1px solid #000;
+            }
+        }
         @include breakpoint(sm) {
             position: fixed;
+            padding-top: 100px;
             width: calc(100vw - 40px);
             min-width: 300px;
             max-width: 400px;

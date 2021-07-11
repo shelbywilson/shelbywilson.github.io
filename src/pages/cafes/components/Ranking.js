@@ -11,7 +11,9 @@ export default ({cafe, removeSelection, addSelection, selected}) => {
 
     useEffect(() => {
         if (selected) {
-            executeScroll()
+            if (window.innerWidth > 667) {
+                executeScroll()
+            }
         }
     }, [selected])
 

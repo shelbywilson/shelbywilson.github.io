@@ -13,6 +13,15 @@ export default ({filters, selected, setSelected}) => {
     const svgNode = useRef(null)
     const [init, setInit] = useState(false);
 
+    // useEffect(() => {
+    //     function handleResize() {
+    //       drawMap();
+    //     }
+        
+    //     window.addEventListener("resize", handleResize);
+        
+    //     return () => window.removeEventListener("resize", handleResize);
+    //   }, []); 
 
     useEffect(() => {
         if (svgNode.current && !init) {
@@ -242,11 +251,16 @@ export default ({filters, selected, setSelected}) => {
         projection
             .scale(1)
             .translate([0,0]);
+
+        let offset = 348;
+        if (window.innerWidth < 668) {
+            offset = 0;
+        }
         
-        const w = Math.max(window.innerWidth - 300, 600);
-        const h = window.innerHeight;
+        const w = Math.max(window.innerWidth - 348, 500);
+        const h = window.innerHeight - (window.innerWidth < 668 ? 50 : 0);
         const b = path.bounds({features: Object.keys(represented).map(id => represented[id]), type: "FeatureCollection"}),
-            s = Math.min( 1000000, 0.875 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h)),
+            s = Math.min( 1000000, 0.9 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h)),
             t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
 
         projection
@@ -254,7 +268,7 @@ export default ({filters, selected, setSelected}) => {
             .translate(t);
 
         const svg = d3.select(svgNode.current)
-            .attr("viewBox", [-0, 0, w, h])
+            .attr("viewBox", [-offset, 0, w + offset, h])
             .select(".map-container")
 
         svg.select(".neighborhoods")

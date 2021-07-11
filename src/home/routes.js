@@ -181,12 +181,34 @@ export const routes = {
         content: <About />,
         year: 'Last updated 21 June 2021',
     },
-    // cafes: {
-    //     id: 'cafes',
-    //     img: '',
-    //     title: 'Seattle cafés',
-    //     url: '/#/cafes',
-    //     content: <Cafes />,
-    //     year: '2021',
-    // }
+    cafes: {
+        id: 'cafes',
+        img: '',
+        title: 'Seattle cafés',
+        url: '/#/cafes',
+        type: "Data Visualization",
+        content: <div>
+            <div style={{transform: "scale(0.72)", transformOrigin: "top left", marginBottom: "-30%"}}>
+                <iframe style={{width: "138%", height: 715, maxHeight: "100vh"}}
+                    scrolling='yes' 
+                    referrerPolicy='no-referrer' 
+                    loading='lazy'
+                    src="/cafes">
+                </iframe>
+            </div>
+            <p>
+                <a className href="/cafes">View full</a>
+            </p>
+            <p>
+                Contact Alex Miller to take the survey.
+            </p>
+            <p>
+                TODO: add search by keyword and neighborhood labels.
+            </p>
+
+            <UsingList list={["d3.js", "GeoJSON", "React.js"]} />
+        </div>
+        ,
+        year: '2021',
+    }
 }
