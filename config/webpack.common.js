@@ -15,7 +15,7 @@ module.exports = {
    * Resolve extensions
    */
   resolve: {
-    extensions: [".js", ".json", ".ts", ".tsx"],
+    extensions: [".js", ".json", ".ts", ".tsx", ".geojson", ".csv"],
   },
 
   /**
@@ -53,6 +53,28 @@ module.exports = {
         test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader', 'eslint-loader'],
+      },
+
+      /**
+       * CSV
+       */
+      {
+        test: /\.csv$/,
+        loader: 'csv-loader',
+        options: {
+          dynamicTyping: true,
+          header: true,
+          skipEmptyLines: true
+        }
+      },
+
+      /**
+       * JSON and GeoJSON
+       */
+      {
+        test: /\.(json|geojson)$/,
+        exclude: /node_modules/,
+        use: ['json-loader'],
       },
 
       /**

@@ -1,0 +1,74 @@
+@import "./../../home/partials/variables";
+@import "./../../base/partials/mixins";
+
+.cafes {
+    h1 {
+        font-weight: 100;
+    }
+    h2 {
+        font-size: 1.25rem;
+        font-weight: 100;
+        margin: 0.5rem 0;
+        text-transform: uppercase;
+        text-align: left;
+    }
+    h3 {
+        margin: 0 0 1rem 0;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: $letter-spacing;
+        font-weight: 600;
+    }
+    blockquote {
+        margin: 1.25rem 0 1.25rem 1rem;
+        line-height: 1.4;
+        font-size: 0.85rem;
+    }
+    select {
+        border-color: #cccccc;
+        padding: 7px;
+    }
+    .select-name, label {
+        font-size: 0.85rem;
+    }
+    &-map {
+        margin-left: auto;
+        padding-top: 120px;
+        overflow: hidden;
+        @include breakpoint(sm) {
+            padding-top: 0;
+        }
+        .cafe-coord {
+            cursor: pointer;
+            circle {
+                stroke: rgba(255,255,255,0);
+                stroke-width: 2;
+            }
+        }
+    }
+    &-ranking {
+        margin: 1rem 0;
+        padding: 0 1rem 0.5rem 0;
+        &:not(:last-child) {
+            border-bottom: 1px solid #000;
+        }
+        button {
+            font-size: 1.75rem;
+            height: 100%;
+            padding: 0;
+        }
+    }
+    &-sidebar {
+        flex-direction: column;
+        padding: 20px;
+        @include breakpoint(sm) {
+            position: fixed;
+            width: calc(100vw - 40px);
+            min-width: 300px;
+            max-width: 400px;
+            top: 0;
+            height: 100vh;
+            z-index: 2;
+        }
+    }
+}

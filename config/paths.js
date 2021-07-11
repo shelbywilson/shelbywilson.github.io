@@ -72,6 +72,10 @@ module.exports = {
     noise_2: {
       output: 'sketches/noise/2.html',
       title: 'noise',
+    },
+    cafes: {
+      output: 'cafes/index.html',
+      title: 'Seattle Cafés',
     }
   }
 }

@@ -26,6 +26,7 @@ import Vurv from './content/Vurv';
 import Sketches from './content/Sketches';
 import Gradients from '../pages/gradients';
 import GradientsAbout from './content/GradientsAbout';
+import Cafes from '../pages/cafes/Cafes';
 
 import UsingList from '../util/UsingList';
 
@@ -180,4 +181,12 @@ export const routes = {
         content: <About />,
         year: 'Last updated 21 June 2021',
     },
+    // cafes: {
+    //     id: 'cafes',
+    //     img: '',
+    //     title: 'Seattle cafés',
+    //     url: '/#/cafes',
+    //     content: <Cafes />,
+    //     year: '2021',
+    // }
 }
