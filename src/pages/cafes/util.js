@@ -13,7 +13,7 @@ import _ from "lodash";
 export const selectStyles = {
     option: (provided, state) => ({
       ...provided,
-      backgroud: state.isSelected ? '#039be5' : '#fff',
+      backgroud: state.isSelected ? 'var(--accent)' : '#fff',
     }),
   }
 

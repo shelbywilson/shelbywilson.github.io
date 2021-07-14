@@ -23,6 +23,8 @@ export default () => {
     useEffect(() => {
         if (!sorting.type && sorting.attr) {
             setSorting(prev => ({...prev, type: "Best"}))
+        } else if (sorting.type && sorting.attr) {
+            setSelected([sortedCafes()[0].Name[0]])
         }
     }, [sorting])
 
@@ -95,24 +97,24 @@ export default () => {
     const filteredList = sortedCafes();
     
     return (
-        <div className="cafes" style={{minHeight: "100vh", background: "linear-gradient(0deg, rgb(185 225 254), rgb(226 246 255))"}}>
-            <header>
-                <h1>An Informal Survey of Seattle Cafés</h1>
-                <a href={'/#/cafes'}>
-                    <h3>info</h3>
-                </a>
-           </header>
+        <div className="cafes">
             <Map 
                 filters={filters}
                 selected={selected}
                 setSelected={(name) => setSelected(prev => {
                     if (prev.indexOf(name) === -1) {
-                        return [...prev, name];
+                        return [name];
                     }
-                    return [...prev].filter(n => n !== name);
+                    return [];
                 })}
                 />
             <div className="cafes-sidebar d-flex">
+                <header>
+                    <h1>An Informal Survey of Seattle Cafés</h1>
+                    <a href={'/#/cafes'}>
+                        <h3>info</h3>
+                    </a>
+                </header>
                 <div className="cafes-sidebar-filters">
                     <div style={{margin: "1rem 0"}}>
                         <Filters 
@@ -127,7 +129,7 @@ export default () => {
                             />
                     </div>
                     <div className="cafes-sidebar-filters-info d-flex flex-row">
-                        <h3>{filteredList.length} Cafés: </h3>
+                        <h2>{filteredList.length} Cafés: </h2>
                         {selected.length > 0 ?
                             <button type="button"
                                 onClick={() => setSelected([])}
@@ -143,8 +145,8 @@ export default () => {
                     {filteredList.map(cafe => 
                         <Ranking key={cafe.Name[0]}
                             cafe={cafe}
-                            addSelection={() => setSelected(prev => prev.indexOf(cafe.Name[0]) === -1 ? [...prev, cafe.Name[0]] : [...prev] )}
-                            removeSelection={() => setSelected(prev => [...prev.filter(n => n !== cafe.Name[0])] )}
+                            addSelection={() => setSelected(prev => prev.indexOf(cafe.Name[0]) === -1 ? [cafe.Name[0]] : [] )}
+                            removeSelection={() => setSelected([])}
                             selected={selected.indexOf(cafe.Name[0]) > -1}
                             />
                     )}

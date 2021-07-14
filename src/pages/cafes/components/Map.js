@@ -60,7 +60,7 @@ export default ({filters, selected, setSelected}) => {
             //             .style("transform", "rotate(16deg)")
                     
             //         const rect = g.append("rect")
-            //             .style("fill", "#039be5")
+            //             .style("fill", "var(--accent)")
 
             //         const text = g.append("text")
             //             .text(d => d.cafe.Name)
@@ -121,7 +121,7 @@ export default ({filters, selected, setSelected}) => {
             .transition()
             .duration(500)
             .attr("r", d => selected.indexOf(d.cafe.Name) > -1 ? 6 : 4)
-            .style("fill", d => selected.indexOf(d.cafe.Name) > -1 ? "#039be5" : "#02547e")
+            .style("fill", d => selected.indexOf(d.cafe.Name) > -1 ? "var(--accent)" : "var(--accent-dark)")
             
         selection.on("click", (e, d) => {
             setSelected(d.cafe.Name);
@@ -148,7 +148,7 @@ export default ({filters, selected, setSelected}) => {
             .transition()
             .duration(500)
             .attr("r", 6)
-            .style("fill", "#039be5")
+            .style("fill", "var(--accent)")
 
         selection
             .select("line")
@@ -178,16 +178,15 @@ export default ({filters, selected, setSelected}) => {
             .style("transform", "rotate(16deg)")
             
         g.append("line")
-            .style("stroke", "#039be5")
+            .style("stroke", "var(--accent)")
             .style("stroke-width", 2)
         
         g.append("rect")
-            .style("fill", "#039be5")
+            .style("fill", "var(--accent)")
 
         g.append("circle")
-            .style("fill", "#039be5")
             .attr("r", 4)
-            .style("fill", "#02547e")
+            .style("fill", "var(--accent-dark)")
 
         g.append("text")
             .style("font-size", "0.75rem")
@@ -221,7 +220,7 @@ export default ({filters, selected, setSelected}) => {
             .attr("class", "cafe-coord")
             .each(function(d) {
                 d3.select(this).append("circle")
-                    .style("fill", "#02547e")
+                    .style("fill", "var(--accent-dark)")
                     .attr("r", 4)
                     
                 updateCafeCoord(d, d3.select(this))
@@ -231,6 +230,32 @@ export default ({filters, selected, setSelected}) => {
         
         coords.each(function(d) {
             updateCafeCoord(d, d3.select(this))
+        })
+    }
+
+    const updateNeighborhoods = () => {
+        const represented = getRepresentedNeighborhoods(filters)
+        const svg = d3.select(svgNode.current)
+        
+        let paths = svg.select(".neighborhoods")
+            .selectAll(".n-hood")
+            .data(neighborhoods.features.sort(area => represented[area.id] ? 1 : -1))
+        
+        paths.exit().remove();
+
+        paths.enter()
+            .append("path")
+            .attr("class", "n-hood")
+
+        paths = paths.merge(paths);
+
+        paths.each(function (d) {
+            d3.select(this)
+            .style("stroke", d => represented[d.id] ? "var(--neighborhood-outline)" : "#d0afff")
+            .style("stroke-width", 1)
+            .style("fill", d => represented[d.id] ? "var(--neighborhood)" : "#f5f5f5")
+            .on("mouseenter", (e, d) => console.log(d))
+            .attr("d", path)
         })
     }
 
@@ -260,38 +285,17 @@ export default ({filters, selected, setSelected}) => {
         const w = Math.max(window.innerWidth - 348, 500);
         const h = window.innerHeight - (window.innerWidth < 668 ? 50 : 0);
         const b = path.bounds({features: Object.keys(represented).map(id => represented[id]), type: "FeatureCollection"}),
-            s = Math.min( 1000000, 0.9 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h)),
+            s = Math.min( 1000000, 0.88 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h)),
             t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
 
         projection
             .scale(s)
             .translate(t);
 
-        const svg = d3.select(svgNode.current)
+        d3.select(svgNode.current)
             .attr("viewBox", [-offset, 0, w + offset, h])
-            .select(".map-container")
 
-        svg.select(".neighborhoods")
-            .selectAll(".n-hood")
-            .data(neighborhoods.features.sort(area => represented[area.id] ? 1 : -1))
-            .join(enter => enter
-                    .append("path")
-                    .attr("class", "n-hood")
-                    .style("stroke", d => represented[d.id] ? "#a0b293" : "#c4c4c4")
-                    .style("stroke-width", d => represented[d.id] ? 1 : 0.5)
-                    .style("fill", d => represented[d.id] ? "#e6f6da" : "#f5f5f5")
-                    .on("mouseenter", (e, d) => console.log(d))
-                    .attr("d", path)
-                ,
-                update => update
-                    .style("stroke", d => represented[d.id] ? "#a0b293" : "#c4c4c4")
-                    .style("stroke-width", d => represented[d.id] ? 1 : 0.5)
-                    .style("fill", d => represented[d.id] ? "#e6f6da" : "#f5f5f5")
-                    .on("mouseenter", (e, d) => console.log(d))
-                    .attr("d", path)
-                ,
-                exit => exit.remove()
-            )
+        updateNeighborhoods();
 
         updateCoords();
 

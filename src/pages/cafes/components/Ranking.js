@@ -25,7 +25,7 @@ export default ({cafe, removeSelection, addSelection, selected}) => {
                     <h2>
                         {cafe.Name[0]}
                     </h2>
-                    <span style={{fontWeight: 600, color: selected ? "#039be5" : "#000", marginLeft: "0.5rem"}}>
+                    <span style={{fontWeight: 600, color: selected ? "var(--accent)" : "#000", marginLeft: "0.5rem"}}>
                         &#8889;
                     </span>
                 </button>

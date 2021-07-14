@@ -2,23 +2,28 @@
 @import "./../../base/partials/mixins";
 
 .cafes {
+    --ranking-good: #79d98c;
+    --ranking-average: #c1c1c1;
+    --ranking-bad: #ff9800;
+    --ranking-bg: #e6e6e6;
+    --accent: #6284f6;
+    --accent-dark: #4967c9;
+    --neighborhood: #efe3ff;
+    --neighborhood-outline: #b365f5;
+    min-height: 100vh; 
+    background: cornflowerblue;
     header {
-        left: 0;
-        top: 0;
-        width: 100%;
-        padding: 20px 10px 0 10px;
-        @include breakpoint(sm) {
-            padding: 20px 20px 0 20px;
-            max-width: 400px;
-        }
+        position: static;
         h1 {
             line-height: 1.4;
+            text-transform: none;
         }
         h1, h3, a {
             display: inline;
         }
         h3 {
             margin-left: 10px;
+            color: var(--accent-dark);
         }
     }
     h1 {
@@ -28,7 +33,6 @@
         font-size: 1.25rem;
         font-weight: 100;
         margin: 0.5rem 0;
-        text-transform: uppercase;
         text-align: left;
     }
     h3 {
@@ -53,10 +57,6 @@
     &-map {
         margin-left: auto;
         overflow: hidden;
-        padding-top: 100px;
-        @include breakpoint(sm) {
-            padding-top: 0;
-        }
         .cafe-coord {
             cursor: pointer;
             circle {
@@ -81,32 +81,35 @@
     &-sidebar {
         flex-direction: column;
         padding: 20px;
+        background: cornsilk;
+        border-radius: 20px;
         &-filters {
-            h3 {
-                margin: 2px 0;
-                display: inline-block;
-            }
             button {
-                background: #029be5;
-                color: white;
-                border-radius: 5px;
+                background: var(--accent);
+                color: #fff;
+                border-radius: 20px;
+                padding: 2px 10px;
+                margin: 4px 0;
+                font-size: 0.75rem;
+                letter-spacing: 0.04rem;
+                font-weight: 700;
+                text-transform: uppercase;
             }
             &-info {
                 justify-content: space-between;
-                background: #ffedb5;
                 margin-bottom: -1px;
-                padding: 8px;
+                padding: 8px 0;
                 border-bottom: 1px solid #000;
             }
         }
         @include breakpoint(sm) {
             position: fixed;
-            padding-top: 100px;
             width: calc(100vw - 40px);
             min-width: 300px;
-            max-width: 400px;
+            max-width: 375px;
             top: 0;
-            height: 100vh;
+            height: calc(100vh - 20px);
+            margin: 10px;
             z-index: 2;
         }
     }
