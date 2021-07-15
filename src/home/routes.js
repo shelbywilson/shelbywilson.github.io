@@ -189,7 +189,7 @@ export const routes = {
         type: "Data Visualization",
         content: <div>
             <div style={{transform: "scale(0.72)", transformOrigin: "top left", marginBottom: "-30%"}}>
-                <iframe style={{width: "138%", height: 715, maxHeight: "100vh"}}
+                <iframe style={{width: "138%", height: 750, maxHeight: "100vh", borderRadius: "20px"}}
                     scrolling='yes' 
                     referrerPolicy='no-referrer' 
                     loading='lazy'
@@ -201,9 +201,6 @@ export const routes = {
             </p>
             <p>
                 Contact Alex Miller to take the survey.
-            </p>
-            <p>
-                TODO: add search by keyword, add neighborhood labels, add map label collision handling.
             </p>
 
             <UsingList list={["d3.js", "GeoJSON", "React.js"]} />
