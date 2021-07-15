@@ -15,10 +15,13 @@ const path = d3.geoPath().projection(projection)
 export default ({filters, setFilters, selected, setSelected}) => {
     const svgNode = useRef(null)
     const [init, setInit] = useState(false);
+    const [size, setSize] = useState({w: window.innerWidth, h: window.innerHeight})
 
     useEffect(() => {
         function handleResize() {
-          drawMap();
+            if (window.innerWidth !== size.w || window.innerHeight !== size.h) {
+                setSize({w: window.innerWidth, h: window.innerHeight})
+            }
         }
         
         window.addEventListener("resize", handleResize);
@@ -207,11 +210,7 @@ export default ({filters, setFilters, selected, setSelected}) => {
 
         g.append("text")
 
-        enter.each(function(d, i) {
-            updateLabel(d, d3.select(this))
-        })
-
-        labels = labels.merge(labels)
+        labels = labels.merge(enter)
             
         labels.each(function(d, i) { 
             updateLabel(d, d3.select(this))
@@ -249,6 +248,8 @@ export default ({filters, setFilters, selected, setSelected}) => {
     const updateNeighborhoodLabel = (d, selection, isRepresented) => {
         const translate = projection(d3.geoCentroid(d));
 
+        if (d.id === "Seattle:Fremont:") { console.log(translate) }
+
         selection.text(d => d.properties.name)
             .style("font-size", scale < ZOOMED_IN_THRESHOLD ? "0.625rem" : "0.75rem")
             .style("fill", d => isRepresented ? "#000" : "#b1b1b1")
@@ -263,22 +264,13 @@ export default ({filters, setFilters, selected, setSelected}) => {
             .selectAll(".n-hood")
             .data(neighborhoods.features.sort(area => represented[area.id] ? 1 : -1))
 
-        let labels = svg.select(".neighborhoods")
-            .selectAll(".n-hood-label")
-            .data(neighborhoods.features.filter(area => scale >= ZOOMED_IN_THRESHOLD ? true : represented[area.id]))
-        
         paths.exit().remove();
-        labels.exit().remove();
 
         let pathsEnter = paths.enter()
             .append("path")
             .attr("class", "n-hood")
-        let labelsEnter = labels.enter()
-            .append("text")
-            .attr("class", "n-hood-label")
 
         paths = paths.merge(pathsEnter);
-        labels = labels.merge(labelsEnter);
 
         paths.each(function (d) {
             d3.select(this)
@@ -288,9 +280,18 @@ export default ({filters, setFilters, selected, setSelected}) => {
                 .attr("d", path)
         })
 
-        labels.each(function (d) {
-            updateNeighborhoodLabel(d, d3.select(this), represented[d.id])
-        })
+        svg.select(".neighborhoods")
+            .selectAll(".n-hood-label")
+            .remove();
+            
+        svg.select(".neighborhoods")
+            .selectAll(".n-hood-label")
+            .data(neighborhoods.features.filter(area => scale >= ZOOMED_IN_THRESHOLD ? true : represented[area.id])).enter()
+            .append("text")
+            .attr("class", "n-hood-label")
+            .each(function (d) {
+                updateNeighborhoodLabel(d, d3.select(this), represented[d.id])
+            })
     }
 
     useEffect(() => {
@@ -302,29 +303,29 @@ export default ({filters, setFilters, selected, setSelected}) => {
 
     useEffect(() => {
         drawMap();
-    }, [filters])
+    }, [filters, size])
 
     const drawMap = () => {
         const represented = getRepresentedNeighborhoods(filters)
 
-        projection
+        projection = projection
             .scale(1)
             .translate([0,0]);
 
-        let offset = 348;
-        if (window.innerWidth < 668) {
+        let offset = 400;
+        if (size.w < 668) {
             offset = 0;
         }
         
-        const w = Math.max(window.innerWidth - 348, 500);
-        const h = window.innerHeight - (window.innerWidth < 668 ? 50 : 0);
+        const w = Math.max(size.w - 400, 500);
+        const h = size.h - (size.w < 668 ? 50 : 0);
         const b = path.bounds({features: Object.keys(represented).map(id => represented[id]), type: "FeatureCollection"}),
             s = Math.min( MAX_SCALE, 0.88 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h)),
             t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
         
         scale = s;
 
-        projection
+        projection = projection
             .scale(s)
             .translate(t);
 
