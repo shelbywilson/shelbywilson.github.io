@@ -1,6 +1,7 @@
 import React from 'react';
 import NeighborhoodSearch from './NeighborhoodSearch';
 import CafeSearch from './CafeSearch';
+import KeywordSearch from './KeywordSearch';
 
 export default ({filters, setFilters}) => {
     return (
@@ -17,7 +18,13 @@ export default ({filters, setFilters}) => {
                     setFilters={setFilters}
                     />
             </div>
-            <label style={{margin: "0.5rem 0 0 0", display: "block"}}>
+            <div style={{margin: "0.5rem 0"}}>
+                <KeywordSearch
+                    filters={filters}
+                    setFilters={setFilters}
+                    />
+            </div>
+            <label>
                 <input type="checkbox" 
                     checked={!filters.onlyRanked} 
                     onChange={(e) => setFilters("onlyRanked", !filters.onlyRanked)} />

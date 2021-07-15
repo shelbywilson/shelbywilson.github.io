@@ -4,24 +4,27 @@ import _ from "lodash";
 const neighborhoods = require("./../data/neighborhoods.geojson");
 import { cafeCoords, filteredCoords, getRepresentedNeighborhoods } from "./../util";
 
+const MAX_SCALE = 1000000;
+const ZOOMED_IN_THRESHOLD = 400000;
+let scale = 1;
 let projection = d3.geoAlbers()
     .translate([0, 0])
-    .scale(1)
+    .scale(scale)
 const path = d3.geoPath().projection(projection)
 
-export default ({filters, selected, setSelected}) => {
+export default ({filters, setFilters, selected, setSelected}) => {
     const svgNode = useRef(null)
     const [init, setInit] = useState(false);
 
-    // useEffect(() => {
-    //     function handleResize() {
-    //       drawMap();
-    //     }
+    useEffect(() => {
+        function handleResize() {
+          drawMap();
+        }
         
-    //     window.addEventListener("resize", handleResize);
+        window.addEventListener("resize", handleResize);
         
-    //     return () => window.removeEventListener("resize", handleResize);
-    //   }, []); 
+        return () => window.removeEventListener("resize", handleResize);
+      }, []); 
 
     useEffect(() => {
         if (svgNode.current && !init) {
@@ -60,7 +63,7 @@ export default ({filters, selected, setSelected}) => {
             //             .style("transform", "rotate(16deg)")
                     
             //         const rect = g.append("rect")
-            //             .style("fill", "var(--accent)")
+            //             .style("fill", "var(--coord-selected)")
 
             //         const text = g.append("text")
             //             .text(d => d.cafe.Name)
@@ -110,18 +113,31 @@ export default ({filters, selected, setSelected}) => {
         }
     }, [svgNode.current])
 
+    const getRadius = (isSelected) => {
+        let r = isSelected ? 8 : 5;
 
-    function updateCafeCoord (d, selection) {
+        if (scale >= ZOOMED_IN_THRESHOLD) {
+            r *= 1.25;
+        }
+        
+        return r;
+    }
+
+    const getCafeCoordPosition = (d) => {
         const translate = projection(d.geometry.coordinates);
 
+        return `translate(${translate[0]}px, ${translate[1]}px)`;
+    }
+
+    function updateCafeCoord (d, selection) {
         selection
-            .style("transform", `translate(${translate[0]}px, ${translate[1]}px)`)
+            .style("transform", getCafeCoordPosition(d))
 
         selection.select("circle")
             .transition()
             .duration(500)
-            .attr("r", d => selected.indexOf(d.cafe.Name) > -1 ? 6 : 4)
-            .style("fill", d => selected.indexOf(d.cafe.Name) > -1 ? "var(--accent)" : "var(--accent-dark)")
+            .attr("r", d => getRadius(selected.indexOf(d.cafe.Name) > -1))
+            .style("fill", d => selected.indexOf(d.cafe.Name) > -1 ? "var(--coord-selected)" : "var(--coord)")
             
         selection.on("click", (e, d) => {
             setSelected(d.cafe.Name);
@@ -139,26 +155,28 @@ export default ({filters, selected, setSelected}) => {
 
         selection
             .select("rect")
-            .attr("width", bbox.width + 12)
-            .attr("height", bbox.height + 2)
-            .style("transform", `translate(-${bbox.width/2 + 6}px, -${bbox.height/2 + 5}px)`)
+            .attr("width", bbox.width + 20)
+            .attr("height", bbox.height + 10)
+            .attr("rx", 13)
+            .style("transform", `translate(-${bbox.width/2 + 10}px, -${bbox.height/2 + 9}px)`)
         
         selection.select("circle")
-            .attr("cy", `25px`)
             .transition()
             .duration(500)
-            .attr("r", 6)
-            .style("fill", "var(--accent)")
+            .attr("r", d => getRadius(true))
+            .style("fill", "var(--coord-selected)")
 
         selection
             .select("line")
             .attr("x1", 0)
             .attr("x2", 0)
             .attr("y1", 0)
-            .attr("y2", `${bbox.height + 9}px`)
+            .attr("y2", `${bbox.height + 30}px`)
 
         selection
-            .style("transform", `translate(${translate[0] + 7.5}px, ${translate[1] - 25}px)`)
+            .style("transform", `translate(${translate[0]}px, ${translate[1]}px)`)
+            .select(".label-g")
+            .style("transform", `rotate(16deg) translate(0, -${bbox.height + 34}px)`)
     }
 
     const updateLabels = () => {
@@ -175,23 +193,19 @@ export default ({filters, selected, setSelected}) => {
 
         const g = enter.append("g")
             .attr("class", "label-g")
-            .style("transform", "rotate(16deg)")
+
+        enter.append("circle")
+            .attr("r", getRadius(false))
+            .style("fill", "var(--coord)")
             
         g.append("line")
-            .style("stroke", "var(--accent)")
+            .style("stroke", "var(--coord-selected)")
             .style("stroke-width", 2)
         
         g.append("rect")
-            .style("fill", "var(--accent)")
-
-        g.append("circle")
-            .attr("r", 4)
-            .style("fill", "var(--accent-dark)")
+            .style("fill", "var(--coord-selected)")
 
         g.append("text")
-            .style("font-size", "0.75rem")
-            .style("text-anchor", "middle")
-            .style("fill", "#fff")
 
         enter.each(function(d, i) {
             updateLabel(d, d3.select(this))
@@ -215,22 +229,30 @@ export default ({filters, selected, setSelected}) => {
 
         coords.exit().remove()
         
-        coords.enter()
+        let enter = coords.enter()
             .append("g")
             .attr("class", "cafe-coord")
             .each(function(d) {
-                d3.select(this).append("circle")
-                    .style("fill", "var(--accent-dark)")
-                    .attr("r", 4)
-                    
-                updateCafeCoord(d, d3.select(this))
+                d3.select(this)
+                    .append("circle")
+                    .style("fill", "var(--coord)")
+                    .attr("r", getRadius(false))
             })
 
-        coords = coords.merge(coords)
+        coords = coords.merge(enter)
         
         coords.each(function(d) {
             updateCafeCoord(d, d3.select(this))
         })
+    }
+
+    const updateNeighborhoodLabel = (d, selection, isRepresented) => {
+        const translate = projection(d3.geoCentroid(d));
+
+        selection.text(d => d.properties.name)
+            .style("font-size", scale < ZOOMED_IN_THRESHOLD ? "0.625rem" : "0.75rem")
+            .style("fill", d => isRepresented ? "#000" : "#b1b1b1")
+            .style("transform", `translate(${translate[0]}px,${translate[1]}px) rotate(16deg)`)
     }
 
     const updateNeighborhoods = () => {
@@ -240,22 +262,34 @@ export default ({filters, selected, setSelected}) => {
         let paths = svg.select(".neighborhoods")
             .selectAll(".n-hood")
             .data(neighborhoods.features.sort(area => represented[area.id] ? 1 : -1))
+
+        let labels = svg.select(".neighborhoods")
+            .selectAll(".n-hood-label")
+            .data(neighborhoods.features.filter(area => scale >= ZOOMED_IN_THRESHOLD ? true : represented[area.id]))
         
         paths.exit().remove();
+        labels.exit().remove();
 
-        paths.enter()
+        let pathsEnter = paths.enter()
             .append("path")
             .attr("class", "n-hood")
+        let labelsEnter = labels.enter()
+            .append("text")
+            .attr("class", "n-hood-label")
 
-        paths = paths.merge(paths);
+        paths = paths.merge(pathsEnter);
+        labels = labels.merge(labelsEnter);
 
         paths.each(function (d) {
             d3.select(this)
-            .style("stroke", d => represented[d.id] ? "var(--neighborhood-outline)" : "#d0afff")
-            .style("stroke-width", 1)
-            .style("fill", d => represented[d.id] ? "var(--neighborhood)" : "#f5f5f5")
-            .on("mouseenter", (e, d) => console.log(d))
-            .attr("d", path)
+                .style("stroke", d => represented[d.id] ? "var(--neighborhood-outline)" : "#d0afff")
+                .style("fill", d => represented[d.id] ? "var(--neighborhood)" : "#f5f5f5")
+                .on("click", (e, d) => setFilters("neighborhoods", {nested: d.properties.nested, name: d.properties.name, nhood: d.properties.nhood}))
+                .attr("d", path)
+        })
+
+        labels.each(function (d) {
+            updateNeighborhoodLabel(d, d3.select(this), represented[d.id])
         })
     }
 
@@ -285,8 +319,10 @@ export default ({filters, selected, setSelected}) => {
         const w = Math.max(window.innerWidth - 348, 500);
         const h = window.innerHeight - (window.innerWidth < 668 ? 50 : 0);
         const b = path.bounds({features: Object.keys(represented).map(id => represented[id]), type: "FeatureCollection"}),
-            s = Math.min( 1000000, 0.88 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h)),
+            s = Math.min( MAX_SCALE, 0.88 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h)),
             t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
+        
+        scale = s;
 
         projection
             .scale(s)

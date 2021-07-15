@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import _ from "lodash";
 import RankingAmount from './RankingAmount';
-import { getSelectedNeighborhood } from '../util';
+import { getBoundedNeighborhood } from '../util';
 
 export default ({cafe, removeSelection, addSelection, selected}) => {
-    const neighborhood = getSelectedNeighborhood(cafe.Name[0])
+    const neighborhood = getBoundedNeighborhood(cafe.Name[0])
     const rankingRef = useRef(null)
 
     const executeScroll = () => rankingRef.current.scrollIntoView()    
@@ -25,9 +25,10 @@ export default ({cafe, removeSelection, addSelection, selected}) => {
                     <h2>
                         {cafe.Name[0]}
                     </h2>
-                    <span style={{fontWeight: 600, color: selected ? "var(--accent)" : "#000", marginLeft: "0.5rem"}}>
-                        &#8889;
-                    </span>
+                    <div className={`pos-relative cafes-ranking-pin${selected ? "-selected" : ""}`}>
+                        <div className="pos-absolute"></div>
+                        <div className="pos-absolute"></div>
+                    </div>
                 </button>
                 :
                 <h2>

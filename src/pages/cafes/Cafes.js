@@ -4,21 +4,26 @@ import Ranking from "./components/Ranking";
 import Sorting from "./components/Sorting";
 import Filters from "./components/Filters";
 import Map from "./components/Map";
-import { getAllCafeRankings, getSelectedNeighborhood, isRanked } from './util';
+import { getAllCafeRankings, getBoundedNeighborhood, isRanked} from './util';
 
 import "./_cafes.scss"
 
+const defaultFilters = () => ({
+    onlyRanked: true,
+    neighborhoods: [],
+    cafes: [],
+    terms: [],
+})
+
+const defaultSorting = () => ({
+    type: "",
+    attr: "",
+})
+
 export default () => {
     const [selected, setSelected] = useState([]);
-    const [sorting, setSorting] = useState({
-        type: "",
-        attr: "",
-    })
-    const [filters, setFilters] = useState({
-        onlyRanked: true,
-        neighborhoods: [],
-        cafes: [],
-    })
+    const [sorting, setSorting] = useState(defaultSorting())
+    const [filters, setFilters] = useState(defaultFilters())
 
     useEffect(() => {
         if (!sorting.type && sorting.attr) {
@@ -33,7 +38,7 @@ export default () => {
             if (selected.length > 0) {
                 setSelected(prev => {
                     return prev.filter(name => {
-                        const mappedNeighborhood = getSelectedNeighborhood(name);
+                        const mappedNeighborhood = getBoundedNeighborhood(name);
                         if (mappedNeighborhood) {
                             return (filters.neighborhoods.find(n => n.name === _.get(mappedNeighborhood, "properties.name"))) 
                         }
@@ -107,15 +112,28 @@ export default () => {
                     }
                     return [];
                 })}
+                setFilters={(key, val) => {
+                    if (_.find(filters[key], val)) {
+                        setFilters(prev => ({
+                            ...prev,
+                            [key]: prev[key].filter(el => !_.isEqual(el, val)),
+                        }))
+                    } else {
+                        setFilters(prev => ({
+                            ...prev,
+                            [key]: [...prev[key], val],
+                        }))
+                    }
+                }}
                 />
             <div className="cafes-sidebar d-flex">
-                <header>
-                    <h1>An Informal Survey of Seattle Cafés</h1>
-                    <a href={'/#/cafes'}>
-                        <h3>info</h3>
-                    </a>
-                </header>
                 <div className="cafes-sidebar-filters">
+                    <header>
+                        <h1>An Informal Survey of Seattle Cafés</h1>
+                        <a href={'/#/cafes'}>
+                            <h3>info</h3>
+                        </a>
+                    </header>
                     <div style={{margin: "1rem 0"}}>
                         <Filters 
                             filters={filters}
@@ -129,12 +147,18 @@ export default () => {
                             />
                     </div>
                     <div className="cafes-sidebar-filters-info d-flex flex-row">
-                        <h2>{filteredList.length} Cafés: </h2>
-                        {selected.length > 0 ?
+                        <h2>{filteredList.length} {`Café${filteredList.length !== 1 ? 's' : ''}`}: </h2>
+                        {selected.length > 0
+                            || !_.isEqual(filters, defaultFilters())
+                            || !_.isEqual(sorting, defaultSorting()) ?
                             <button type="button"
-                                onClick={() => setSelected([])}
+                                onClick={() => {
+                                    setSelected([])
+                                    setFilters(defaultFilters())
+                                    setSorting(defaultSorting())
+                                }}
                                 >
-                                    Reset Map
+                                    Reset
                             </button>
                             :
                             null 

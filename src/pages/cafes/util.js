@@ -11,9 +11,39 @@ import * as d3 from "d3";
 import _ from "lodash";
 
 export const selectStyles = {
-    option: (provided, state) => ({
-      ...provided,
-      backgroud: state.isSelected ? 'var(--accent)' : '#fff',
+    option: (styles, state) => ({
+      ...styles,
+      backgroundColor: state.isSelected ? 'var(--background)' : '#fff',
+      ":hover": {
+        backgroundColor: 'var(--background)',
+        color: "#fff",
+      }
+    }),
+    valueContainer: (style, state) => ({
+        ...style,
+        maxHeight: 120,
+        overflow: "auto",
+    }),
+    multiValue: (styles, state) => ({
+        ...styles,
+        borderRadius: 12,
+        backgroundColor: "var(--neighborhood)",
+        fontWeight: 100,
+        letterSpacing: "0.04em",
+    }),
+    multiValueLabel: (styles, state) => ({
+        ...styles,
+        padding: "5px",
+        color: "#black",
+    }),
+    multiValueRemove: (styles, state) => ({
+        ...styles,
+        cursor: "pointer",
+        borderRadius: 12,
+        ':hover': {
+            backgroundColor: "var(--accent)",
+            color: "#fff",
+        }
     }),
   }
 
@@ -33,7 +63,7 @@ export const cafeCoords = cafes.filter(cafe => !!cafe.Long).map((cafe, i) => {
     }
 })
 
-export const getSelectedNeighborhood = (name) => {
+export const getBoundedNeighborhood = (name) => {
     return _.get(cafeCoords.find(cafe => cafe.id === name), "mappedNeighborhood", null)
 }
 
@@ -135,7 +165,7 @@ export const getAllCafeRankings = (filters, compact = false) => {
             }
         }
         if (filters.neighborhoods.length > 0) {
-            const neighborhood = getSelectedNeighborhood(ranking.Name[0]);
+            const neighborhood = getBoundedNeighborhood(ranking.Name[0]);
             if (!filters.neighborhoods.find(nhood => {
                 return nhood.name === _.get(neighborhood, "properties.name", null)
              })) {
@@ -143,6 +173,34 @@ export const getAllCafeRankings = (filters, compact = false) => {
             }
             
         }
+        if (filters.terms.length > 0) {
+            if (!filters.terms.find(term => !!ranking.Notes.find(note => note.toLowerCase().indexOf(term.value) > -1))) {
+                return false;
+            }
+        }
         return true;
     })
+}
+
+export const getCafeReviewTerms = (filters) => {
+    let dictionary = {};
+    const ignore = [
+        "at",
+        "the",
+        "an",
+        "a",
+        "i",
+    ]
+    getAllCafeRankings({...filters, terms: []}, true).forEach(cafe => {
+        cafe.Notes.forEach(note => {
+            note.split(" ").forEach(word => {
+                const normalized = word.replace(/[\:\,\&\"\-\/\.\?\!\;"]+/g,"").toLowerCase();
+                if (normalized.length > 1 && !ignore.find(w => w === normalized)) {
+                    dictionary[normalized] = true;
+                }
+            })
+        })
+    })
+
+    return Object.keys(dictionary)
 }
