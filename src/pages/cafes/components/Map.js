@@ -24,9 +24,11 @@ export default ({filters, setFilters, selected, setSelected}) => {
             }
         }
         
-        window.addEventListener("resize", handleResize);
-        
-        return () => window.removeEventListener("resize", handleResize);
+        if (window.innerWidth > 667) {
+            window.addEventListener("resize", handleResize);
+            
+            return () => window.removeEventListener("resize", handleResize);
+        }
       }, []); 
 
     useEffect(() => {
@@ -119,8 +121,8 @@ export default ({filters, setFilters, selected, setSelected}) => {
     const getRadius = (isSelected) => {
         let r = isSelected ? 8 : 5;
 
-        if (scale >= ZOOMED_IN_THRESHOLD) {
-            r *= 1.25;
+        if (scale >= ZOOMED_IN_THRESHOLD || size.w < 667) {
+            r *= 1.4;
         }
         
         return r;
@@ -141,6 +143,8 @@ export default ({filters, setFilters, selected, setSelected}) => {
             .duration(500)
             .attr("r", d => getRadius(selected.indexOf(d.cafe.Name) > -1))
             .style("fill", d => selected.indexOf(d.cafe.Name) > -1 ? "var(--coord-selected)" : "var(--coord)")
+            .style("stroke", "rgba(255,255,255,0)")
+            .style("stroke-width", "10px")
             
         selection.on("click", (e, d) => {
             setSelected(d.cafe.Name);
@@ -248,12 +252,17 @@ export default ({filters, setFilters, selected, setSelected}) => {
     const updateNeighborhoodLabel = (d, selection, isRepresented) => {
         const translate = projection(d3.geoCentroid(d));
 
-        if (d.id === "Seattle:Fremont:") { console.log(translate) }
-
-        selection.text(d => d.properties.name)
-            .style("font-size", scale < ZOOMED_IN_THRESHOLD ? "0.625rem" : "0.75rem")
-            .style("fill", d => isRepresented ? "#000" : "#b1b1b1")
-            .style("transform", `translate(${translate[0]}px,${translate[1]}px) rotate(16deg)`)
+        selection.style("font-size", scale < ZOOMED_IN_THRESHOLD ? "0.5rem" : "0.75rem")
+            .style("fill", isRepresented ? "#000" : "#b1b1b1")
+            .selectAll("tspan")
+            .data(d.properties.name.split(" "))
+            .enter() 
+            .append("tspan")
+            .text(word => word)
+            .attr("x", 0)
+            .attr("dy", scale < ZOOMED_IN_THRESHOLD ? 8 : 16)
+        
+        selection.style("transform", `translate(${translate[0]}px,${translate[1] - (d.properties.name.split(" ").length * 4)}px) rotate(16deg)`)
     }
 
     const updateNeighborhoods = () => {

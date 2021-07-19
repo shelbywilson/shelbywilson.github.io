@@ -15,7 +15,6 @@ import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
 import Sketch_2021_07_01 from "../pages/sketches/2021-07-01";
 
-
 export const sketches_content = [
     {
         title: "2021-07-01",

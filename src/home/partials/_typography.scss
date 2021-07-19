@@ -42,7 +42,7 @@ a {
     color: #000;
     font-style: italic;
 }
-p, figcaption, text {
+p, figcaption, text, ol li {
     font-size: 1rem;
     letter-spacing: $letter-spacing;
     font-weight: lighter;

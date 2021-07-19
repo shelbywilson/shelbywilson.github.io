@@ -172,6 +172,8 @@
         flex-direction: column;
         background: cornsilk;
         border-radius: 20px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
         &-filters {
             padding: 20px 20px 0 20px;
             margin-bottom: -1px;
@@ -202,6 +204,8 @@
             height: calc(100vh - 20px);
             margin: 10px;
             z-index: 2;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
         }
     }
 }

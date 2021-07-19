@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { withRouter } from 'react-router-dom';
 import { routes } from './routes';
 import { sketches_content } from './sketches-content';
+import { notes_content } from './notes-content';
 import UsingList from '../util/UsingList';
 
 export const Home = () => {
@@ -53,7 +54,7 @@ export const Home = () => {
         const hash = window.location.hash;
 
         if (hash.indexOf("#/sketch/") === 0) {
-            const sketch = sketches_content.find(sketch => hash === `#/sketch/${sketch.id}` )
+            const sketch = sketches_content.find(sketch => hash.indexOf(`${sketch.id}`) > -1 )
 
             if (sketch) {
                 setDetail({
@@ -64,6 +65,22 @@ export const Home = () => {
                         {sketch.desc}
                         {sketch.sketch}
                         <UsingList list={sketch.using} />
+                    </div>
+                });
+                setInit(true);
+            }
+        } else if (hash.indexOf("#/notes/") === 0) {
+            const note = notes_content.find(note => hash.indexOf(`${note.id}`) > -1 )
+
+            if (note) {
+                setDetail({
+                    ...note,
+                    year: note.date.substring(0, 4),
+                    type: "note",
+                    content: <div>
+                        {note.desc}
+                        {note.content}
+                        <UsingList list={note.using} />
                     </div>
                 });
                 setInit(true);
