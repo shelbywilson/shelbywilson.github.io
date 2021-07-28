@@ -6,6 +6,7 @@ import survey_4 from "./data/survey/survey_hs.csv";
 import survey_5 from "./data/survey/survey_mc.csv";
 import survey_6 from "./data/survey/survey_mc2.csv";
 import survey_7 from "./data/survey/survey_sw.csv";
+import survey_8 from "./data/survey/survey_mf.csv";
 const neighborhoods = require("./data/neighborhoods.geojson");
 import * as d3 from "d3";
 import _ from "lodash";
@@ -125,7 +126,7 @@ export const getCafeRankings = (name, compact = false) => {
     Object.keys(cafes[0]).forEach((attr) => (
         attrs[attr] = []
     ));
-    [survey_1, survey_2, survey_3, survey_4, survey_5, survey_6, survey_7].forEach(survey => {
+    [survey_1, survey_2, survey_3, survey_4, survey_5, survey_6, survey_7, survey_8].forEach(survey => {
         const entry = survey.find(row => row.Name === name);
         let overallSum = [];
         if (entry) {
