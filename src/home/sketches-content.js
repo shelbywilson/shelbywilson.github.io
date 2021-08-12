@@ -10,17 +10,28 @@ import noise_canvas_thumb from './../images/sketches/thumbnails/noise_canvas.png
 import cistercian_numerals_thumb from './../images/sketches/thumbnails/cistercian_numerals.png';
 import stairs_stars_thumb from './../images/sketches/thumbnails/stairs_stars.png';
 import _2021_07_01_thumb from './../images/sketches/thumbnails/2021_07_01.png';
-
+import vases_thumb from './../images/sketches/thumbnails/vases_thumb.png';
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
 import Sketch_2021_07_01 from "../pages/sketches/2021-07-01";
 
 export const sketches_content = [
     {
+        title: "vases",
+        id: "vases",
+        date: "2021-08-08",
+        url: "/vases",
+        thumb: vases_thumb,
+        thumb_alt: "solid and wirefreame renderings of vases",
+        desc: <p>Parameterized vases.</p>,
+        using: ["p5.js"],
+    },
+    {
         title: "2021-07-01",
         id: "2021-07-01",
         date: "2021-07-01",
         url: "/#/sketch/2021-07-01",
+        thumb_alt: "distorted flowers",
         thumb: _2021_07_01_thumb,
         desc: <p>Deconstructing an image. Hover or click.</p>,
         sketch: <Sketch_2021_07_01 />,
@@ -91,14 +102,6 @@ export const sketches_content = [
             title: "Daffodils",
         },
         url: "/sketches/follow-field/1.html",
-        // sketch: <div>
-        //     <iframe src="https://shelby.cool/sketches/follow-field/1.html"
-        //         referrerPolicy='no-referrer' 
-        //         loading='lazy'></iframe>
-        //     <p>
-        //         Related: <a href={"/#/daffodils"}>{"Daffodils"}</a>
-        //     </p>
-        // </div>
     },
     {
         title: "Noise",

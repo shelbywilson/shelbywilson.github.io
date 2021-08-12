@@ -76,6 +76,10 @@ module.exports = {
     cafes: {
       output: 'cafes/index.html',
       title: 'Seattle Cafés',
+    },
+    vases: {
+      output: 'vases/index.html',
+      title: '🏺',
     }
   }
 }
