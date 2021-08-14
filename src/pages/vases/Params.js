@@ -42,6 +42,7 @@ export const Params = ({ update, state, randomize }) => {
                     update({
                         h: val,
                         neckHeight: Math.min(val, state.neckHeight),
+                        bH: Math.min(val/2, state.bH),
                     })
                 }}
                 ></input>
@@ -134,7 +135,7 @@ export const Params = ({ update, state, randomize }) => {
                 <span>
                     longitudnal facets 
                 </span>
-                <input type="range" min={3} max={24} step={1} value={state.longFacets} onChange={(e) => {
+                <input type="range" min={2} max={24} step={1} value={state.longFacets} onChange={(e) => {
                     const val = parseInt(e.target.value, 10)
                     update({
                         longFacets: val,
@@ -146,7 +147,7 @@ export const Params = ({ update, state, randomize }) => {
                 <span>
                     latitudnal facets 
                 </span>
-                <input type="range" min={3} max={24} step={1} value={state.latFacets} onChange={(e) => {
+                <input type="range" min={2} max={24} step={1} value={state.latFacets} onChange={(e) => {
                     const val = parseInt(e.target.value, 10)
                     update({
                         latFacets: val,
@@ -158,7 +159,7 @@ export const Params = ({ update, state, randomize }) => {
                 <span>
                     foot height 
                 </span>
-                <input type="range" min={0} max={state.h/4} step={1} value={state.bH} onChange={(e) => {
+                <input type="range" min={0} max={state.h/2} step={1} value={state.bH} onChange={(e) => {
                     const val = parseInt(e.target.value, 10)
                     update({
                         bH: val,
@@ -206,7 +207,7 @@ export const Params = ({ update, state, randomize }) => {
                     </label>
                    <label>
                         <span>
-                            handle position 
+                            handle position y
                         </span>
                         <input type="range" min={0} max={1} step={0.05} value={state.handlePos} onChange={(e) => {
                             const val = parseFloat(e.target.value)
@@ -236,6 +237,18 @@ export const Params = ({ update, state, randomize }) => {
                             const val = parseInt(e.target.value, 10)
                             update({
                                 handleFacets: val,
+                            })
+                        }}
+                        ></input>
+                    </label>
+                    <label>
+                        <span>
+                            rotate handles
+                        </span>
+                        <input type="range" min={0} max={180} step={1} value={state.handleRotate} onChange={(e) => {
+                            const val = parseInt(e.target.value, 10)
+                            update({
+                                handleRotate: val,
                             })
                         }}
                         ></input>
