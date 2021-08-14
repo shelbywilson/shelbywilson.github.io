@@ -9,11 +9,11 @@ export const Vases = (props) => {
         const w = Math.ceil(Math.random() * 150) + 50;
         const sections = singleSection ? 1 : Math.random() < 0.6 ? 1 : Math.ceil(Math.random() * 4);
         const h = Math.ceil(Math.random() * 200 * (sections === 1 ? 0.5 : 1)) + 80;
-        const flatness = (Math.random() * 0.5) + 0.5;
+        const depth = (Math.random() * 0.5) + 0.5;
         return {
             longFacets: Math.ceil(Math.random() * 22) + 2,
             latFacets: Math.ceil(Math.random() * 22) + 2,
-            flatness,
+            depth,
             handlePos: 0.5,
             r5: Math.ceil(Math.random() * 21) + 3,
             w,
@@ -43,7 +43,7 @@ export const Vases = (props) => {
 	};
 
 	const draw = (p5) => {
-        const {longFacets, latFacets, flatness, handlePos, r5, h, w, sections, handleRotate, cH, bH, baseWidth, handles, handleThickness, handleD, handleFacets, neckHeight, neckWidth, mouthPos} = state;
+        const {longFacets, latFacets, depth, handlePos, r5, h, w, sections, handleRotate, cH, bH, baseWidth, handles, handleThickness, handleD, handleFacets, neckHeight, neckWidth, mouthPos} = state;
         p5.background(255);
 
         if (window.innerWidth < 768) {
@@ -77,7 +77,7 @@ export const Vases = (props) => {
         p5.translate(window.innerWidth > 767 ? 40 : 0, -h/2, 60)
         p5.rotateX(360 - camera.x);
         p5.rotateY(camera.y + (p5.frameCount * 0.04));
-        const minSectionWidth = Math.min(w, w * (1/sections * flatness))
+        const minSectionWidth = Math.min(w, w * (1/sections * depth))
         if (cH > 0) {
             let coneR = (minSectionWidth * neckWidth)/2;
             p5.push();
@@ -93,9 +93,9 @@ export const Vases = (props) => {
         while(i < sections) {
             p5.translate(0, hSection, 0);
             if (longFacets === 2) {
-                p5.box(w * (i + 1)/sections, hSection * 2, Math.min(w, w * (i + 1)/sections * flatness))
+                p5.box(w * (i + 1)/sections, hSection * 2, Math.min(w, w * (i + 1)/sections * depth))
             } else {
-                p5.ellipsoid(w * (i + 1)/sections, hSection, Math.min(w, w * (i + 1)/sections * flatness), longFacets, latFacets)
+                p5.ellipsoid(w * (i + 1)/sections, hSection, Math.min(w, w * (i + 1)/sections * depth), longFacets, latFacets)
             }
             if (i === sections - 1 && handles) {
                 p5.push()
@@ -122,7 +122,7 @@ export const Vases = (props) => {
         }
         if (bH > 0) {
             p5.translate(0, hSection + bH/2 - h/20, 0)
-            p5.cylinder((w * baseWidth * (flatness * 0.3)), bH, longFacets === 2 ? 24 : Math.min(24, longFacets + 1))
+            p5.cylinder((w * baseWidth * (depth * 0.3)), bH, longFacets === 2 ? 24 : Math.min(24, longFacets + 1))
         }
         p5.pop();
 	};

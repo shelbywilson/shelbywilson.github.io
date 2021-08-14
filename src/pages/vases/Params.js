@@ -49,6 +49,18 @@ export const Params = ({ update, state, randomize }) => {
             </label>
             <label>
                 <span>
+                    depth
+                </span>
+                <input type="range" min={0.1} max={1} step={0.05} value={state.depth} onChange={(e) => {
+                    const val = parseFloat(e.target.value, 10)
+                    update({
+                        depth: val,
+                    })
+                }}
+                ></input>
+            </label>
+            <label>
+                <span>
                     neck height
                 </span>
                 <input type="range" min={0} max={state.h} step={1} value={state.neck} onChange={(e) => {
@@ -119,18 +131,6 @@ export const Params = ({ update, state, randomize }) => {
                 }}
                 ></input>
             </label> */}
-            <label>
-                <span>
-                    flatten
-                </span>
-                <input type="range" min={0.1} max={1} step={0.05} value={state.flatness} onChange={(e) => {
-                    const val = parseFloat(e.target.value, 10)
-                    update({
-                        flatness: val,
-                    })
-                }}
-                ></input>
-            </label>
             <label>
                 <span>
                     longitudnal facets 
