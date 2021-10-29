@@ -1,5 +1,5 @@
 import React from 'react';
-import { getFormattedTime } from './_util';
+import { getFormattedTime } from './_set-util';
 
 export default (props) => {
     return (
@@ -12,13 +12,13 @@ export default (props) => {
                     :
                     null
                 }
-                <p>
+                <p style={{width: 80}}>
                     {getFormattedTime(props.timer)}
                 </p>
             </div>
             <div className='set-help__score'>
                 <p>
-                    {props.found.length} {props.found.length > 1 ? 'sets': 'set'} found, {props.remainingCards.length} cards remaining
+                    {props.found.length} {props.found.length !== 1 ? 'sets': 'set'} found, {props.remainingCards.length} cards remaining
                 </p>
                 {props.wrong > 0 &&
                     <p className='set-help__score-wrong'>
@@ -30,6 +30,9 @@ export default (props) => {
                 <button onClick={() => props.resetGame()}>
                     new game
                 </button>
+                <a href="/#/set">
+                    more info
+                </a>
             </div>
         </div>
     )

@@ -1,9 +1,3 @@
-$metadata-width: $card-width + $card-margin * 2;
-$metadata-padding: 3rem;
-$visible-cards-width: $card-width * 4 + $card-margin * 3; 
-$set-help-height: 10rem;
-$visible-card-height-mobile: 29rem;
-
 #root {
     overflow: auto;
 }
@@ -112,7 +106,7 @@ $visible-card-height-mobile: 29rem;
                         .set-card:not(.set-card__placeholder) {
                             border: 1px solid $gray;
                             background: $mint;
-                            .set-card__symbol {
+                            .set-card__symbol, svg {
                                 opacity: 0;
                             }
                         }

@@ -1,11 +1,5 @@
-$card-height: 10rem;
-$card-width: 7.5rem;
-$card-margin: 2rem;
-
-$gray: #959595;
-$mint: #ceffce;
-
 @import './../../base/base';
+@import 'partials/variables';
 
 @import 'partials/set-card';
 @import 'partials/set';

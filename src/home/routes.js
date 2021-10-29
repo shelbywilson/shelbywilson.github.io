@@ -11,6 +11,7 @@ import muriel from './../images/home/muriel-3.png';
 import sfpcShowcase from './../images/home/1010.jpg';
 import set from './../images/home/set.jpg';
 import daffodils from './../images/home/daffodils.png';
+import windows from './../images/home/windows.jpg';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -37,9 +38,6 @@ export const routes = {
         img: daffodils,
         title: 'Daffodils',
         dark: true,
-        using: [
-            "Three.js",
-        ],
         content: <div>
             <iframe src='/daffodils?_no-header' 
                 scrolling='no' 
@@ -53,6 +51,13 @@ export const routes = {
         year: 2021,
         type: 'web experiment',
         alt: "Computer generated daffodils against a dark background angled toward a bright light."
+    },
+    cafes: {
+        id: 'cafes',
+        url: '/#/cafes',
+        img: '',
+        title: 'Seattle Cafés',
+        content: <Cafes />
     },
     gradients: {
         id: 'gradients',
@@ -173,13 +178,19 @@ export const routes = {
         content: <Sketches />,
         wide: true,
     },
+    windows: {
+        id: 'windows',
+        title: 'windows',
+        url: '/windows',
+        img: windows,
+    },
     about: {
         id: 'about',
         img: '',
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 21 June 2021',
+        year: 'Last updated 19 August 2021',
     },
     cafes: {
         id: 'cafes',

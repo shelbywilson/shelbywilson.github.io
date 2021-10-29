@@ -3,11 +3,40 @@ import moment from 'moment';
 /*
     i = color
     j = shape
-    k = texture
+    k = shading
     m = number
 */
-const attrs = ['i','j','k','m'];
-
+export const attrs = ['i','j','k','m'];
+export const namedAttr = {
+    i: 'color',
+    j: 'shape',
+    k: 'shading',
+    m: 'number of elements',
+}
+export const colors = [
+    {
+        hex: '#ff4500',
+        name: 'red',
+    },  
+    {
+        hex: '#47ec44',
+        name: 'green',
+    },
+    {
+        hex: '#5f52e4',
+        name: 'purple',
+    }
+];
+export const shading = [
+    'filled',
+    'striped',
+    'outlined',
+]
+export const shape = [
+    'circle',
+    'squiggle',
+    'rectangle',
+]
 export const localStorageName = 'SET_GAME_STATE';
 
 export const getDefaultState = () => {
@@ -117,7 +146,7 @@ export const getSets = (cards) => {
     return sets;
 }
 
-const getNeededCard = (a, b) => {
+export const getNeededCard = (a, b) => {
     const attrs =  ['i','j','k','m'];
     const lookingFor = {};
 
@@ -161,7 +190,6 @@ export const getFormattedTime = (seconds) => {
 }
 
 export const getSetAnalysis = (sets) => {
-    //const sets = [[{"i":2,"j":2,"k":2,"m":1,"id":"2-2-2-1"},{"i":2,"j":2,"k":0,"m":1,"id":"2-2-0-1"},{"i":2,"j":2,"k":1,"m":1,"id":"2-2-1-1"}],[{"i":1,"j":0,"k":1,"m":0,"id":"1-0-1-0"},{"i":0,"j":2,"k":1,"m":1,"id":"0-2-1-1"},{"i":2,"j":1,"k":1,"m":2,"id":"2-1-1-2"}],[{"i":1,"j":1,"k":2,"m":2,"id":"1-1-2-2"},{"i":1,"j":0,"k":0,"m":1,"id":"1-0-0-1"},{"i":1,"j":2,"k":1,"m":0,"id":"1-2-1-0"}],[{"i":1,"j":2,"k":2,"m":0,"id":"1-2-2-0"},{"i":2,"j":2,"k":2,"m":2,"id":"2-2-2-2"},{"i":0,"j":2,"k":2,"m":1,"id":"0-2-2-1"}],[{"i":1,"j":1,"k":0,"m":0,"id":"1-1-0-0"},{"i":1,"j":1,"k":0,"m":2,"id":"1-1-0-2"},{"i":1,"j":1,"k":0,"m":1,"id":"1-1-0-1"}],[{"i":2,"j":1,"k":2,"m":0,"id":"2-1-2-0"},{"i":1,"j":0,"k":1,"m":1,"id":"1-0-1-1"},{"i":0,"j":2,"k":0,"m":2,"id":"0-2-0-2"}],[{"i":2,"j":1,"k":0,"m":0,"id":"2-1-0-0"},{"i":1,"j":1,"k":1,"m":2,"id":"1-1-1-2"},{"i":0,"j":1,"k":2,"m":1,"id":"0-1-2-1"}],[{"i":1,"j":0,"k":0,"m":0,"id":"1-0-0-0"},{"i":2,"j":0,"k":0,"m":2,"id":"2-0-0-2"},{"i":0,"j":0,"k":0,"m":1,"id":"0-0-0-1"}],[{"i":0,"j":1,"k":1,"m":0,"id":"0-1-1-0"},{"i":0,"j":1,"k":1,"m":1,"id":"0-1-1-1"},{"i":0,"j":1,"k":1,"m":2,"id":"0-1-1-2"}],[{"i":0,"j":0,"k":1,"m":0,"id":"0-0-1-0"},{"i":0,"j":0,"k":2,"m":1,"id":"0-0-2-1"},{"i":0,"j":0,"k":0,"m":2,"id":"0-0-0-2"}],[{"i":2,"j":0,"k":2,"m":0,"id":"2-0-2-0"},{"i":2,"j":1,"k":1,"m":1,"id":"2-1-1-1"},{"i":2,"j":2,"k":0,"m":2,"id":"2-2-0-2"}],[{"i":1,"j":2,"k":0,"m":0,"id":"1-2-0-0"},{"i":2,"j":0,"k":1,"m":1,"id":"2-0-1-1"},{"i":0,"j":1,"k":2,"m":2,"id":"0-1-2-2"}],[{"i":0,"j":1,"k":2,"m":0,"id":"0-1-2-0"},{"i":0,"j":2,"k":0,"m":1,"id":"0-2-0-1"},{"i":0,"j":0,"k":1,"m":2,"id":"0-0-1-2"}]];
     let diffCount = [0,0,0,0,0];
 
     sets.forEach(set => {

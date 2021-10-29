@@ -1,0 +1,52 @@
+@import './../../base/base';
+
+.set-detail {
+    // margin: 1rem 0;
+    // transform: scale(0.75);
+    // width: 133%;
+    // transform-origin: left;
+    // justify-content: space-evenly;
+    // align-items: center;
+    // p { 
+    //     margin: 0.25rem 0;
+    // }
+    // &-explanation {
+    //     width: 200px;
+    // }
+    // @include breakpoint(xs) {
+    //     transform: scale(0.5);
+    //     width: 200%;
+    //     margin: -1.5rem 0;
+    // }
+    .example-set {
+        transform: scale(0.75);
+        width: 133%;
+        margin-left: -17.5%;
+    }
+    button {
+        font-size: 1rem;
+        letter-spacing: .04rem;
+        font-weight: lighter;
+        line-height: 2rem;
+        background: #fff;
+        border: 2px solid #cc65f5;
+        color: #cc65f5;
+        border-radius: 100%;
+        padding: 0.25rem 0.75rem;
+        margin: 0 1rem;
+        &:hover:not(:disabled) {
+            background: #cc65f5;
+            color: #fff;
+        }
+        &[disabled] {
+            opacity: 0.5;
+        }
+        &[data-selected="true"] {
+            background: #cc65f5;
+            color: #fff;
+        }
+    }
+    .set-card {
+        margin: 0.5rem 1rem;
+    }
+}

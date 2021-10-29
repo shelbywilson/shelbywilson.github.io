@@ -18,7 +18,7 @@ export default () => {
         setInit(true)
     }, [])
     return (
-        <div className={`sky ${light ? 'light-on' : ''}`}>
+        <div className={`sky ${light ? 'light-on' : ''}`} style={{overflowX: "hidden"}}>
             <div className='moon'></div>
             <div className='main'>
                 <div className='spacer' style={{
@@ -30,11 +30,11 @@ export default () => {
                     <GlassUp />
                 </WindowContainer>
 
-                <WindowContainer width={46} widthUnits={'vw'}>
+                <WindowContainer width={60} widthUnits={'vw'}>
                     <BlindsOpen />
                 </WindowContainer>
 
-                <WindowContainer width={400}>
+                <WindowContainer width={350}>
                     <BlindsUp />
                 </WindowContainer>
 

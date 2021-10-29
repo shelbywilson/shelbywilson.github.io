@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 
-import { getDefaultState, getSets, isSet, getFormattedTime, getSetAnalysis, localStorageName } from './_util';
+import { getDefaultState, getSets, isSet, getFormattedTime, getSetAnalysis, localStorageName } from './_set-util';
 import SetHelp from './SetHelp';
 import SetCard from './SetCard';
 import SetsPossible from './SetsPossible';

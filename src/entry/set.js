@@ -5,12 +5,12 @@ import './../pages/set/_set.scss';
 
 import Set from './../pages/set/Set';
 
-import './../header/_header.scss';
-import Header from '../header/Header';
+// import './../header/_header.scss';
+// import Header from '../header/Header';
 
 ReactDOM.render(
     <Fragment>
-        <Header url='/#/set' />
+        {/* <Header url='/#/set' /> */}
         <Set />
     </Fragment>
 , document.getElementById('root'));

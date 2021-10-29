@@ -84,6 +84,11 @@
     &-map {
         margin-left: auto;
         overflow: hidden;
+        @include breakpoint(sm) {
+            svg {
+                min-height: 100vh;
+            }
+        }
         .cafe-coord {
             cursor: pointer;
             > circle {

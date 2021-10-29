@@ -17,22 +17,19 @@
 
     &__score {
         width: 100%;
-        font-style: italic;
         font-weight: 500;
         &-wrong {
             color: $orangered;
         }
     }
-    &__toggle-possible, button {
+    &__toggle-possible, button, a {
         color: $blue;
-        font-style: italic;
-        font-weight: 600;
     }
     > div {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        p, button {
+        p, button, a {
             margin: 1rem;
             @include breakpoint(xs) {
                 font-size: 0.75rem;

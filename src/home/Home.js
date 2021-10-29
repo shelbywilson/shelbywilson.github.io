@@ -59,7 +59,7 @@ export const Home = () => {
             if (sketch) {
                 setDetail({
                     ...sketch,
-                    year: sketch.date.substring(0, 4),
+                    year: sketch.date,
                     type: "sketch",
                     content: <div>
                         {sketch.desc}
@@ -75,7 +75,7 @@ export const Home = () => {
             if (note) {
                 setDetail({
                     ...note,
-                    year: note.date.substring(0, 4),
+                    year: note.date,
                     type: "note",
                     content: <div>
                         {note.desc}
@@ -102,6 +102,7 @@ export const Home = () => {
         'daffodils',
         'gradients',
         'stillLife', 
+        'windows',
         'cloudtown',  
         'sfpcShowcase', 
         'table', 
