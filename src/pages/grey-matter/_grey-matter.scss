@@ -4,26 +4,30 @@ body {
     background: #000;
 }
 .grey-matter {
-    h1, h2, p {
-        max-width: 354px;
-        color: #fff;
+    h1, h2, p, h3 {
+        max-width: 370px;
+        color: #444;
         margin: 0 auto;
         text-align: justify;
+        @include breakpoint(xs) {
+            max-width: 310px;
+        }
+    }
+    h1, h2, h3 {
+        &:after {
+            content: "";
+            display: inline-block;
+            width: 100%;
+        }
     }
     h1 {
         font-size: 45px;
         text-transform: uppercase;
         margin-top: -60px;
-        margin-bottom: -2.5rem;
         transition: color 200ms;
         @include breakpoint(xs) {
             margin-top: -55px;
             font-size: 43px;
-        }
-        &:after {
-            content: "";
-            display: inline-block;
-            width: 100%;
         }
     }
     h2 {
@@ -31,29 +35,28 @@ body {
         &:before {
             border: none;
         }
-        &:after {
-            content: "";
-            display: inline-block;
-            width: 100%;
+        &:first-of-type {
+            margin-top: 2.5rem;
         }
         @include breakpoint(xs) {
             font-size: 1rem;
         }
     }
-    canvas {
+    h3 {
+        margin: 0 auto;
+        font-size: 1rem;
+    }
+    .sketch-container {
         position: fixed;
     }
     &-essay {
         max-width: 600px;
         margin-left: auto;
         position: relative;
-        padding: 100vh 2rem;
+        padding: 100vh 2rem 1000vh 2rem;
     }
     p {
         color: #fff;
         margin: 6rem auto;
-        @include breakpoint(xs) {
-            max-width: 310px;
-        }
     }
 }

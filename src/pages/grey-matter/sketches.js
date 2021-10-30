@@ -2,19 +2,18 @@ let t = 0;
 let size = 400;
 const NUM_ELEMENTS = 13;
 const scenes = ['squareWave', 'pyramid', 'circleSquare', 'backToSquareWave', 'squareToCircle', 'circleToSquare', 'spacedSlot'];
-let sceneKey = 'squareToCircle';
+let sceneKey = 'circleToSquare';
 let bg = 0;
 let color = 255;
 let phase = 0;
 
-export const inTangent = (p5, s) => {
+export const inTangent = (p5, s, time) => {
     p5.background(bg);
     p5.stroke(255, 255,255,0)
     p5.fill(color,color,color,40)
 
     size = s;
-  
-   t += 0.001;
+    t += 0.002;
   
   switch(sceneKey) {
     case 'squareWave':
@@ -95,7 +94,7 @@ export const inTangent = (p5, s) => {
 //   }
 // }
 
-function squareToCircle(p5) {
+export function squareToCircle(p5, size, t) {
   p5.translate(window.innerWidth/2, window.innerHeight/2)
   p5.rectMode(p5.CENTER);
   let side = size * Math.cos(t);
@@ -127,7 +126,7 @@ function squareToCircle(p5) {
   }
 }
 
-function circleToSquare(p5) {
+export function circleToSquare(p5, size, t) {
   p5.translate(window.innerWidth/2, window.innerHeight/2)
   p5.rectMode(p5.CENTER);
   
@@ -161,6 +160,20 @@ function circleToSquare(p5) {
   }
 }
 
+export function circleToSquare1(p5, size, t) {
+    p5.translate(window.innerWidth/2, window.innerHeight/2)
+    p5.rectMode(p5.CENTER);
+    
+  
+     for (let i = 0; i <= NUM_ELEMENTS; i += 1) {
+        p5.push();
+            let maxRotation = p5.map(i, 0, NUM_ELEMENTS + 1, Math.PI, 0);
+            p5.rotate(p5.map(p5.cos(t/2), -1, 1, 0, maxRotation))
+            p5.rect(0, 0, size, size, ((p5.cos(t) + 1)/2 * size/2))
+        p5.pop();
+    }
+  }
+
 function rectSide(i) {
  return size - ((i * (size/NUM_ELEMENTS - 1)) * (Math.cos(t) + 1)/2); 
 }
@@ -178,7 +191,7 @@ function backToSquareWave(p5) {
   }
 }
 
-function pyramid(p5) {
+export function pyramid(p5, size, t) {
   p5.translate(window.innerWidth/2, window.innerHeight/2)
   p5.rectMode(p5.CENTER);
   if (Math.sin(t) > 0) {
@@ -186,7 +199,7 @@ function pyramid(p5) {
   }
   for (let i = 0; i <= NUM_ELEMENTS; i += 1) {
       p5.push()
-        let side = rectSide(i);
+        let side = size - ((i * (size/NUM_ELEMENTS - 1)) * (Math.cos(t) + 1)/2); ;
         p5.rotate(p5.map(Math.cos(t), 1, -1, 0, -Math.PI/4))
         p5.rect(0, 0, side, side)
       p5.pop();
@@ -218,9 +231,9 @@ function triangleDownRight(p5) {
 
 }
 
-function squareWave(p5) {
-  p5.rectMode(p5.CORNER);
-    translate((window.innerWidth - size)/2, (window.innerHeight - size)/2)
+export function squareWave(p5, size, t) {
+    p5.rectMode(p5.CORNER);
+    p5.translate((window.innerWidth - size)/2, (window.innerHeight - size)/2)
     p5.push();
       for (let i = 0; i <= NUM_ELEMENTS; i += 1) {
         p5.rotate(Math.abs(-i * Math.sin(t) * Math.PI/210) * -1)
@@ -232,7 +245,7 @@ function squareWave(p5) {
 }
 
 function mask(p5) {
-    fill(bg)
+    p5.fill(bg)
     p5.rect(0, -size, window.innerWidth, size)
   
     p5.rect(0, size, window.innerWidth, size)
