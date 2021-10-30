@@ -1,0 +1,59 @@
+@import "./../../base/partials/mixins";
+
+body {
+    background: #000;
+}
+.grey-matter {
+    h1, h2, p {
+        max-width: 354px;
+        color: #fff;
+        margin: 0 auto;
+        text-align: justify;
+    }
+    h1 {
+        font-size: 45px;
+        text-transform: uppercase;
+        margin-top: -60px;
+        margin-bottom: -2.5rem;
+        transition: color 200ms;
+        @include breakpoint(xs) {
+            margin-top: -55px;
+            font-size: 43px;
+        }
+        &:after {
+            content: "";
+            display: inline-block;
+            width: 100%;
+        }
+    }
+    h2 {
+        margin: 0.5rem auto;
+        &:before {
+            border: none;
+        }
+        &:after {
+            content: "";
+            display: inline-block;
+            width: 100%;
+        }
+        @include breakpoint(xs) {
+            font-size: 1rem;
+        }
+    }
+    canvas {
+        position: fixed;
+    }
+    &-essay {
+        max-width: 600px;
+        margin-left: auto;
+        position: relative;
+        padding: 100vh 2rem;
+    }
+    p {
+        color: #fff;
+        margin: 6rem auto;
+        @include breakpoint(xs) {
+            max-width: 310px;
+        }
+    }
+}

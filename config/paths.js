@@ -80,6 +80,10 @@ module.exports = {
     vases: {
       output: 'vases/index.html',
       title: '🏺',
+    },
+    grey_matter: {
+      output: 'grey-matter/index.html',
+      title: 'Grey Matter',
     }
   }
 }
