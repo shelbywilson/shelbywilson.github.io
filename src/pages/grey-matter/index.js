@@ -7,7 +7,7 @@ import { inTangent, threshold } from "./sketches";
 const SPACER = 20;
 
 export const GreyMatter = () => {
-    const [size, setSize] = useState(Math.min(window.innerHeight/2, window.innerWidth/3))
+    const [size, setSize] = useState(Math.min(window.innerHeight/2, (window.innerWidth - 30)/2))
     const [inverse, setInverse] = useState(false)
     const [index, setIndex] = useState(0)
 
@@ -17,7 +17,7 @@ export const GreyMatter = () => {
 
     const windowResized = (p5, canvasParentRef) => {
         p5.resizeCanvas(window.innerWidth - SPACER, window.innerHeight)
-        setSize(Math.min(window.innerHeight/2, window.innerWidth/3))
+        setSize(Math.min(window.innerHeight/2, (window.innerWidth - 30)/2))
     }
 
     const draw = (p5) => {
@@ -63,8 +63,15 @@ export const GreyMatter = () => {
                 </div>
             </div>
 
-            <div className="pos-absolute grey-matter-header border-left"
-                style={{  height: '100%', paddingBottom: 50, paddingTop: 50, left: '0', transform: 'rotate(180deg)', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>                
+            <div className="pos-absolute border-left grey-matter-header h-100 d-flex flex-row"
+                style={{ 
+                    paddingBottom: 50, 
+                    paddingTop: 50, 
+                    left: '0', 
+                    transform: 'rotate(180deg)', 
+                    alignItems: 'center',
+                    width: 39,
+                }}>                
                 <div style={{writingMode: 'vertical-rl'}}>
                     Grey Matter • John and June Alcott Gallery, UNC • Nov 5 - Dec 3, 2021
                 </div>

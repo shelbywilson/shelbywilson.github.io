@@ -28,6 +28,10 @@
         @extend .primary-background;
         @extend .secondary-color;
     }
+    button {
+        padding: 0;
+        margin: 0;
+    }
     .border {
         border: 1px solid var(--secondary);
         &-top {
