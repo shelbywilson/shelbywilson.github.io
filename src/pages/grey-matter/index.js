@@ -1,188 +1,90 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Sketch from "react-p5";
 
 import "./_grey-matter.scss";
-import { inTangent, circleToSquare1, squareWave } from "./sketches";
+import { inTangent, threshold } from "./sketches";
+
+const SPACER = 20;
 
 export const GreyMatter = () => {
-    const [scrollTop, setScrollTop] = useState(0);
-    const [phase, setPhase] = useState(0)
-    useEffect(() => {
-        window.scrollTo = 0;
-        const onScroll = () => {
-          setScrollTop(document.documentElement.scrollTop);
-        };
-        window.addEventListener("scroll", onScroll);
-    
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
-
-    useEffect(() => {
-        console.log(scrollTop)
-    }, [scrollTop])
+    const [size, setSize] = useState(Math.min(window.innerHeight/2, window.innerWidth/3))
+    const [inverse, setInverse] = useState(false)
+    const [index, setIndex] = useState(0)
 
 	const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(window.innerWidth, window.innerHeight).parent(canvasParentRef);
+        p5.createCanvas(window.innerWidth - SPACER, window.innerHeight).parent(canvasParentRef);
     };
 
-	const draw = (p5) => {
-        let size = Math.min(window.innerWidth * 0.6, 400);
-        // let scrollTopOffset = Math.max(0, scrollTop - window.innerHeight - 500);
-
-        // p5.push();
-        //     p5.translate(0, -scrollTopOffset)
-        //     inTangent(p5, size)
-        // p5.pop();
-
-        p5.background(255);
-  
-        p5.stroke(255, 255, 255, 0)
-        p5.fill(0,0,0,25)
-
-        const fadeFill = p5.map(scrollTop - 2000, 0, 1000, 0, 255, true);
-
-        // if (scrollTopOffset > window.innerHeight * 0.85) {
-            // scrollTopOffset -= window.innerHeight * 0.85
-
-        if (fadeFill < 255) {
-            p5.push();
-                // p5.translate(Math.min(-window.innerWidth + scrollTopOffset, 0), 0)
-                phases(p5, scrollTop)
-            p5.pop();
-        }
-
-        const w = Math.max(0, scrollTop - 2000);
-
-        if (scrollTop > 2000) {
-            p5.push();
-                p5.fill(0,0,0, fadeFill)
-                p5.translate((window.innerWidth/2), (window.innerHeight/2))
-                p5.rect(-w/2, -w/2, w);
-            p5.pop();
-        }
-
-        const x = Math.min(window.innerWidth, window.innerHeight)
-        if (w > x) {
-            const y = w - x;
-            p5.push();
-                p5.fill(255,255,255,25)
-                circleToSquare1(p5, p5.map(y, 0, 3000, 0, x/2, true), w * 0.0012)
-            p5.pop();
-        }
-    };
-
-    const phases = (p5, offset) => {
-        const size = Math.min(window.innerWidth/4, window.innerHeight/4);
-        // p5.background(0);
-  
-        // p5.stroke(255, 255, 255, 0)
-        // p5.fill(255,255,255,25)
-        p5.translate((window.innerWidth/2) - size, (window.innerHeight/2) - size)
-        
-        for (let j = 0; j < 9; j += 1) {
-            p5.push();
-            p5.translate(size * (j%3), size * Math.floor(j/3))
-            // let relT = p5.frameCount * ((9 - j) * 0.00015);
-            let relT = offset * ((9 - j) * 0.0002);
-            // let relT = ((j - 9) * PI/18);
-            // let r = p5.map(sizeOffset, 0, 600, 0, size, true)
-            let r = size;
-            for (let i = 0; i < 10; i += 1) {
-                p5.fill(0,0,0, 20 + (i * 7))
-                p5.circle(0, 0, r - (i * (r / 9) + (i * -(r / 9) * Math.cos(relT))))
-            }
-            p5.pop()
-        }
+    const windowResized = (p5, canvasParentRef) => {
+        p5.resizeCanvas(window.innerWidth - SPACER, window.innerHeight)
+        setSize(Math.min(window.innerHeight/2, window.innerWidth/3))
     }
-    
-    const titleColor = () => {
-        return `hsl(358, ${Math.min(100, scrollTop/window.innerHeight * 100)}%, ${Math.max(36, 51 - (scrollTop/window.innerHeight * 15))}%)`
+
+    const draw = (p5) => {
+        if (index === 0) {
+            inTangent(p5, size, inverse)
+        } else {
+            threshold(p5, size/2, inverse)
+        }
     }
 
 	return (
-        <div className="grey-matter">
-            <div className="sketch-container">
-                <Sketch setup={setup} draw={draw} />
+        <div className={`grey-matter ${inverse ? 'inverse' : ''}`}>
+            <div className="sketch-container" style={{marginLeft: SPACER}}>
+                <Sketch setup={setup} 
+                    draw={draw} 
+                    windowResized={windowResized} 
+                    />
             </div>
-            <div className="grey-matter-essay">
-                <h1 style={{color: titleColor()}}>
-                    Grey Matter
-                </h1>
-                <h3>5 November 2021 – 3 December 2021</h3>
-                <h3>John and June Alcott Gallery</h3>
-                <h3>UNC, Chapel Hill, North Carolina</h3>
-                <h2>Light Drawings by Betsy Kenyon</h2>
-                {/* <h2>Words by Maxwell Neely-Cohen</h2> */}
-                <h2>Animations by Shelby Wilson</h2>
-                {/* <p>
-                    The hardest thing one can do on a
-                    flat surface is represent light with
-                    any authenticity. Not just light
-                    that is ambient, that is merely
-                    a medium for other objects, but
-                    true light, emanating outward,
-                    radiating with a brightness that
-                    can pulse, rebound, and fade.
-                </p>
-                <p>
-                    Betsy Kenyon can make paper
-                    scream with photons. She can put
-                    a fusion reaction onto a millimeter
-                    plane. She does this by using light
-                    itself as a medium. A source. No
-                    lens needed, just alternating the
-                    gift and denial of illumination at
-                    the right moments. Every burn
-                    can be controlled. We can paint
-                    with light it turns out. Wield it
-                    at a target.
-                </p>
-                <p>
-                    Planets and doors, logos and swarms, the frozen chaos of particle collision at the smallest possible level. Shapes in mathematical transformations so perfect they belong in geometry textbooks. Film backdrops in stasis.
-                </p>
-                <p>
-                    Betsy once told me that she
-                    wanted her images to be verbs.
-                </p>
-                <p>
-                    As much as I want to assign
-                    nouns to them—gravity, cosmos,
-                    shadows—she is right, they are
-                    verbs, best verbalized as actions.
-                </p>
-                <p>
-                    They push. Pull. Rotate. Cycle.
-                    Drop. Blur. Filter. Contract.
-                    Expand. Crush. Some of them run.
-                    Some of them crawl. Some of them
-                    even disappear. A magic trick.
-                    Frozen.
-                </p>
-                <p>
-                    When rendered in digital
-                    space these forms reveal their
-                    tricks and secrets. How a simple
-                    shape set into motion can blossom
-                    into a complex lattice, a structure
-                    worthy of a sigil or temple. How
-                    long it takes our eyes to notice
-                    a blurring edge, the slight shift
-                    of a gradient. How that can
-                    become layers of a staircase, an
-                    invitation to plunge or accept an
-                    outstretched hand.
-                </p>
-                <p>
-                    It almost doesn’t matter if the
-                    images are moving or not. The
-                    animations can be read as still, the
-                    photograms rendered as moving.
-                </p>
-                <p>
-                    Don’t fall in.
-                </p> */}
+
+            <div className="pos-absolute d-flex w-100 flex-row justify-between border-bottom primary-background" style={{ zIndex: 1}}>
+                <div className="d-flex flex-row">
+                    <button
+                        type="button" 
+                        tabIndex="0"
+                        onClick={() => setIndex(0)}
+                        className={`sketch-nav ${index === 0 ? 'selected' : ''}`}>
+                        In Tangent
+                    </button>
+                    <button
+                        type="button" 
+                        tabIndex="0"
+                        onClick={() => setIndex(1)}
+                        className={`sketch-nav ${index === 1 ? 'selected' : ''}`}>
+                        Threshold
+                    </button>
+                </div>
+                <div className="d-flex flex-row align-items-center">
+                    <button type="button" 
+                        onClick={() => setInverse(x => !x)}
+                        className={`border ${inverse ? 'secondary-background' : 'primary-background'}`}
+                        style={{width: 15, height: 15, marginRight: 15}}>
+                    </button>
+                </div>
             </div>
-            
+
+            <div className="pos-absolute grey-matter-header border-left"
+                style={{  height: '100%', paddingBottom: 50, paddingTop: 50, left: '0', transform: 'rotate(180deg)', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>                
+                <div style={{writingMode: 'vertical-rl'}}>
+                    Grey Matter • John and June Alcott Gallery, UNC • Nov 5 - Dec 3, 2021
+                </div>
+            </div>
+            <div className="pos-absolute w-100 grey-matter-header border-top"
+                style={{ padding: '10px', left: '0', bottom: 0, display: 'flex', flexDirection: 'row', justifyContent: 'flex-end'}}>                
+                <div className="d-flex flex-row">
+                    <a className="arrow secondary-color" 
+                        href="https://www.betsykenyon.com/" 
+                        target="_blank">
+                        Betsy Kenyon
+                    </a>
+                        &nbsp;•&nbsp;
+                    <a className="arrow secondary-color" 
+                        href="https://shelby.cool" 
+                        target="_blank">
+                            Shelby Wilson
+                    </a>
+                </div>
+            </div>
         </div>
     )
 };

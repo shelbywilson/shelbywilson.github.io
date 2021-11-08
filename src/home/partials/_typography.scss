@@ -41,6 +41,14 @@ h4 {
 a {
     color: #000;
     font-style: italic;
+    &.arrow {
+        &:after {
+            content: '\2197 \FE0E';
+            margin-left: 2px;
+            font-size: 0.75em;
+            margin-left: 0.25em;
+        }
+    }
 }
 p, figcaption, text, ol li {
     font-size: 1rem;

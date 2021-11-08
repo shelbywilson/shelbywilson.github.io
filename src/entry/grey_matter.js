@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter } from "react-router-dom";
 
 import './../home/_home.scss';
-import GreyMatter from '../pages/grey-matter'
+import GreyMatter from '../pages/grey-matter/index'
 
 ReactDOM.render(
   <BrowserRouter>

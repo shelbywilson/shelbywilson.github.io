@@ -84,6 +84,6 @@ module.exports = {
     grey_matter: {
       output: 'grey-matter/index.html',
       title: 'Grey Matter',
-    }
+    },
   }
 }
