@@ -49,6 +49,7 @@ module.exports = merge(common, {
         filename: './../' + paths.apps[key].output, // output file
         title: paths.apps[key].title,
         chunks: ['vendors', 'runtime', key],
+        ogUrl: paths.apps[key].ogUrl,
       })
     ))
   ),

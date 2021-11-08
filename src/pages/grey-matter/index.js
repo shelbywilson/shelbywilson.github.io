@@ -22,9 +22,9 @@ export const GreyMatter = () => {
 
     const draw = (p5) => {
         if (index === 0) {
-            inTangent(p5, size, inverse)
-        } else {
             threshold(p5, size/2, inverse)
+        } else {
+            inTangent(p5, size, inverse)
         }
     }
 
@@ -44,14 +44,14 @@ export const GreyMatter = () => {
                         tabIndex="0"
                         onClick={() => setIndex(0)}
                         className={`sketch-nav ${index === 0 ? 'selected' : ''}`}>
-                        In Tangent
+                        Threshold
                     </button>
                     <button
                         type="button" 
                         tabIndex="0"
                         onClick={() => setIndex(1)}
                         className={`sketch-nav ${index === 1 ? 'selected' : ''}`}>
-                        Threshold
+                        In Tangent
                     </button>
                 </div>
                 <div className="d-flex flex-row align-items-center">
