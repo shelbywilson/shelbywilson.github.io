@@ -117,7 +117,7 @@ export function threshold(p5, size, inverse, outline) {
   for (let j = 0; j < 9; j += 1) {
     p5.push();
       p5.translate(size * (j%3) * 1.2, size * Math.floor(j/3) * 1.2)
-      let relT = t * ((9 - j) * 0.00015) + Math.PI;
+      let relT = p5.frameCount * ((9 - j) * 0.00015) + Math.PI;
       for (let i = 0; i < 10; i += 1) {
           p5.fill(color, outline ? 0 : 20 + (i * 7))
           p5.circle(0, 0, size - (i * (size / 9) + (i * -(size / 9) * Math.cos(relT))))
