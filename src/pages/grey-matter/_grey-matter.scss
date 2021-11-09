@@ -61,15 +61,18 @@
         font-style: normal;
     }
     .toggle {
-        margin-right: 20px;
+        margin-right: 10px;
         display: flex;
         flex-direction: row;
+        align-items: center;
         &, input {
             cursor: pointer;
         }
         &:hover {
-            input[type="checkbox"] {
-                background: var(--secondary);
+            @include breakpoint(sm) {
+                input[type="checkbox"] {
+                    background: var(--secondary);
+                }
             }
         }
         input[type="checkbox"] {
@@ -78,6 +81,7 @@
             height: 15px;
             width: 15px;
             margin-left: 10px;
+            border-radius: 0;
             @extend .border;
             &:checked {
                 background: var(--secondary);
