@@ -28,9 +28,11 @@
         @extend .primary-background;
         @extend .secondary-color;
     }
-    button {
+    button, label {
         padding: 0;
         margin: 0;
+        @extend .secondary-color;
+        font-size: 1rem;
     }
     .border {
         border: 1px solid var(--secondary);
@@ -58,8 +60,28 @@
         font-size: 1rem;
         font-style: normal;
     }
-}
-
-body {
-    background: var(--primary);
+    .toggle {
+        margin-right: 20px;
+        display: flex;
+        flex-direction: row;
+        &, input {
+            cursor: pointer;
+        }
+        &:hover {
+            input[type="checkbox"] {
+                background: var(--secondary);
+            }
+        }
+        input[type="checkbox"] {
+            appearance: none;
+            margin: 0;
+            height: 15px;
+            width: 15px;
+            margin-left: 10px;
+            @extend .border;
+            &:checked {
+                background: var(--secondary);
+            }
+        }
+    }
 }

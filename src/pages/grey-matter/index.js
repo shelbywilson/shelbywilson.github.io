@@ -9,6 +9,7 @@ const SPACER = 20;
 export const GreyMatter = () => {
     const [size, setSize] = useState(Math.min(window.innerHeight/2, (window.innerWidth - 30)/2))
     const [inverse, setInverse] = useState(false)
+    const [outline, setOutline] = useState(false)
     const [index, setIndex] = useState(0)
 
 	const setup = (p5, canvasParentRef) => {
@@ -22,9 +23,9 @@ export const GreyMatter = () => {
 
     const draw = (p5) => {
         if (index === 0) {
-            threshold(p5, size/2, inverse)
+            threshold(p5, size/2, p5.frameCount * 0.0015, inverse, outline)
         } else {
-            inTangent(p5, size, inverse)
+            inTangent(p5, size, p5.frameCount * 0.0015, inverse, outline)
         }
     }
 
@@ -50,16 +51,25 @@ export const GreyMatter = () => {
                         type="button" 
                         tabIndex="0"
                         onClick={() => setIndex(1)}
-                        className={`sketch-nav ${index === 1 ? 'selected' : ''}`}>
+                        className={`sketch-nav d-flex flex-row ${index === 1 ? 'selected' : ''}`}>
                         In Tangent
                     </button>
                 </div>
                 <div className="d-flex flex-row align-items-center">
-                    <button type="button" 
-                        onClick={() => setInverse(x => !x)}
-                        className={`border ${inverse ? 'secondary-background' : 'primary-background'}`}
-                        style={{width: 15, height: 15, marginRight: 15}}>
-                    </button>
+                    <label className={`toggle`}>
+                        Outline
+                        <input type="checkbox"
+                            checked={outline}
+                            onChange={() => setOutline(x => !x)}
+                            />
+                    </label>
+                    <label className={`toggle`}>
+                        Invert
+                        <input type="checkbox"
+                            checked={inverse}
+                            onChange={() => setInverse(x => !x)}
+                            />
+                    </label>
                 </div>
             </div>
 
