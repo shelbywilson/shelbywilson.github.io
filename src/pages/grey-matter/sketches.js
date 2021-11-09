@@ -7,7 +7,7 @@ let bg = 255;
 let color = 0;
 let phase = 0;
 
-export const inTangent = (p5, s, time, inverse, outline) => {
+export const inTangent = (p5, s, inverse, outline) => {
     if (inverse) {
       color = 255;
       bg = 0;
@@ -21,8 +21,7 @@ export const inTangent = (p5, s, time, inverse, outline) => {
     p5.fill(color, outline ? 0 : 40)
 
     size = s;
-    // t += 0.0015;
-    t = time;
+    t += 0.0015;
   
   switch(sceneKey) {
     case 'squareWave':
@@ -103,7 +102,7 @@ export function spacedSlot(p5, size, t) {
   }
 }
 
-export function threshold(p5, size, time, inverse, outline) {
+export function threshold(p5, size, inverse, outline) {
   if (inverse) {
     color = 255;
     bg = 0;
@@ -114,13 +113,11 @@ export function threshold(p5, size, time, inverse, outline) {
   p5.background(bg);
   p5.stroke(color, outline ? 255 : 0)
   p5.translate((window.innerWidth/2) - (size * 1.2), (window.innerHeight/2) - (size * 1.2))
-
-  t = time;
   
   for (let j = 0; j < 9; j += 1) {
     p5.push();
       p5.translate(size * (j%3) * 1.2, size * Math.floor(j/3) * 1.2)
-      let relT = t * ((9 - j) * 0.05) + Math.PI;
+      let relT = t * ((9 - j) * 0.00015) + Math.PI;
       for (let i = 0; i < 10; i += 1) {
           p5.fill(color, outline ? 0 : 20 + (i * 7))
           p5.circle(0, 0, size - (i * (size / 9) + (i * -(size / 9) * Math.cos(relT))))

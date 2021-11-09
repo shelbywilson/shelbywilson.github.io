@@ -23,9 +23,9 @@ export const GreyMatter = () => {
 
     const draw = (p5) => {
         if (index === 0) {
-            threshold(p5, size/2, p5.frameCount * 0.0015, inverse, outline)
+            threshold(p5, size/2, inverse, outline)
         } else {
-            inTangent(p5, size, p5.frameCount * 0.0015, inverse, outline)
+            inTangent(p5, size, inverse, outline)
         }
     }
 
