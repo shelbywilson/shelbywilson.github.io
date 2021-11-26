@@ -4,7 +4,7 @@ import { sketches_content } from '../sketches-content';
 
 import "../partials/_home-detail-sketches.scss";
 
-export default ({props}) => {
+export default () => {
     if (!sketches_content) return null;
 
     return (

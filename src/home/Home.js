@@ -32,7 +32,7 @@ export const Home = () => {
 
         window.addEventListener("hashchange", setDetailFromHash);
     
-        // return () => window.removeEventListener("hashchange", onHashChange);
+        return () => window.removeEventListener("hashchange", setDetailFromHash);
     }, [])
 
     useEffect(() => {
@@ -99,6 +99,8 @@ export const Home = () => {
     
     const sections = [
         'sketches',
+        'grey_matter',
+        'vases',
         'daffodils',
         'gradients',
         'stillLife', 

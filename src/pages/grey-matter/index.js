@@ -1,59 +1,51 @@
-import React, { useState } from "react";
-import Sketch from "react-p5";
+import React, { useState, useEffect } from "react";
 
 import "./_grey-matter.scss";
-import { inTangent, threshold } from "./sketches";
+import GreyMatterSketch from "./GreyMatterSketch";
 
-const SPACER = 20;
+const tabs = [
+    'threshold',
+    'in-tangent',
+]
 
 export const GreyMatter = () => {
-    const [size, setSize] = useState(Math.min(window.innerHeight/2, (window.innerWidth - 30)/2))
     const [inverse, setInverse] = useState(false)
     const [outline, setOutline] = useState(false)
     const [index, setIndex] = useState(0)
 
-	const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(window.innerWidth - SPACER, window.innerHeight).parent(canvasParentRef);
-    };
+    useEffect(() => {
+        setDetailFromHash();
 
-    const windowResized = (p5, canvasParentRef) => {
-        p5.resizeCanvas(window.innerWidth - SPACER, window.innerHeight)
-        setSize(Math.min(window.innerHeight/2, (window.innerWidth - 30)/2))
-    }
+        window.addEventListener("hashchange", setDetailFromHash);
+    
+        return () => window.removeEventListener("hashchange", setDetailFromHash);
+    }, [])
 
-    const draw = (p5) => {
-        if (index === 0) {
-            threshold(p5, size/2, inverse, outline)
-        } else {
-            inTangent(p5, size, inverse, outline)
+    const setDetailFromHash = () => {
+        const i = tabs.findIndex(tab => `#/${tab}` === window.location.hash);
+
+        if (i > -1) {
+            setIndex(i)
         }
     }
 
 	return (
         <div className={`grey-matter ${inverse ? 'inverse' : ''}`}>
-            <div className="sketch-container" style={{marginLeft: SPACER}}>
-                <Sketch setup={setup} 
-                    draw={draw} 
-                    windowResized={windowResized} 
-                    />
-            </div>
+            <GreyMatterSketch inverse={inverse}
+                outline={outline}
+                index={index}
+                />
 
             <div className="pos-absolute d-flex w-100 flex-row justify-between border-bottom primary-background" style={{ zIndex: 1}}>
                 <div className="d-flex flex-row">
-                    <button
-                        type="button" 
-                        tabIndex="0"
-                        onClick={() => setIndex(0)}
+                    <a href={`/grey-matter/#/${tabs[0]}`} 
                         className={`sketch-nav ${index === 0 ? 'selected' : ''}`}>
                         Threshold
-                    </button>
-                    <button
-                        type="button" 
-                        tabIndex="0"
-                        onClick={() => setIndex(1)}
-                        className={`sketch-nav d-flex flex-row ${index === 1 ? 'selected' : ''}`}>
+                    </a>
+                    <a href={`/grey-matter/#/${tabs[1]}`} 
+                        className={`sketch-nav ${index === 1 ? 'selected' : ''}`}>
                         In Tangent
-                    </button>
+                    </a>
                 </div>
                 <div className="d-flex flex-row align-items-center">
                     <label className={`toggle`}>

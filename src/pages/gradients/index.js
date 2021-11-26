@@ -11,7 +11,7 @@ const getRandomRGB = () => {
     };
 }
 
-export default ({explain, children}) => {
+export default ({explain = false, children = null}) => {
     const [state, setState] = useState({
         base: getRandomRGB(),
         opacity: 1,
