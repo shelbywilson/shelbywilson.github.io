@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { WEBGL } from '../../../util/webgl';
+import { WEBGL } from '../../../common/webgl';
 import { petal } from './components/petal';
 import Stats from 'three/examples/jsm/libs/stats.module'
 import { stem } from './components/stem';

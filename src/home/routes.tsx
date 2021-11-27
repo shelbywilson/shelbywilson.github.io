@@ -29,7 +29,7 @@ import Sketches from './content/Sketches';
 import Gradients from '../pages/gradients';
 import GradientsAbout from './content/GradientsAbout';
 
-import UsingList from '../util/UsingList';
+import UsingList from '../common/UsingList';
 import GreyMatterSketch from '../pages/grey-matter/GreyMatterSketch';
 import { pageTypes } from './types/page-types';
 import GreyMatterMeta from './content/GreyMatterMeta';

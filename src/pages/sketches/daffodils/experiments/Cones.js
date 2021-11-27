@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { WEBGL } from '../../../../util/webgl';
+import { WEBGL } from '../../../../common/webgl';
 
 export default () => {
     if (WEBGL.isWebGLAvailable()) {

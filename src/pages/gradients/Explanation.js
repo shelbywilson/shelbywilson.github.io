@@ -45,7 +45,7 @@ export default ({layers, state, getStyle}) => {
             </div>
 
             <p>
-                Any number of gradients can be added to each layer.
+                Any number of gradients layers can be added:
             </p>
 
             <LayersDiagram layers={layers}

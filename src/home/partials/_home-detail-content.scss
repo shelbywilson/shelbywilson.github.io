@@ -60,19 +60,22 @@
                 }
             }
         }
-        // &-about {
-        //     .window {
-        //         background: #f4d3ff;
-        //         .blinds {
-        //             border-top-color: #3c333f;
-        //             &:before, &:after {
-        //                 border-right-color: #3c333f;
-        //             }
-        //             > div {
-        //                 background: #cf7337;
-        //             }
-        //         }
-        //     }
-        // }
+        &-grey_matter {
+            .vimeo-iframe, figure {
+                margin: 3rem 0;
+            }
+            @include breakpoint(xs) {
+                .vimeo-iframe {
+                    margin: -2rem 0;
+                }
+            }
+            @include breakpoint(xxs) {
+                .website-iframe {
+                    transform: scale(.93);
+                    width: 107.5%;
+                    transform-origin: left;
+                }
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { handleKeyPress } from "./../../../util/accessibility";
+import { handleKeyPress } from "../../../common/accessibility";
 
 import "./sketch.scss";
 

@@ -1,7 +1,7 @@
 @mixin breakpoint($class) {
     // iphone 5/SE
     @if $class == xxs {
-      @media (max-width: 374px) { @content; }
+      @media (max-width: 413px) { @content; }
     }
     @if $class == xs {
       @media (max-width: 767px) { @content; }
@@ -20,6 +20,6 @@
     }
    
     @else {
-      @warn "Breakpoint mixin supports: xs, sm, md, lg";
+      @warn "Breakpoint mixin supports: xxs, xs, sm, md, lg";
     }
   }

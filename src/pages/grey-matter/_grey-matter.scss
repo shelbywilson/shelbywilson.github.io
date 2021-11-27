@@ -49,6 +49,7 @@
     .sketch-nav {
         padding: 10px;
         font-size: 1rem;
+        white-space: nowrap;
         @extend .primary-background;
         @extend .secondary-color;
         &.selected {

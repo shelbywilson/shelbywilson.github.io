@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom';
 import { routes } from './routes';
 import { sketches_content } from './sketches-content';
 import { notes_content } from './notes-content';
-import UsingList from '../util/UsingList';
+import UsingList from '../common/UsingList';
+import { HomeSection } from './HomeSection';
 
 export const Home = () => {
     const [expand, setExpand] = useState(false);
@@ -128,26 +129,10 @@ export const Home = () => {
                 init ?
                     <div className='main'>
                         {sections.map(key => (
-                            <div className={`img-container ${key} ${routes[key].dark ? 'dark' : ''}`}
-                                style={!routes[key].img && !routes[key].homeBanner ? {minHeight: 102, border: "1px solid #000"} : {}}
-                                key={key}>
-                                <div>
-                                    {routes[key].img ?
-                                        <img src={routes[key].img} alt={routes[key].alt} />
-                                        :
-                                        routes[key].homeBanner
-                                    }
-                                </div>
-                                {routes[key].type ? <h4>&#9724;&nbsp;{routes[key].type}</h4> : null}
-                                <a href={routes[key].url}>
-                                    {routes[key].title.split('').map((letter, i) => 
-                                        letter.replace(/^\s+|\s+$/g, '').length === 0 ? 
-                                            <Fragment key={i}>&nbsp;</Fragment> 
-                                            : 
-                                        <span key={i}>{letter}</span>
-                                    )}
-                                </a>
-                            </div>
+                            <HomeSection key={key}
+                                id={key}
+                                route={routes[key]}
+                                />
                         ))}
                     </div>
                     :

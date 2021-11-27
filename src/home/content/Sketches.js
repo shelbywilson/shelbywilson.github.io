@@ -1,5 +1,5 @@
 import React from 'react';
-import UsingList from '../../util/UsingList';
+import UsingList from '../../common/UsingList';
 import { sketches_content } from '../sketches-content';
 
 import "../partials/_home-detail-sketches.scss";
