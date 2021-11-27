@@ -1,6 +1,7 @@
 import React from 'react';
 import UsingList from '../../common/UsingList';
 import gallery_install from './../../images/grey-matter/gallery_install.jpg';
+import gallery_install_small from './../../images/grey-matter/gallery_install_small.jpg';
 export default () => {
     return (
         <div>
@@ -12,7 +13,7 @@ export default () => {
             </p>
              <figure>
                 <a href="images/grey-matter/gallery_install.jpg" target="_blank">
-                    <img src={gallery_install} alt='Full view of gallery; analog work bookended by digital, projected animations.'/>
+                    <img src={gallery_install_small} alt='Full view of gallery; analog work bookended by digital, projected animations.'/>
                 </a>
                 <figcaption>
                     Installation at the John and June Allcott Gallery, Chapel Hill, NC
