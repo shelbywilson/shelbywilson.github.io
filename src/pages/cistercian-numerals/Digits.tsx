@@ -13,8 +13,8 @@ export const Digits: FunctionComponent<DigitsProps> = ({ digits }) => {
                     <line x1={width/2} x2={width/2} y1={0} y2={height} style={outline} />
                     <g style={{transform: `translate(${width/2}px, ${height/2}px)`}}>
                         {digits.split('').reverse().map((d, place) => {
-                            let paths = [];
-                            let digit = parseInt(d, 10);
+                            const paths = [];
+                            const digit = parseInt(d, 10);
                             if ([1, 5, 7, 9].indexOf(digit) > -1) {
                                 paths.push( <line key={`line-1`} x1={0} x2={width/2} y1={0} style={outline}></line> )
                             }

@@ -1,6 +1,7 @@
 import React from 'react';
+import _ from "lodash";
 
-export default ({values}) => {
+export const RankingAmount = ({values}) => {
     const value = _.mean(values);
     const percent = value / 5;
 
@@ -28,3 +29,5 @@ export default ({values}) => {
         </div>
     )
 }
+
+export default RankingAmount;

@@ -2,8 +2,9 @@ import React, { useState, useRef } from 'react';
 
 import CloudBlock from './CloudBlock';
 import data from './data';
+import CloudTown from '../../home/content/CloudTown';
 
-export default (props) => {
+export const Cloudtown = () => {
     const [state, setState] = useState({
         bgVisible: false,
         row1: Math.floor(Math.random() * 3) + 2,
@@ -102,3 +103,5 @@ export default (props) => {
         </React.Fragment>
     )
 }
+
+export default CloudTown;

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 #root {
     overflow: auto;
 }
@@ -94,7 +96,7 @@
                     }
 
                     &, &.deal-enter-active, &.deal-appear-active, &.deal-leave {
-                        top: #{floor($i/4) * $card-height + floor($i/4) * $card-margin};
+                        top: #{floor(math.div($i, 4)) * $card-height + floor(math.div($i,4)) * $card-margin};
                         left: #{$i%4 * $card-width + $i%4 * $card-margin};
                         transform: scale(1);
                     }
@@ -146,8 +148,8 @@
 
         .set-deck {
             &__card {
-                width: #{$card-width/2};
-                height: #{$card-height/2};
+                width: math.div($card-width, 2);
+                height: math.div($card-height, 2);
                 background: $mint;
             }
         }
@@ -163,10 +165,10 @@
         @for $i from 0 through 27 {
             .set-deck:nth-child(#{$i + 1}) {
                 position: relative;
-                top: #{$card-height * 0.5 * floor($i/3)};
+                top: #{$card-height * 0.5 * floor(math.div($i,3))};
                 left: #{$card-width * 0.5 * ($i%3)};
                 @include breakpoint(xs) {
-                    top: #{$card-height * 0.4 * floor($i/5)};
+                    top: #{$card-height * 0.4 * floor(math.div($i,5))};
                     left: #{$card-width * 0.4 * ($i%5)};
                 }
             }
@@ -178,10 +180,10 @@
         &[data-found="#{$i}"] {
             .set-card__container {
                 &.deal-leave-active {
-                    top: #{10rem + ($card-height * 0.5 * floor($i/3))};
+                    top: #{10rem + ($card-height * 0.5 * floor(math.div($i, 3)))};
                     left: #{$visible-cards-width + $metadata-padding + $card-width * 0.5 * ($i%3)};
                     @include breakpoint(xs) {
-                        top: #{-0.25rem + ($visible-card-height-mobile * 1.667) + ($card-height * 0.667 * floor($i/5))};
+                        top: #{-0.25rem + ($visible-card-height-mobile * 1.667) + ($card-height * 0.667 * floor(math.div($i, 5)))};
                         left: #{10rem + ($card-width * 0.667 * ($i%5))}; 
                     }
                 }
@@ -189,9 +191,9 @@
 
             // dynamically increase height depending on found sets
             .set__container-inner {
-                height: #{18rem + ($card-height * 0.5 * floor($i/3))};
+                height: #{18rem + ($card-height * 0.5 * floor(math.div($i,3)))};
                 @include breakpoint(xs) {
-                    height: #{($card-height * 0.667 * floor($i/5)) * 0.9};
+                    height: #{($card-height * 0.667 * floor(math.div($i,5))) * 0.9};
                 }
             }
             // .sets-possible {

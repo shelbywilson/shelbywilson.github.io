@@ -12,7 +12,7 @@ const getRandomRGB = (max = 256) => {
 
 const interval = 8000;
 
-export default ({explain, children}) => {
+export const Gradients2 = () => {
     const [state, setState] = useState({
         base: getRandomRGB(180),
         timer: 100,
@@ -93,3 +93,5 @@ export default ({explain, children}) => {
         </Fragment>
     )
 }
+
+export default Gradients2;

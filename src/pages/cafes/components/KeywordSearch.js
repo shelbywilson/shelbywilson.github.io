@@ -1,9 +1,8 @@
 import React from 'react';
 import Select from 'react-select';
-import _ from "lodash";
 import { selectStyles, getCafeReviewTerms } from "../util";
 
-export default ({filters, setFilters}) => {
+export const KeywordSearch = ({filters, setFilters}) => {
     const terms = getCafeReviewTerms(filters);
     return (
         <Select
@@ -23,3 +22,5 @@ export default ({filters, setFilters}) => {
         />
     )
 }
+
+export default KeywordSearch;

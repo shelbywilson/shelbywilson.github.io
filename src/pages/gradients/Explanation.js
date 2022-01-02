@@ -4,11 +4,11 @@ import TransitionChart from './TransitionChart';
 import TransitionChartTwo from './TransitionChartTwo';
 import InteractiveGradients from './index-2';
 
-export default ({layers, state, getStyle}) => {
+export const Explanation = ({layers, state, getStyle}) => {
     return (
         <div className='gradients-explanation'>
             <p>
-                Gradients created with CSS cannot be animated, meaning an HTML element styled with a gradient background cannot gradually transition from one gradient to another over time.  Other CSS properties, however, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank">can be animated</a>. The method described below leverages opacity and solid backgrounds to create the appearance of smoothly transitioning gradients, using stacked layers that fade in and out.
+                Gradients created with CSS cannot be animated, meaning an HTML element styled with a gradient background cannot gradually transition from one gradient to another over time.  Other CSS properties, however, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" target="_blank" rel="noopener noreferrer nofollow">can be animated</a>. The method described below leverages opacity and solid backgrounds to create the appearance of smoothly transitioning gradients, using stacked layers that fade in and out.
             </p>
             <LayersDiagram layers={[layers[0], layers[1]]}
                 state={state}
@@ -63,3 +63,5 @@ export default ({layers, state, getStyle}) => {
         </div>
     )
 }
+
+export default Explanation;

@@ -1,7 +1,8 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "node": true,
     },
     "extends": [
         "eslint:recommended",
@@ -21,5 +22,13 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
+        "react/prop-types": 0,
+        "react/no-unescaped-entities": 0,
+        "no-inner-declarations": 0,
+        "@typescript-eslint/ban-ts-comment": 0,
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/no-empty-function": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "no-useless-escape": 0,
     }
 };

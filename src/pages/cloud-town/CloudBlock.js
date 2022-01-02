@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default (props) => {
+export const CloudBlock = (props) => {
     const { onHover } = props;
 
     const position = () => (
@@ -80,3 +80,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default CloudBlock;

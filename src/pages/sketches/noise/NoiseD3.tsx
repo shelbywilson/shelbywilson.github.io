@@ -11,7 +11,7 @@ interface Color {
     b: number,
 }
 
-export default () => {
+export const NoiseD3 = () => {
     const container = useRef(null);
     const [init, setInit] = useState(false);
 
@@ -30,10 +30,10 @@ export default () => {
     const getNoise = ():Array<Array<Color>> => {
         Perlin.seed(Math.random());
 
-        let arr = [];
+        const arr = [];
  
         for (let x = 0; x < w; x++) {
-            let row = [];
+            const row = [];
             for (let y = 0; y < h; y++) {
                 const r = Perlin.simplex2(x / 100, y / 100);
                 const g = 0.7;
@@ -57,7 +57,7 @@ export default () => {
     const [noise, setNoise] = useState(getNoise());
 
     useEffect( () => {
-        let interval = setInterval(() => {
+        const interval = setInterval(() => {
             setNoise(getNoise)
         }, 4000)
 
@@ -109,7 +109,7 @@ export default () => {
             .attr('class', 'update')
             .data((d: Array<Color>) => d)
             .transition()
-            .duration((d,i) => 300 + (d.r * 20))
+            .duration((d) => 300 + (d.r * 20))
             .style('fill', d => `rgb(${d.r},${d.g},${d.b})`)
 
     }, [noise])
@@ -119,3 +119,5 @@ export default () => {
         </div>
     )
 }
+
+export default NoiseD3;

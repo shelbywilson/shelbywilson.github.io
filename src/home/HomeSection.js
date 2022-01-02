@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment } from 'react';
 // import { useIntersection } from '../common/UseIntersection';
 
 export const HomeSection = ({ route, id }) => {

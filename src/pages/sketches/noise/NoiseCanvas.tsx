@@ -4,13 +4,7 @@ import Perlin from 'perlin.js';
 
 import "./_noise.scss";
 
-interface Color {
-    r: number,
-    g: number,
-    b: number,
-}
-
-export default () => {
+export const NoiseCanvas = () => {
     const container = useRef(null);
     const [init, setInit] = useState(false);
 
@@ -33,9 +27,9 @@ export default () => {
     const setCanvas = (prevOffset: number, offset: number, animateFrames: number) => {
         const canvas = container.current;
         // @ts-ignore
-        let ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d');
         
-        let imageData: Uint8ClampedArray = ctx.createImageData(width, height);
+        const imageData: Uint8ClampedArray = ctx.createImageData(width, height);
         let r, g, b;
 
         if (animateFrames % 2 === 0) {
@@ -78,3 +72,5 @@ export default () => {
         </div>
     )
 }
+
+export default NoiseCanvas;

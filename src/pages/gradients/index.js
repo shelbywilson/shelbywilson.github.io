@@ -11,7 +11,7 @@ const getRandomRGB = () => {
     };
 }
 
-export default ({explain = false, children = null}) => {
+export const Gradients = ({explain = false, children = null}) => {
     const [state, setState] = useState({
         base: getRandomRGB(),
         opacity: 1,
@@ -106,3 +106,5 @@ export default ({explain = false, children = null}) => {
         </Fragment>
     )
 }
+
+export default Gradients;

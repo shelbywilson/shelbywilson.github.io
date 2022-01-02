@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default (props) => {
+export const BlindsUp = (props) => {
     const [up, setUp] = useState(false);
 
     useEffect(() => {
@@ -20,3 +20,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default BlindsUp;

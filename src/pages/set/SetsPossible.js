@@ -2,7 +2,7 @@ import React from 'react';
 
 import SetCard from './SetCard';
 
-export default (props) => (
+export const SetPossible = (props) => (
     <div className='sets-possible'>
         {props.sets.map((set,i) => (
             <div style={{transform: 'scale(0.7)', display: 'grid', gridTemplateColumns: '33% 33% 33%'}} key={i}>
@@ -16,3 +16,5 @@ export default (props) => (
         ))}
     </div>
 )
+
+export default SetPossible;

@@ -6,7 +6,7 @@ import process2 from './../../../images/papier-mache/plant-stand-1/process-2.jpg
 import process3 from './../../../images/papier-mache/plant-stand-1/process-3.jpg';
 import process4 from './../../../images/papier-mache/plant-stand-1/process-4.jpg';
 
-export default () => {
+export const Sketch = () => {
     return (
         <div>
             <p>
@@ -86,3 +86,5 @@ export default () => {
         </div>
     )
 }
+
+export default Sketch;

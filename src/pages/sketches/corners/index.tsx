@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import { sliderBottom } from 'd3-simple-slider';
 
-export default () => {
+export const Corners = () => {
     const container = useRef(null);
     const [angle, setAngle] = useState(90);
     const [init, setInit] = useState(false);
@@ -93,7 +93,7 @@ export default () => {
             .style('transform', `translate(-20px, ${angle < 180 ? -10 : 20}px)`)
             .text(angle%180 === 0 ? '' : 'la esquina')
 
-        var arc = d3.arc() 
+        const arc = d3.arc() 
             .innerRadius(16) 
             .outerRadius(20) 
             .startAngle(0) 
@@ -123,3 +123,5 @@ export default () => {
         </div>
     )
 }
+
+export default Corners;

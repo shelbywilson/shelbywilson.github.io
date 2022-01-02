@@ -4,7 +4,7 @@ import { sketches_content } from '../sketches-content';
 
 import "../partials/_home-detail-sketches.scss";
 
-export default () => {
+export const Sketches = () => {
     if (!sketches_content) return null;
 
     return (
@@ -42,3 +42,5 @@ export default () => {
         </div>
     )
 }
+
+export default Sketches;

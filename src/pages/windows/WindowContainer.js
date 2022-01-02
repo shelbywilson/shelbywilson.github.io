@@ -2,7 +2,7 @@ import React from 'react';
 
 import Window from './Window';
 
-export default (props) => {
+export const WindowContainer = (props) => {
     const {
         width = 400,
         widthUnits = 'px',
@@ -43,3 +43,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default WindowContainer;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default () => {
+export const PatternFinder = () => {
     const [colorChecked, setColorChecked] = useState([true,true,true,true,true]);
     const [positionChecked, setPositionChecked] = useState([true, true, true, true]);
     
@@ -85,9 +85,16 @@ export default () => {
 
     return (
         <div className='pattern-finder'>
-            <a target='__blank' href='https://www.reddit.com/r/patterns/comments/jz1eed/i_cant_find_the_pattern_in_my_rug_and_it_is/'>
-                is there a pattern?
-            </a>
+            <p>
+                <a target='__blank' rel="noreferrer" href='https://www.reddit.com/r/patterns/comments/jz1eed/i_cant_find_the_pattern_in_my_rug_and_it_is/'>
+                    q: is there a pattern?
+                </a>
+            </p>
+            <p>
+                <a target='__blank' rel="noreferrer" href='https://forum.alpaca.lurk.org/t/non-patterns/219/2'>
+                    a: kind of
+                </a>
+            </p>
             <div className='pattern-finder-checkboxes'>
                 <div className='pattern-finder-checkboxes-column'>
                     {['taupe', 'brown', 'dark red', 'orange', 'cream'].map((color, i) => {
@@ -135,3 +142,5 @@ export default () => {
         </div>
     )
 }
+
+export default PatternFinder;

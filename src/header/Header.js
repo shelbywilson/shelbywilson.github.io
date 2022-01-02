@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (props) => {
+export const Header = (props) => {
     const noHeader = window.location.search.indexOf('_no-header') > -1;
 
     if (noHeader) {
@@ -19,3 +19,5 @@ export default (props) => {
         </header>
     )
 }
+
+export default Header;

@@ -20,7 +20,7 @@ const defaultSorting = () => ({
     attr: "",
 })
 
-export default () => {
+export const Cafes = () => {
     const [selected, setSelected] = useState([]);
     const [sorting, setSorting] = useState(defaultSorting())
     const [filters, setFilters] = useState(defaultFilters())
@@ -179,3 +179,5 @@ export default () => {
         </div>
     )
 }
+
+export default Cafes;

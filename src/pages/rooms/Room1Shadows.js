@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Window from '../windows/Window';
 import BlindsUp from '../windows/coverings/BlindsUp';
 
-export default () => {
+export const Room1Shadows = () => {
     const getColor = () => {
         const h = (Math.random() * 360).toFixed(0);
 
@@ -84,3 +84,5 @@ export default () => {
         )
     }
 }
+
+export default Room1Shadows;

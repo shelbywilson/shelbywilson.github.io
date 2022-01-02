@@ -20,24 +20,24 @@ export const selectStyles = {
         color: "#fff",
       }
     }),
-    valueContainer: (style, state) => ({
+    valueContainer: (style) => ({
         ...style,
         maxHeight: 120,
         overflow: "auto",
     }),
-    multiValue: (styles, state) => ({
+    multiValue: (styles) => ({
         ...styles,
         borderRadius: 12,
         backgroundColor: "var(--neighborhood)",
         fontWeight: 100,
         letterSpacing: "0.04em",
     }),
-    multiValueLabel: (styles, state) => ({
+    multiValueLabel: (styles) => ({
         ...styles,
         padding: "5px",
         color: "#black",
     }),
-    multiValueRemove: (styles, state) => ({
+    multiValueRemove: (styles) => ({
         ...styles,
         cursor: "pointer",
         borderRadius: 12,
@@ -48,7 +48,7 @@ export const selectStyles = {
     }),
   }
 
-export const cafeCoords = cafes.filter(cafe => !!cafe.Long).map((cafe, i) => {
+export const cafeCoords = cafes.filter(cafe => !!cafe.Long).map((cafe) => {
     const coords = [parseFloat(cafe.Long), parseFloat(cafe.Lat)];
     return {
         type: "Feature",

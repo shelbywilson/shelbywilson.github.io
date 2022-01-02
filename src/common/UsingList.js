@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ list }) => {
+export const UsingList = ({ list }) => {
     if (!list) return null;
     return (
         <p>
@@ -8,3 +8,5 @@ export default ({ list }) => {
         </p>
     )
 }
+
+export default UsingList;

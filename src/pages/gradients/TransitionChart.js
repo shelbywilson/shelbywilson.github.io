@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 import * as SineWave from './d3/sine-wave-util';
 
-export default ({}) => {
+export const TransitionChart = () => {
     const chart = useRef(null);
     const [timer, setTimer] = useState(0);
 
@@ -59,3 +59,5 @@ export default ({}) => {
         </div>
     )
 }
+
+export default TransitionChart;

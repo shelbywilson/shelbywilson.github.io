@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 import * as SineWave from './d3/sine-wave-util';
 
-export default ({}) => {
+export const TransitionChartTwo = () => {
     const chart = useRef(null);
 
     const sineDataAlternate = SineWave.data.map(d => ({...d, y: -d.y}));
@@ -68,3 +68,5 @@ export default ({}) => {
         </div>
     )
 }
+
+export default TransitionChartTwo;

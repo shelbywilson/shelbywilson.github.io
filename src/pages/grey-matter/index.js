@@ -90,6 +90,7 @@ export const GreyMatter = () => {
                         &nbsp;•&nbsp;
                     <a className="arrow secondary-color" 
                         href="https://shelby.cool" 
+                        rel="noopener noreferrer nofollow"
                         target="_blank">
                             Shelby Wilson
                     </a>

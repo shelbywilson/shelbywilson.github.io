@@ -107,14 +107,12 @@ const shuffle = (arr) => {
 
 export const getSets = (cards) => {
     let sets = [];
-    let check;
     let lookingFor;
     let set;
     let setIds = [];
     let setId;
 
     for (let i = 0; i < cards.length; i += 1) {
-        check = cards[i];
         for (let j = 0; j < cards.length; j += 1) {
             if (cards[j].id !== cards[i].id && !cards[i].placeholder && !cards[j].placeholder) {
                 lookingFor = getNeededCard(cards[i], cards[j]);

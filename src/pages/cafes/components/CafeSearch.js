@@ -1,9 +1,8 @@
 import React from 'react';
 import Select from 'react-select';
-import _ from "lodash";
 import { selectStyles, getAllCafeRankings } from "./../util";
 
-export default ({filters, setFilters}) => {
+export const CafeSearch = ({filters, setFilters}) => {
     return (
         <Select
             hideSelectedOptions={false}
@@ -22,3 +21,5 @@ export default ({filters, setFilters}) => {
         />
     )
 }
+
+export default CafeSearch;

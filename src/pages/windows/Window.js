@@ -1,7 +1,6 @@
-import { max } from 'd3';
 import React from 'react';
 
-export default (props) => {
+export const Window = (props) => {
     const {
         width = 400,
         widthUnits = 'px',
@@ -21,3 +20,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default Window;

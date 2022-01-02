@@ -1,13 +1,14 @@
 import React from 'react';
 import SkyAboveClouds from './../../pages/sky-above-clouds/SkyAboveClouds';
 
-export default () => {
+export const SkyAboveCloudsContent = () => {
     return (
         <div>
             <p>
                 A procedurally generated recreation of Georgia O'Keeffe's Sky Above Clouds IV.
             </p>
             <a href='/sky-above-clouds' 
+                rel="noreferrer"
                 style={{display: 'block'}}>
                 <SkyAboveClouds />
             </a>
@@ -23,6 +24,7 @@ export default () => {
                 <img src='https://www.artic.edu/iiif/2/8fa4d1dd-b05f-eb8d-b83f-7b5dd65642db/full/843,/0/default.jpg' alt=''/>
                 <figcaption>
                     <a href='https://www.artic.edu/artworks/100858/sky-above-clouds-iv' 
+                        rel="noreferrer"
                         target='_blank'>
                             Sky Above Clouds IV, Georgia O'Keeffe, 1965
                     </a>
@@ -31,3 +33,5 @@ export default () => {
         </div>
     )
 }
+
+export default SkyAboveCloudsContent;

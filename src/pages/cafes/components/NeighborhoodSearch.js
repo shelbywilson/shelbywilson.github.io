@@ -1,9 +1,8 @@
 import React from 'react';
 import Select from 'react-select';
-import _ from "lodash";
 import { getRepresentedNeighborhoods, selectStyles } from "./../util";
 
-export default ({filters, setFilters}) => {
+export const NeighborhoodSearch = ({filters, setFilters}) => {
     const represented = getRepresentedNeighborhoods({...filters, cafes: [], neighborhoods: []})
     return (
         <Select
@@ -27,3 +26,5 @@ export default ({filters, setFilters}) => {
         />
     )
 }
+
+export default NeighborhoodSearch;

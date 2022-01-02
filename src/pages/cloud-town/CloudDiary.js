@@ -2,7 +2,7 @@ import React from 'react';
 
 import data from './data';
 
-export default () => {
+export const CloudDiary = () => {
     const clouds = Object.keys(data).sort((a,b) => {
         return data[b].date.localeCompare(data[a].date)
     });
@@ -33,3 +33,5 @@ export default () => {
         </div>
     )
 }
+
+export default CloudDiary;

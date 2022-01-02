@@ -3,7 +3,7 @@ import NeighborhoodSearch from './NeighborhoodSearch';
 import CafeSearch from './CafeSearch';
 import KeywordSearch from './KeywordSearch';
 
-export default ({filters, setFilters}) => {
+export const Filters = ({filters, setFilters}) => {
     return (
         <div className="cafes-filters">
             <div style={{margin: "0.5rem 0"}}>
@@ -27,10 +27,12 @@ export default ({filters, setFilters}) => {
             <label>
                 <input type="checkbox" 
                     checked={!filters.onlyRanked} 
-                    onChange={(e) => setFilters("onlyRanked", !filters.onlyRanked)} />
+                    onChange={() => setFilters("onlyRanked", !filters.onlyRanked)} />
 
                 Include Unranked
             </label>
         </div>
     )
 }
+
+export default Filters;

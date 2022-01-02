@@ -1,7 +1,7 @@
 import React from 'react';
 import { routes } from './routes';
 
-export default (props) => {
+export const Footer = (props) => {
     const {
         toggle,
         expand,
@@ -9,7 +9,7 @@ export default (props) => {
         sections,
     } = props;
 
-    const onClickLink = (e, key) => {
+    const onClickLink = (e) => {
         e.stopPropagation();
 
         if (expand && window.innerWidth < 767) {
@@ -60,3 +60,5 @@ export default (props) => {
         </footer>
     )
 }
+
+export default Footer;

@@ -4,7 +4,7 @@ import Sketch from "react-p5";
 
 import './_vases.scss';
 
-export const Vases = (props) => {
+export const Vases = () => {
     const getParams = (singleSection = false) => {
         const w = Math.ceil(Math.random() * 150) + 50;
         const sections = singleSection ? 1 : Math.random() < 0.6 ? 1 : Math.ceil(Math.random() * 4);

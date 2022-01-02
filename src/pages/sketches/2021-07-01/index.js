@@ -5,7 +5,7 @@ import "./sketch.scss";
 
 const flower = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Platycodon_grandiflorum2.jpg/1920px-Platycodon_grandiflorum2.jpg"
 
-export default () => {
+export const Sketch = () => {
     const [persist, setPersist] = useState(Array.apply(null, Array(25)).map(() => false));
 
     const togglePersist = (i) => {
@@ -54,8 +54,10 @@ export default () => {
                 ))}
             </div>
             <figcaption>
-                Image of <a href="https://en.wikipedia.org/wiki/Platycodon" target="_blank">balloon flower</a>, Wikimedia Commons
+                Image of <a href="https://en.wikipedia.org/wiki/Platycodon" target="_blank" rel="noreferrer">balloon flower</a>, Wikimedia Commons
             </figcaption>
         </div>
     )
 }
+
+export default Sketch;

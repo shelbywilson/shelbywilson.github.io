@@ -1,8 +1,10 @@
 import React from 'react';
 import UsingList from '../../common/UsingList';
+/* eslint-disable-next-line */
 import gallery_install from './../../images/grey-matter/gallery_install.jpg';
 import gallery_install_small from './../../images/grey-matter/gallery_install_small.jpg';
-export default () => {
+
+export const GreyMatterMeta = () => {
     return (
         <div>
             <p>
@@ -47,3 +49,5 @@ export default () => {
         </div>
     )
 }
+
+export default GreyMatterMeta;

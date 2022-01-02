@@ -3,7 +3,7 @@ import _ from "lodash";
 import RankingAmount from './RankingAmount';
 import { getBoundedNeighborhood } from '../util';
 
-export default ({cafe, removeSelection, addSelection, selected}) => {
+export const Ranking = ({cafe, removeSelection, addSelection, selected}) => {
     const neighborhood = getBoundedNeighborhood(cafe.Name[0])
     const rankingRef = useRef(null)
 
@@ -55,3 +55,5 @@ export default ({cafe, removeSelection, addSelection, selected}) => {
         </div>
     )
 }
+
+export default Ranking;

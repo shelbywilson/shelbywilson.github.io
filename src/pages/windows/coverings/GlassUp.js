@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default () => {
+export const GlassUp = () => {
     const [up, setUp] = useState(false);
 
     const toggle = () => {
@@ -13,3 +13,5 @@ export default () => {
         </div>
     )
 }
+
+export default GlassUp;

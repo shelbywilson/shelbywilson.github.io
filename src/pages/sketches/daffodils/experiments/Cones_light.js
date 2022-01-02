@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { WEBGL } from '../../../../common/webgl';
 
-export default () => {
+export const ConesLight = () => {
     if (WEBGL.isWebGLAvailable()) {
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
@@ -89,3 +89,5 @@ export default () => {
         document.body.appendChild(warning)
     }
 }
+
+export default ConesLight;

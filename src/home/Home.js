@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HomeDetail from './HomeDetail';
 import Header from './../header/Header';
 import Footer from './Footer';
@@ -43,7 +43,7 @@ export const Home = () => {
         window.addEventListener("scroll", onScroll);
     
         return () => window.removeEventListener("scroll", onScroll);
-      }, [scrollTop]);
+      }, []);
 
     useEffect(() => {
         if (detail) {

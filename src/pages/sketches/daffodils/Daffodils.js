@@ -1,10 +1,10 @@
 import * as THREE from 'three';
 import { WEBGL } from '../../../common/webgl';
 import { petal } from './components/petal';
-import Stats from 'three/examples/jsm/libs/stats.module'
+// import Stats from 'three/examples/jsm/libs/stats.module'
 import { stem } from './components/stem';
 
-export default () => {
+export const Daffodils = () => {
     if (WEBGL.isWebGLAvailable()) {
         const scene = new THREE.Scene();
         // scene.background = new THREE.Color( `hsl(240, 87%, 91%)`);
@@ -12,7 +12,7 @@ export default () => {
         let flowers = [];
         let focusPoints = [];
         let petals = [];
-        let stats;
+        // let stats;
 
         const light = new THREE.PointLight(0xffffff, 0.5);
         light.position.set(-10, 10, 10);
@@ -34,12 +34,11 @@ export default () => {
 
         
         // FPS counter
-        function createStats() {
-            stats = new Stats();
-            stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
-            document.body.appendChild(stats.dom);
-        }
-
+        // function createStats() {
+        //     stats = new Stats();
+        //     stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+        //     document.body.appendChild(stats.dom);
+        // }
         // createStats()
 
         for (let i = 0; i < 10; i += 1) {
@@ -154,3 +153,5 @@ export default () => {
         document.body.appendChild(warning)
     }
 }
+
+export default Daffodils;

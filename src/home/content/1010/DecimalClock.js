@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default () => {
+export const DecimalClock = () => {
     const [time, setTime] = useState({})
     const [decimalTime, setDecimalTime] = useState({})
 
@@ -104,3 +104,5 @@ export default () => {
         </div>
     )
 }
+
+export default DecimalClock;

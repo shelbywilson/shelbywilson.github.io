@@ -5,7 +5,7 @@ export const height = 80;
 export const width = 50;
 export const outline: CSSProperties = {stroke: "#000", strokeWidth: 2, strokeLinecap: "round"};
 
-export default () => {
+export const CistercianNumerals = () => {
     const [value, setValue] = useState('');
     const [example, setExample] = useState(0)
 
@@ -19,7 +19,7 @@ export default () => {
 
     const numerals = (val: string) => {
         let i = 0;
-        let groups = [];
+        const groups = [];
         while (i < val.length) {
             groups.push(val.substring(i, i + 4))
             i += 4;
@@ -110,3 +110,5 @@ export default () => {
         </div>
     )
 }
+
+export default CistercianNumerals;

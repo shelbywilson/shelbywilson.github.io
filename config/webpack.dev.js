@@ -26,10 +26,11 @@ module.exports = merge(common, {
    */
   devServer: {
     historyApiFallback: true,
-    contentBase: paths.build,
+    static: {
+      directory: paths.build,
+    },
     open: true,
     compress: true,
-    hot: true,
     port: 9009,
   },
 
@@ -53,6 +54,7 @@ module.exports = merge(common, {
         filename: paths.apps[key].output, // output file
         title: paths.apps[key].title,
         chunks: [key],
+        ogUrl: paths.apps[key].ogUrl,
       })
     )),
   )

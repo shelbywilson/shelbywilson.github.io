@@ -6,7 +6,7 @@ import SetHelp from './SetHelp';
 import SetCard from './SetCard';
 import SetsPossible from './SetsPossible';
 
-export default () => {
+export const Set = () => {
     /*
      *
     */
@@ -112,7 +112,7 @@ export default () => {
         let found = [...state.found]
         found.push(selected)
 
-        selected.forEach((card, i) => {
+        selected.forEach((card) => {
             cardIndex = cards.findIndex((c) => c.id === card.id);
             if (cardIndex >= 12) {
                 // remove extra cards from no set rounds
@@ -247,3 +247,5 @@ export default () => {
         </div>
     )
 }
+
+export default Set;

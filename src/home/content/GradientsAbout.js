@@ -1,7 +1,8 @@
 import React from 'react';
 
 import Gradients from './../../pages/gradients';
-export default () => {
+
+export const GradientsAbout = () => {
     return (
         <div>
             <Gradients explain={true}>
@@ -16,3 +17,5 @@ export default () => {
         </div>
     )
 }
+
+export default GradientsAbout;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './_sky-above-clouds.scss';
 
-export default () => {
+export const SkyAboveClouds = () => {
     const getClouds = () => {
         let i = 0;
         let clouds = [];
@@ -71,3 +71,5 @@ export default () => {
         </div>
     )
 }
+
+export default SkyAboveClouds;

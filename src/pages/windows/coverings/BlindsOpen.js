@@ -1,6 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
-export default () => {
+export const BlindsOpen = () => {
     const [state, setstate] = useState(false);
 
     const toggle = () => {
@@ -14,3 +14,5 @@ export default () => {
         </div>
     )
 }
+
+export default BlindsOpen;

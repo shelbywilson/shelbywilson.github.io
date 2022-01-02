@@ -1,7 +1,7 @@
 import React from 'react';
 import { getFormattedTime } from './_set-util';
 
-export default (props) => {
+export const SetHelp = (props) => {
     return (
         <div className='set-help'>
             <div>
@@ -37,3 +37,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default SetHelp;

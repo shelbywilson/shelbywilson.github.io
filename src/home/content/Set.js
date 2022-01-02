@@ -5,7 +5,7 @@ import "./../../pages/set/partials/_set-card.scss";
 import "./../partials/_set-detail.scss";
 import { isSet, getCards, getNeededCard, colors, shape, shading, attrs, namedAttr } from '../../pages/set/_set-util';
 
-export default () => {
+export const Set = () => {
     // const sets = [
     //     [
     //         {i: 2, j: 2, k: 0, m: 2}, 
@@ -98,14 +98,14 @@ export default () => {
                 Play <a href='/set'>full screen</a>.
             </p>
             <p>
-                <a href='https://en.wikipedia.org/wiki/Set_(card_game)' target='_blank'>Set</a> is a card game in which each card has four properties: color, shape, shading, and number of elements. A 'set' is created by finding three cards that are either all the same or all different for each property. 
+                <a href='https://en.wikipedia.org/wiki/Set_(card_game)' target='_blank' rel="noreferrer">Set</a> is a card game in which each card has four properties: color, shape, shading, and number of elements. A 'set' is created by finding three cards that are either all the same or all different for each property. 
             </p>
 
             <p>
                 Given these rules, is this a set?
             </p>
             <div className="d-flex flex-row justify-center example-set">
-                {example.map((card, i) => (
+                {example.map((card) => (
                     <SetCard key={`card-${card.i}-${card.j}-${card.k}-${card.m}`}
                         card={card} />
                 ))}
@@ -184,3 +184,5 @@ export default () => {
         </div>
     )
 }
+
+export default Set;

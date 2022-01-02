@@ -12,7 +12,7 @@ let projection = d3.geoAlbers()
     .scale(scale)
 const path = d3.geoPath().projection(projection)
 
-export default ({filters, setFilters, selected, setSelected}) => {
+export const Map = ({filters, setFilters, selected, setSelected}) => {
     const svgNode = useRef(null)
     const [init, setInit] = useState(false);
     const [size, setSize] = useState({w: window.innerWidth, h: window.innerHeight})
@@ -170,7 +170,7 @@ export default ({filters, setFilters, selected, setSelected}) => {
         selection.select("circle")
             .transition()
             .duration(500)
-            .attr("r", d => getRadius(true))
+            .attr("r", () => getRadius(true))
             .style("fill", "var(--coord-selected)")
 
         selection
@@ -216,7 +216,7 @@ export default ({filters, setFilters, selected, setSelected}) => {
 
         labels = labels.merge(enter)
             
-        labels.each(function(d, i) { 
+        labels.each(function(d) { 
             updateLabel(d, d3.select(this))
         })
     }
@@ -235,7 +235,7 @@ export default ({filters, setFilters, selected, setSelected}) => {
         let enter = coords.enter()
             .append("g")
             .attr("class", "cafe-coord")
-            .each(function(d) {
+            .each(function() {
                 d3.select(this)
                     .append("circle")
                     .style("fill", "var(--coord)")
@@ -281,7 +281,7 @@ export default ({filters, setFilters, selected, setSelected}) => {
 
         paths = paths.merge(pathsEnter);
 
-        paths.each(function (d) {
+        paths.each(function () {
             d3.select(this)
                 .style("stroke", d => represented[d.id] ? "var(--neighborhood-outline)" : "#d0afff")
                 .style("fill", d => represented[d.id] ? "var(--neighborhood)" : "#f5f5f5")
@@ -354,3 +354,5 @@ export default ({filters, setFilters, selected, setSelected}) => {
         </div>
     )
 }
+
+export default Map;

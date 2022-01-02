@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import BlindsUp from './coverings/BlindsUp';
 import GlassUp from './coverings/GlassUp';
 import BlindsOpen from './coverings/BlindsOpen';
-import BlindsUpOpen from './coverings/BlindsUpOpen';
 import GlassSlide from './coverings/GlassSlide';
 import WindowContainer from './WindowContainer';
 
-export default () => {
+export const Windows = () => {
     const [light, setLight] = useState(false);
     const [init, setInit] = useState(false);
 
@@ -202,3 +201,5 @@ export default () => {
 //         </div>
 //     )
 // }
+
+export default Windows;

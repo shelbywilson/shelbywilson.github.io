@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({layers, state, getStyle}) => {
+export const LayersGradient = ({layers, state, getStyle}) => {
     return (
         <div className='gradients-layers-diagram gradients-layers' style={{height: layers.length * 70 + 275, position: 'relative'}}>
             {layers.map((color, i) => 
@@ -81,3 +81,5 @@ export default ({layers, state, getStyle}) => {
         </div>
     )
 }
+
+export default LayersGradient;

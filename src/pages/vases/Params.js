@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
 
 export const Params = ({ update, state, randomize }) => {
 	return (

@@ -11,10 +11,13 @@ import cistercian_numerals_thumb from './../images/sketches/thumbnails/cistercia
 import stairs_stars_thumb from './../images/sketches/thumbnails/stairs_stars.png';
 import _2021_07_01_thumb from './../images/sketches/thumbnails/2021_07_01.png';
 import vases_thumb from './../images/sketches/thumbnails/vases_thumb.png';
+import pattern_finder_thumb from './../images/sketches/thumbnails/pattern_finder_thumb.png';
+import sunset_squish_thumb from './../images/sketches/thumbnails/sunset_squish_thumb.png';
+
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
 import Sketch_2021_07_01 from "../pages/sketches/2021-07-01";
-import Sketch_2021_11_26 from "../pages/sketches/2021-11-26";
+import Sketch_2021_12_01 from "../pages/sketches/2021-12-01";
 
 export const sketches_content = [
     {
@@ -38,13 +41,15 @@ export const sketches_content = [
         sketch: <Sketch_2021_07_01 />,
         using: ["CSS"],
     },
-    // {
-    //     title: "2021-11-26",
-    //     id: "2021-11-26",
-    //     date: "2021-11-26",
-    //     url: "/#/sketch/2021-11-26",
-    //     sketch: <Sketch_2021_11_26 />,
-    // },
+    {
+        title: "Sunset Squish",
+        id: "2021-12-01",
+        date: "2021-12-01",
+        url: "/sunset-squish",
+        sketch: <Sketch_2021_12_01 />,
+        thumb: sunset_squish_thumb,
+        using: ["HTML, SCSS"],
+    },
     {
         title: "Cistercian Numerals",
         id: "cistercian-numerals",
@@ -55,6 +60,15 @@ export const sketches_content = [
         using: ["SVG"],
         url: "/#/sketch/cistercian-numerals",
         sketch: <CistercianNumerals />
+    },
+    {
+        title: "Pattern Finder",
+        id: "pattern-finder",
+        desc: <p>Is there a pattern?</p>,
+        url: "/pattern-finder",
+        date: "2020-11-11",
+        thumb: pattern_finder_thumb,
+        thumb_alt: "Nested colorful squares",
     },
     {
         title: "Monolith",

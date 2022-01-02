@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-export default (props) => {
+export const HomeDetail = (props) => {
     useEffect(() => {
         window.scrollTo(0,0)
     }, [props.detail.id])
@@ -45,3 +45,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default HomeDetail;

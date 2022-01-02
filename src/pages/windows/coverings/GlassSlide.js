@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default () => {
+export const GlassSlide = () => {
     const [state, setstate] = useState(false);
 
     const toggle = () => {
@@ -13,3 +13,5 @@ export default () => {
         </div>
     )
 }
+
+export default GlassSlide;

@@ -2,7 +2,7 @@ import React from 'react';
 import SetSquiggle from './SetSquiggle';
 import { colors } from './_set-util';
 
-export default (props) => {
+export const SetCard = (props) => {
     const {
         card,
         toggleSelect,
@@ -42,3 +42,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default SetCard;
