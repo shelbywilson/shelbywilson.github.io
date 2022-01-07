@@ -50,7 +50,7 @@ export const sketches_content = [
             </p>
             <Sketch_2022_01_05 />
             <p>
-                <a href="/twenty-one-isometric-squares" target="_blank" rel="noopener noreferrer nofollow">View full screen</a>.
+                <a href="/twenty-one-isometric-cubes" target="_blank" rel="noopener noreferrer nofollow">View full screen</a>.
             </p>
         </div>,
         using: ['SVG, SCSS, React.js'],
