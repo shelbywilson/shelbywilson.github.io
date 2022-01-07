@@ -10,3 +10,9 @@ $metadata-padding: 3rem;
 $visible-cards-width: $card-width * 4 + $card-margin * 3; 
 $set-help-height: 10rem;
 $visible-card-height-mobile: 29rem;
+
+.set, .set-detail {
+    --red: rgb(255, 69, 0);
+    --purple: rgb(95, 82, 228);
+    --green: rgb(71, 236, 68);
+}

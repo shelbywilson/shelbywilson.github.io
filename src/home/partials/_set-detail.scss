@@ -1,23 +1,6 @@
 @import './../../base/base';
 
 .set-detail {
-    // margin: 1rem 0;
-    // transform: scale(0.75);
-    // width: 133%;
-    // transform-origin: left;
-    // justify-content: space-evenly;
-    // align-items: center;
-    // p { 
-    //     margin: 0.25rem 0;
-    // }
-    // &-explanation {
-    //     width: 200px;
-    // }
-    // @include breakpoint(xs) {
-    //     transform: scale(0.5);
-    //     width: 200%;
-    //     margin: -1.5rem 0;
-    // }
     .example-set {
         transform: scale(0.75);
         width: 133%;
@@ -44,6 +27,15 @@
         &[data-selected="true"] {
             background: #cc65f5;
             color: #fff;
+
+            &[data-correct="true"] {
+                background: var(--green);
+                border-color: var(--green);
+            }
+            &[data-correct="false"] {
+                background: var(--red);
+                border-color: var(--red);
+            }
         }
     }
     .set-card {

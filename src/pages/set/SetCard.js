@@ -19,17 +19,17 @@ export const SetCard = (props) => {
                     <div key={i}>
                             {card.j === 1 ?
                                 <SetSquiggle 
-                                    color={colors[card.i].hex}
+                                    color={`var(--${colors[card.i]})`}
                                     card={card}
                                     />
                                 :
                                 <div
                                     className={'set-card__symbol set-card__symbol-' + (card.j === 0 ? 'circle' : 'rectangle')}
                                     style={{
-                                        background: card.k === 0 ? colors[card.i].hex : null,
-                                        backgroundImage: card.k === 1 ? `repeating-linear-gradient(135deg, ${colors[card.i].hex} 0, ${colors[card.i].hex} 1px, transparent 0, transparent 50%)` : null,
+                                        background: card.k === 0 ? `var(--${colors[card.i]})` : null,
+                                        backgroundImage: card.k === 1 ? `repeating-linear-gradient(135deg, var(--${colors[card.i]}) 0, var(--${colors[card.i]}) 1px, transparent 0, transparent 50%)` : null,
                                         backgroundSize: card.k === 1 ? '5px 5px' : '',
-                                        color: colors[card.i].hex,
+                                        color: `var(--${colors[card.i]})`,
                                     }} 
                                 >
                                 </div>

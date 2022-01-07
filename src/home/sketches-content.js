@@ -10,31 +10,65 @@ import noise_canvas_thumb from './../images/sketches/thumbnails/noise_canvas.png
 import cistercian_numerals_thumb from './../images/sketches/thumbnails/cistercian_numerals.png';
 import stairs_stars_thumb from './../images/sketches/thumbnails/stairs_stars.png';
 import _2021_07_01_thumb from './../images/sketches/thumbnails/2021_07_01.png';
-import vases_thumb from './../images/sketches/thumbnails/vases_thumb.png';
+// import vases_thumb from './../images/sketches/thumbnails/vases_thumb.png';
 import pattern_finder_thumb from './../images/sketches/thumbnails/pattern_finder_thumb.png';
 import sunset_squish_thumb from './../images/sketches/thumbnails/sunset_squish_thumb.png';
+import genuary_7_thumb from './../images/sketches/thumbnails/genuary_7.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
 import Sketch_2021_07_01 from "../pages/sketches/2021-07-01";
 import Sketch_2021_12_01 from "../pages/sketches/2021-12-01";
+import Sketch_2022_01_05 from "../pages/sketches/2022-01-05/Container";
+// import { Knights } from '../pages/sketches/knights';
 
 export const sketches_content = [
+    // {
+    //     title: "knights",
+    //     id: "knights",
+    //     date: "2022-01-02",
+    //     url: "/#/sketch/knights",
+    //     // thumb: vases_thumb,
+    //     // thumb_alt: "solid and wirefreame renderings of vases",
+    //     // desc: <p>Parameterized vases.</p>,
+    //     using: ["React"],
+    //     sketch: <Knights />
+    // },
     {
-        title: "vases",
-        id: "vases",
-        date: "2021-08-08",
-        url: "/vases",
-        thumb: vases_thumb,
-        thumb_alt: "solid and wirefreame renderings of vases",
-        desc: <p>Parameterized vases.</p>,
-        using: ["p5.js"],
+        title: 'Genuary #7',
+        id: 'twenty-one-isometric-cubes',
+        date: '2022-01-05',
+        desc:  <p>
+            Twenty-one isometric cubes of varying sizes.
+            </p>,
+        thumb: genuary_7_thumb,
+        wide: true,
+        sketch: <div>
+            <p>Based <a href="https://massmoca.org/event/walldrawing766/" target="_blank" rel="noopener noreferrer nofollow">Wall Drawing 766</a>, first drawn by Isabelle Beaumont, Antoine Bonhomme, Flavien Damarigny and Anthony Sansotta as part of the 1994 Sol LeWitt retrospective.</p>
+            <p>
+                More about <a href="https://genuary.art/" target="_blank" rel="noopener noreferrer nofollow">Genuary 2022</a>.
+            </p>
+            <Sketch_2022_01_05 />
+            <p>
+                <a href="/twenty-one-isometric-squares" target="_blank" rel="noopener noreferrer nofollow">View full screen</a>.
+            </p>
+        </div>,
+        using: ['SVG, SCSS, React.js'],
     },
+    // {
+    //     title: "vases",
+    //     id: "vases",
+    //     date: "2021-08-08",
+    //     url: "/vases",
+    //     thumb: vases_thumb,
+    //     thumb_alt: "solid and wirefreame renderings of vases",
+    //     desc: <p>Parameterized vases.</p>,
+    //     using: ["p5.js"],
+    // },
     {
         title: "2021-07-01",
         id: "2021-07-01",
         date: "2021-07-01",
-        url: "/#/sketch/2021-07-01",
         thumb_alt: "distorted flowers",
         thumb: _2021_07_01_thumb,
         desc: <p>Deconstructing an image. Hover or click.</p>,
@@ -48,6 +82,7 @@ export const sketches_content = [
         url: "/sunset-squish",
         sketch: <Sketch_2021_12_01 />,
         thumb: sunset_squish_thumb,
+        thumb_alt: 'Illustrated sunset',
         using: ["HTML, SCSS"],
     },
     {
@@ -58,7 +93,6 @@ export const sketches_content = [
         thumb_alt: "A numbering system representing 1 + 4 = 5",
         date: "2021-06-26",
         using: ["SVG"],
-        url: "/#/sketch/cistercian-numerals",
         sketch: <CistercianNumerals />
     },
     {
@@ -88,7 +122,6 @@ export const sketches_content = [
         thumb_alt: "A diagram of an interior angle (el rincón) and an exterior one (la esquina).",
         date: "2021-02-20",
         using: ["d3.js"],
-        url: "/#/sketch/corners",
         sketch: <Corners />
     },
     {
@@ -175,4 +208,9 @@ export const sketches_content = [
         newTab: true,
         url: "https://editor.p5js.org/shelbyw/full/P9mRZN8Xk",
     },
-]
+].map(sketch => (
+    {
+        ...sketch,
+        url: sketch.url || `/#/sketch/${sketch.id}`,
+    }
+))

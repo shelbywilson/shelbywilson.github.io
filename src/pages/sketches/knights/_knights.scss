@@ -1,0 +1,30 @@
+.knights {
+    --cell-size: 30px;
+    .row {
+        display: flex;
+        flex-direction: row;
+        &:nth-child(even) {
+            .cell {
+                &:nth-child(even) {
+                    rect {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+        &:nth-child(odd) {
+            .cell {
+                &:nth-child(odd) {
+                    rect {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+    }
+    .cell {
+        rect {
+            fill: #000;
+        }
+    }
+}

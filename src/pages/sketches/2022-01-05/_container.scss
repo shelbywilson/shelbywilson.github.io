@@ -1,0 +1,8 @@
+@import './../../../base/partials/mixins';
+
+.twenty-one-cubes-container {
+    height: 60vh;
+    @include breakpoint(sm) {
+        height: 90vh;
+    }
+}

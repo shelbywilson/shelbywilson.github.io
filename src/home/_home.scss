@@ -136,8 +136,18 @@
             }
         }
         &.cloudtown {
-            img {
+            > div {
                 padding: $margin * 2.5;
+            }
+        }
+        &.cafes {
+            > div {
+                padding: $margin * 4;
+                background: #78d98c;
+            }
+            img {
+                max-width: 400px;
+                border: 1px solid #000;
             }
         }
         &.gradients {

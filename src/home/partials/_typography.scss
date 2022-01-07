@@ -1,3 +1,5 @@
+@use "sass:math";
+
 h2 {
     color: #000;
     font-size: 1.25rem;
@@ -24,7 +26,7 @@ h2 {
 h3 {
     color: #000;
     font-weight: 100;
-	margin: $margin/2 0;
+	margin: math.div($margin, 2) 0;
     font-size: 0.875rem;
     font-style: italic;
     text-transform: uppercase;
@@ -50,7 +52,7 @@ a {
         }
     }
 }
-p, figcaption, text, ol li {
+p, figcaption, text, ol li, ul li {
     font-size: 1rem;
     letter-spacing: $letter-spacing;
     font-weight: lighter;

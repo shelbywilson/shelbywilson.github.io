@@ -1,4 +1,4 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 /*
     i = color
@@ -14,18 +14,9 @@ export const namedAttr = {
     m: 'number of elements',
 }
 export const colors = [
-    {
-        hex: '#ff4500',
-        name: 'red',
-    },  
-    {
-        hex: '#47ec44',
-        name: 'green',
-    },
-    {
-        hex: '#5f52e4',
-        name: 'purple',
-    }
+    'red',
+    'green',
+    'purple',
 ];
 export const shading = [
     'filled',
@@ -166,7 +157,12 @@ const getId = (card) => {
     return `${card.i}-${card.j}-${card.k}-${card.m}`
 }
 
-export const isSet = ([a,b,c]) => {
+export const isSet = (cards) => {
+    if (cards.length === 0) return false;
+
+    console.log(cards)
+
+    const [a,b,c] = cards;
     for (let i = 0; i < attrs.length; i += 1) {
         let attr = attrs[i];
         if (a[attr] === b[attr] && b[attr] === c[attr] && a[attr] === c[attr]) {
@@ -182,8 +178,8 @@ export const isSet = ([a,b,c]) => {
 }
 
 export const getFormattedTime = (seconds) => {
-    return moment().startOf('day')
-        .seconds(seconds)
+    return dayjs().startOf('day')
+        .second(seconds)
         .format('H:mm:ss')
 }
 

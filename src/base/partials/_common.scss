@@ -32,8 +32,23 @@
     &-row {
         flex-direction: row;
     }
+    &-column {
+        flex-direction: column;
+    }
     &-wrap {
         flex-wrap: wrap;
+    }
+}
+.m {
+    &t{
+        &-0 {
+            margin-top: 0;
+        }
+    }
+    &b{
+        &-0 {
+            margin-bottom: 0;
+        }
     }
 }
 .align-items-center {

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import HomeDetail from './HomeDetail';
+import HomeLink from './HomeLink';
 import Header from './../header/Header';
 import Footer from './Footer';
 import { withRouter } from 'react-router-dom';
-import { routes } from './routes';
+import { routes, getRouteById } from './routes';
 import { sketches_content } from './sketches-content';
 import { notes_content } from './notes-content';
 import UsingList from '../common/UsingList';
-import { HomeSection } from './HomeSection';
+import HomeDetail from './HomeDetail';
 
 export const Home = () => {
     const [expand, setExpand] = useState(false);
@@ -87,9 +87,9 @@ export const Home = () => {
                 setInit(true);
             }
         } else {
-            const key = Object.keys(routes).find(key => routes[key].url === `/${hash}`);
+            const route = routes.find(route => route.url === `/${hash}`);
 
-            setDetail(routes[key]);
+            setDetail(route);
             setInit(true);
         }
     }
@@ -106,6 +106,7 @@ export const Home = () => {
         'gradients',
         'stillLife', 
         'windows',
+        'cafes',
         'cloudtown',  
         'sfpcShowcase', 
         'table', 
@@ -129,9 +130,8 @@ export const Home = () => {
                 init ?
                     <div className='main'>
                         {sections.map(key => (
-                            <HomeSection key={key}
-                                id={key}
-                                route={routes[key]}
+                            <HomeLink key={key}
+                                route={getRouteById(key)}
                                 />
                         ))}
                     </div>

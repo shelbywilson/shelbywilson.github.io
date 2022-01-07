@@ -13,6 +13,7 @@ import set_img from './../images/home/set.jpg';
 import daffodils_img from './../images/home/daffodils.png';
 import windows_img from './../images/home/windows.jpg';
 import vases_img from './../images/sketches/thumbnails/vases_thumb.png';
+import cafes_thumb from './../images/cafes/cafes_thumb.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -20,7 +21,7 @@ import WeavingPatterns from './content/WeavingPatterns';
 import SFPCShowcase from './content/SFPCShowcase';
 import TableTwoWays from './content/TableTwoWays';
 import CloudTown from './content/CloudTown';
-import Set from './content/Set';
+import SetMeta from './content/SetMeta';
 import Muriel from './content/Muriel';
 import About from './content/About';
 import Amandamodo from './content/Amandamodo';
@@ -34,8 +35,27 @@ import GreyMatterSketch from '../pages/grey-matter/GreyMatterSketch';
 import { pageTypes } from './types/page-types';
 import GreyMatterMeta from './content/GreyMatterMeta';
 
-export const routes = {
-    grey_matter: {
+export interface Route {
+    id: string,
+    url: string,
+    title: string,
+    type?: pageTypes,
+    subtitle?: string,
+    year?: number | string,
+    content?: JSX.Element,
+    alt?: string,
+    img?: any,
+    homeBanner?: JSX.Element,
+    dark?: boolean,
+    wide?: boolean,
+}
+
+export const getRouteById = (id: string) => {
+    return routes.find(route => route.id === id) || {}
+}
+
+export const routes: Array<Route> = [
+    {
         id: 'grey_matter',
         url: '/#/grey-matter',
         title: 'Grey Matter',
@@ -50,7 +70,7 @@ export const routes = {
             />,
         content: <GreyMatterMeta />
     },
-    vases: {
+    {
         id: 'vases',
         url: '/vases',
         title: 'Vases',
@@ -60,7 +80,7 @@ export const routes = {
         year: 2021,
         type: pageTypes.WEB_EXPERIMENT,
     },
-    daffodils: {
+    {
         id: 'daffodils',
         url: '/#/daffodils',
         img: daffodils_img,
@@ -80,7 +100,7 @@ export const routes = {
         type: pageTypes.WEB_EXPERIMENT,
         alt: "Computer generated daffodils against a dark background angled toward a bright light."
     },
-    gradients: {
+    {
         id: 'gradients',
         url: '/#/gradients',
         title: 'gradients',
@@ -90,7 +110,7 @@ export const routes = {
         year: 2021,
         type: pageTypes.WEB_EXPERIMENT,
     },
-    stillLife: {
+    {
         id: 'stillLife',
         img: stillLife_img,
         url: '/#/still-life',
@@ -101,7 +121,7 @@ export const routes = {
         type: pageTypes.WEB_EXPERIMENT,
         alt: "A still life of computer generated abstract fruit."
     },
-    skyAboveClouds: {
+    {
         id: 'skyAboveClouds',
         img: skyAboveClouds_img,
         url: '/#/sky-above-clouds',
@@ -111,7 +131,7 @@ export const routes = {
         type: pageTypes.WEB_EXPERIMENT,
         alt: "Abstract clouds."
     },
-    cloudtown: {
+    {
         id: 'cloudtown',
         img: cloudtown_img,
         url: '/#/cloud-town',
@@ -121,7 +141,7 @@ export const routes = {
         type: pageTypes.WEB_EXPERIMENT,
         alt: "Photos of clouds arranged into a 3D box shape."
     },
-    weavingpatterns: {
+    {
         id: 'weavingpatterns',
         img: weavingpatterns_img,
         title: 'album of weaving patterns',
@@ -132,7 +152,7 @@ export const routes = {
         type: pageTypes.WEB_EXPERIMENT,
         alt: "Weaving diagrams."
     },
-    amandamodo: {
+    {
         id: 'amandamodo',
         img: amandamodo_img,
         title: 'amandamodo',
@@ -142,7 +162,7 @@ export const routes = {
         type: pageTypes.WEBSITE,
         alt: "Screenshot of portfolio website."
     },
-    vurv: {
+    {
         id: 'vurv',
         img: vurv_img,
         title: 'vurvey',
@@ -152,7 +172,7 @@ export const routes = {
         year: '2018, 2019',
         type: pageTypes.DATA_VISUALIZATION,
     },
-    table: {
+    {
         id: 'table',
         img: table_img,
         title: 'table two ways',
@@ -162,7 +182,7 @@ export const routes = {
         type: pageTypes.FURNITURE,
         alt: "Wooden side table made of birch."
     },
-    muriel: {
+    {
         id: 'muriel',
         img: muriel_img,
         title: 'muriel',
@@ -173,7 +193,7 @@ export const routes = {
         type: pageTypes.GRAPHICS_EXPERIMENT,
         alt: "Abstract colorful graphics."
     }, 
-    sfpcShowcase: {
+    {
         id: 'sfpcShowcase',
         img: sfpcShowcase_img,
         title: '1010',
@@ -183,30 +203,30 @@ export const routes = {
         type: pageTypes.INSTALLATION,
         alt: "Installation mounted to the wall, using ligtbulbs behind a painted surface."
     },
-    set: {
+    {
         id: 'set',
         img: set_img,
         title: 'set',
         url: '/#/set',
         year: 2020,
-        content: <Set />,
+        content: <SetMeta />,
         type: pageTypes.GAME,
     },
-    sketches: {
+    {
         id: 'sketches',
         title: 'sketches',
         url: '/#/sketches',
         content: <Sketches />,
         wide: true,
     },
-    windows: {
+    {
         id: 'windows',
         title: 'windows',
         url: '/windows',
         type: pageTypes.WEB_EXPERIMENT,
         img: windows_img,
     },
-    about: {
+    {
         id: 'about',
         img: '',
         title: 'about',
@@ -214,9 +234,9 @@ export const routes = {
         content: <About />,
         year: 'Last updated 26 November 2021',
     },
-    cafes: {
+    {
         id: 'cafes',
-        img: '',
+        img: cafes_thumb,
         title: 'Seattle cafés',
         url: '/#/cafes',
         type: pageTypes.DATA_VISUALIZATION,
@@ -233,6 +253,9 @@ export const routes = {
                 <a href="/cafes">View full</a>
             </p>
             <p>
+                An informal ranking of Seattle area cafes among different metrics. 
+            </p>
+            <p>
                 Contact Alex Miller to take the survey.
             </p>
 
@@ -241,4 +264,4 @@ export const routes = {
         ,
         year: 2021,
     }
-}
+]

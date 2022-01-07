@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .blinds {
     height: 100%;
     position: relative;
@@ -74,7 +76,7 @@
         transform: rotate3d(1, 0, 0, 58deg);
         @for $i from 1 through 24 {
             &:nth-child(#{$i}) {
-                top: #{percentage(($i - 1)/24)};
+                top: #{percentage(math.div(($i - 1), 24))};
             }
         }
     }

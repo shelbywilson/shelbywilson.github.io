@@ -89,6 +89,11 @@ module.exports = {
     sunset_squish: {
       output: 'sunset-squish/index.html',
       title: '🌞',
+    },
+    twenty_one_isometric_cubes: {
+      output: 'twenty-one-isometric-cubes/index.html',
+      title: 'twenty one isometric cubes',
+      favicon: '/images/_favicons/genuary_7.ico',
     }
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { routes } from './routes';
+import { getRouteById } from './routes';
 
 export const Footer = (props) => {
     const {
@@ -29,16 +29,19 @@ export const Footer = (props) => {
                                     Home
                             </a>
                         </li>
-                        {[...sections, 'about'].map(key => (
-                            <li className={`link-${key}`}
-                                key={key}>
-                                <a href={routes[key].url} 
-                                    className={`${(detail || {}).id === key ? 'active' : ''}`} 
-                                    onClick={(e) => onClickLink(e)}>
-                                        {routes[key].title}
-                                </a>
-                            </li>
-                        ))}
+                        {[...sections, 'about'].map(key => {
+                            const route = getRouteById(key);
+                            return (
+                                <li className={`link-${key}`}
+                                    key={key}>
+                                    <a href={route.url} 
+                                        className={`${(detail || {}).id === key ? 'active' : ''}`} 
+                                        onClick={(e) => onClickLink(e)}>
+                                            {route.title}
+                                    </a>
+                                </li>
+                            )
+                        })}
                     </ul>
                 </nav>
             </div>
