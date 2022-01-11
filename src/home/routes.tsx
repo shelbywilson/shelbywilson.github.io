@@ -232,7 +232,7 @@ export const routes: Array<Route> = [
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 26 November 2021',
+        year: 'Last updated 10 January 2022',
     },
     {
         id: 'cafes',

@@ -61,7 +61,7 @@
             }
         }
         &-grey_matter {
-            .vimeo-iframe, figure {
+            .vimeo-iframe, figure, .website-iframe {
                 margin: 3rem 0;
             }
             @include breakpoint(xs) {
