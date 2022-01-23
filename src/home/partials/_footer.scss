@@ -34,10 +34,14 @@ footer {
     &:focus, &:active {
         outline: none;
     }
+    li {
+        line-height: 1.4;
+    }
 
     a {
         display: block;
         cursor: pointer;
+        font-weight: 100;
         text-transform: uppercase;
         margin-bottom: 8px;
         white-space: nowrap;
@@ -45,6 +49,9 @@ footer {
         color: #00f;
         &:hover, &.active {
             font-style: italic;
+        }
+        &:after {
+            content: '';
         }
     }
     img {

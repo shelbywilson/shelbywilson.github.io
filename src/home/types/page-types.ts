@@ -1,4 +1,4 @@
-export enum pageTypes {
+export enum PageTypes {
     WEB_EXPERIMENT = "Web Experiment",
     INSTALLATION = "Installation",
     GAME = "Web Game",

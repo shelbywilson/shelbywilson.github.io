@@ -38,7 +38,7 @@ export const Home = () => {
 
     useEffect(() => {
         const onScroll = e => {
-          setScrollTop(e.target.documentElement.scrollTop);
+            setScrollTop(e.target.documentElement.scrollTop);
         };
         window.addEventListener("scroll", onScroll);
     

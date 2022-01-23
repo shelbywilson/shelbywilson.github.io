@@ -3,6 +3,7 @@ import UsingList from '../../common/UsingList';
 /* eslint-disable-next-line */
 import gallery_install from './../../images/grey-matter/gallery_install.jpg';
 import gallery_install_small from './../../images/grey-matter/gallery_install_small.jpg';
+import { getTechnologies } from '../routes';
 
 export const GreyMatterMeta = () => {
     return (
@@ -52,7 +53,7 @@ export const GreyMatterMeta = () => {
                 allow="autoplay; fullscreen" 
                 style={{height: '348px'}}
                 allowFullScreen></iframe>
-            <UsingList list={["p5.js", "projectors"]} />
+            <UsingList list={getTechnologies('grey_matter')} />
            
         </div>
     )

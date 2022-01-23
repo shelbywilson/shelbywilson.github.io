@@ -7,6 +7,8 @@ import peach from './../../images/still-life/peach.png';
 import plum from './../../images/still-life/plum.png';
 import cherry from './../../images/still-life/cherry.png';
 import stilllifephoto from './../../images/still-life/still-life-photo.jpg';
+import UsingList from '../../common/UsingList';
+import { getTechnologies } from '../routes';
 
 export const StillLife = () => {
     return (
@@ -25,9 +27,7 @@ export const StillLife = () => {
             <p>
                 View <a href="https://vimeo.com/509329812" target="-blank">time lapse</a>.
             </p>
-            <p>
-                Using: p5.js
-            </p>
+            <UsingList list={getTechnologies('stillLife')} />
 
             <figure>
                 <img style={{height: 100}} src={cherries} alt="cherries"/>

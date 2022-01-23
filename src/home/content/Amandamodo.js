@@ -1,6 +1,8 @@
 import React from 'react';
 
 import amandamodo from './../../images/home/amandamodo.jpg';
+import UsingList from '../../common/UsingList';
+import { getTechnologies } from '../routes';
 
 export const Amandamodo = () => {
     return (
@@ -11,9 +13,7 @@ export const Amandamodo = () => {
             <p>
                 Visit <a href='http://amandamodo.com' target='_blank' rel="noreferrer">Amanda's portfolio</a>.
              </p>
-             <p>
-                Using: React.js, SCSS, web scraping
-             </p>
+             <UsingList list={getTechnologies('amandamodo')}/>
         </div>
     )
 }

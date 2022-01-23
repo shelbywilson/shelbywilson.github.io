@@ -10,7 +10,7 @@ import Header from '../header/Header';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Header url="/#/sketches" />
+    <Header />
     <Vases />
   </BrowserRouter>
   , document.getElementById('root'));

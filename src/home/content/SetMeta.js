@@ -4,6 +4,7 @@ import "./../../pages/set/partials/_set-card.scss";
 import "./../partials/_set-detail.scss";
 import UsingList from '../../common/UsingList';
 import SetPractice from '../../pages/set/SetPractice';
+import { getTechnologies } from '../routes';
 
 export const SetMeta = () => {
     return (
@@ -32,7 +33,7 @@ export const SetMeta = () => {
 
             <SetPractice />
             
-            <UsingList list={['React.js', 'SCSS']}
+            <UsingList list={getTechnologies('set')}
                 />
         </div>
     )

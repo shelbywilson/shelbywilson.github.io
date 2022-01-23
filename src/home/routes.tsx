@@ -20,7 +20,7 @@ import StillLife from './content/StillLife';
 import WeavingPatterns from './content/WeavingPatterns';
 import SFPCShowcase from './content/SFPCShowcase';
 import TableTwoWays from './content/TableTwoWays';
-import CloudTown from './content/CloudTown';
+import CloudTownMeta from './content/CloudTownMeta';
 import SetMeta from './content/SetMeta';
 import Muriel from './content/Muriel';
 import About from './content/About';
@@ -32,14 +32,16 @@ import GradientsAbout from './content/GradientsAbout';
 
 import UsingList from '../common/UsingList';
 import GreyMatterSketch from '../pages/grey-matter/GreyMatterSketch';
-import { pageTypes } from './types/page-types';
+import { PageTypes } from './types/page-types';
 import GreyMatterMeta from './content/GreyMatterMeta';
+import DaffodilsMeta from '../pages/sketches/daffodils/DaffodilsMeta';
+import { TechnologyTypes } from './types/technology-types';
 
 export interface Route {
     id: string,
     url: string,
     title: string,
-    type?: pageTypes,
+    type?: PageTypes,
     subtitle?: string,
     year?: number | string,
     content?: JSX.Element,
@@ -48,6 +50,7 @@ export interface Route {
     homeBanner?: JSX.Element,
     dark?: boolean,
     wide?: boolean,
+    using?: Array<TechnologyTypes | string>,
 }
 
 export const getRouteById = (id: string) => {
@@ -61,14 +64,15 @@ export const routes: Array<Route> = [
         title: 'Grey Matter',
         dark: true,
         year: 2021,
-        type: pageTypes.INSTALLATION,
+        type: PageTypes.INSTALLATION,
         homeBanner: <GreyMatterSketch 
             parentBound={true}
             index={1}
             inverse={true}
             outline={false}
             />,
-        content: <GreyMatterMeta />
+        content: <GreyMatterMeta />,
+        using: [TechnologyTypes.P5, TechnologyTypes.PROJECTORS],
     },
     {
         id: 'vases',
@@ -78,7 +82,8 @@ export const routes: Array<Route> = [
             <img src={vases_img} alt="Computer generated vases" />
         </div>,
         year: 2021,
-        type: pageTypes.WEB_EXPERIMENT,
+        using: [TechnologyTypes.P5],
+        type: PageTypes.WEB_EXPERIMENT,
     },
     {
         id: 'daffodils',
@@ -86,18 +91,10 @@ export const routes: Array<Route> = [
         img: daffodils_img,
         title: 'Daffodils',
         dark: true,
-        content: <div>
-            <iframe src='/daffodils?_no-header' 
-                scrolling='no' 
-                referrerPolicy='no-referrer' 
-                loading='lazy'></iframe>
-            <UsingList list={["Three.js"]} />
-            <p>
-                View <a href='/daffodils'>full screen</a>.    
-            </p>
-        </div>,
+        content: <DaffodilsMeta />,
         year: 2021,
-        type: pageTypes.WEB_EXPERIMENT,
+        using: [TechnologyTypes.THREEJS],
+        type: PageTypes.WEB_EXPERIMENT,
         alt: "Computer generated daffodils against a dark background angled toward a bright light."
     },
     {
@@ -107,8 +104,9 @@ export const routes: Array<Route> = [
         dark: true,
         homeBanner: <Gradients />,
         content: <GradientsAbout />,
+        using: [`${TechnologyTypes.CSS}`, `${TechnologyTypes.REACT} for state`, `${TechnologyTypes.D3} for diagrams`],
         year: 2021,
-        type: pageTypes.WEB_EXPERIMENT,
+        type: PageTypes.WEB_EXPERIMENT,
     },
     {
         id: 'stillLife',
@@ -118,7 +116,8 @@ export const routes: Array<Route> = [
         dark: true,
         content: <StillLife />,
         year: 2020,
-        type: pageTypes.WEB_EXPERIMENT,
+        type: PageTypes.WEB_EXPERIMENT,
+        using: [TechnologyTypes.P5],
         alt: "A still life of computer generated abstract fruit."
     },
     {
@@ -127,8 +126,9 @@ export const routes: Array<Route> = [
         url: '/#/sky-above-clouds',
         title: 'Sky Above Clouds',
         content: <SkyAboveClouds />,
+        using: [TechnologyTypes.HTML, TechnologyTypes.CSS],
         year: 2020,
-        type: pageTypes.WEB_EXPERIMENT,
+        type: PageTypes.WEB_EXPERIMENT,
         alt: "Abstract clouds."
     },
     {
@@ -136,9 +136,9 @@ export const routes: Array<Route> = [
         img: cloudtown_img,
         url: '/#/cloud-town',
         title: 'cloud town',
-        content: <CloudTown />,
+        content: <CloudTownMeta />,
         year: 2020,
-        type: pageTypes.WEB_EXPERIMENT,
+        type: PageTypes.WEB_EXPERIMENT,
         alt: "Photos of clouds arranged into a 3D box shape."
     },
     {
@@ -149,7 +149,7 @@ export const routes: Array<Route> = [
         content: <WeavingPatterns />,
         subtitle: 'альбомъ ткацихъ узоровъ',
         year: '2013, 2018',
-        type: pageTypes.WEB_EXPERIMENT,
+        type: PageTypes.WEB_EXPERIMENT,
         alt: "Weaving diagrams."
     },
     {
@@ -159,7 +159,8 @@ export const routes: Array<Route> = [
         url: '/#/amandamodo',
         content: <Amandamodo />,
         year: '2019 – 2021',
-        type: pageTypes.WEBSITE,
+        type: PageTypes.WEBSITE,
+        using: [TechnologyTypes.REACT, TechnologyTypes.CSS, TechnologyTypes.WEB_SCRAPING],
         alt: "Screenshot of portfolio website."
     },
     {
@@ -169,8 +170,9 @@ export const routes: Array<Route> = [
         url: '/#/vurvey',
         dark: true,
         content: <Vurv />,
+        using: [TechnologyTypes.D3],
         year: '2018, 2019',
-        type: pageTypes.DATA_VISUALIZATION,
+        type: PageTypes.DATA_VISUALIZATION,
     },
     {
         id: 'table',
@@ -179,7 +181,7 @@ export const routes: Array<Route> = [
         url: '/#/table-two-ways',
         content: <TableTwoWays />,
         year: 2020,
-        type: pageTypes.FURNITURE,
+        type: PageTypes.FURNITURE,
         alt: "Wooden side table made of birch."
     },
     {
@@ -190,7 +192,8 @@ export const routes: Array<Route> = [
         dark: true,
         year: 2019,
         content: <Muriel />,
-        type: pageTypes.GRAPHICS_EXPERIMENT,
+        using: [TechnologyTypes.OPEN_FRAMEWORKS],
+        type: PageTypes.GRAPHICS_EXPERIMENT,
         alt: "Abstract colorful graphics."
     }, 
     {
@@ -200,7 +203,8 @@ export const routes: Array<Route> = [
         url: '/#/1010',
         content: <SFPCShowcase />,
         year: 2019,
-        type: pageTypes.INSTALLATION,
+        type: PageTypes.INSTALLATION,
+        using: [TechnologyTypes.ARDUINO, TechnologyTypes.STEPPER_MOTORS],
         alt: "Installation mounted to the wall, using ligtbulbs behind a painted surface."
     },
     {
@@ -210,7 +214,8 @@ export const routes: Array<Route> = [
         url: '/#/set',
         year: 2020,
         content: <SetMeta />,
-        type: pageTypes.GAME,
+        using: [TechnologyTypes.REACT, TechnologyTypes.CSS],
+        type: PageTypes.GAME,
     },
     {
         id: 'sketches',
@@ -223,7 +228,8 @@ export const routes: Array<Route> = [
         id: 'windows',
         title: 'windows',
         url: '/windows',
-        type: pageTypes.WEB_EXPERIMENT,
+        type: PageTypes.WEB_EXPERIMENT,
+        using: [TechnologyTypes.CSS, TechnologyTypes.REACT],
         img: windows_img,
     },
     {
@@ -239,7 +245,8 @@ export const routes: Array<Route> = [
         img: cafes_thumb,
         title: 'Seattle cafés',
         url: '/#/cafes',
-        type: pageTypes.DATA_VISUALIZATION,
+        type: PageTypes.DATA_VISUALIZATION,
+        using: [TechnologyTypes.D3, TechnologyTypes.GEO_JSON, TechnologyTypes.REACT],
         content: <div>
             <div style={{transform: "scale(0.72)", transformOrigin: "top left", marginBottom: "-30%"}}>
                 <iframe style={{width: "138%", height: 750, maxHeight: "100vh", borderRadius: "20px"}}
@@ -265,3 +272,7 @@ export const routes: Array<Route> = [
         year: 2021,
     }
 ]
+
+export const getTechnologies = (id: string) => {
+    return (routes.find(item => item.id === id) || {}).using || []
+}

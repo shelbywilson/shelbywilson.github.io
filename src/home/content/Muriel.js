@@ -7,6 +7,7 @@ import murielGif from './../../images/muriel/muriel.gif';
 import murielrotating from './../../images/muriel/muriel-rotating.png';
 import murielrotating2 from './../../images/muriel/muriel-rotating-2.gif';
 import UsingList from '../../common/UsingList';
+import { getTechnologies } from '../routes';
 
 export const Muriel = () => {
     return (
@@ -18,7 +19,7 @@ export const Muriel = () => {
             <p>
                 This application accepts text input. The vectors in each character are then represented by vertical lines that are distributed evenly from left to right. Simpler characters (e.g. ‘l’ or ‘-’) have fewer points, more complex or round characters (e.g. ‘o’ or ’8’) have more. Color is determined by ASCII code, either red, yellow, or blue.
             </p>
-            <UsingList using={['OpenFrameworks']} />
+            <UsingList list={getTechnologies('muriel')} />
             <p>
                 View <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/muriel' target='_blank' rel="noreferrer">Source code</a> and <a href='https://github.com/shelbywilson/sfpc-rtp' target='_blank' rel="noreferrer">more examples</a>.
             </p>

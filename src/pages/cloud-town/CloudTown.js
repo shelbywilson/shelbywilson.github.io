@@ -2,9 +2,8 @@ import React, { useState, useRef } from 'react';
 
 import CloudBlock from './CloudBlock';
 import data from './data';
-import CloudTown from '../../home/content/CloudTown';
 
-export const Cloudtown = () => {
+export const CloudTown = () => {
     const [state, setState] = useState({
         bgVisible: false,
         row1: Math.floor(Math.random() * 3) + 2,

@@ -169,6 +169,7 @@
 .main {
     padding: 0 $margin 120px $margin;
     overflow-x: hidden;
+    background: #fff;
 
     @include breakpoint(xs) {
         padding-top: 80px;

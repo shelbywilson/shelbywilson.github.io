@@ -1,5 +1,7 @@
 import React from 'react';
 import SkyAboveClouds from './../../pages/sky-above-clouds/SkyAboveClouds';
+import UsingList from '../../common/UsingList';
+import { getTechnologies } from '../routes';
 
 export const SkyAboveCloudsContent = () => {
     return (
@@ -17,9 +19,7 @@ export const SkyAboveCloudsContent = () => {
                     View full
                 </a>.
             </p>
-            <p>
-                Using: HTML, SCSS, CSS transitions
-            </p>
+            <UsingList list={getTechnologies('skyAboveClouds')} />
             <figure style={{marginTop: 100}}>
                 <img src='https://www.artic.edu/iiif/2/8fa4d1dd-b05f-eb8d-b83f-7b5dd65642db/full/843,/0/default.jpg' alt=''/>
                 <figcaption>

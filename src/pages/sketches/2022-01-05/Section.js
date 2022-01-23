@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Cube } from './Cube';
 
 const getRandomColor = () => `rgb(${255 * Math.random()},${255 * Math.random()},${255 * Math.random()})`
+// const getRandomColor = () => `hsl(${Math.floor(361 * Math.random())},${100 * Math.random()}%,${100 * Math.random()}%)`
 
 export const Section = ({ section, orientation, preserveAspectRatio }) => {
     const [bg, setBG] = useState(getRandomColor());

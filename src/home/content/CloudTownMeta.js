@@ -7,7 +7,7 @@ import img2b from './../../images/clouds/vashon.1b.jpg';
 import img3a from './../../images/clouds/aus.5a.jpg';
 import img3b from './../../images/clouds/aus.5b.jpg';
 
-export const CloudTown = () => {
+export const CloudTownMeta = () => {
     return (
         <div>
             <iframe src='/cloud-town?_no-header' 
@@ -59,4 +59,4 @@ export const CloudTown = () => {
     )
 }
 
-export default CloudTown;
+export default CloudTownMeta;
