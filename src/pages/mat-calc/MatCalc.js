@@ -45,7 +45,7 @@ export const MatCalc = () => {
             <a className="home-link" href="/">
                 ☺
             </a>
-            <div className="d-flex flex-row">
+            <div className="d-flex flex-row flex-column-xs">
                 <div style={{flex: '1 1 auto'}}>
                     <div>
                         <label className="d-flex flex-row align-items-center">
@@ -200,7 +200,6 @@ export const MatCalc = () => {
                 <div style={{flex: '0 1 auto'}}>
                     <button type='button'
                         className='d-flex flex-row rotate-button'
-                        style={{padding: '12px', border: '1px solid #000', borderRadius: '100%'}}
                         onClick={() => rotate()}>
                             <div className='icon'>
                                 &#8635;

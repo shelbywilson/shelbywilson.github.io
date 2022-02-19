@@ -31,9 +31,19 @@
 .flex {
     &-row {
         flex-direction: row;
+        &-xs {
+            @include breakpoint(xs) {
+                flex-direction: row;
+            }
+        }
     }
     &-column {
         flex-direction: column;
+        &-xs {
+            @include breakpoint(xs) {
+                flex-direction: column;
+            }
+        }
     }
     &-wrap {
         flex-wrap: wrap;
