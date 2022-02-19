@@ -14,6 +14,7 @@ import _2021_07_01_thumb from './../images/sketches/thumbnails/2021_07_01.png';
 import pattern_finder_thumb from './../images/sketches/thumbnails/pattern_finder_thumb.png';
 import sunset_squish_thumb from './../images/sketches/thumbnails/sunset_squish_thumb.png';
 import genuary_7_thumb from './../images/sketches/thumbnails/genuary_7.png';
+import mat_calc_thumb from './../images/sketches/thumbnails/mat_calc_thumb.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
@@ -34,6 +35,15 @@ export const sketches_content = [
     //     using: ["React"],
     //     sketch: <Knights />
     // },
+    {
+        title: 'mat calculator',
+        id: 'mat_calc',
+        date: '2022-02-18',
+        url: '/mat-calc',
+        thumb: mat_calc_thumb,
+        thumb_alt: 'Diagram of mat for image.',
+        using: ['SVG'],
+    },
     {
         title: 'Genuary #7',
         id: 'twenty-one-isometric-cubes',

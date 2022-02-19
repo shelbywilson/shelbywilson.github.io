@@ -94,6 +94,10 @@ module.exports = {
       output: 'twenty-one-isometric-cubes/index.html',
       title: 'twenty one isometric cubes',
       favicon: '/images/_favicons/genuary_7.ico',
+    },
+    mat_calc: {
+      output: 'mat-calc/index.html',
+      title: 'mat calc',
     }
   }
 }
