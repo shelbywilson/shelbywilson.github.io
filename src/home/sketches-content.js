@@ -15,12 +15,14 @@ import pattern_finder_thumb from './../images/sketches/thumbnails/pattern_finder
 import sunset_squish_thumb from './../images/sketches/thumbnails/sunset_squish_thumb.png';
 import genuary_7_thumb from './../images/sketches/thumbnails/genuary_7.png';
 import mat_calc_thumb from './../images/sketches/thumbnails/mat_calc_thumb.png';
+import falling_letters from './../images/sketches/thumbnails/falling_letters.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
 import Sketch_2021_07_01 from "../pages/sketches/2021-07-01";
 import Sketch_2021_12_01 from "../pages/sketches/2021-12-01";
 import Sketch_2022_01_05 from "../pages/sketches/2022-01-05/Container";
+import FallingLetters from "../pages/sketches/falling-letters/FallingLetters";
 // import { Knights } from '../pages/sketches/knights';
 
 export const sketches_content = [
@@ -104,6 +106,14 @@ export const sketches_content = [
         date: "2021-06-26",
         using: ["SVG"],
         sketch: <CistercianNumerals />
+    },
+    {
+        title: "jumble",
+        id: "jumble",
+        thumb: falling_letters,
+        date: "2022-02-20",
+        using: ["SVG"],
+        sketch: <FallingLetters />
     },
     {
         title: "Pattern Finder",
