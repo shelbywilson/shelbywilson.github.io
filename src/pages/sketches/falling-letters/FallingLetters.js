@@ -98,7 +98,7 @@ export const FallingLetters = () => {
                             {jumble ? 'unjumble' : 'jumble'}
                         </button>
                     <button type='button'
-                        style={{border: '1px solid black', borderRadius: '100%', padding: '1rem 1.25rem'}}
+                        style={{border: '1px solid black', borderRadius: '100%', padding: '1rem 1.25rem', color: '#000'}}
                         onClick={setNewWords}>
                             {buttonLabel.map(word => <span key={word}>{word}&nbsp;</span>)}
                         </button>
