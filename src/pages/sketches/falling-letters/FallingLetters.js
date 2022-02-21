@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 var randomWords = require('random-words');
 
 const getNewWords = () => {
@@ -48,6 +48,12 @@ export const FallingLetters = () => {
         document.querySelector("title").innerText = shuffledWords(array);
     }, [words])
 
+    useLayoutEffect(() => {
+        return () => {
+            document.querySelector("title").innerText = "Shelby Wilson";
+        }
+    }, [])
+
     let width = 0;
     let letterPosition = [];
     words.forEach((word, j) => {
@@ -61,7 +67,7 @@ export const FallingLetters = () => {
             width += size * 8;
         })
         if (j < words.length - 1) {
-            width += 14;
+            width += 12;
         }
     })
 
@@ -87,7 +93,7 @@ export const FallingLetters = () => {
                     placeholder={placeholder()} />
                 <div className='d-flex flex-row justify-between' style={{marginTop: '1.5rem'}}>
                     <button type='button'
-                        style={{border: '1px solid black', borderRadius: '100%', padding: '1rem', width: 100, textAlign: 'center'}}
+                        style={{border: '1px solid black', borderRadius: '100%', padding: '1rem', width: 100, textAlign: 'center', color: '#000'}}
                         onClick={() => setJumble(prev => !prev)}>
                             {jumble ? 'unjumble' : 'jumble'}
                         </button>
@@ -108,14 +114,16 @@ export const FallingLetters = () => {
                             <React.Fragment key={`${word}_${j}`}>
                                 {word.split('').map((letter,i) => {
                                     return (
-                                        <text key={`${letter}_${i}`} 
+                                        <g key={`${letter}_${i}`} 
                                             style={{
-                                                transform: jumble ? `translate(${width/2 + (adjustedWidth/4 * (Math.random() - 0.5))}px, ${10 + (Math.random() * 30)}px) rotate(${(Math.random() * 90) - 45}deg)` : `translate(${letterPosition[j][i]}px, 0)`,
+                                                transform: jumble ? `translate(${width/2 + (adjustedWidth/4 * (Math.random() - 0.5))}px, ${10 + (Math.random() * 30)}px) rotate(${(Math.random() * 90) - 45}deg)` : `translate(${letterPosition[j][i]}px, 0) rotate(0)`,
                                                 transition: `transform ${200 + (Math.random() * 500)}ms`,
                                                 transitionDelay: Math.random() * 500 + 'ms',
                                             }}>
-                                            {letter}
-                                        </text>
+                                            <text>
+                                                {letter}
+                                            </text>
+                                        </g>
                                     )
                                 })}
                             </React.Fragment>
