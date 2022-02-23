@@ -2,7 +2,7 @@ import React from 'react';
 
 import monolith_thumb from './../images/sketches/thumbnails/monolith.png';
 import corners_thumb from './../images/sketches/thumbnails/corners.png';
-import room_with_a_view_thumb from './../images/sketches/thumbnails/room_with_a_view.png';
+import room_with_a_window_thumb from './../images/sketches/thumbnails/room_with_a_view.png';
 import windows_thumb from './../images/sketches/thumbnails/windows.png';
 import cones_thumb from './../images/sketches/thumbnails/cones.png';
 import noise_d3_thumb from './../images/sketches/thumbnails/noise_d3.png';
@@ -16,12 +16,14 @@ import sunset_squish_thumb from './../images/sketches/thumbnails/sunset_squish_t
 import genuary_7_thumb from './../images/sketches/thumbnails/genuary_7.png';
 import mat_calc_thumb from './../images/sketches/thumbnails/mat_calc_thumb.png';
 import falling_letters from './../images/sketches/thumbnails/falling_letters.png';
+import _2022_02_22_thumb from './../images/sketches/thumbnails/2022_02_22.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
 import Sketch_2021_07_01 from "../pages/sketches/2021-07-01";
 import Sketch_2021_12_01 from "../pages/sketches/2021-12-01";
 import Sketch_2022_01_05 from "../pages/sketches/2022-01-05/Container";
+import Sketch_2022_02_22 from "../pages/sketches/2022-02-22";
 import FallingLetters from "../pages/sketches/falling-letters/FallingLetters";
 // import { Knights } from '../pages/sketches/knights';
 
@@ -37,6 +39,16 @@ export const sketches_content = [
     //     using: ["React"],
     //     sketch: <Knights />
     // },
+    {
+        title: "2022-02-22",
+        id: "2022-02-22",
+        date: "2022-02-22",
+        desc: '',
+        thumb: _2022_02_22_thumb,
+        thumb_alt: 'A grid of blue and white gradients',
+        sketch: <Sketch_2022_02_22 />,
+        using: ['CSS'],
+    },
     {
         title: 'mat calculator',
         id: 'mat_calc',
@@ -67,16 +79,6 @@ export const sketches_content = [
         </div>,
         using: ['SVG, SCSS, React.js'],
     },
-    // {
-    //     title: "vases",
-    //     id: "vases",
-    //     date: "2021-08-08",
-    //     url: "/vases",
-    //     thumb: vases_thumb,
-    //     thumb_alt: "solid and wirefreame renderings of vases",
-    //     desc: <p>Parameterized vases.</p>,
-    //     using: ["p5.js"],
-    // },
     {
         title: "2021-07-01",
         id: "2021-07-01",
@@ -145,10 +147,10 @@ export const sketches_content = [
         sketch: <Corners />
     },
     {
-        title: "A Room with a View",
-        id: "room-with-a-view",
+        title: "A Room with a Window",
+        id: "room-with-a-windo",
         desc: <p>A dark room gets progressively lighter each time the blinds are opened.</p>,
-        thumb: room_with_a_view_thumb,
+        thumb: room_with_a_window_thumb,
         thumb_alt: "A dark room and window with blinds. Light through the window creates shadows on the floor.",
         date: "2021-01-08",
         using: ["SCSS"],
