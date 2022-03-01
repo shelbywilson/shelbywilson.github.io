@@ -1,0 +1,195 @@
+@import './../../base/partials/mixins';
+
+* {
+    box-sizing: border-box;
+}
+html, body {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+h1 {
+    font-family: serif;
+}
+h1, h2 {
+    margin-bottom: 0;
+}
+header {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+footer {
+    position: fixed;
+    height: 200px;
+    bottom: 0;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    // background-image: linear-gradient(#000 1px,transparent 0),linear-gradient(90deg,#000 1px,transparent 0);
+    // background-size: 2rem;
+    // background-position: -1px -1px;
+    select {
+        width: 100px;
+        margin: 1rem;
+    }
+    p {
+        width: 100%;
+        margin: 0;
+        padding: 1rem;
+        background: #000;
+        color: #fff;
+    }
+}
+main {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 200px;
+}
+.article-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: 100vh;  
+    padding: 1px 0 0 1px;
+    position: relative;
+    background-color: #fff;
+    background-image: linear-gradient(#000 1px, transparent 1px),linear-gradient(to right, #000 1px, transparent 1px);
+    background-size: 1rem 3.25rem;
+    background-position: -1px 0;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        border-bottom: 1px solid #000;
+        bottom: 0;
+    }
+    @include breakpoint(xs) {
+        grid-template-columns: 1fr 1fr;
+        > div {
+            min-height: 50vw;
+        }
+    }
+    @include breakpoint(lg) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.article-link {
+    z-index: 1;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    top: calc(50% - 20px);
+    line-height: 40px;
+    right: 20px;
+    background: black;
+    text-align: center;
+    border-radius: 100%;
+    // 
+    display: none;
+}
+article {
+    margin: -1px 0 0 -1px;
+    perspective: 100vw;
+    perspective-origin: 50% 50%;
+    transform-style: preserve-3d;
+    > div {
+        color: #000;
+        background: #fff;
+        border: 1px solid;
+        transform-origin: top left;
+        position: relative;
+        height: 100%;
+        transition: all 400ms;
+        padding: 20px 60px 20px 20px;
+        z-index: 2;
+        &:after {
+            transition: all 400ms;
+        }
+    }
+    &.door-out, &.door-in {
+        z-index: 1;
+        > div {
+            &:after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #000;
+                background: beige;
+                border-radius: 100%;
+                top: calc(50% - 10px);
+                right: 20px;
+            }
+        }
+        .article-link {      
+            transition-delay: 150ms;          
+            background: transparent;
+            transition: background-color 10ms;
+        }
+        &:hover {
+            z-index: 2;
+            .article-link {       
+                background: #000;
+            }
+        }
+    }
+    &.door-out {
+        &:hover {
+            > div {
+                transform: rotateY(-45deg);
+            }
+        }
+    }
+    &.door-in {
+        &:hover {
+            > div {
+                transform: rotateY(35deg);
+            }
+        }
+    }
+
+    &.window {
+        &:hover {
+            > div {
+                transform: translateY(-30%);
+            }
+        }
+        > div {
+            &:after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 10px;
+                border: 1px solid #000;
+                background: beige;
+                top: calc(100% - 20px);
+                right: calc(50% - 10px);
+            }
+        }
+    }
+    &.cabinet {
+        z-index: 2;
+        &:hover {
+            > div {
+                transform: translateX(-30%);
+            }
+        }
+        > div {
+            &:after {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #000;
+                background: beige;
+                border-radius: 100%;
+                top: calc(50% - 10px);
+                right: 20px;
+            }
+        }
+    }
+}

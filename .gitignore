@@ -4,3 +4,13 @@ static
 dist/scripts/dev.min.js
 dist/scripts/dev.min.js.map
 todo.rtf
+src/pages/html-review/1/html-review.scss
+src/pages/html-review/1/index.js
+src/pages/html-review/2/html-review.scss
+src/pages/html-review/2/index.js
+src/pages/html-review/3/html-review.scss
+src/pages/html-review/3/index.js
+src/pages/html-review/4/html-review.scss
+src/pages/html-review/4/index.js
+src/pages/html-review/5/html-review.scss
+src/pages/html-review/5/index.js
