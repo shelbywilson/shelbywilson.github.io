@@ -10,11 +10,11 @@ html, body {
     font-family: sans-serif;
     font-size: 16px;
     @include breakpoint(xs) {
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 .html-review-layout {
-    --main: cornflowerblue;
+    --main: #6495ed;
     color: var(--main);
 }
 h1 {
@@ -35,7 +35,7 @@ header {
 }
 footer {
     position: fixed;
-    height: $footer-height;
+    height: 26rem;
     bottom: 0;
     padding: 20px;
     width: 100%;
@@ -171,8 +171,13 @@ article {
             &:after {
                 height: 10px;
                 border-radius: 0;
-                top: calc(100% - 20px);
+                top: auto;
+                bottom: 20px;
                 right: calc(50% - 10px);
+            }
+
+            @include breakpoint(xs) {
+                padding: 20px;
             }
         }
     }
@@ -185,7 +190,7 @@ article {
         > div {
             &:after {
                 top: calc(50% - 10px);
-                right: 19px;
+                right: 20px;
             }
         }
     }
@@ -199,8 +204,11 @@ article {
             &:after {
                 height: 10px;
                 border-radius: 0;
-                top: 20px;
+                top: 15px;
                 right: calc(50% - 20px);
+            }
+            @include breakpoint(xs) {
+                padding: 20px;
             }
         }
     }
@@ -213,14 +221,19 @@ article {
             padding: 0;
             > div {
                 position: relative;
-                padding: 20px 60px 20px 20px;
                 width: 200%;
                 right: 100%;
+                padding: 20px 60px 20px 20px;
+
+                @include breakpoint(xs) {
+                    padding: 20px;
+                }
             }
             &:after {
                 width: 10px;
                 border-radius: 0;
-                top: calc(50% - 10px);
+                top: auto;
+                bottom: 20px;
             }
         }
         .right {
