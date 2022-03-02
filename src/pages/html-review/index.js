@@ -16,7 +16,7 @@ export const Layouts = () => {
         }
     )))
     return (
-        <React.Fragment>
+        <span className="html-review-layout">
             <header>
                 <h1>
                     the html review
@@ -25,43 +25,65 @@ export const Layouts = () => {
                     issue #1
                 </h2>
             </header>
-            <footer>
-                <p>
-                    maybe a footer goes here
-                </p>
-                <select value={mode} onChange={(e) => {setMode(e.target.value)}}>
-                    <option disabled>
-                        select mode
-                    </option>
-                    {['door-in', 'door-out', 'cabinet', 'window'].map(option => (
-                        <option key={option} value={option}>
-                            {option.replace('-', ' ')}
-                        </option>
-                    ))}
-                </select>
-            </footer>
             <main>
-                <section className="html-review-layout">
+                <section>
                     <div className="article-container">
                         {pages.map(page => (
                             <article className={mode} key={page.i}>
                                 <a href="#" className="article-link">
                                     {/* &#8593; */}
                                 </a>
-                                <div>
-                                    <p>
-                                        {page.author}
-                                    </p>
-                                    <h3>
-                                        {page.title}
-                                    </h3>
+                                <div className="left">
+                                    <div>
+                                        <p>
+                                            {page.author}
+                                        </p>
+                                        <h3>
+                                            {page.title}
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div className="right">
+                                    <div>
+                                        <p>
+                                            {page.author}
+                                        </p>
+                                        <h3>
+                                            {page.title}
+                                        </h3>
+                                    </div>
                                 </div>
                             </article>
                         ))}
                     </div>
                 </section>
             </main>
-        </React.Fragment>
+            <footer>
+                <p>
+                    <em>the html review</em> is an annual journal of literary work specifically made to exist on the web
+                </p>
+                <div className="footer-content">
+                    <nav>
+                        <a href='/about'>
+                            about
+                        </a>
+                        <a href='/faq'>
+                            faq
+                        </a>
+                    </nav>
+                    <select value={mode} onChange={(e) => {setMode(e.target.value)}}>
+                        <option disabled>
+                            select mode
+                        </option>
+                        {['door-in', 'door-out', 'drawer', 'cabinet', 'window', 'saloon'].map(option => (
+                            <option key={option} value={option}>
+                                {option.replace('-', ' ')}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            </footer>
+        </span>
     )
 }
 
