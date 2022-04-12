@@ -17,6 +17,7 @@ import genuary_7_thumb from './../images/sketches/thumbnails/genuary_7.png';
 import mat_calc_thumb from './../images/sketches/thumbnails/mat_calc_thumb.png';
 import falling_letters from './../images/sketches/thumbnails/falling_letters.png';
 import _2022_02_22_thumb from './../images/sketches/thumbnails/2022_02_22.png';
+import _2022_04_10_thumb from './../images/sketches/thumbnails/2022_04_10.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
@@ -24,6 +25,7 @@ import Sketch_2021_07_01 from "../pages/sketches/2021-07-01";
 import Sketch_2021_12_01 from "../pages/sketches/2021-12-01";
 import Sketch_2022_01_05 from "../pages/sketches/2022-01-05/Container";
 import Sketch_2022_02_22 from "../pages/sketches/2022-02-22";
+import Sketch_2022_04_10 from "../pages/sketches/2022-04-10/index-1";
 import FallingLetters from "../pages/sketches/falling-letters/FallingLetters";
 // import { Knights } from '../pages/sketches/knights';
 
@@ -40,10 +42,20 @@ export const sketches_content = [
     //     sketch: <Knights />
     // },
     {
+        title: "2022-04-10",
+        id: "2022-04-10",
+        date: "2022-04-10",
+        desc: <p>Folding and unfolding.</p>,
+        thumb: _2022_04_10_thumb,
+        thumb_alt: 'Noisy dotted lines.',
+        sketch: <Sketch_2022_04_10 />,
+        using: ["Perlin noise", "d3"],
+    },
+    {
         title: "2022-02-22",
         id: "2022-02-22",
         date: "2022-02-22",
-        desc: '',
+        desc: <p>A texture of gradients.</p>,
         thumb: _2022_02_22_thumb,
         thumb_alt: 'A grid of blue and white gradients',
         sketch: <Sketch_2022_02_22 />,
@@ -54,8 +66,9 @@ export const sketches_content = [
         id: 'mat_calc',
         date: '2022-02-18',
         url: '/mat-calc',
+        desc: <p>Use to create mats when framing various sized prints.</p>,
         thumb: mat_calc_thumb,
-        thumb_alt: 'Diagram of mat for image.',
+        thumb_alt: 'Diagram of mat dimensions.',
         using: ['SVG'],
     },
     {
