@@ -1,0 +1,145 @@
+<html>
+
+<head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+    <title>Accumulation</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js" integrity="sha512-Gk+uNk8NWN235mIkS6B7/424TsDuPDaoAsUekJCKTWLKP6wlaPv+PBGfO7dbvZeibVPGW+mYidz0vL0XaWwz4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style>
+      svg {
+        margin: auto;
+        display: block;
+        margin-top: 100px;
+      }
+    </style>
+</head>
+<body>
+  <div id='svg' width="1000" height="300">
+  </div>
+  <script type="application/javascript">
+    
+    const epigraph = [
+      "When  I think of the floor of the deep sea, the single, overwhelming fact that possesses my imagination",
+      "is the accumulation of sediments. I see the study, unremitting, downward drift of materials from above,",
+      "flake upon flake, layer upon layer—a drift that has continued for hundreds of millions of years, that will go on ",
+      "as long as there are seas and continents. -Rachel Carson"];
+
+
+    const lines = [
+      "language falls atop the bones of old words",
+      "language falls atop the bones of my old words",
+      "your language falls atop the bones of old words",
+      "your language falls atop the bones of old",
+      "your language falls atop the bones of elders",
+      "your language falls atop our bones and elders",
+      "our language falls and topples bones and elders",
+      "our language falls and topples bows and angles",
+      "our language falls and topples over and angers",
+      "our language falls and top-heavy flips over",
+      "our language falls and topographically anchors",
+      "language falls and makes topography",
+      "language falls, now close to topography",
+      "language falls, now close to hungarian topography",
+      "my language falls close to hungarian topography",
+      "my language falls close to english topography",
+      "my language falls close to australian topography",
+      "my language falls close to american topography",
+      "my language falls close to colonialism",
+      "my language falls close to occupation",
+      "my language falls close to your language",
+      "language falls close to your language",
+      "language falls close to you and me and you",
+      "land gauges fall close to you and me and you",
+      "land falls atop the bones of old words",
+      "plankton falls atop the bones of old worlds",
+      "i miss you",
+      "i miss you falling atop me",
+      "i miss your words",
+      "i miss the bones of your words",
+      "i miss the tiny organisms that settled in our story",
+      "miss the bones of our story",
+      "miss our language",
+      "miss our language atop the bones of old",
+      "our language falls atop the bones of ears",
+      "your language bears the map of ears",
+      "your language bears the map of elders",
+      "hello elders",
+      "hello ears",
+      "hello future landing atop my language",
+      "hello future poems landing atop my language",
+      "hello future compressing the now language",
+      "hello compression",
+      "hello bones of old",
+      "hello worlds of old",
+      "hello words of old",
+      "hello old words",
+      "hello bones of old words",
+      "hello from atop the bones of old words",
+      "hello falls atop the bones of old words",
+      "landfall atop the bones of old words",
+      "land falls atop the bones of old words",
+      "home falls atop the bones of old words"
+    ];
+    const yheight = 600;
+    const ydrop = 500;
+    const ystart = 50;
+    const droptime = yheight*20;
+    const lineheight = 6;
+    const epifadetime = 20000;
+    var s = Snap(800, yheight);
+    
+
+    var lines_obj = {};
+    var i = 0; // count of lines; resets to start
+    var c = 0; // count of all lines; never resets
+    var t1;
+    var xwidth;
+
+    function getRandomInt(min,max) {
+      return Math.floor(Math.random() * (max-min)) + min;
+    }
+
+    function getFrames(c) {
+      xwidth = getRandomInt(20,400);
+      var ymin = Math.max(50-c, 10);
+      var frames = [
+        { animation: {'fill-opacity': .8}, dur: droptime/5},
+        { animation: {y: (ydrop/6) + ystart}, dur: droptime/6 },
+        { animation: {y: ydrop + ystart}, dur: 5*droptime/6 },
+        { animation: {y: ydrop + ystart + getRandomInt(ymin,55)}, dur: droptime*5 }
+      ];
+      return frames;
+    }
+
+    function nextFrame(element, frames, idx) {
+      if (idx >= frames.length) { return; }
+      if (idx == 2) { dropLine(); }
+      element.animate(frames[idx].animation, frames[idx].dur, nextFrame.bind(null, element, frames, idx+1));
+    }
+
+    function dropLine() {
+      fr = getFrames(c);
+      lines_obj[c] = s.text(xwidth, ystart, lines[i]);
+      lines_obj[c].attr({'fill-opacity': 0});
+      nextFrame(lines_obj[c], fr, 0);
+      c++; i++; if (i >= lines.length) { i = 0; }
+    }
+
+    function epiFade(obj, drop) {
+      if (drop) { obj.animate({'fill-opacity': 0}, epifadetime, dropLine); }
+      else{ obj.animate({'fill-opacity': 0}, epifadetime); }
+    }
+
+    for (var j=0; j<epigraph.length; j++) {
+      epi = s.text(20,50+(j*15), epigraph[j]);
+      setTimeout(epiFade, j*epifadetime/10, epi, false);
+    }
+
+    setTimeout(epiFade, j*epifadetime/10, epi, true);
+
+  </script>
+</body>
