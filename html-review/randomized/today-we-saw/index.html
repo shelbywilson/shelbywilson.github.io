@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content=" A travel log that documents a day's trip across the image-filled web."
+    />
+    <meta name="keywords" content="text, alt text, web" />
+    <meta name="author" content="Anna Garbier & Lan Zhang" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Today, we saw</title>
+  </head>
+  <body>
+    <div class="header">
+      <h2>Today, we saw</h2>
+      <p class="intro">
+        A travel log that documents a day's trip across the image-filled web.
+        The log's contents were generated using a custom Chrome extension that
+        looks for alt text - short descriptions that accompany many of the web's
+        images. While alt text typically lives "behind the scenes", the log
+        flips the concept inside-out: it brings the text to the surface, and
+        reveals alt images only on inspection. This is the first part of our
+        ongoing extension-based experiment, playing with forms and materials of
+        the web.
+      </p>
+      <p>by Anna Garbier & Lan Zhang</p>
+    </div>
+    <div id="main">
+      <!-- JS will populate the alt text items-->
+    </div>
+    <div id="bg"><img id="bgImg" /></div>
+
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
