@@ -18,23 +18,38 @@ section {
     padding: 0 1.25rem;
     text-align: justify;
     transform-origin: top left;
-    transform: skew(15deg, 0);
+    transform: skew(17deg, 0);
     transition: transform 400ms;
+}
+.letter-from-max p {
+    transform: skew(-17deg, 0);
+}
+.letter-from-max > div {
+    padding: 1.25rem;
 }
 @media (max-width: 1100px) {
     .letter-from-max {
         transform: skew(13deg, 0);
+    }
+    .letter-from-max p {
+        transform: skew(-13deg, 0);
     }
 }
 @media (max-width: 1000px) {
     .letter-from-max {
         transform: skew(10deg, 0);
     }
+    .letter-from-max p {
+        transform: skew(-10deg, 0);
+    }
 }
 @media (max-width: 950px) {
     .letter-from-max {
         transform: skew(7deg, 0);
     }
+    /* .letter-from-max p {
+        transform: skew(-10deg, 0);
+    } */
 }
 @media (max-width: 900px) {
     .letter-from-max {
