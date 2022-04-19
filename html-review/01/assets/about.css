@@ -1,0 +1,88 @@
+body {
+    --main: cornsilk;
+    --bg: dodgerblue;
+    --accent-1: dodgerblue;
+}
+main {
+    padding: 4rem 4rem 6rem 4rem;
+    width: 100%;
+    border-top: 1px solid var(--accent-1);
+    background: var(--main);
+    color: var(--accent-1);
+}
+section {
+    max-width: 650px;
+}
+.letter-from-max {
+    border: 1px solid var(--accent-1);
+    padding: 0 1.25rem;
+    text-align: justify;
+    transform-origin: top left;
+    transform: skew(15deg, 0);
+    transition: transform 400ms;
+}
+@media (max-width: 1100px) {
+    .letter-from-max {
+        transform: skew(13deg, 0);
+    }
+}
+@media (max-width: 1000px) {
+    .letter-from-max {
+        transform: skew(10deg, 0);
+    }
+}
+@media (max-width: 950px) {
+    .letter-from-max {
+        transform: skew(7deg, 0);
+    }
+}
+@media (max-width: 900px) {
+    .letter-from-max {
+        transform: skew(4deg, 0);
+    }
+}
+@media (max-width: 850px) {
+    .letter-from-max {
+        transform: skew(3deg, 0);
+    }
+}
+@media (max-width: 800px) {
+    .letter-from-max {
+        transform: skew(2deg, 0);
+    }
+}
+@media (max-width: 767px) {
+    .letter-from-max {
+        transform: skew(0, 0);
+    }
+}
+section p, details {
+    font-size: 1.125rem;
+}
+section p {
+    line-height: 2;
+}
+dl {
+    margin-bottom: 0;
+}
+details {
+    margin: 2rem 0;
+    padding: 1.25rem;
+    border: 1px solid var(--accent-1);
+}   
+summary {
+    cursor: pointer;
+}
+main a:hover {
+    color: var(--accent-2);
+}
+@media (max-width: 767px) {
+    main {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+    section p, details {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+}

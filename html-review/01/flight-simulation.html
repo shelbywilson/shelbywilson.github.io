@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>flight simulation</title>
+    <script src='/01/flight-sumulation/jquery.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="/01/flight-sumulation/style.css">
+</head>
+<body>
+
+<!-- this is the welcome page when project loaded  -->
+    <div id='welcomePage'>
+        <p id="welcome">welcome <span class='h1-b'>aboard</span></p>
+        <p class='seatNum'>24A</p>
+        <p id="entertainmentText">play our entertainment selection</p>
+        <div id="buttonDiv">
+            <div class="buttonStyle" ><img src="../01/flight-sumulation/assets/movie.png"><p>MOVIE</p></div>
+            <div class="buttonStyle" ><img src="../01/flight-sumulation/assets/musical-note.png"><p>MUSIC</p></div>
+            <div class="buttonStyle" id='touch'><img src="../01/flight-sumulation/assets/open-book.png"><p>READ</p></div>
+            <div class="buttonStyle map"><img src="../01/flight-sumulation/assets/airplane1.png"><p>LIVE MAP</p></div>
+        </div>
+
+    </div>
+
+
+<!-- this is the cyberpoem -->
+    <div id='inflightEntertainment'>
+        <p class='seatNum seatNumBook'>24A</p>
+
+        <div id="bookContainer">
+            <div id='time'></div>
+
+            <div id='textContainer'>
+                <div id='textHide'>
+
+                	<div id='p02' class='hiddenText'>The captain told us that he would walk around the cabin to greet everyone because he had plenty of time to do so. I was amused. I had plenty of time to <span class='write02'>write </span><br/><br/></div>
+        
+                    <div id='p03' class='hiddenText'>God knows how many novels I have started on the plane. Maybe this was going to be another unfinished inflight project <span class='next03'>[next]</span><br/><br/></div>
+        
+                    <div id="p04" class='hiddenText'>I started reading the book by Chelsea Hudson that Max gave me. He said <i>you need to <span class='read04'>read</span> this </i><br/><br/></div>
+        
+                    <div id="p05" class='hiddenText'>I remembered the conversation we had last night about <span class='journal05'>writers who don't journal</span>. Funny that Chelsea wrote about it too in the first paragraph of her book <br/><br/></div>
+        
+                    <div id="p06" class='hiddenText'>I had so much that I wanted to write down. In fact, I needed to write them down so badly that I started writing before what I wrote about even happened <br/><br/></div>
+        
+                    <div id='p07' class='hiddenText'>they were spraying green goo on the wings of the plane, before they started spraying green goo on the wings of the plane. <span class='seenIt07'>I've seen it before</span>, in <span class='chiTime chicago07'>Chicago </span><br/><br/></div>
+        
+        
+                    <div id='p08' class='hiddenText'>One of the things that I wrote about on the plane was how time seemed to be suspended. The fact that you would be strapped on a tiny seat with nowhere else to go and nothing to do. But my mind was traveling through distances, just like my body, you gain <span class='gainHour gainHour08'>an hour</span>, lose <span class='loseHour loseHour08'>an hour </span><br/><br/></div>
+        
+        
+                    <div id='p09' class='hiddenText'>We were still <span class='waiting09'>waiting</span> in line to get deiced, seemed like it would be an hour. The captain said something through the <button class='intercom'>intercom </button> that I couldn't make out <br/><br/></div>
+        
+                    <div id='p10' class='hiddenText'>I was reading about the <span class='redPlanet10'>red planet</span>, thinking about the icy water on Mars, and the icy water on the wings of the plane. I looked up and the captain started to walk down the aisle, shaking everyone's hands <span class='next10'>[next]</span><br/><br/></div>
+                    
+                    <div id='p11' class='hiddenText'><span class='captain11'>The captain</span> came over with a cup of coffee, he said he felt like talking to a seven-headed beast, <i>one hand doesn't know that the other is doing</i>. His hand was cold. I've never shaken a captain's hand before <br/><br/></div>
+
+                    <div id='p12' class='hiddenText'>The captain's voice sounded deeper and more <span class='auth12'>authoritative</span> through the <button class='intercom'>intercom </button><br/><br/></div>
+
+                    <div id='p13' class='hiddenText'>Chelsea wrote about the Phoenix Rover landing and her ex-lover in the first essay. I wondered what's the significance of that <br/><br/></div>
+
+                    <div id='p14' class='hiddenText'>People in uniforms started to gather at the wings of the plane. On the other side of the aisle <span class='giggle14'>girls were giggling</span> <br/><br/></div>
+
+                    <div id='p15' class='hiddenText'>I <span class='was15'>was</span> given the nickname 'giggle girl' by your roommate who's only heard my voice through your <span class='wall15'>wall</span> <br/><br/></div>
+
+                    <div id='p16' class='hiddenText'>The plane had been <span class='delay delay16'>delayed</span> about <span class='hour15min16'>an hour and 15 minutes</span>, we still haven't moved an inch. <span class='travel2miles16'>We were supposed to travel 2 miles to the other side of the airport to get deiced, and then 2 miles back to take off</span> <br/><br/></div>
+
+                    <div id='p17' class='hiddenText'>When I went to Maggie Nelson's talk in New York, she read my favorite excerpt <i>This man had one tattoo, a navy blue snake, which I liked to watch dance against the white of his wrist when the rest of his hand disappeared inside me. He got this tattoo to commemorate the night that all of his snakes died, a winter night in <span class='connecticutTime'>Connecticut</span> when it was so cold and the <span class='heatoff17'>heat shut off</span>, so he put as many lights as possible against the snakes' cage to try to keep them warm</i> (Nelson, P83). I was thinking about that excerpt when your hand disappeared in me <br/><br/></div>
+
+                    <div id='p18' class='hiddenText'>We've traveled 2 miles. It took us half an hour. They turned off the AC on the plane so the air that we breath wouldn't get contaminated <span class='next18'>[next]</span><br/><br/></div>
+
+                    <div id='p19' class='hiddenText'>I vaguely remembered the last time I got trapped on the plane for more than an hour, I didn't enjoy it, <span class='impatient19'>I was impatient</span>. But today, I loved it. I didn't want the plane to take off, I could write forever <br/><br/></div>
+
+                    <div id='p20' class='hiddenText'>I told a friend how I enjoyed sitting on the plane reading and writing, and he said, <i>yea, you are always like that</i> <span class='next20'>[next]</span> <br/><br/></div>
+
+                    <div id='p22' class='hiddenText'>We left the ground at <span class='11pmNYTime'>exactly 11 pm New York time</span>, the time I was supposed to land, the time you were supposed to expect my text saying <i>I landed</i>. And you would say, <i><span class='missed22'>I missed you</span></i> <br/><br/></div>
+
+
+                    <div id='p23' class='hiddenText'>I was in the air when I realized I was reading a book about love and desire. <i> <span class='peak23'>Peak experience</span>, symptoms include loss of judgment to time, and space, feeling whole and harmonious, and complete mindfulness of the present moment without the influence of past or expected future experiences</i> (Hodson, p44) <br/><br/></div>
+
+                    <div id='p24' class='hiddenText'><i><span class='plateau24'>Plateau experience</span>, This is serene and calm rather than a poignantly emotional, climactic, autonomic response to the miraculous, the awesome, the sacralized, the Unitive, the B-values. So far as I can now tell, the high plateau-experience always has a noetic and cognitive element, which is not always true for peak experiences, which can be purely and exclusively emotional. It is far more voluntary than peak experiences are. One can learn to see in this Unitive way almost at will. It then becomes a witnessing, an appreciating, what one might call a serene, cognitive blissfulness</i> (Maslow, Abraham H) <br/><br/></div>
+
+                    <div id='p25' class='hiddenText'>Sitting in the plane, I've always felt this way, peak-plateau experience. And when I travel, I always came home fallen in love, fallen out of <span class='love25 noLink'>love</span> <br/><br/></div>
+
+                    <div id='p26' class='hiddenText'>I didn't realize how uncomfortable my ears felt. The humming noise of the AC, the engine noise, I was tired. But I couldn't stop, I had books to read, things to write. So I drank a cup of coffee. <span class='burned26'>It was so hot it burned my tongue</span> <br/><br/></div>
+
+                    <div id='p27' class='hiddenText'>Emotional security is about feeling safe when being open and vulnerable. Kind of like <span class="flying27">flying</span> <span class='next27'>[next]</span> <br/><br/></div>
+
+                    <div id='p28' class='hiddenText'>It was <span class='12pmNYTime'>12:32pm New York time</span>, and I was halfway through the book, also halfway home. I've connected to the inflight Wi-Fi. Olive was online. Olive said she missed me in her clumsy way, sort of reminded me of myself <br/><br/></div>
+
+                    <div id="p29" class="hiddenText">How strangely, I picked this book out of the three purple books in my luggage to bring on the plane. I felt the seat <span class="sinking29">sinking</span> and I thoguht my peak-plateau experience was about to be over soon <br/><br/></div>
+                    
+                    <div id="p30" class="hiddenText">I was thinking about the captain again. He hasn't said one word after we took off. Or maybe I wasn't listening <span class="next30">[next]</span><br/><br/></div>
+
+                    <div id="p31" class="hiddenText">We were 100 miles from Chicago, it was 17 degrees outside, and I was <span class="ordered31">ordered</span> to put my tray table away. <span class="moment31">I kept waiting for that moment</span> mid-air when the plane is close enough to the ground and the phone would connect to the signal tower. And I would get your text mid-air <br/><br/></div>
+
+                    <div id="p32" class="hiddenText"><span class="moment32">I kept waiting for that moment</span> when the plane would hit the ground and your whole body would move forward in such a violent way. Inertia, the tendency to do nothing or to remain unchanged. In physics, it means a property of matter by which it continues in its existing state of rest or uniform motion in a straight line, unless that state is changed by an external force <br/><br/></div>
+
+                    <div id="p33" class="hiddenText">And then it would seem like the plane will never <span class="stop33">stop</span>. The captain who talks about the seven-headed beasts would run the plane into the terminal. And then, external force, your body would go back to normal, speed would decrease, and finally, you would come to rest <br/><br/></div>
+
+
+                    <div id="p34" class="hiddenText">I was writing about the moment that had not yet happened again. And this time, I got to experience it twice <br/><br/></div>
+
+                </div>
+                
+                <div id='text'>
+                    <div id="p01show" class='textDiv'>It was snowing outside, my plane had been <span class='delay' id='delay01'>delayed</span> for <span id='delayAnHour'>an hour</span>. <span class='nyTime' id='theCity01'>The city</span> didn't want me to leave, and I didn't want to leave either <br/><br/></div>
+                </div>
+
+                <div id='buttonDivBook'> </div>
+            </div>  <!-- end of text COntainer  -->
+        
+
+
+
+        </div>
+
+        <div id="buttonContainerBook">
+            <div class="buttonStyle buttonBookPage" ><img src="../01/flight-sumulation/assets/musical-note.png"><p>MUSIC</p></div>
+            <div class="buttonStyle buttonBookPage" ><img src="../01/flight-sumulation/assets/back-arrow.png"><p>BACK</p></div>
+            <div class="buttonStyle buttonBookPage map" ><img src="../01/flight-sumulation/assets/airplane1.png"><p>LIVE MAP</p></div>
+        </div>
+
+
+  
+    </div>
+
+   
+ 
+
+    <div id='timeLineMap'>
+        
+        <div id="mapContainer">
+            <div id="mapHeader">
+                <div>Altitude: <span class="mapInfoNum" id="altitude"></span> ft.</div>
+                <div>Wind Speed: <span class="mapInfoNum" id="windSpeed"></span> mph</div>
+                <div>Ground Temperature: <span class="mapInfoNum" id="goundTemp"></span> &#176;F</div>
+                <div>Air Temperature: <span class="mapInfoNum" id="airTemp"></span> &#176;F</div>
+
+            </div>
+
+            <div id='timeMapDiv'>
+                <canvas id="canvas" ></canvas>
+            </div>
+
+
+
+
+            <div id="mapFooter">
+                <div class="buttonStyle buttonMapPage" id="exit" ><img src="../01/flight-sumulation/assets/back-arrow.png"><p>BACK</p></div>
+                <div id="timeInfo">
+                    <div>
+                        Time to Chiago<br/><span id="hourTo1" class="mapInfoNum"></span>:<span id="minTo1" class="mapInfoNum"></span>:<span id="secondTo1" class="mapInfoNum" ></span>
+                    </div>
+                    <div>
+                        Time since NewYork<br/><span id="hourTo2" class="mapInfoNum"></span>:<span id="minTo2" class="mapInfoNum"></span>:<span id="secondTo2" class="mapInfoNum"></span>
+                    </div>
+                    <div>
+                        Local Time at Present Position<br/><span id="hourTo3" class="mapInfoNum"></span>:<span id="minTo3" class="mapInfoNum"></span>:<span id="secondTo3" class="mapInfoNum"></span>
+                    </div>
+                </div>
+                <div id="buttonRight">
+                    <div class="buttonStyle buttonMapPage" id='entertainment'><img src="../01/flight-sumulation/assets/open-book.png"><p>READ</p></div>
+                    <div class="buttonStyle buttonMapPage" ><img src="../01/flight-sumulation/assets/musical-note.png"><p>MUSIC</p></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src='/01/flight-sumulation/text.js'></script>
+    <script src='/01/flight-sumulation/time.js'></script>
+    <!-- <script src='/01/flight-sumulation/map.js'></script> -->
+    <script src='/01/flight-sumulation/app.js'></script>
+</body>
+    
+
+
+</html>

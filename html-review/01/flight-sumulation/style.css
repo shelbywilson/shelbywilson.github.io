@@ -1,0 +1,307 @@
+body {
+    background-color: rgb(255,255,255);
+    background-image: url(assets/bg01.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-content: flex-end;
+    width:100vw;
+    height:100vh;
+}
+
+#welcomePage{
+    margin-left: 5vw;
+    margin-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#welcome{
+    font-size: 8vw;
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    margin-bottom: 3vh;
+}
+
+
+.buttonStyle{
+    display: inline-block;
+    background: #0000EE;
+    color: white;
+    border: 3px solid #FFFFFF;
+    border-radius: 15px;
+    width: 15vw;
+    height: 15vw;
+    position: relative;
+    overflow: hidden;
+    margin-right: 5vw;
+    max-width: 170px;
+    max-height: 170px;
+}
+
+.buttonStyle:hover{
+    cursor: grab;
+}
+
+
+.buttonStyle > img{
+    width: 50%;
+    left: 25%;
+    top: 10%;
+    display: block;
+    position: absolute;
+}
+
+.buttonStyle > p {
+    bottom: 5%;
+    margin:0;
+    width:100%;
+    display: block;
+    position: absolute;
+    font-size: 30px;
+    text-align: center;
+}
+
+.buttonBookPage{
+    display: block;
+}
+
+
+
+.h1-b{
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+}
+
+
+.seatNum{
+    color:white;   
+    font-size: 18vh;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 20px 20px 100px #0000EE;
+    margin: 0px;
+    margin-top:5vh;
+    margin-bottom: 5vh;
+}
+
+
+
+#entertainmentText{
+    color:white; 
+    font-size: 50px;  
+    margin: 0px;
+    margin-bottom:3vh;
+}
+
+
+
+#typedText {
+    color: black;
+    text-decoration: none;
+}
+
+
+#timeLineMap{
+    display:none;
+}
+
+span{
+    text-decoration: underline;   
+    color: #0000EE;
+    text-decoration-color: #0000EE;
+}
+
+.noLink{
+    text-decoration: none;   
+    color: black;
+}
+
+.hiddenText{
+    display: none;
+}
+
+.clickedLink{
+    color: #551A8B;
+    text-decoration-color: #551A8B; 
+}
+
+#p07show {
+    overflow: hidden;
+}
+
+#cursor {
+    font-weight: bolder;
+    animation: blinker 1s linear infinite;
+}
+  
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+}
+
+.intercomButton:hover{
+    background-color: #0000EE;
+    color: white;
+}
+
+
+
+#inflightEntertainment{
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#bookContainer{
+    height: 90vh;
+    width: 70vw;    
+    background-color: rgba(255,255,255, 0.5);
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonBookPage{
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+#buttonContainerBook{
+    align-self: flex-end;
+
+}
+
+
+.seatNumBook{
+    font-size: 6vw;
+    align-self: flex-start;
+}
+
+#time{
+    background-color: #E6E6E6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    text-align: right;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+
+#textContainer{
+    padding: 80px;
+    padding-bottom: 0;
+    margin-bottom: 80px;
+    text-align: justify;
+    font-size: 20px;
+    font-family: helvitica;
+     /* height: 100%; */     
+    position: relative;
+    overflow-y: scroll;
+
+}
+
+
+#mapContainer{
+    margin-left: 8vw; 
+    margin-top: 5vh;
+    /* margin: auto; */
+    height: 89vh;
+    width: 83vw;    
+    background-color: rgba(255,255,255, 0.5);
+    box-shadow: 5px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+
+
+
+#timeMapDiv{
+    /* border: 1px solid black; */
+    height: 70vh;
+    width: 83vw;
+    /* border-bottom:2px solid #FFFFFF; */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#mapFooter{
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 9vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center ;
+    justify-content: space-between;
+}
+
+.buttonMapPage{
+    font-size:10px;
+    width: 6vh;
+    height: 6vh;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.buttonMapPage > p {
+    font-size: 20px;
+}
+
+#buttonRight{
+    display: flex;
+    flex-direction: row;
+    align-items: center ;
+}
+
+#timeInfo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-grow: 2;
+    font-size: 25px;
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+.mapInfoNum{
+    text-decoration: none;
+    color: black;
+}
+
+
+#mapHeader{
+    width: 100%;
+    height: 9vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 25px;
+    font-weight: 700;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    /* border-bottom:2px solid #FFFFFF; */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+/* #canvas{
+    width:100%;
+    height:100%;
+} */
