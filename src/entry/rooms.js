@@ -12,7 +12,7 @@ import Room1 from '../pages/rooms/Room1Shadows';
 
 ReactDOM.render(
   <Fragment>
-    <Header url='/#/sketches' />
+    <Header url='/' />
     <Room1 />
   </Fragment>
   , document.getElementById('root'));

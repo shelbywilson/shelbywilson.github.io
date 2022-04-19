@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Progress</title>
+
+  <!-- © 2022 Nick Montfort
+
+Copying and distribution of this file, with or without modification, are permitted in any medium without royalty provided the copyright notice and this notice are preserved. This file is offered as-is, without any warranty.
+-->
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden
+    }
+
+    #outer {
+      height: 100vh;
+      width: 100vw;
+      background: #000
+    }
+
+    #inner {
+      margin-top: 40vh;
+      margin-left: 1vw;
+      margin-right: 1vw;
+      font-size: 7vh;
+      width: 0vw
+    }
+
+    header,
+    a {
+      color: #fff
+    }
+
+    p {
+      margin: 10px;
+      font-size: 16px;
+      text-align: right;
+      font-family: monospace
+    }
+
+    #current {
+      margin-left: 1vw;
+      margin-right: 1vw;
+      font-size: 7vh;
+      font-weight: bold
+    }
+  </style>
+</head>
+
+<body>
+  <div id="outer">
+    <header>
+      <p><span id="label">PROGRESS　
+          by <a href="https://nickm.com" target="_blank">Nick Montfort</a>　</span>
+          <span onclick="toggleFull()">⛶</span>
+      </p>
+    </header>
+    <div id="inner">&nbsp;
+    </div>
+    <div id="current"></div>
+  </div>
+  <script>
+    var numberSystems = [], i, percentSign, barBackground, textColor, flip = false;
+
+    function toggleFull() {
+      if (1 >= outerHeight - innerHeight) {
+        let leave = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullscreen || document.msExitFullscreen;
+        leave.call(document);
+      } else {
+        let enter = outer.requestFullscreen || outer.webkitRequestFullscreen || outer.mozRequestFullscreen || outer.msRequestFullscreen;
+        enter.call(outer);
+      }
+    }
+
+    function checkLabel() {
+      if (1 >= outerHeight - innerHeight) {
+        label.style.visibility = "hidden";
+      } else {
+        label.style.visibility = "visible";
+      }
+    }
+
+    function none() {
+      let numbers = [];
+      for (n = 0; n < 8; n++) {
+        numbers[n] = '';
+      }
+      return numbers;
+    }
+
+    function unary() { // The “hundred” in unary is really 2, “𝍩𝍩”
+      let numbers = []; // But we won’t be quite that systematic
+      for (n = 0; n < 51; n++) {
+        numbers[n] = '𝍩'.repeat(n);
+      }
+      return numbers;
+    }
+
+    function egyptian() {
+      let numbers = [];
+      for (n = 0; n < 100; n++) {
+        numbers[n] = '' + "𓏤".repeat(n % 10) + "𓎆".repeat(~~(n / 10));
+      }
+      numbers[100] = "𓍢";
+      return numbers;
+    }
+
+    function greek() {
+      let numbers = [],
+        units = ",α,β,γ,δ,ε,ϛ,ζ,η,θ".split(','),
+        tens = ",ι,κ,λ,μ,ν,ξ,ο,π,ϙ".split(',');
+      for (n = 0; n < 100; n++) {
+        numbers[n] = tens[~~(n / 10)] + units[n % 10];
+      }
+      numbers[100] = "ρ";
+      return numbers;
+    }
+
+    function hebrew() {
+      let numbers = [],
+      units = ",א,ב,ג,ד,ה,ו,ז,ח,י".split(',');
+      tens = ",כ,ל,מ,נ,ס,ע,פ,צ,ק".split(',');
+      for (n = 0; n < 100; n++) {
+        if (n < 15 || n > 16) { // Don’t write any names of G-d!
+          numbers[n] = tens[~~(n / 10)] + units[n % 10];
+          } // Because R>L, this ends up reversed as it should be
+      }
+      numbers[15] = "טו";
+      numbers[16] = "טז";
+      numbers[100] = "ק";
+      return numbers;
+    }
+
+    function roman() {
+      let numbers = [],
+        units = ",I,II,III,IV,V,VI,VII,VIII,IX".split(','),
+        tens = ",X,XX,XXX,XL,L,LX,LXX,LXXX,XC".split(',');
+      for (let n = 0; n < 100; n++) {
+        numbers[n] = tens[~~(n / 10)] + units[n % 10];
+      }
+      numbers[100] = "C";
+      return numbers;
+    }
+
+    function mayan() { // This “hundred” is the calendrical 360
+      let numbers = "𝋠,𝋡,𝋢,𝋣,𝋤,𝋥,𝋦,𝋧,𝋨,𝋩,𝋪,𝋫,𝋬,𝋭,𝋮,𝋯,𝋰,𝋱,𝋲,𝋳".split(',');
+      for (n = 20; n < 360; n++) {
+        numbers[n] = numbers[~~(n/20)] + "<br>" + numbers[n % 20];
+      }
+      numbers[360] = numbers[1] + "<br>" + numbers[0] + "<br>" + numbers[0];
+      return numbers;
+    }
+
+    function chinese() {
+      let numbers = "〇,一,二,三,四,五,六,七,八,九,十".split(',');
+      for (n = 11; n < 20; n++) {
+        numbers[n] = "十" + numbers[n - 10];
+      }
+      for (n = 20; n < 100; n++) {
+        if (n % 10 === 0) {
+          numbers[n] = numbers[~~(n / 10)] + "十";
+        } else {
+          numbers[n] = numbers[~~(n / 10)] + "十" + numbers[n % 10];
+        }
+      }
+      numbers[100] = "百";
+      return numbers;
+    }
+
+    function arabic() {
+      let numbers = [];
+      for (n = 0; n < 101; n++) {
+        numbers[n] = n.toString(10);
+      }
+      return numbers;
+    }
+
+    function hex() {
+      let numbers = [];
+      for (n = 0; n < 257; n++) {
+        numbers[n] = n.toString(16).toUpperCase();
+      }
+      return numbers;
+    }
+
+    function fadeOut() {
+      if (barBackground > 0) {
+        barBackground--;
+        inner.style.background = "#" + barBackground.toString(16).repeat(3);
+        setTimeout(fadeOut, 150);
+      } else if (textColor > 0) {
+        textColor--;
+        current.style.color = "#" + textColor.toString(16).repeat(3);
+        setTimeout(fadeOut, 300);
+      } else {
+          initialize();
+          setTimeout(nextStep, 5000);
+      }
+    }
+
+    function nextNumberSystem() {
+      percentSign = "%";
+      numberSystems.shift();
+      if (numberSystems.length > 0) {
+        i = 0;
+        console.log(numberSystems[0][1]);
+        flip = (numberSystems[0][1] === "א");
+        console.log(flip);
+        setTimeout(nextStep, 1000);
+      } else {
+        current.style.textAlign = "center";
+        current.innerHTML = "PROGRESS";
+        fadeOut();
+      }
+    }
+
+    function nextStep() {
+      if (i < numberSystems[0].length) {
+        var pause = (Math.random() > .05) ? 200 * Math.random() : Math.random() * 1500;
+        current.innerHTML = flip ? "%" + numberSystems[0][i] : numberSystems[0][i] + percentSign;
+        current.style.textAlign = flip ? "right" : "left";
+        inner.style.marginLeft = flip ? (99 - ((i + 1) / numberSystems[0].length) * 98) + "vw" : "1vw";
+        inner.style.width = ((i + 1) / numberSystems[0].length) * 98 + "vw";
+        i = i + 1;
+        setTimeout(nextStep, pause);
+      } else {
+        setTimeout(nextNumberSystem, 800);
+      }
+    }
+
+    function initialize() {
+      i = 0;
+      percentSign = "";
+      barBackground = 4;
+      textColor = 15;
+      inner.style.width = "0";
+      inner.style.background = "#444";
+      current.innerHTML = "";
+      current.style.textAlign = "left";
+      current.style.color = "#fff";
+      numberSystems = [none(), unary(), egyptian(), greek(), hebrew(), roman(), mayan(), chinese(), arabic(), hex()];
+    }
+    initialize();
+    setInterval(checkLabel, 500);
+    nextStep();
+  </script>
+</body>
+
+</html>

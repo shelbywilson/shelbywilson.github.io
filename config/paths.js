@@ -42,7 +42,7 @@ module.exports = {
       title: 'pattern finder',
     },
     rooms: {
-      output: 'room-with-a-window/index.html',
+      output: 'a-room-with-a-window/index.html',
       title: '⊞ □ ⊞ □ ⊞',
     },
     daffodils: {

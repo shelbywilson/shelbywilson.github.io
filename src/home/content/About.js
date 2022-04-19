@@ -9,15 +9,15 @@ export const About = () => {
         <div>
             <div className='img-container-padded first'>
                 <a href='https://github.com/shelbywilson/sfpc-rtp/tree/master/lillian'
-                    target='_blank' rel="noreferrer">
+                    target='_blank'>
                         <figure>
                             <img src={shelby} alt='Shelby' />
                         </figure>
                 </a>
                 <p style={{display: 'flex', justifyContent: 'space-between', margin: '60px 0'}}>
                     <a href='mailto:s.wilson024@gmail.com'>Email</a>
-                    <a href='https://github.com/shelbywilson' target='_blank' rel="noreferrer">Github</a>
-                    <a href='https://www.are.na/shelby-wilson' target='_blank' rel="noreferrer">Are.na</a>
+                    <a href='https://github.com/shelbywilson' target='_blank'>Github</a>
+                    <a href='https://www.are.na/shelby-wilson' target='_blank'>Are.na</a>
                 </p>
             </div>
 

@@ -54,7 +54,7 @@ export const Sketch = () => {
                 ))}
             </div>
             <figcaption>
-                Image of <a href="https://en.wikipedia.org/wiki/Platycodon" target="_blank" rel="noreferrer">balloon flower</a>, Wikimedia Commons
+                Image of <a href="https://en.wikipedia.org/wiki/Platycodon" target="_blank">balloon flower</a>, Wikimedia Commons
             </figcaption>
         </div>
     )

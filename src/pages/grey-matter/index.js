@@ -83,14 +83,12 @@ export const GreyMatter = () => {
                 <div className="d-flex flex-row">
                     <a className="arrow secondary-color" 
                         href="https://www.betsykenyon.com/" 
-                        rel="noopener noreferrer nofollow"
                         target="_blank">
                         Betsy Kenyon
                     </a>
                         &nbsp;•&nbsp;
                     <a className="arrow secondary-color" 
                         href="https://shelby.cool" 
-                        rel="noopener noreferrer nofollow"
                         target="_blank">
                             Shelby Wilson
                     </a>

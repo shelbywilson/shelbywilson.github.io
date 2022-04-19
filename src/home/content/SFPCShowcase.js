@@ -32,17 +32,17 @@ export const SFPCShowcase = () => {
             </p>
             <DecimalClock />
             <p>
-                Two incandescent lightbulbs cycle up and down at the rate of one decimal minute and ten decimal seconds, respectively. In front of these, an acrylic sheet painted with thermochromic pigment temporarily turns white as it heats up. The objects on the lower altar are a nod to the <a href='https://en.wikipedia.org/wiki/French_Republican_calendar' target='_blank' rel="noreferrer">French Republican calendar</a>, which designated a name from the rural economy for each day. Originally shown on December 1 and 2, or <a href='https://en.wikipedia.org/wiki/French_Republican_calendar#Autumn' target='_blank' rel="noreferrer">Frimaire</a> 11 and 12 — Wax and Horseradish.
+                Two incandescent lightbulbs cycle up and down at the rate of one decimal minute and ten decimal seconds, respectively. In front of these, an acrylic sheet painted with thermochromic pigment temporarily turns white as it heats up. The objects on the lower altar are a nod to the <a href='https://en.wikipedia.org/wiki/French_Republican_calendar' target='_blank'>French Republican calendar</a>, which designated a name from the rural economy for each day. Originally shown on December 1 and 2, or <a href='https://en.wikipedia.org/wiki/French_Republican_calendar#Autumn' target='_blank'>Frimaire</a> 11 and 12 — Wax and Horseradish.
             </p>
             <p>
-                The name '1010' refers to 1010<sub>2</sub> (binary) and the equivalent 10<sub>10</sub> (base-10). In addition, clock and watchmaters often <a href='https://en.wikipedia.org/wiki/Clock_face#Stylistic_development' target='_blank' rel="noreferrer">default to 10:10</a>.
+                The name '1010' refers to 1010<sub>2</sub> (binary) and the equivalent 10<sub>10</sub> (base-10). In addition, clock and watchmaters often <a href='https://en.wikipedia.org/wiki/Clock_face#Stylistic_development' target='_blank'>default to 10:10</a>.
             </p>
             <p>
                 Exhibited at SFPC Fall 2019 Showcase, New York, NY.
             </p>
             <p>
                 Covered by&nbsp;
-                <a href='https://www.creativeapplications.net/education/sfpc-fall-2019-student-showcase/' target='_blank' rel="noreferrer">
+                <a href='https://www.creativeapplications.net/education/sfpc-fall-2019-student-showcase/' target='_blank'>
                     Creative Applications
                 </a>.
             </p>
@@ -51,7 +51,7 @@ export const SFPCShowcase = () => {
             </p>
             <iframe style={{margin: '10vh auto 0 auto'}} src="https://player.vimeo.com/video/384268866" width="640" height="480" frameBorder="0" allow="autoplay; fullscreen; picture-in-picture"></iframe>
             <p>
-                View <a href='https://vimeo.com/384268866' target='_blank' rel="noreferrer">timelapse</a>, shot by <a href='https://estherbouquet.com' target='_blank' rel="noreferrer">Esther Bouquet</a> and edited by <a href='https://dgarfield.co/' target='_blank' rel="noreferrer">Danny Garfield</a>.
+                View <a href='https://vimeo.com/384268866' target='_blank'>timelapse</a>, shot by <a href='https://estherbouquet.com' target='_blank'>Esther Bouquet</a> and edited by <a href='https://dgarfield.co/' target='_blank'>Danny Garfield</a>.
             </p>
             <figure className='img-container-padded'>
                 <img src={progress1} alt='A plexiglass surface painted with thermochromic (heat-reactive) paint, held by a hand. The lightened area is a reaction from heat created by a lightbulb and will return to its original, darker color as it cools.'/>

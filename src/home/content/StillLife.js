@@ -19,10 +19,10 @@ export const StillLife = () => {
             className="full-mobile"
             loading='lazy'></iframe>
             <p>
-                A response to <a href='https://www.instagram.com/stillherestilllife/' target='_blank' rel="noopener noreferrer nofollow">@stillherestilllife</a> week <a href='https://www.instagram.com/p/CF785-vhhaG/' target='_blank' rel="noopener noreferrer nofollow">27</a>. Click to rotate, pan, zoom.
+                A response to <a href='https://www.instagram.com/stillherestilllife/' target='_blank'>@stillherestilllife</a> week <a href='https://www.instagram.com/p/CF785-vhhaG/' target='_blank'>27</a>. Click to rotate, pan, zoom.
             </p>
             <p>
-                View <a href="https://editor.p5js.org/shelbyw/present/WZD9BWwwQ" target='_blank' rel="noopener noreferrer nofollow">full screen</a> or <a href="https://editor.p5js.org/shelbyw/sketches/WZD9BWwwQ" target='_blank' rel="noopener noreferrer nofollow">online editor</a>.
+                View <a href="https://editor.p5js.org/shelbyw/present/WZD9BWwwQ" target='_blank'>full screen</a> or <a href="https://editor.p5js.org/shelbyw/sketches/WZD9BWwwQ" target='_blank'>online editor</a>.
             </p>
             <p>
                 View <a href="https://vimeo.com/509329812" target="-blank">time lapse</a>.

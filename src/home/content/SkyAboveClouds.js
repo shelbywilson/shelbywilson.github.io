@@ -10,7 +10,6 @@ export const SkyAboveCloudsContent = () => {
                 A procedurally generated recreation of Georgia O'Keeffe's Sky Above Clouds IV.
             </p>
             <a href='/sky-above-clouds' 
-                rel="noreferrer"
                 style={{display: 'block'}}>
                 <SkyAboveClouds />
             </a>

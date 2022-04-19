@@ -61,8 +61,18 @@
         }
     }
 }
-.align-items-center {
-    align-items: center;
+.text {
+    &-center {
+        text-align: center;
+    }
+}
+.align-items {
+    &-center {
+        align-items: center;
+    }
+    &-end {
+        align-items: flex-end;
+    }
 }
 .justify {
     &-center {
@@ -70,5 +80,10 @@
     }
     &-between {
         justify-content: space-between;
+    }
+    &-content {
+        &-end {
+            justify-content: end;
+        }
     }
 }

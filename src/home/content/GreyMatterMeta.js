@@ -9,7 +9,7 @@ export const GreyMatterMeta = () => {
     return (
         <div>
             <p>
-                Two procedurally generated animations <i>Threshold</i> and <i>In Tangent</i>, made in collaboration with <a href="https://www.betsykenyon.com/grey-matter" target="_blank" rel="noopener noreferrer nofollow">Betsy Kenyon</a>. These were installed as part of <a href="https://art.unc.edu/event/john-and-june-allcott-gallery-betsy-kenyon-grey-matter/" target="_blank" rel="noopener noreferrer nofollow">Grey Matter</a>, shown from Nov 5 - Dec 3, 2021.
+                Two procedurally generated animations <i>Threshold</i> and <i>In Tangent</i>, made in collaboration with <a href="https://www.betsykenyon.com/grey-matter" target="_blank">Betsy Kenyon</a>. These were installed as part of <a href="https://art.unc.edu/event/john-and-june-allcott-gallery-betsy-kenyon-grey-matter/" target="_blank" rel="noopener noreferrer nofollow">Grey Matter</a>, shown from Nov 5 - Dec 3, 2021.
             </p>
             <p>
                 <a href='/grey-matter' target="_blank">View full screen companion website</a>. Click on a title, outline, or invert to change modes:

@@ -10,7 +10,7 @@ export const TableTwoWays = () => {
                 <img src={table} alt='table upright' />
             </figure>
             <p>
-                In collaboration with <a href='https://spacefiller.space/' target='_blank' rel="noreferrer">Alex Miller</a>.
+                In collaboration with <a href='https://spacefiller.space/' target='_blank'>Alex Miller</a>.
             </p>
             <p>
                 Using: Baltic birch, dado blade

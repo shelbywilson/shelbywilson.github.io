@@ -87,7 +87,7 @@ export const sketches_content = [
             </p>
             <Sketch_2022_01_05 />
             <p>
-                <a href="/twenty-one-isometric-cubes" target="_blank" rel="noopener noreferrer nofollow">View full screen</a>.
+                <a href="/twenty-one-isometric-cubes" target="_blank">View full screen</a>.
             </p>
         </div>,
         using: ['SVG, SCSS, React.js'],
@@ -161,13 +161,13 @@ export const sketches_content = [
     },
     {
         title: "A Room with a Window",
-        id: "room-with-a-windo",
+        id: "room-with-a-window",
         desc: <p>A dark room gets progressively lighter each time the blinds are opened.</p>,
         thumb: room_with_a_window_thumb,
         thumb_alt: "A dark room and window with blinds. Light through the window creates shadows on the floor.",
         date: "2021-01-08",
         using: ["SCSS"],
-        url: "/room-with-a-window",
+        url: "/a-room-with-a-window",
     },
     {
         title: "Windows",

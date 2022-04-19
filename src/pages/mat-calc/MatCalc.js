@@ -16,7 +16,7 @@ export const MatCalc = () => {
     const [customFrameSize, setCustomFrameSize] = useState(false)
     const [image, setImage] = useState([6, 9]);
     const [matSize, setMatSize] = useState([frameSizes[1][0], frameSizes[1][1]])
-    const [imageBorder, setImageBorder] = useState([0.125, 0.125])
+    const [imageBorder, setImageBorder] = useState([0, 0])
     const [bottomWeight, setBottomWeight] = useState(0)
 
     const rotate = () => {
