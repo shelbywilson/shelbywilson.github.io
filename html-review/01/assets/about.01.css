@@ -101,3 +101,16 @@ main a:hover {
         line-height: 1.8;
     }
 }
+@media (min-width: 768px) {
+    details {
+        transform: skew(17deg, 0);
+        transform-origin: top right;
+    }
+    summary, dl {
+        transform: skew(-17deg, 0);
+        transform-origin: top right;
+    }
+    dl {
+        padding: 0 1.25rem;
+    }
+}

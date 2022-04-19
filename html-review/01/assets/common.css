@@ -29,13 +29,14 @@ html {
 header {
     justify-content: space-between;
     align-items: flex-end;
-    padding: 5rem 0.75rem 0.75rem;
+    padding: 5rem 0.75rem 1.25rem 0.75rem;
     background: var(--main);
 }
 @media (max-width: 767px) {
     header {
         flex-direction: column;
         align-items: flex-start;
+        padding-top: 8rem;
     }
 }
 footer,

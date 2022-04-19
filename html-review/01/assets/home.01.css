@@ -378,43 +378,6 @@ article.saloon:hover .right {
     -webkit-transform: rotateY(-48deg);
     transform: rotateY(-48deg);
 }
-article.activated:not(:hover).saloon {
-    -webkit-animation: z-index-animation 1s 1;
-    animation: z-index-animation 1s 1;
-}
-article.activated:not(:hover).saloon .left {
-    -webkit-animation: saloon-door-left 1s 1;
-    animation: saloon-door-left 1s 1;
-}
-article.activated:not(:hover).saloon .right {
-    -webkit-animation: saloon-door-right 1s 1;
-    animation: saloon-door-right 1s 1;
-}
-article.activated:not(:hover).door {
-    -webkit-animation: z-index-animation 1s 1;
-    animation: z-index-animation 1s 1;
-}
-article.activated:not(:hover).door .left {
-    -webkit-animation: door-close 1s 1;
-    animation: door-close 1s 1;
-}
-article.activated:not(:hover).door .right {
-    -webkit-animation: door-close 1s 1;
-    animation: door-close 1s 1;
-}
-/* article.activated:not(:hover).cabinet .left {
-    -webkit-animation: bounce 0.4s 1;
-    animation: bounce 0.4s 1;
-} */
-article.activated:not(:hover).blinds {
-    -webkit-animation: z-index-animation 0.77s 1;
-    animation: z-index-animation 0.77s 1;
-}
-article.activated:not(:hover).drawer,
-article.activated:not(:hover).hatch {
-    -webkit-animation: z-index-animation 0.4s 1;
-    animation: z-index-animation 0.4s 1;
-}
 .article-container {
     background: linear-gradient(180deg, var(--grad-2), var(--grad-1));
     display: grid;
@@ -428,19 +391,6 @@ article.activated:not(:hover).hatch {
     content: "";
     position: absolute;
     width: 100%;
-}
-@media (max-width: 767px) {
-    .article-container {
-        grid-template-columns: 1fr;
-    }
-    .article-container article {
-        min-height: 67vw;
-    }
-}
-@media (min-width: 1200px) {
-    .article-container {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
 }
 .article-link {
     background: hsla(0, 0%, 100%, 0);
@@ -539,5 +489,55 @@ article.activated:not(:hover).hatch {
 @media (max-width: 767px) {
     .mobile-warning:not(.dismissed) {
         display: block;
+    }
+    .article-container {
+        grid-template-columns: 1fr;
+    }
+    .article-container article {
+        min-height: 67vw;
+    }
+}
+@media (min-width: 1200px) {
+    .article-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+@media (min-width: 768px) {
+    article.activated:not(:hover).saloon {
+        -webkit-animation: z-index-animation 1s 1;
+        animation: z-index-animation 1s 1;
+    }
+    article.activated:not(:hover).saloon .left {
+        -webkit-animation: saloon-door-left 1s 1;
+        animation: saloon-door-left 1s 1;
+    }
+    article.activated:not(:hover).saloon .right {
+        -webkit-animation: saloon-door-right 1s 1;
+        animation: saloon-door-right 1s 1;
+    }
+    article.activated:not(:hover).door {
+        -webkit-animation: z-index-animation 1s 1;
+        animation: z-index-animation 1s 1;
+    }
+    article.activated:not(:hover).door .left {
+        -webkit-animation: door-close 1s 1;
+        animation: door-close 1s 1;
+    }
+    article.activated:not(:hover).door .right {
+        -webkit-animation: door-close 1s 1;
+        animation: door-close 1s 1;
+    }
+    /* article.activated:not(:hover).cabinet .left {
+        -webkit-animation: bounce 0.4s 1;
+        animation: bounce 0.4s 1;
+    } */
+    article.activated:not(:hover).blinds {
+        -webkit-animation: z-index-animation 0.77s 1;
+        animation: z-index-animation 0.77s 1;
+    }
+    article.activated:not(:hover).drawer,
+    article.activated:not(:hover).hatch {
+        -webkit-animation: z-index-animation 0.4s 1;
+        animation: z-index-animation 0.4s 1;
     }
 }
