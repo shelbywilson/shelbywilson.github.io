@@ -1,6 +1,7 @@
 article {
     position: relative;
     z-index: 1;
+    height: 100%;
 }
 article .description-container {
     bottom: 1rem;
@@ -96,6 +97,7 @@ article.blinds {
     height: calc(100% - 0.625rem);
     margin: 0.25rem;
     width: calc(100% - 0.5rem);
+    transform: translate3d(0, 0, 100px);
 }
 article.blinds .article-content {
     display: block;
