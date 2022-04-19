@@ -94,11 +94,12 @@ footer .footer-content {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    padding: 1.25rem;
+    padding: 1rem 1.25rem;
 }
 footer a {
     color: var(--color-2);
     margin: 0 1.25rem 0 0;
+    line-height: 2;
 }
 main {
     margin-bottom: 311px;

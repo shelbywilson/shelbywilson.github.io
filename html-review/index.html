@@ -12,8 +12,8 @@
         <meta property="og:title" content="the html review" />
         <meta property="og:description" content="the html review is an annual journal of literature made to exist on the web" />
         <title>the html review</title>
-        <link rel="stylesheet" type="text/css" href="01/assets/common.css" />
-        <link rel="stylesheet" type="text/css" href="01/assets/animations.css" />
+        <link rel="stylesheet" type="text/css" href="01/assets/common.01.css" />
+        <link rel="stylesheet" type="text/css" href="01/assets/animations.01.css" />
         <link rel="stylesheet" type="text/css" href="01/assets/home.01.css" />
         <link rel="icon" href="favicon.ico" />
 
@@ -22,7 +22,7 @@
 
             function changeMode(mode) {
                 if (mode === 'mix') {
-                    randomizeModes();
+                    shuffle();
                 } else {
                     var articles = document.querySelectorAll('article, body');
                     for (var i = 0; i < articles.length; i++) {
@@ -32,7 +32,7 @@
                 document.querySelector('select').value = mode;
             }
 
-            function randomizeModes() {
+            function shuffle() {
                 var offset = Math.floor(Math.random() * 6); 
                 var articles = document.querySelectorAll('article');
 
@@ -42,7 +42,8 @@
             }
 
             window.addEventListener("load", function() { 
-                document.querySelector('select').value = 'mix';
+                var mode = modes[Math.floor(Math.random() * modes.length)]
+                changeMode(mode)
 
                 var articles = document.querySelectorAll('article');
 
@@ -77,7 +78,7 @@
         <main>
             <section>
                 <div class="article-container">
-                    <article class="blinds">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -155,7 +156,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="saloon">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -234,7 +235,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="hatch">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -313,7 +314,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="window">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -407,9 +408,9 @@
                                 </div>
                                 <p class="short-desc">
                                         welcome aboard
-                                        <br/><br/>
+                                        <br/>
                                         26F
-                                        <br/><br/>
+                                        <br/>
                                         play our entertainment selection
                                 </p>
                             </div>
@@ -478,7 +479,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="cabinet">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -555,7 +556,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="blinds">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -564,7 +565,7 @@
                                     </p>
                                 </div>
                                 <p class="short-desc">
-                                    This computational poem is free software. You are encouraged to study the source and welcome to modify it. You many need to install Linux for complete glyph coverage.
+                                    This computational poem is free software. You are encouraged to study the source and welcome to modify it. You may need to install Linux for complete glyph coverage.
                                 </p>
                             </div>
                         </div>
@@ -632,7 +633,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="saloon">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -727,7 +728,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="hatch">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -804,7 +805,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="window">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -961,7 +962,7 @@
                             </div>
                         </div>
                     </article>
-                    <article class="cabinet">
+                    <article class="door">
                         <div class="description-container">
                             <div>
                                 <div class="long-desc">
@@ -1046,8 +1047,8 @@
             <div class="footer-content">
                 <nav>
                     <a href="01/a-letter-from-the-editor.html">about</a>
-                    <a href="contributors.html">contributors</a>
                     <a href="faq.html">faq</a>
+                    <a href="contributors.html">contributors</a>
                 </nav>
                 <select onchange="changeMode(value)">
                     <option value="blinds">blinds</option>

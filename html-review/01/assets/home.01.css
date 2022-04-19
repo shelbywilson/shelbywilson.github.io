@@ -456,7 +456,9 @@ article.saloon:hover .right {
 .mobile-warning h2 {
     font-family: serif;
     padding: 0;
+    font-size: 2rem;
     font-weight: 400;
+    text-align: center;
 }
 .mobile-warning h2,
 .mobile-warning p {

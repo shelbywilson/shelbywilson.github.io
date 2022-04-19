@@ -57,6 +57,7 @@ li a:first-child:hover:after {
     width: 1rem;
     margin: 0.5rem;
     border-radius: 100%;
+    bottom: 0;
 }
 li a:last-child:hover:before {
     left: 0;
