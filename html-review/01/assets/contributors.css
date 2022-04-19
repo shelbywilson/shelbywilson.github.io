@@ -45,11 +45,11 @@ li a:last-child {
 li::marker {
     content: '';
 }
-ul a {
+li a {
     position: relative;
 }
-ul a:last-child:hover:before,
-ul a:first-child:hover:after {
+li a:last-child:hover:before,
+li a:first-child:hover:after {
     content: '';
     position: absolute;
     background: var(--accent-2);
@@ -58,8 +58,10 @@ ul a:first-child:hover:after {
     margin: 0.5rem;
     border-radius: 100%;
 }
-
-ul a:first-child:hover:after {
+li a:last-child:hover:before {
+    left: 0;
+}
+li a:first-child:hover:after {
     right: 0;
 }
 @media (max-width: 767px) {
