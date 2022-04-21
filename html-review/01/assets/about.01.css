@@ -77,19 +77,21 @@ section p, details {
 section p {
     line-height: 2;
 }
-dl {
-    margin-bottom: 0;
-}
 details {
     margin: 2rem 0;
-    padding: 1.25rem;
+    padding: 0;
     border: 1px solid var(--accent-1);
 }   
 summary {
+    padding: 1.25rem;
     cursor: pointer;
 }
 main a:hover {
     color: var(--accent-2);
+}
+dl {
+    margin: 0;
+    padding: 0 1.25rem 1.25rem 1.25rem;
 }
 @media (max-width: 767px) {
     main {
@@ -106,11 +108,14 @@ main a:hover {
         transform: skew(17deg, 0);
         transform-origin: top right;
     }
+    summary {
+        padding: 1.25rem 2rem;
+    }
     summary, dl {
         transform: skew(-17deg, 0);
         transform-origin: top right;
     }
     dl {
-        padding: 0 1.25rem;
+        padding: 0 2rem 1.25rem 2rem;
     }
 }

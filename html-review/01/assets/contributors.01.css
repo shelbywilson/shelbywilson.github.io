@@ -33,6 +33,7 @@ li a {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    position: relative;
 }
 li > span {
     display: flex;
@@ -41,12 +42,13 @@ li > span {
 }
 li a:last-child {
     text-align: right;
+    padding-left: 0.5rem;
+}
+li a:first-child {
+    padding-right: 0.5rem;
 }
 li::marker {
     content: '';
-}
-li a {
-    position: relative;
 }
 li a:last-child:hover:before,
 li a:first-child:hover:after {
