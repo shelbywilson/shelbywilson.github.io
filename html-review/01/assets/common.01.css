@@ -106,6 +106,7 @@ main {
     position: relative;
     background: var(--bg);
     z-index: 1;
+    overflow-x: hidden;
 }
 h1 {
     font-family: serif;
