@@ -13,19 +13,10 @@ export const Home = () => {
     const [expand, setExpand] = useState(false);
     const [scrollTop, setScrollTop] = useState(3);
     const [detail, setDetail] = useState(null)
-    const [time, setTime] = useState(new Date().getMinutes() * 6 + (new Date().getMinutes() % 2 === 0 ? 90 : 0));
     const [init, setInit] = useState(false);
 
     useEffect( () => {
         setDetailFromHash();
-
-        let interval = setInterval(() => {
-            setTime(new Date().getMinutes() * 6 + (new Date().getMinutes() % 2 === 0 ? 90 : 0))
-        }, 30000)
-
-        return () => {
-            clearInterval(interval);
-        }
     }, [])
 
     useEffect(() => {
@@ -100,6 +91,7 @@ export const Home = () => {
     
     const sections = [
         'sketches',
+        // 'the_html_review',
         'grey_matter',
         'vases',
         'daffodils',
@@ -143,7 +135,6 @@ export const Home = () => {
                 expand={expand}
                 detail={detail}
                 sections={sections}
-                indicatorStyle={{filter: `hue-rotate(${time - 180}deg)`}}
                 />
         </div>
     )

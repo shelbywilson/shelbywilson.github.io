@@ -99,9 +99,5 @@ module.exports = {
       output: 'mat-calc/index.html',
       title: 'mat calc',
     },
-    'html-review': {
-      output: 'html-review/layout-1/index.html',
-      title: 'html review',
-    }
   }
 }

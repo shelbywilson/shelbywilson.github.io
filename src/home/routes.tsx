@@ -14,6 +14,7 @@ import daffodils_img from './../images/home/daffodils.png';
 import windows_img from './../images/home/windows.jpg';
 import vases_img from './../images/sketches/thumbnails/vases_thumb.png';
 import cafes_thumb from './../images/cafes/cafes_thumb.png';
+import the_html_review_img from './../images/home/the_html_review_3.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -58,6 +59,16 @@ export const getRouteById = (id: string) => {
 }
 
 export const routes: Array<Route> = [
+    {
+        id: 'the_html_review',
+        url: '/#/the-html-review',
+        title: 'the html review',
+        year: 2022,
+        type: PageTypes.WEBSITE,
+        using: [TechnologyTypes.HTML, TechnologyTypes.CSS],
+        img: the_html_review_img,
+        dark: true,
+    },
     {
         id: 'mat_calc',
         url: '/mat-calc',

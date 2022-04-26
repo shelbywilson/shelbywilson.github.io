@@ -57,7 +57,6 @@ export const Footer = (props) => {
             </div>
             <a href='/#/about'  
                 onClick={(e) => onClickLink(e)}
-                style={props.indicatorStyle}
                 className='footer-indicator'>    
             </a>
         </footer>
