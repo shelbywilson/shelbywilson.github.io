@@ -15,6 +15,13 @@
         <title>SPACE•SWILLER</title>
         <link  rel="shortcut icon" type="image/png" href="alex.png" />
         <style>
+            @keyframes spin {
+                0% { transform: rotate(0); }
+                25% { transform: translateX(90deg); }
+                50% { transform: translateX(180deg); }
+                75% { transform: translateX(270deg); }
+                100% { transform: rotate(360deg) }
+            }
             * {
                 box-sizing: border-box;
                 font-family: "Helvetica Neue";
@@ -22,10 +29,12 @@
             html, body {
                 margin: 0;
                 font-size: 16px;
+                background: #fff;
             }
             body {
                 margin: 0 auto;
                 max-width: 380px;
+                overflow-x: hidden;
             }
             main {
                 padding: 0 1.5rem 1.5rem 1.5rem;
@@ -35,16 +44,14 @@
             }
             h2, h3, p {
                 line-height: 1.25em;
-            }
-            h2, .large {
                 font-size: 1rem;
             }
             h2 {
                 font-weight: 700;
+                white-space: nowrap;
             }
             h3, p {
                 margin: 0;
-                font-size: 0.75rem;
                 font-weight: 400;
             }
             section {
@@ -53,17 +60,18 @@
             img {
                 display: block;
                 max-width: 100%;
+                animation: spin 30s infinite linear;
             }
             .alex {
-                max-width: 80px;
+                max-width: 90px;
                 box-sizing: content-box;
                 padding: 1rem;
-                margin: 7rem auto 1rem auto;
+                margin: 0 auto;
             }
             .secret {
                 opacity: 0;
-                margin: 1rem 0;
                 transition: opacity 1s;
+                color: #C6127E;
             }
         </style>
         <script>
@@ -87,9 +95,20 @@
                 </svg>                    
         </div>
         <main>
-            <p class="large">
+            <p>
                 SPACE•SWILLER is a mezcal collaboration concept. Through the use of generative algorithmic pouring, chalice-based projection, and tactile mixing, SPACE•SWILLER seeks to establish beverages for experimentation, play, and discovery.
             </p>
+            <section>
+                <h2>
+                    Particle Collider
+                </h2>
+                <h3>
+                    BOOZY • CHILI • CHOCOLATE • AGAVE
+                </h3>
+                <p>
+                    Starts strong. A punchy Mezcal Old Fashioned with lingering spice. For those that like experimentation.
+                </p>
+            </section>
             <section>
                 <h2>
                     Living Walls
@@ -99,17 +118,6 @@
                 </h3>
                 <p>
                     A full bodied Mezcal Sour with mixing notes of sweet, sour & savory. For those who like play.
-                </p>
-            </section>
-            <section>
-                <h2>
-                    Particle Collider
-                </h2>
-                <h3>
-                    BOOZY • CHILI • CHOCOLATE • AGAVE
-                </h3>
-                <p>
-                    Starts strong and A punchy Mezcal Old Fashioned with lingering spice. For those that like experimentation.
                 </p>
             </section>
             <section>
@@ -145,9 +153,6 @@
                     Crisp & Canned. For those who like water.
                 </p>
             </section>
-            <div role="button" class="alex">
-                <img src="alex.png" alt="cutie" />
-            </div>
             <section class="secret">
                 <h2>
                     Fantasy Parameter Spaces
@@ -155,14 +160,19 @@
                 <h3>
                     FRUITY • SECRETIVE • FLIRTY?
                 </h3>
-                <p>
+                <p style="margin: 1rem 0">
                     Highly Limited Quanity, some things don’t last forever.
                 </p>
-                <p>
+                <p style="margin: 1rem 0">
                     A smokier sex on the beach. If anyone asks what you’re drinking you have no idea what they are talking about.
-                    What happens under Alex’s head stays under Alex’s head.
+                </p>
+                <p>
+                    What happens above Alex’s head stays above Alex’s head.
                 </p>
             </section>
+            <div role="button" tabindex="0" class="alex">
+                <img src="alex.png" alt="cutie" />
+            </div>
         </main>
     </body>
 </html>
