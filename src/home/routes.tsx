@@ -14,7 +14,7 @@ import daffodils_img from './../images/home/daffodils.png';
 import windows_img from './../images/home/windows.jpg';
 import vases_img from './../images/sketches/thumbnails/vases_thumb.png';
 import cafes_thumb from './../images/cafes/cafes_thumb.png';
-import the_html_review_img from './../images/home/the_html_review_3.png';
+import the_html_review_img from './../images/home/the_html_review_2.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -61,7 +61,7 @@ export const getRouteById = (id: string) => {
 export const routes: Array<Route> = [
     {
         id: 'the_html_review',
-        url: '/#/the-html-review',
+        url: 'https://thehtml.review',
         title: 'the html review',
         year: 2022,
         type: PageTypes.WEBSITE,
@@ -255,7 +255,7 @@ export const routes: Array<Route> = [
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 10 January 2022',
+        year: 'Last updated 27 April 2022',
     },
     {
         id: 'cafes',
