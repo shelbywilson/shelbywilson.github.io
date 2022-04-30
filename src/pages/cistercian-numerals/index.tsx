@@ -1,11 +1,11 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
+import React, { useState, useEffect, CSSProperties, FunctionComponent } from 'react';
 import Digits from './Digits';
 
 export const height = 80;
 export const width = 50;
 export const outline: CSSProperties = {stroke: "#000", strokeWidth: 2, strokeLinecap: "round"};
 
-export const CistercianNumerals = () => {
+export const CistercianNumerals: FunctionComponent = () => {
     const [value, setValue] = useState('');
     const [example, setExample] = useState(0)
 

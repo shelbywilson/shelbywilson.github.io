@@ -4,7 +4,6 @@ import TransitionChart from './TransitionChart';
 import TransitionChartTwo from './TransitionChartTwo';
 import InteractiveGradients from './index-2';
 import UsingList from '../../common/UsingList';
-import { getTechnologies } from '../../home/routes';
 
 export const Explanation = ({layers, state, getStyle}) => {
     return (
@@ -66,7 +65,7 @@ export const Explanation = ({layers, state, getStyle}) => {
                 View <a href='/gradients/2.html'>interactive version</a>.    
             </p>
 
-            <UsingList list={getTechnologies('gradients')} />
+            <UsingList list={[`SCSS`, `React for state`, `d3 for diagrams`]} />
         </div>
     )
 }

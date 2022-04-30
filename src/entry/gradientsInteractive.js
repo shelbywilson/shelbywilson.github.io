@@ -5,12 +5,12 @@ import { BrowserRouter } from "react-router-dom";
 import './../header/_header.scss';
 import './../header/_header-light.scss';
 
-import Gradients from '../pages/gradients/index-2';
+import InteractiveGradients from '../pages/gradients/index-2';
 import Header from '../header/Header';
 
 ReactDOM.render(
   <BrowserRouter>
     <Header url='/#/gradients' />
-    <Gradients />
+    <InteractiveGradients />
   </BrowserRouter>
   , document.getElementById('root'));

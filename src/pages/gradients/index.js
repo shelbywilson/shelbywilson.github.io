@@ -11,7 +11,7 @@ const getRandomRGB = () => {
     };
 }
 
-export const Gradients = ({explain = false, children = null}) => {
+export const Gradients = ({explain = false}) => {
     const [state, setState] = useState({
         base: getRandomRGB(),
         opacity: 1,
@@ -94,8 +94,6 @@ export const Gradients = ({explain = false, children = null}) => {
                 <div className='gradients-layer' style={{...getStyle('base'), zIndex: 5}}>
                 </div>
             </div>
-
-            {children}
 
             {explain &&
                 <Explanation layers={layers}
