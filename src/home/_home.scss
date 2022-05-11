@@ -150,6 +150,15 @@
                 border: 1px solid #000;
             }
         }
+        &.the_html_review {
+            > div {
+                padding: $margin * 5 $margin * 1.5;
+                background: dodgerblue;
+            }
+            img {
+                border: 1px solid dodgerblue;
+            }
+        }
         &.gradients {
             overflow: hidden;
             .gradients {

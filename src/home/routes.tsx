@@ -14,7 +14,7 @@ import daffodils_img from './../images/home/daffodils.png';
 import windows_img from './../images/home/windows.jpg';
 import vases_img from './../images/sketches/thumbnails/vases_thumb.png';
 import cafes_thumb from './../images/cafes/cafes_thumb.png';
-import the_html_review_img from './../images/home/the_html_review_2.png';
+import the_html_review_img from './../images/home/the_html_review_4.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';

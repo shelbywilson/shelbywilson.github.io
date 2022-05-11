@@ -103,5 +103,9 @@ module.exports = {
       output: 'mat-calc/index.html',
       title: 'mat calc',
     },
+    tunnel: {
+      output: 'tunnel/index.html',
+      title: 'tunnel',
+    },
   }
 }

@@ -49,7 +49,7 @@ export const sketches_content = [
         thumb: _2022_04_10_thumb,
         thumb_alt: 'Noisy dotted lines.',
         sketch: <Sketch_2022_04_10 />,
-        using: ["Perlin noise", "d3"],
+        using: ["d3"],
     },
     {
         title: "2022-02-22",
