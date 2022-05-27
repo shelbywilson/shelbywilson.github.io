@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { WEBGL } from '../../../common/webgl';
+import { WEBGL } from '../../../../common/webgl';
 import { petal } from './components/petal';
 
 export default () => {
