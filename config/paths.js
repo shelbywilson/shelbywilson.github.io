@@ -107,9 +107,9 @@ module.exports = {
       output: 'tunnel/index.html',
       title: 'tunnel',
     },
-    daisies: {
-      output: 'daisies/index.html',
-      title: 'daisies',
-    },
+    // daisies: {
+    //   output: 'daisies/index.html',
+    //   title: 'daisies',
+    // },
   }
 }
