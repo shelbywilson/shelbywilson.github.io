@@ -1,3 +1,6 @@
+html, body {
+    overflow: hidden;
+}
 body, canvas {
     margin: 0;
     cursor: pointer;
