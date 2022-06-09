@@ -1,54 +1,54 @@
-const petal = (bend) => {
+const petal = () => {
     const petalShape = new THREE.Shape();
-    const scale = 220;
+    const scale = 240;
     const cps = [
         [
             {
-                "x": -20,
-                "y": -15 - 10
+                "x": -30,
+                "y": -10 - 10
             },
             {
-                "x": -20,
-                "y": -15 - 126
+                "x": -30,
+                "y": -10 - 180
             }
         ],
         [
             {
                 "x": 33,
-                "y": -15 - 0
+                "y": -10 - 0
             },
             {
-                "x": -34,
-                "y": -15 - 0
+                "x": -33,
+                "y": -10 - 0
             }
         ],
         [
             {
-                "x": 20,
-                "y": -15 - 126
+                "x": 30,
+                "y": -10 - 180
             },
             {
-                "x": 20,
-                "y": -15 - 10
+                "x": 30,
+                "y": -10 - 10
             }
         ],
     ]
     const vs = [
         {
             "x": 0,
-            "y": -15 - 240
+            "y": 1 - 240
         },
         {
-            "x": -30,
-            "y": -15 - 58
+            "x": -33,
+            "y": 1 - 90
         },
         {
             "x": 0,
-            "y": -15 - 0
+            "y": 1 - 0
         },
         {
-            "x": 30,
-            "y": -15 - 58
+            "x": 33,
+            "y": 1 - 90
         },
     ]
 
@@ -84,7 +84,6 @@ const petal = (bend) => {
         vs[1].y / scale
     )
 
-
     const extrudeSettings = {
         steps: 2,
         depth: 0.001,
@@ -98,8 +97,7 @@ const petal = (bend) => {
     const geometry = new THREE.ExtrudeGeometry( petalShape, extrudeSettings );
     const material = new THREE.MeshPhongMaterial( { color: 0xffffff } );
 
-    geometry.translate(0, 1, 0)
-    geometry.rotateX(Math.PI / 30 * bend)
+    geometry.translate(0, 1.23, 0)
 
     const mesh = new THREE.Mesh( geometry, material ) ;
     

@@ -26,7 +26,7 @@ let offset = [];
 let delay = [];
 let flowers = [];
 let focusPoints = [];
-let petals = [];
+// let petals = [];
 let stats;
 let shuffledI = [];
 let scene;
@@ -54,7 +54,7 @@ function onmousemove(event) {
     autoPilotTimeout = setTimeout(() => {
         autoPilot = true;
         document.querySelector('canvas').style.cursor = 'none'
-    }, 5000)
+    }, 7000)
 }
 
 function handleLightAnimation(event) {
@@ -84,7 +84,7 @@ function init() {
     if (WEBGL.isWebGLAvailable()) {
         scene = new THREE.Scene();
         // scene.background = new THREE.Color( `hsl(240, 87%, 91%)`);
-        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 20);
+        camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 20);
 
         light = new THREE.PointLight(0xf0ffff, 0.6);
         light.position.set(-10, 15, 0);
@@ -108,6 +108,8 @@ function init() {
         // const gui = new GUI();
         // gui.add( light, 'position', 1, 10, 1 );
 
+        let petalMesh = petal();
+
         for(let i = 0; i < settings.rows * settings.perRow; i += 1) {
             let x = getIndex(i);
             let daisy = new THREE.Group();
@@ -115,38 +117,40 @@ function init() {
 
             // daisy.add(stem())
 
-            let centerGeom = new THREE.SphereBufferGeometry(0.37, 64, 32, 0, 2*Math.PI, 0, Math.PI/2)//THREE.CylinderGeometry(0.33, 0.33, 0.2, 20);
-            centerGeom.translate(0, 0, 0);
+            let centerGeom = new THREE.SphereBufferGeometry(0.37, 64, 32, 0, 2*Math.PI, 0, Math.PI * 0.45)//THREE.CylinderGeometry(0.33, 0.33, 0.2, 20);
+            centerGeom.translate(0, -0.1, 0);
             centerGeom.rotateX(Math.PI * 1/2);
             let centerMat = new THREE.MeshLambertMaterial({color: 0xfec101});
             let center = new THREE.Mesh(centerGeom, centerMat);
 
-            let flowerPetals = [];
+            let flowerPetals = new THREE.Group();
 
             const numPetals = 15;
             for (let j = 0; j < numPetals; j += 1) {
-                let p = petal(j%3);
+                let p = petalMesh.clone()
 
-                p.geometry.rotateZ(Math.PI/numPetals + Math.PI/(numPetals/2) * j) 
-                p.geometry.rotateX(Math.PI/2)
-                p.lookAt(new THREE.Vector3(0, 1, 0));
-                flowerPetals.push(p);
-
-                daisyFlower.add(p)
+                // p.geometry.rotateX(Math.PI / 30 * (j%3))
+                // p.geometry.rotateZ(Math.PI/numPetals + Math.PI/(numPetals/2) * j) 
+                p.rotation.set(Math.PI / 30 * (j%3) + Math.PI/2, 0, Math.PI/numPetals + Math.PI/(numPetals/2) * j)
+                // p.lookAt(new THREE.Vector3(0, 1, 0));
+                flowerPetals.add(p);
             }
-            petals.push(flowerPetals)
+            flowerPetals.rotateX(Math.PI/2)
+
+            daisyFlower.add(flowerPetals)
+            // petals.push(flowerPetals)
 
             daisyFlower.add(center);
-            daisyFlower.position.set(0.16, 0.09, -3)
+            daisyFlower.position.set(0.16, 0.09, 0)
             daisy.add(daisyFlower);
 
             flowers.push(daisyFlower);
             focusPoints.push(new THREE.Vector2());
 
             daisy.position.set(
-                mapRange(x % settings.perRow, 0, settings.perRow - 1, -settings.perRow, settings.perRow) + offset[x]/3, // + (x%2) * 1.75 + ((x%rows)%2 * -1),
+                mapRange(x % settings.perRow, 0, settings.perRow - 1, -settings.perRow * 1.2, settings.perRow * 1.2) + offset[x]/3, // + (x%2) * 1.75 + ((x%rows)%2 * -1),
                 mapRange(x % settings.rows, 0, settings.rows - 1, settings.rows + 1.15, -settings.rows - 1.15) + offset[x],
-                -4 // mapRange(x % rows, 0, rows - 1, -7, -4),
+                -8 // mapRange(x % rows, 0, rows - 1, -7, -4),
             )
 
             scene.add(daisy);
@@ -195,7 +199,7 @@ function render() {
 
     t += 1;
     t %= Number.MAX_SAFE_INTEGER
-    const scaledT = t/250;
+    const scaledT = t/280;
     if (autoPilot) {
         handleLightAnimation({
             clientX: mapRange(Math.cos(scaledT/5) * Math.sin(scaledT * 2) * Math.atan(scaledT / 10), 1 + Math.PI/2, -1 - Math.PI/2, -50, window.innerWidth - 50), 
