@@ -150,7 +150,7 @@ function init() {
             daisy.position.set(
                 mapRange(x % settings.perRow, 0, settings.perRow - 1, -settings.perRow * 1.2, settings.perRow * 1.2) + offset[x]/3, // + (x%2) * 1.75 + ((x%rows)%2 * -1),
                 mapRange(x % settings.rows, 0, settings.rows - 1, settings.rows + 1.15, -settings.rows - 1.15) + offset[x],
-                -8 // mapRange(x % rows, 0, rows - 1, -7, -4),
+                -8.5 // mapRange(x % rows, 0, rows - 1, -7, -4),
             )
 
             scene.add(daisy);
