@@ -130,7 +130,7 @@ export const Cafes = () => {
                 <div className="cafes-sidebar-filters">
                     <header>
                         <h1>An Informal Survey of Seattle Cafés</h1>
-                        <a href={'/#/cafes'}>
+                        <a href={'/#/about-cafes'}>
                             <h3>info</h3>
                         </a>
                     </header>

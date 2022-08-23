@@ -15,6 +15,7 @@ import windows_img from './../images/home/windows.jpg';
 import vases_img from './../images/sketches/thumbnails/vases_thumb.png';
 import cafes_thumb from './../images/cafes/cafes_thumb.png';
 import the_html_review_img from './../images/home/the_html_review_4.png';
+import daisy_field_img from './../images/home/daisy-field.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -30,6 +31,7 @@ import Vurv from './content/Vurv';
 import Sketches from './content/Sketches';
 import Gradients from '../pages/gradients';
 import GradientsAbout from './content/GradientsAbout';
+import DaisyFieldAbout from './content/DaisyFieldAbout';
 
 import UsingList from '../common/UsingList';
 import GreyMatterSketch from '../pages/grey-matter/GreyMatterSketch';
@@ -59,6 +61,17 @@ export const getRouteById = (id: string) => {
 }
 
 export const routes: Array<Route> = [
+    {
+        id: 'daisy_field',
+        url: '/#/daisy-field',
+        title: 'Daisy Field',
+        dark: true,
+        year: 2022,
+        type: PageTypes.INSTALLATION,
+        content: <DaisyFieldAbout />,
+        img: daisy_field_img,
+        using: [TechnologyTypes.THREEJS, TechnologyTypes.PROJECTORS, 'trackpad', 'daisies'],
+    },
     {
         id: 'the_html_review',
         url: 'https://thehtml.review',
@@ -255,13 +268,13 @@ export const routes: Array<Route> = [
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 27 April 2022',
+        year: 'Last updated 22 August 2022',
     },
     {
         id: 'cafes',
         img: cafes_thumb,
         title: 'Seattle cafés',
-        url: '/#/cafes',
+        url: '/#/about-cafes',
         type: PageTypes.DATA_VISUALIZATION,
         using: [TechnologyTypes.D3, TechnologyTypes.GEO_JSON, TechnologyTypes.REACT],
         content: <div>

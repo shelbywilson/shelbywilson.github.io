@@ -1,4 +1,4 @@
-import cafes from "./data/survey/blank_survey.csv";
+import locations from "./data/survey/locations.csv";
 import survey_1 from "./data/survey/survey_am.csv";
 import survey_2 from "./data/survey/survey_sg.csv";
 import survey_3 from "./data/survey/survey_cb.csv";
@@ -48,12 +48,13 @@ export const selectStyles = {
     }),
   }
 
-export const cafeCoords = cafes.filter(cafe => !!cafe.Long).map((cafe) => {
+export const cafeCoords = locations.filter(cafe => !!cafe.Long).map((cafe) => {
     const coords = [parseFloat(cafe.Long), parseFloat(cafe.Lat)];
     return {
         type: "Feature",
         id: cafe.Name,
         cafe: cafe,
+        googlePlaceId: cafe.PlaceId,
         geometry: {
             type: "Point", 
             coordinates: coords,
@@ -123,7 +124,7 @@ export const getCafeRankings = (name, compact = false) => {
     let attrs = {
         "Overall": [],
     };
-    Object.keys(cafes[0]).forEach((attr) => (
+    Object.keys(survey_1[0]).forEach((attr) => (
         attrs[attr] = []
     ));
     [survey_1, survey_2, survey_3, survey_4, survey_5, survey_6, survey_7, survey_8].forEach(survey => {
@@ -151,7 +152,7 @@ export const getCafeRankings = (name, compact = false) => {
 }
 
 export const getAllCafeRankings = (filters, compact = false) => {
-    return cafes.map(cafe => {
+    return locations.map(cafe => {
         return getCafeRankings(cafe.Name, compact)
             
     }).filter(ranking => {

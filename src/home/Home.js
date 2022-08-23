@@ -91,6 +91,7 @@ export const Home = () => {
     
     const sections = [
         'sketches',
+        'daisy_field',
         'the_html_review',
         'grey_matter',
         'vases',
