@@ -16,7 +16,7 @@ export const DaisyFieldAbout = () => {
                 <iframe src="https://shelby.cool/daisy-field/" ></iframe>
             </div>
             <p>
-                <a href="/daisy-field">View full screen.</a>
+                <a href="/daisy-field" target="_blank">View full screen.</a>
             </p>
             <p>
                 Running in browser (as above), digital daisies were projected onto a 10'x20' wall. Viewers were invited to interact using the trackpad to move the light, which the digital daisies follow.
