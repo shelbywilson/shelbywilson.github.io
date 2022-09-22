@@ -1,6 +1,8 @@
 import React from 'react';
 import _ from "lodash";
 
+import "./../_cafes-ranking-amount.scss"
+
 export const RankingAmount = ({values}) => {
     const value = _.mean(values);
     const percent = value / 5;

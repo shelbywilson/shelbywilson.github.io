@@ -16,6 +16,7 @@ import vases_img from './../images/sketches/thumbnails/vases_thumb.png';
 import cafes_thumb from './../images/cafes/cafes_thumb.png';
 import the_html_review_img from './../images/home/the_html_review_4.png';
 import daisy_field_img from './../images/home/daisy-field.png';
+import pixel_sort_thumb from './../images/sketches/thumbnails/pixel_sort_thumb.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -32,6 +33,7 @@ import Sketches from './content/Sketches';
 import Gradients from '../pages/gradients';
 import GradientsAbout from './content/GradientsAbout';
 import DaisyFieldAbout from './content/DaisyFieldAbout';
+import PixelSort from '../pages/pixel-sort';
 
 import UsingList from '../common/UsingList';
 import GreyMatterSketch from '../pages/grey-matter/GreyMatterSketch';
@@ -39,6 +41,8 @@ import { PageTypes } from './types/page-types';
 import GreyMatterMeta from './content/GreyMatterMeta';
 import DaffodilsMeta from '../pages/sketches/daffodils/DaffodilsMeta';
 import { TechnologyTypes } from './types/technology-types';
+import CSSTapestry from '../pages/css-tapestry';
+import RankingAmount from '../pages/cafes/components/RankingAmount';
 
 export interface Route {
     id: string,
@@ -54,6 +58,7 @@ export interface Route {
     dark?: boolean,
     wide?: boolean,
     using?: Array<TechnologyTypes | string>,
+    noWrapper?: boolean,
 }
 
 export const getRouteById = (id: string) => {
@@ -61,6 +66,25 @@ export const getRouteById = (id: string) => {
 }
 
 export const routes: Array<Route> = [
+    {
+        id: 'css_tapestry',
+        url: '/#/css-tapestry',
+        title: 'css tapestry',
+        year: '2022-09-02',
+        content: <CSSTapestry />,
+        noWrapper: true,
+    },
+    {
+        id: 'sky_sort',
+        url: '/#/sky-sort',
+        title: 'sky sort',
+        year: '08-25-2022',
+        content: <PixelSort />,
+        noWrapper: true,
+        img: pixel_sort_thumb,
+        type: PageTypes.WEB_EXPERIMENT,
+        dark: true,
+    },
     {
         id: 'daisy_field',
         url: '/#/daisy-field',
@@ -290,11 +314,42 @@ export const routes: Array<Route> = [
                 <a href="/cafes">View full</a>
             </p>
             <p>
-                An informal ranking of Seattle area cafes among different metrics. 
+                An informal ranking of Seattle area cafes among different metrics. Filter by keyword, neighborhood, and name, and/or by clicking on map. 
             </p>
             <p>
-                Contact Alex Miller to take the survey.
+                Each metric will show range and average of scores, with color corresponding to average: 
             </p>
+            <div className="cafes d-flex flex-column align-items-center">
+                <div style={{margin: '0.5rem 0'}}>
+                    <RankingAmount values={[1,1,2]} />
+                </div>
+                <div style={{margin: '0.5rem 0'}}>
+                    <RankingAmount values={[1,2,5]} />
+                </div>
+                <div style={{margin: '0.5rem 0'}}>
+                    <RankingAmount values={[5]} />
+                </div>
+            </div>
+            <p>
+                Overall score is computed by averaging all scores across all metrics.
+            </p>
+            <p>
+                The map is generated using GeoJSON and d3, and each cafe is dynamically assigned a neighborhood based on its coordinates. Scores and comments are consumed via CSV-converted Google Sheets. 
+            </p>
+            <p>
+                Contact Alex Miller to take the survey :)
+            </p>
+            <p>
+                TODO
+            </p>
+            <ul>
+                <li>
+                    <em>Pretentiousness</em> is ambiguous; some scored high for very pretentious, some scored high for very not-pretentious. Rephrase or clarify to standardize scores
+                </li>
+                <li>
+                    Neighborhoods are maybe too granular, and not how folks actually refer to them. Remove grouping by smaller neighborhood (e.g. Broadway) and group by larger neighborhood only (e.g. Capitol Hill) 
+                </li>
+            </ul>
 
             <UsingList list={["d3.js", "GeoJSON", "React.js"]} />
         </div>

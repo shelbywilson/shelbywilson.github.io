@@ -18,29 +18,33 @@ export const HomeDetail = (props) => {
     return (
         <div className={`home-detail`}>
             <div className='home-detail-container'>
-                <div className={props.detail.wide ? '' : 'home-detail-right-align'}>
-                    <h2>
-                        <span>
-                            {props.detail.title}
-                        </span>
-                    </h2>
+                {props.detail.noWrapper ? 
+                    props.detail.content
+                    :
+                    <div className={props.detail.wide ? '' : 'home-detail-right-align'}>
+                        <h2>
+                            <span>
+                                {props.detail.title}
+                            </span>
+                        </h2>
 
-                    {props.detail.subtitle && <h3>{props.detail.subtitle}</h3>}
-                    
-                    <div className={`home-detail-content home-detail-${props.detail.id}`}>
-                        {type()}
+                        {props.detail.subtitle && <h3>{props.detail.subtitle}</h3>}
+                        
+                        <div className={`home-detail-content home-detail-${props.detail.id}`}>
+                            {type()}
 
-                        {props.detail.content}
+                            {props.detail.content}
 
-                        {props.detail.year ? 
-                            <p className='home-content-year'>
-                                {props.detail.year}&nbsp;&#9633;
-                            </p>
-                            :
-                            null
-                        }
+                            {props.detail.year ? 
+                                <p className='home-content-year'>
+                                    {props.detail.year}&nbsp;&#9633;
+                                </p>
+                                :
+                                null
+                            }
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     )

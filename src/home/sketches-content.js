@@ -18,6 +18,7 @@ import mat_calc_thumb from './../images/sketches/thumbnails/mat_calc_thumb.png';
 import falling_letters from './../images/sketches/thumbnails/falling_letters.png';
 import _2022_02_22_thumb from './../images/sketches/thumbnails/2022_02_22.png';
 import _2022_04_10_thumb from './../images/sketches/thumbnails/2022_04_10.png';
+import pixel_sort_thumb from './../images/sketches/thumbnails/pixel_sort_thumb.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
@@ -27,6 +28,7 @@ import Sketch_2022_01_05 from "../pages/sketches/2022-01-05/Container";
 import Sketch_2022_02_22 from "../pages/sketches/2022-02-22";
 import Sketch_2022_04_10 from "../pages/sketches/2022-04-10/index-1";
 import FallingLetters from "../pages/sketches/falling-letters/FallingLetters";
+import PixelSort from '../pages/pixel-sort';
 // import { Knights } from '../pages/sketches/knights';
 
 export const sketches_content = [
@@ -41,6 +43,15 @@ export const sketches_content = [
     //     using: ["React"],
     //     sketch: <Knights />
     // },
+    {
+        title: 'sky sort',
+        id: 'pixel_sort_thumb',
+        date: '2022-08-30',
+        desc: <p>Experiements with pixel sorting.</p>,
+        sketch: <PixelSort />,
+        thumb: pixel_sort_thumb,
+        url: '/#/sky-sort',
+    },
     {
         title: "2022-04-10",
         id: "2022-04-10",

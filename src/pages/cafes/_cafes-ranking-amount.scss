@@ -1,0 +1,10 @@
+@import "./cafes-vars";
+
+.cafes-ranking-amount {
+    &-label {
+        font-size: 0.75rem;
+        margin-left: 14px;
+        width: 16px;
+        font-weight: 100;
+    }
+}

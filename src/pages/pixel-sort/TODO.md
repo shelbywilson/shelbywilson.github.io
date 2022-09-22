@@ -1,0 +1,2 @@
+- find areas of high contrast / big deltas
+- sort by hsl

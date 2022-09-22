@@ -1,0 +1,21 @@
+@keyframes fade {
+    from {
+        background: #000;
+    }
+    to {
+        background: #fff;
+    }
+}
+
+.projection {
+    background: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: fade 20000ms infinite alternate;
+    &-wrapper {
+        position: absolute;
+        border-radius: 100%;
+        overflow: hidden;
+    }
+}

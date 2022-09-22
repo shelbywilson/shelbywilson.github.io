@@ -1,19 +1,9 @@
 @import "./../../home/partials/variables";
 @import "./../../base/partials/mixins";
+@import "./cafes-vars";
+@import "./cafes-ranking-amount";
 
 .cafes {
-    --ranking-good: #79d98c;
-    --ranking-average: #c1c1c1;
-    --ranking-bad: #ff9800;
-    --ranking-bg: #e6e6e6;
-    --ranking-range: #525252;
-    --accent: #b11414;
-    --accent-bright: #cc65f5;
-    --neighborhood: #efe3ff;
-    --neighborhood-outline: #cc65f5;
-    --coord: #700000;
-    --coord-selected: var(--accent);
-    --background: cornflowerblue;
     min-height: 100vh; 
     background: var(--background);
     header {
@@ -163,14 +153,6 @@
             }
             > div {
                 background: var(--ranking-range);
-            }
-        }
-        &-amount {
-            &-label {
-                font-size: 0.75rem;
-                margin-left: 14px;
-                width: 16px;
-                font-weight: 100;
             }
         }
     }
