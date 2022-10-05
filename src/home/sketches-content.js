@@ -19,6 +19,7 @@ import falling_letters from './../images/sketches/thumbnails/falling_letters.png
 import _2022_02_22_thumb from './../images/sketches/thumbnails/2022_02_22.png';
 import _2022_04_10_thumb from './../images/sketches/thumbnails/2022_04_10.png';
 import pixel_sort_thumb from './../images/sketches/thumbnails/pixel_sort_thumb.png';
+import textonyms_thumb from './../images/sketches/thumbnails/textonyms.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
@@ -44,6 +45,15 @@ export const sketches_content = [
     //     sketch: <Knights />
     // },
     {
+        title: 't9 textonyms',
+        id: 'textonyms',
+        date: '2022-10-04',
+        desc: <p>A thesaurus of T9 textonyms.</p>,
+        url: 'https://shelby.cool/textonyms',
+        thumb: textonyms_thumb,
+        using: ['Python', 'SVG'],
+    },
+    {
         title: 'sky sort',
         id: 'pixel_sort_thumb',
         date: '2022-08-30',
@@ -51,6 +61,7 @@ export const sketches_content = [
         sketch: <PixelSort />,
         thumb: pixel_sort_thumb,
         url: '/#/sky-sort',
+        using: ['Canvas'],
     },
     {
         title: "2022-04-10",
