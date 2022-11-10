@@ -41,7 +41,6 @@ import { PageTypes } from './types/page-types';
 import GreyMatterMeta from './content/GreyMatterMeta';
 import DaffodilsMeta from '../pages/sketches/daffodils/DaffodilsMeta';
 import { TechnologyTypes } from './types/technology-types';
-import CSSTapestry from '../pages/css-tapestry';
 import RankingAmount from '../pages/cafes/components/RankingAmount';
 
 export interface Route {
@@ -66,14 +65,6 @@ export const getRouteById = (id: string) => {
 }
 
 export const routes: Array<Route> = [
-    {
-        id: 'css_tapestry',
-        url: '/#/css-tapestry',
-        title: 'css tapestry',
-        year: '2022-09-02',
-        content: <CSSTapestry />,
-        noWrapper: true,
-    },
     {
         id: 'sky_sort',
         url: '/#/sky-sort',

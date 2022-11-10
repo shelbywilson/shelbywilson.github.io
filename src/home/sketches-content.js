@@ -20,6 +20,8 @@ import _2022_02_22_thumb from './../images/sketches/thumbnails/2022_02_22.png';
 import _2022_04_10_thumb from './../images/sketches/thumbnails/2022_04_10.png';
 import pixel_sort_thumb from './../images/sketches/thumbnails/pixel_sort_thumb.png';
 import textonyms_thumb from './../images/sketches/thumbnails/textonyms.png';
+import css_tapestry_thumb from './../images/sketches/thumbnails/css_tapestry.png';
+import field_of_flowers_thumb from './../images/sketches/thumbnails/field_of_flowers.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
@@ -30,6 +32,7 @@ import Sketch_2022_02_22 from "../pages/sketches/2022-02-22";
 import Sketch_2022_04_10 from "../pages/sketches/2022-04-10/index-1";
 import FallingLetters from "../pages/sketches/falling-letters/FallingLetters";
 import PixelSort from '../pages/pixel-sort';
+import CSSTapestry from '../pages/css-tapestry';
 // import { Knights } from '../pages/sketches/knights';
 
 export const sketches_content = [
@@ -44,6 +47,23 @@ export const sketches_content = [
     //     using: ["React"],
     //     sketch: <Knights />
     // },
+    {
+        id: 'field_of_flowers',
+        title: 'field of flowers',
+        date: '2022-10-24',
+        url: 'https://shelby.cool/field-of-flowers/',
+        thumb: field_of_flowers_thumb,
+        using: ['d3', 'SVG'],
+    },
+    {
+        id: 'css_tapestry',
+        title: 'css tapestry',
+        date: '2022-09-02',
+        sketch: <CSSTapestry />,
+        thumb: css_tapestry_thumb,
+        wide: true,
+        using: ['CSS'],
+    },
     {
         title: 't9 textonyms',
         id: 'textonyms',
@@ -125,7 +145,7 @@ export const sketches_content = [
         using: ["CSS"],
     },
     {
-        title: "Sunset Squish",
+        title: "Sunset squish",
         id: "2021-12-01",
         date: "2021-12-01",
         url: "/sunset-squish",
@@ -135,7 +155,7 @@ export const sketches_content = [
         using: ["HTML, SCSS"],
     },
     {
-        title: "Cistercian Numerals",
+        title: "Cistercian numerals",
         id: "cistercian-numerals",
         desc: <p>A numbering system developed by 13th century monks. Each glyph represents an integer from 1 to 9,999.</p>,
         thumb: cistercian_numerals_thumb,
@@ -153,7 +173,7 @@ export const sketches_content = [
         sketch: <FallingLetters />
     },
     {
-        title: "Pattern Finder",
+        title: "Pattern finder",
         id: "pattern-finder",
         desc: <p>Is there a pattern?</p>,
         url: "/pattern-finder",
@@ -162,7 +182,7 @@ export const sketches_content = [
         thumb_alt: "Nested colorful squares",
     },
     {
-        title: "Monolith",
+        title: "monolith",
         id: "monolith",
         desc: <p>I watched <em>2001: A Space Odyssey</em> for the first time. Click and drag to rotate.</p>,
         thumb: monolith_thumb,
@@ -192,7 +212,7 @@ export const sketches_content = [
         url: "/a-room-with-a-window",
     },
     {
-        title: "Windows",
+        title: "windows",
         id: "windows",
         desc: <p>Various windows and coverings. Turn the light on, open the blinds.</p>,
         thumb: windows_thumb,
@@ -202,7 +222,7 @@ export const sketches_content = [
         url: "/windows",
     },
     {
-        title: "Follow Field",
+        title: "Follow field",
         id: "follow-field",
         desc: <p>Cones on an articulated joint follow cursor.</p>,
         thumb: cones_thumb,
@@ -216,7 +236,7 @@ export const sketches_content = [
         url: "/sketches/follow-field/1.html",
     },
     {
-        title: "Noise",
+        title: "noise",
         id: "noise",
         desc: <p>Shifting gradients created by a grid of squares.</p>,
         thumb: noise_d3_thumb,
@@ -230,7 +250,7 @@ export const sketches_content = [
         },
     },
     {
-        title: "Noise II",
+        title: "noise II",
         id: "noise-2",
         desc: <p>Blobs emerge from pixel manipulation.</p>,
         thumb: noise_canvas_thumb,
@@ -255,7 +275,7 @@ export const sketches_content = [
         url: "https://vimeo.com/367877072",
     },
     {
-        title: "Stairs Stars",
+        title: "stairs stars",
         id: "stairs-stars",
         desc: <p></p>,
         thumb: stairs_stars_thumb,

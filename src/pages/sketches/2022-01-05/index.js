@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import Section from './Section';
 import _ from "lodash";
 
@@ -57,7 +57,8 @@ const getR = () => {
     return [r1,r2,r3]
 }
 
-export const Sketch = ({preserveAspectRatio}) => {
+export const Sketch = () => {
+    const [preserveAspectRatio, setPreserveAspectRation] = useState(false)
     const [sections, setSections] = useState(null)
     const [r] = useState(getR())
 
@@ -91,7 +92,7 @@ export const Sketch = ({preserveAspectRatio}) => {
         let timeout;
         const update = () => {
             getSections();
-            timeout = setTimeout(update, 15000 * Math.random() + 2000)
+            // timeout = setTimeout(update, 15000 * Math.random() + 2000)
         }
 
         update();
@@ -106,10 +107,17 @@ export const Sketch = ({preserveAspectRatio}) => {
     }
 
     return (
-        <Section section={sections}
-            orientation="column"
-            preserveAspectRatio={preserveAspectRatio}
-            />
+        <Fragment>
+            <Section section={sections}
+                orientation="column"
+                preserveAspectRatio={preserveAspectRatio}
+                />
+            <div aria-role="button"
+                tabIndex={1}
+                style={{position: 'fixed', height: '100%', width: '100%', top: 0, left: 0}}
+                onClick={() => setPreserveAspectRation(prev => !prev)}>
+            </div>
+        </Fragment>
     )
 }
 

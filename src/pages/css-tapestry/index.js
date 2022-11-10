@@ -32,7 +32,7 @@ export const CSSTapestry = () => {
         const height = 30 + (Math.floor(Math.random() * 100));
         const width = 4 + (Math.floor(Math.random() * 14));
         const elements = prev.elements * prev.width < 85 ? prev.elements + 1 : prev.elements - 2;
-        const background = Math.random() > 0.7 ?
+        const background = Math.random() > 0.3 ?
             Math.random() > 0.5 ?
                 `radial-gradient(${getRandomColor()}, ${getRandomColor()})`
                 : 
