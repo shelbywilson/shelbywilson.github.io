@@ -111,5 +111,9 @@ module.exports = {
       output: 'daisies/index.html',
       title: 'daisies',
     },
+    shadow_weaving: {
+      output: 'shadow-weaving/index.html',
+      title: 'shadow weaving',
+    },
   }
 }
