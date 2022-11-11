@@ -1,0 +1,43 @@
+:root {
+    --color-1: orangered;
+    --color-2: #ffffff;
+}
+
+html, body {
+    margin: 0;
+    background: cornflowerblue;
+}
+button, label {
+    margin: 1rem 1rem 0 0;
+}
+svg {
+    overflow: visible;
+}
+rect {
+    stroke-width: 0;
+    stroke: #000000;
+}
+.shadow-weaving {
+    max-width: 800px;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    &.black-and-white {
+        --color-1: #000000;
+    }
+}
+.show-grid:not(.show-warp-weft) rect,
+.show-warp-weft.show-grid .grid-border {
+    stroke-width: 1;
+}
+.color-0 {
+    fill: var(--color-1);
+}
+.color-1 {
+    fill: var(--color-2);
+}
+.changeable:hover {
+    fill: magenta;
+}
+.show-warp-weft .toggle-direction:hover {
+    fill: violet;
+}
