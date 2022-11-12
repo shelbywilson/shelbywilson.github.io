@@ -49,12 +49,13 @@ module.exports = merge(common, {
      */
     Object.keys(paths.apps).map(key => (
       new HtmlWebpackPlugin({
-        favicon: paths.src + '/images/favicon.ico',
+        favicon: paths.src + (paths.apps[key].favicon || '/images/favicon.ico'),
         template: paths.src + '/template/template.html', 
         filename: paths.apps[key].output, // output file
         title: paths.apps[key].title,
         chunks: [key],
         ogUrl: paths.apps[key].ogUrl,
+        ogImage: paths.apps[key].ogImage,
       })
     )),
   )

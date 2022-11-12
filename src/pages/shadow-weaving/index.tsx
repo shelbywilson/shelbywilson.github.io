@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, CSSProperties, useEffect } from 'react';
+import React, { FunctionComponent, useState, CSSProperties, useEffect, Fragment } from 'react';
 
 import './_shadow-weaving.scss';
 
@@ -8,43 +8,19 @@ type Square = {
 }
 
 export const ShadowWeaving: FunctionComponent = () => {
-    const [warp, setWarp] = useState([0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0])
-    const [weft, setWeft] = useState([0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0])
-    const [gapSize, setGapSize] = useState(15);
+    const [selectedThread, setSelectedThread] = useState([1 + Math.ceil(Math.random() * 8), 1 + Math.ceil(Math.random() * 8)])
+    const [selectedThreadOffset, setSelectedThreadOffset] = useState([Math.floor(Math.random() * selectedThread[0]), Math.floor(Math.random() * selectedThread[1])])
+    const [warp, setWarp] = useState(new Array(20).fill(0).map((n, i) => i%selectedThread[0] <= selectedThreadOffset[0] ? 0 : 1))
+    const [weft, setWeft] = useState(new Array(25).fill(0).map((n, i) => i%selectedThread[1] <= selectedThreadOffset[1] ? 0 : 1))
+    const [gapSize, setGapSize] = useState(24);
     const [showGrid, setShowGrid] = useState(true);
-    const [blackAndWhite, setBlackAndWhite] = useState(false);
+    const [contrast, setContrast] = useState('medium');
+    const [invertedThread, setInvertedThread] = useState([false, false])
+    const [plainWeaveCount, setPlainWeaveCount] = useState(1)
 
     const size = 30;
     const gap = 30 - gapSize;
     const hasGap = gap > 1;
-
-    const getFabric = (warp: Array<number> , weft: Array<number>):Array<Array<Square>> => {
-        const arr = [];
-        let i = 0;
-
-        while (arr.length < weft.length) {
-            const row: Array<Square> = [];
-            arr.push(row)
-            i = arr.length - 1;
-            while (arr[i].length < warp.length) {
-                const j = arr[i].length;
-                const f = weft[i];
-                const p = warp[j];
-
-                const c = f === p ? 
-                    f 
-                : Math.random() > 0.5 ? 0 : 1;
-                const v = f === p ? 
-                    Math.random() > 0.5 ? 0 : 1
-                    :
-                    c === f ? 0 : 1;
-
-                arr[i].push({c, v});
-            }
-        }
-
-        return arr;
-    }
 
     const toggle = (i: number, j: number) => {
         if (warp[i] !== weft[j]) {
@@ -63,28 +39,28 @@ export const ShadowWeaving: FunctionComponent = () => {
         }
     }
 
-    const checkImpossible = () => {
-        setFabric(prev => {
-            const fabric = [...prev];
-            fabric.forEach((row: Array<Square>, j: number) => {
-                row.forEach((square: Square, i: number) => {
-                    if (weft[j] !== warp[i]) {
-                        if (square.c === warp[i]) {
-                            square.v = 1;
-                        } else if (square.c === weft[j]) {
-                            square.v = 0;
-                        }
-                    } else if (square.c !== warp[i]) {
-                        // warp and weft are the same
-                        square.c = warp[i]
-                        square.v = Math.random() > 0.5 ? 1 : 0;
-                    }
-                })
-            })
+    // const checkImpossible = () => {
+    //     setFabric(prev => {
+    //         const fabric = [...prev];
+    //         fabric.forEach((row: Array<Square>, j: number) => {
+    //             row.forEach((square: Square, i: number) => {
+    //                 if (weft[j] !== warp[i]) {
+    //                     if (square.c === warp[i]) {
+    //                         square.v = 1;
+    //                     } else if (square.c === weft[j]) {
+    //                         square.v = 0;
+    //                     }
+    //                 } else if (square.c !== warp[i]) {
+    //                     // warp and weft are the same
+    //                     square.c = warp[i]
+    //                     square.v = (i + j)%2 === 1 ? 1 : 0;
+    //                 }
+    //             })
+    //         })
 
-            return fabric
-        })
-    }
+    //         return fabric
+    //     })
+    // }
 
     const randomize = () => {
         const p = warp.map(() => Math.random() > 0.5 ? 1 : 0)
@@ -92,171 +68,345 @@ export const ShadowWeaving: FunctionComponent = () => {
         
         setWarp(p)
         setWeft(f)
-        setFabric(getFabric(p, f))
+        setFabric(getPlainWeave(p, f))
+        setSelectedThread([-1, -1])
+        setSelectedThreadOffset([0, 0])
     }
 
-    const everyNth = (n: number) => {
-        const p = warp.map((x,i) => i%n === 0 ? 0 : 1)
-        const f = weft.map((y,j) => j%n === 0 ? 0 : 1)
-        
-        setWarp(p)
-        setWeft(f)
-        setFabric(getFabric(p, f))
+    const randomizeWeave = () => {
+        setFabric(getRandomizedWeave(warp, weft))
     }
+
+    const everyNth = (type: string, n: number, offset: number, invert: boolean) => {
+        const on = invert ? 0 : 1;
+        const off = invert ? 1 : 0;
+        let p = warp;
+        let f = weft;
+        if (type === 'warp') {
+            p = warp.map((x,i) => i%n <= offset ? off : on)
+            setWarp(p)
+            setSelectedThread(prev => [n, prev[1]])
+            setSelectedThreadOffset(prev => [offset, prev[1]])
+        } else {
+            f = weft.map((y,j) => j%n <= offset ? off : on)
+            setWeft(f)
+            setSelectedThread(prev => [prev[0], n])
+            setSelectedThreadOffset(prev => [prev[0], offset])
+        }
+        
+        setFabric(getPlainWeave(p, f))
+    }
+
+    const getPlainWeave = (warp: Array<number>, weft: Array<number>): Array<Array<Square>> => {
+        const arr = [];
+        let i = 0;
+
+        while (arr.length < weft.length) {
+            const row: Array<Square> = [];
+            arr.push(row)
+            i = arr.length - 1;
+            while (arr[i].length < warp.length) {
+                const j = arr[i].length;
+                const v = (i%2 + j%2)%2 === plainWeaveCount ? 0 : 1
+                let c = 0;
+
+                if (v === 1 && c !== warp[j]) {
+                    c = warp[j]
+                } else if (v === 0 && c !== weft[i]) {
+                    c = weft[i]
+                }
+
+                arr[i].push({c, v});
+            }
+        }
+
+        return arr
+    }
+
+    const getRandomizedWeave = (warp: Array<number> , weft: Array<number>):Array<Array<Square>> => {
+        const arr = [];
+        let i = 0;
+
+        while (arr.length < weft.length) {
+            const row: Array<Square> = [];
+            arr.push(row)
+            i = arr.length - 1;
+            while (arr[i].length < warp.length) {
+                const j = arr[i].length;
+                const f = weft[i];
+                const p = warp[j];
+
+                // const prevV = arr[i - 1] ?
+                //     arr[i - 1][j].v 
+                // : i%2
+
+                const c = f === p ? 
+                    f 
+                : Math.random() > 0.5 ? 0 : 1;
+                const v = f === p ? 
+                    Math.random() > 0.5 ? 0 : 1
+                : c === f ? 0 : 1
+
+                arr[i].push({c, v});
+            }
+        }
+
+        return arr;
+    }
+
+    const updateInvert = (type: string) => {
+        if (type === 'warp') {
+            setInvertedThread(prev => {
+                everyNth('warp', selectedThread[0], selectedThreadOffset[0], !prev[0])
+                return [!prev[0], prev[1]]
+            })
+        } else {
+            setInvertedThread(prev => {
+                everyNth('weft', selectedThread[1], selectedThreadOffset[1], !prev[1])
+                return [prev[0], !prev[1]]
+            })
+        }
+    }
+
+    const [fabric, setFabric] = useState(getPlainWeave(warp, weft));
+
+    // useEffect(() => {
+    //     checkImpossible()
+    // }, [warp, weft])
 
     useEffect(() => {
-        checkImpossible()
-    }, [warp, weft])
+        setFabric(getPlainWeave(warp, weft))
+    }, [plainWeaveCount])
 
-    const [fabric, setFabric] = useState(getFabric(warp, weft));
+    // const getV = () => {
+    //     let num = 0;
+    //     fabric.forEach(row => {
+    //         row.forEach(square => {
+    //             num += square.v
+    //         })
+    //     })
+
+    //     return num
+    // }
+
+    // const numV = getV();
 
     return (
-        <div className={`shadow-weaving ${blackAndWhite ? 'black-and-white' : ''} ${hasGap ? 'show-warp-weft' : ''} ${showGrid ? 'show-grid' : ''}`}>
-            <div style={{margin: '0 0 2rem 0'}}>
+        <div className={`shadow-weaving contrast-${contrast} ${hasGap ? 'show-warp-weft' : ''} ${showGrid ? 'show-grid' : ''}`}>
+            <div className='shadow-weaving-options'>
                 <div>
-                    <label>
-                        <input type='checkbox' checked={blackAndWhite} onChange={() => setBlackAndWhite(prev => !prev)} />
-                        black and white
-                    </label>
-                    <label>
-                        <input type='checkbox' checked={showGrid} onChange={() => setShowGrid(prev => !prev)} />
-                        show grid
-                    </label>
-                    <label>
-                        <input type='range' 
-                            value={gapSize} 
-                            min={2} 
-                            max={size} 
-                            onChange={(e) => setGapSize(parseInt(e.target.value, 10))} />
-                    </label>
-                </div>
-                <div>
-                    <button onClick={randomize}>random</button>
-                    <button onClick={() => everyNth(2)}>alternate</button>
-                    <button onClick={() => everyNth(3)}>every third</button>
-                </div>
-                <div>
-                    <button onClick={() => setWarp(prev => {
-                        const updated = [...prev];
-                        const c = updated.length % 2;
-                        updated.unshift(c)
+                    <h1>
+                        Shadow weaving
+                    </h1>
+                    <div className='flex-row m-r m-b'>
+                        <div className='m-r'>
+                            contrast
+                        </div>
+                        {['high', 'medium', 'low'].map(option => (
+                            <label className='m-r' key={option}>
+                                <input type='radio'checked={contrast === option} onChange={() => setContrast(option)} />
+                                    {option}
+                            </label>
+                        ))}
+                    </div>
+                    <div className='flex-row m-r m-b'>
+                        <div className='m-r'>
+                            spacing
+                        </div>
+                        <label>
+                            <input type='range' 
+                                value={gapSize} 
+                                min={2} 
+                                max={size} 
+                                onChange={(e) => setGapSize(parseInt(e.target.value, 10))} />
+                        </label>
+                        <label className='m-l'>
+                            <input type='checkbox' checked={showGrid} onChange={() => setShowGrid(prev => !prev)} />
+                            show grid
+                        </label>
+                    </div>
+                    <div className='m-t m-b'>
+                        <button onClick={randomize}>random warp/weft</button>
+                        <div className='flex-row m-t'>
+                            <div style={{width: 50}}>warp</div>
+                            <div>
+                                <input type='range' min={1} max={10} value={selectedThread[0]} onChange={e => everyNth('warp', parseInt(e.target.value, 10), selectedThreadOffset[0], invertedThread[0])} />
+                                <input type='range' min={0} max={10} value={selectedThreadOffset[0]} onChange={e => everyNth('warp', selectedThread[0], parseInt(e.target.value, 10), invertedThread[0])} />
+                            </div>
+                            <label className='m-l'>
+                                <input type='checkbox' checked={invertedThread[0]} onChange={() => updateInvert('warp')} />
+                                invert 
+                            </label>
+                        </div>
+                        <div className='flex-row m-t'>
+                            <div style={{width: 50}}>weft</div>
+                            <div>
+                                <input type='range' min={1} max={10} value={selectedThread[1]} onChange={e => everyNth('weft', parseInt(e.target.value, 10), selectedThreadOffset[1], invertedThread[1])} />
+                                <input type='range' min={0} max={10} value={selectedThreadOffset[1]} onChange={e => everyNth('weft', selectedThread[1], parseInt(e.target.value, 10), invertedThread[1])} />
+                            </div>
+                            <label className='m-l'>
+                                <input type='checkbox' checked={invertedThread[1]} onChange={() => updateInvert('weft')} />
+                                invert 
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button className='m-r' onClick={() => setPlainWeaveCount(prev => (prev + 1)%2)}>plain weave</button>
+                        <button onClick={randomizeWeave}>random weave</button>
+                    </div>
+                    <div>
+                        <button className='m-t m-r' onClick={() => setWeft(prev => {
+                            const updated = [...prev];
+                            const c = updated[0] === 1 ? 0 : 1;
+                            updated.unshift(c)
 
-                        setFabric(prev => {
-                            const fabric = [...prev]
-                            fabric.forEach((row,i) => (
-                                row.unshift({c: c, v: c === weft[i] ? 0 : 1})
-                            ))
-                            return fabric
-                        })
+                            setFabric(prev => {
+                                const fabric = [...prev]
+                                const row = []
+                                while (row.length < warp.length) {
+                                    const v: number = (row.length + fabric[0][0].v + 1)%2
 
-                        return updated;
-                    })}>+ warp</button>
-                    <button style={{margin: '1rem 1rem 0 0'}} onClick={() => setWeft(prev => {
-                        const updated = [...prev];
-                        const c = updated.length % 2;
-                        updated.unshift(c)
+                                    row.push({c: v ? warp[row.length] : c, v: v})
+                                    // row.push({c: c, v: c === warp[row.length] ? row.length%2 : 0})
+                                }
+                                fabric.unshift(row)
+                                return fabric
+                            })
 
-                        setFabric(prev => {
-                            const fabric = [...prev]
-                            const row = []
-                            while (row.length < warp.length) {
-                                row.push({c: c, v: c === warp[row.length] ? 1 : 0})
-                            }
-                            fabric.unshift(row)
-                            return fabric
-                        })
+                            return updated;
+                        })}>+ weft</button>
+                        <button onClick={() => setWarp(prev => {
+                            const updated = [...prev];
+                            const c = updated[0] === 1 ? 0 : 1;
+                            updated.unshift(c)
 
-                        return updated;
-                    })}>+ weft</button>
+                            setFabric(prev => {
+                                const fabric = [...prev]
+                                fabric.forEach((row,i) => {
+                                    const v = (i + updated.length + 1)%2;
+                                    // row.unshift({c: c, v: c === weft[i] ? 0 : 1})
+                                    row.unshift({c: v ? updated[0] : weft[i], v: v})
+                                })
+                                return fabric
+                            })
+
+                            return updated;
+                        })}>+ warp</button>
+                    </div>
                 </div>
             </div>
-            <div style={{position: 'relative'}}>
-                {/* <input type='slider' checked={hasGap} onChange={() => setHasGap(prev => !prev)} /> */}
+            <div className='shadow-weaving-fabric'>
                 <div>
                     {weft.map((f, j) => (
-                        <input type='checkbox' 
-                            style={{margin: 0, top: (j + 1)/(weft.length + 1) * 100 + '%', position: 'absolute'}} 
-                            key={j}
-                            checked={f === 0}
-                            onChange={() => setWeft(prev => {
-                                const updated = [...prev]
-                                updated[j] = f === 1 ? 0 : 1
+                        <div key={j} 
+                            style={{
+                                top: (j + 1)/(weft.length + 1) * 100 + '%', 
+                                height: 1/(weft.length + 1) * 100 + '%',
+                                position: 'absolute'
+                            }}>
+                            <input type='checkbox' 
+                                checked={f === 0}
+                                onChange={() => setWeft(prev => {
+                                    const updated = [...prev]
+                                    updated[j] = f === 1 ? 0 : 1
 
-                                setFabric(prev => {
-                                    const fabric = [...prev]
-                                    let vCount = 1;
-                                    fabric[j].forEach((square, i) => {
-                                        if (square.v) {
-                                            vCount += 1;
-                                        }
-                                        square.c = updated[j]
-                                        if (square.c === warp[i]) {
-                                            // warp and weft are the same
-                                            square.v = vCount % 2;
-                                            vCount += 1;
-                                        } else {
-                                            square.v = 0;
-                                        }
+                                    setFabric(prev => {
+                                        const fabric = [...prev]
+                                        fabric[j].forEach((square, i) => {
+                                            square.v = (i + j + fabric[0][0].v)%2
+                                            if (square.v) {
+                                                square.c = warp[i]
+                                            } else {
+                                                square.c = updated[j]
+                                            }
+                                            // square.c = updated[j]
+                                            // if (square.c === warp[i]) {
+                                            //     // warp and weft are the same
+                                            //     square.v = (j + i)%2
+                                            // } else {
+                                            //     square.v = square.c === weft[i] ? 0 : 1;
+                                            // }
+                                        })
+                                        return fabric
                                     })
-                                    return fabric
-                                })
 
-                                return updated
-                            })} />
-                    ))}
+                                    return updated
+                                })} />
+                            </div>
+                        ))}
                 </div>
                 <div>
                     {warp.map((p, i) => (
-                        <input type='checkbox' 
-                            style={{margin: 0, left: (i + 1)/(warp.length + 1) * 100 + '%', position: 'absolute'}} 
-                            key={i}
-                            checked={p === 0}
-                            onChange={() => setWarp(prev => {
-                                const updated = [...prev]
-                                updated[i] = p === 1 ? 0 : 1
+                        <div key={i}
+                            style={{
+                                left: (i + 1)/(warp.length + 1) * 100 + '%', 
+                                width: 1/(warp.length + 1) * 100 + '%',
+                                position: 'absolute',
+                            }}> 
+                            <input type='checkbox' 
+                                checked={p === 0}
+                                onChange={() => setWarp(prev => {
+                                    const updated = [...prev]
+                                    updated[i] = p === 1 ? 0 : 1
 
-                                setFabric(prev => {
-                                    const fabric = [...prev]
-                                    fabric.forEach((row: Array<Square>, x) => {
-                                        row[i].c = updated[i] 
-                                        let vCount = 0;
-                                        if (updated[i] === weft[x]) {
-                                            // warp and weft are the same
-                                            row[i].v = vCount % 2;
-                                            vCount += 1;
-                                        } else {
-                                            // warp and weft are different
-                                            if (row[i].c === weft[x]) {
-                                                row[i].v = 0;
+                                    setFabric(prev => {
+                                        const fabric = [...prev]
+                                        fabric.forEach((row: Array<Square>, x) => {
+                                            row[i].v = (i + x + fabric[0][0].v)%2
+                                            if (row[i].v) {
+                                                row[i].c = updated[i]
+                                            } else {
+                                                row[i].c = weft[x]
                                             }
-                                        }
+                                            // row[i].c = updated[i] 
+                                            // if (updated[i] === weft[x]) {
+                                            //     // warp and weft are the same
+                                            //     row[i].v = (i + x)%2
+                                            // } else {
+                                            //     // warp and weft are different
+                                            //     if (row[i].c === weft[x]) {
+                                            //         row[i].v = 0;
+                                            //     }
+                                            // }
 
+                                        })
+                                        return fabric
                                     })
-                                    return fabric
-                                })
 
-                                return updated
-                            })} />
+                                    return updated
+                                })} />
+                            </div>
                     ))}
                 </div>
                 <svg viewBox={`0 0 ${(warp.length + 1) * size} ${(weft.length + 1) * size}`}>
                     <g style={{transform: `translate(${size}px,${size}px)`}}>
-                        {warp.map((f, i) => (
-                            <rect key={`${i}-warp`} 
-                                width={size - gap}
-                                height={size * weft.length}
-                                x={i * size}
-                                className={`color-${f} grid-border warp`}>
-                            </rect>
-                        ))}
+                        {hasGap ?
+                            <Fragment>
+                                {warp.map((f, i) => (
+                                    <rect key={`${i}-warp`} 
+                                        width={size - gap}
+                                        height={size * weft.length}
+                                        x={i * size}
+                                        className={`color-${f} grid-border warp`}>
+                                    </rect>
+                                ))}
+                            </Fragment>
+                            :
+                            null 
+                        }
                         {fabric.map((row: Array<Square>, j) => (
                             <g key={j}>
-                                <rect key={`${j}-weft`} 
-                                    width={size * warp.length}
-                                    height={size - gap}
-                                    y={j * size}
-                                    className={`color-${weft[j]} grid-border weft`}>
-                                </rect>
+                                {hasGap 
+                                    ? 
+                                    <rect key={`${j}-weft`} 
+                                        width={size * warp.length}
+                                        height={size - gap}
+                                        y={j * size}
+                                        className={`color-${weft[j]} grid-border weft`}>
+                                    </rect>
+                                    :
+                                    null 
+                                }
                                 {row.map((col: Square, i) => {
                                     const {c, v} = col;
                                     const style: CSSProperties = {}

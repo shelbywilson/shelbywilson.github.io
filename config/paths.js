@@ -88,7 +88,7 @@ module.exports = {
     grey_matter: {
       output: 'grey-matter/index.html',
       title: 'Grey Matter',
-      ogUrl: 'grey-matter/img/preview.png',
+      ogImage: './img/preview.png',
     },
     sunset_squish: {
       output: 'sunset-squish/index.html',
@@ -114,6 +114,7 @@ module.exports = {
     shadow_weaving: {
       output: 'shadow-weaving/index.html',
       title: 'shadow weaving',
+      favicon: '/images/_favicons/shadow-weaving.png',
     },
   }
 }

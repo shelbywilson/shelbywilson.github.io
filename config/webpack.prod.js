@@ -50,6 +50,7 @@ module.exports = merge(common, {
         title: paths.apps[key].title,
         chunks: ['vendors', 'runtime', key],
         ogUrl: paths.apps[key].ogUrl,
+        ogImage: paths.apps[key].ogImage,
       })
     ))
   ),
