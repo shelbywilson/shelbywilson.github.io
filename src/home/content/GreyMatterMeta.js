@@ -24,7 +24,7 @@ export const GreyMatterMeta = () => {
                 To create these animations I referenced Betsy's work, in particular her Contact series. Then using code, I imagined the movement they might make. <i>In Tangent</i> transitions between several of these pieces, from circle to square and back to circle. <i>Threshold</i> is a grid of nine, each animated at a different speed. They diverge and re-sync for moments of symmetry. 
             </p>
              <figure>
-                <a href="images/grey-matter/gallery_install.jpg" target="_blank">
+                <a href="./dist/images/grey-matter/gallery_install.jpg" target="_blank">
                     <img src={gallery_install_small} alt='Full view of gallery; analog work bookended by digital, projected animations.'/>
                 </a>
                 <figcaption>
