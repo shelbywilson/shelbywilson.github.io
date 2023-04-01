@@ -16,7 +16,7 @@ import vases_img from './../images/sketches/thumbnails/vases_thumb.png';
 import cafes_thumb from './../images/cafes/cafes_thumb.png';
 import the_html_review_img from './../images/home/the_html_review_4.png';
 import daisy_field_img from './../images/home/daisy-field.png';
-import pixel_sort_thumb from './../images/sketches/thumbnails/pixel_sort_thumb.png';
+// import pixel_sort_thumb from './../images/sketches/thumbnails/pixel_sort_thumb.png';
 
 import SkyAboveClouds from './content/SkyAboveClouds';
 import StillLife from './content/StillLife';
@@ -33,7 +33,7 @@ import Sketches from './content/Sketches';
 import Gradients from '../pages/gradients';
 import GradientsAbout from './content/GradientsAbout';
 import DaisyFieldAbout from './content/DaisyFieldAbout';
-import PixelSort from '../pages/pixel-sort';
+// import PixelSort from '../pages/pixel-sort';
 
 import UsingList from '../common/UsingList';
 import GreyMatterSketch from '../pages/grey-matter/GreyMatterSketch';
@@ -42,6 +42,17 @@ import GreyMatterMeta from './content/GreyMatterMeta';
 import DaffodilsMeta from '../pages/sketches/daffodils/DaffodilsMeta';
 import { TechnologyTypes } from './types/technology-types';
 import RankingAmount from '../pages/cafes/components/RankingAmount';
+import { sketches_content } from './sketches-content';
+
+export const sketches_thumbnails = sketches_content.filter((section) => {
+    const { id } = section;
+
+    return id === 'sky_sort' 
+        || id === 'field_of_flowers'
+        || id === 'textonyms'
+        // || id === 'follow-field'
+        || id === '2022-02-22'
+})
 
 export interface Route {
     id: string,
@@ -66,16 +77,35 @@ export const getRouteById = (id: string) => {
 
 export const routes: Array<Route> = [
     {
-        id: 'sky_sort',
-        url: '/#/sky-sort',
-        title: 'sky sort',
-        year: '08-25-2022',
-        content: <PixelSort />,
-        noWrapper: true,
-        img: pixel_sort_thumb,
-        type: PageTypes.WEB_EXPERIMENT,
-        dark: true,
+        id: 'sketches',
+        title: 'sketches',
+        url: '/#/sketches',
+        content: <Sketches />,
+        homeBanner: <div style={{display: 'flex', flexDirection: 'row', height: 200, paddingRight: 110, border: '1px solid'}}>
+            {sketches_thumbnails.map((section) => (
+                <div key={section.id} style={{
+                    flex: `${100/sketches_thumbnails.length}% 0 0`, 
+                    backgroundImage: `url(${section.thumb})`, 
+                    backgroundSize: 'cover',
+                    backgroundPositionX: '97%',
+                    marginTop: -1, 
+                    }}>
+                </div>
+            ))}
+        </div>,
+        wide: true,
     },
+    // {
+    //     id: 'sky_sort',
+    //     url: '/#/sky-sort',
+    //     title: 'sky sort',
+    //     year: '08-25-2022',
+    //     content: <PixelSort />,
+    //     noWrapper: true,
+    //     img: pixel_sort_thumb,
+    //     type: PageTypes.WEB_EXPERIMENT,
+    //     dark: true,
+    // },
     {
         id: 'daisy_field',
         url: '/#/daisy-field',
@@ -263,13 +293,6 @@ export const routes: Array<Route> = [
         type: PageTypes.GAME,
     },
     {
-        id: 'sketches',
-        title: 'sketches',
-        url: '/#/sketches',
-        content: <Sketches />,
-        wide: true,
-    },
-    {
         id: 'windows',
         title: 'windows',
         url: '/windows',
@@ -283,14 +306,14 @@ export const routes: Array<Route> = [
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 22 August 2022',
+        year: 'Last updated 1 April 2023',
     },
     {
         id: 'cafes',
         img: cafes_thumb,
         title: 'Seattle cafés',
         url: '/#/about-cafes',
-        type: PageTypes.DATA_VISUALIZATION,
+        type: PageTypes.DATA_VISUALIZATION_AND_MAP,
         using: [TechnologyTypes.D3, TechnologyTypes.GEO_JSON, TechnologyTypes.REACT],
         content: <div>
             <div style={{transform: "scale(0.72)", transformOrigin: "top left", marginBottom: "-30%"}}>

@@ -92,13 +92,14 @@ export const Home = () => {
     const sections = [
         'sketches',
         // 'sky_sort',
-        'daisy_field',
+        'daffodils',
+        'stillLife', 
         'the_html_review',
         'grey_matter',
         'vases',
-        'daffodils',
         'gradients',
-        'stillLife', 
+        'set',
+        'daisy_field',
         'windows',
         'cafes',
         'cloudtown',  
@@ -107,8 +108,7 @@ export const Home = () => {
         'skyAboveClouds',
         'weavingpatterns', 
         'muriel', 
-        'amandamodo', 
-        'set',
+        // 'amandamodo', 
         'vurv',
     ];
 

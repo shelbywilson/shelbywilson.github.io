@@ -22,6 +22,7 @@ import pixel_sort_thumb from './../images/sketches/thumbnails/pixel_sort_thumb.p
 import textonyms_thumb from './../images/sketches/thumbnails/textonyms.png';
 import css_tapestry_thumb from './../images/sketches/thumbnails/css_tapestry.png';
 import field_of_flowers_thumb from './../images/sketches/thumbnails/field_of_flowers.png';
+import shadow_weaving_thumb from './../images/sketches/thumbnails/shadow-weaving.png';
 
 import Corners from '../pages/sketches/corners';
 import CistercianNumerals from '../pages/cistercian-numerals/index.tsx';
@@ -47,6 +48,22 @@ export const sketches_content = [
     //     using: ["React"],
     //     sketch: <Knights />
     // },
+    {
+        id: 'melvyn',
+        title: 'in our time explorer',
+        date: '2022-10-04',
+        url: 'https://shelby.cool/melvyn/',
+        thumb: 'https://user-images.githubusercontent.com/5523024/193950974-8e85a23f-29f9-4a00-8488-409022d50b38.png',
+        using: ['python', 'html'],
+    },
+    {
+        id: 'shadow_weaving',
+        title: 'shadow weaving',
+        date: '2022-11-10',
+        url: 'https://shelby.cool/shadow-weaving/',
+        thumb: shadow_weaving_thumb,
+        // using: ['d3', 'SVG'],
+    },
     {
         id: 'field_of_flowers',
         title: 'field of flowers',
@@ -75,7 +92,7 @@ export const sketches_content = [
     },
     {
         title: 'sky sort',
-        id: 'pixel_sort_thumb',
+        id: 'sky_sort',
         date: '2022-08-30',
         desc: <p>Experiements with pixel sorting.</p>,
         sketch: <PixelSort />,
