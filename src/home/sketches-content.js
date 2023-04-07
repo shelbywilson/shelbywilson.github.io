@@ -97,7 +97,7 @@ export const sketches_content = [
         desc: <p>Experiements with pixel sorting.</p>,
         sketch: <PixelSort />,
         thumb: pixel_sort_thumb,
-        url: '/#/sky-sort',
+        url: '/sky-sort',
         using: ['Canvas'],
     },
     {

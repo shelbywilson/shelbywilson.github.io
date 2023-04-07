@@ -86,13 +86,13 @@ export const PixelSort = () => {
     return (
         <div>
             <div className='d-flex flex-row justify-content-end'>
-                <button onClick={setNewImg} style={{fontSize: '3rem'}}>
+                <button onClick={setNewImg} style={{fontSize: '3rem', marginBottom: '2rem'}}>
                     ☁️
                 </button>
             </div>
             <div onMouseEnter={() => sort('l')} 
                 onMouseLeave={() => sort('h')} 
-                className='d-flex flex-row justify-content-end flex-wrap'>
+                className='d-flex flex-row justify-content-end flex-column-xs'>
                 <canvas width={dim[0]} height={dim[1]} ref={sortedRef}></canvas>
                 <canvas width={dim[0]} height={dim[1]} ref={canvasRef}></canvas>
             </div>
