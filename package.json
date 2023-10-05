@@ -59,7 +59,7 @@
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "perlin.js": "^1.0.0",
     "postcss-loader": "^6.2.1",
-    "postcss-preset-env": "^6.7.1",
+    "postcss-preset-env": "^9.1.4",
     "prop-types": "^15.8.1",
     "react-autocomplete": "^1.8.1",
     "react-router-dom": "^5.3.4",
