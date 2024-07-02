@@ -49,6 +49,14 @@ export const sketches_content = [
     //     sketch: <Knights />
     // },
     {
+        id: 'soy-sauce',
+        title: 'soy sauce',
+        date: '2023-06-12',
+        url: 'https://shelby.cool/disco-ball/soy-sauce',
+        thumb: 'https://raw.githubusercontent.com/shelbywilson/disco-ball/main/preview-soy-sauce.png',
+        using: ['three.js', 'polycam'],
+    },
+    {
         id: 'melvyn',
         title: 'in our time explorer',
         date: '2022-10-04',
