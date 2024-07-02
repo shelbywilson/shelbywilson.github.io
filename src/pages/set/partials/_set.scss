@@ -8,6 +8,7 @@ html {
     background: #fff;
 }
 
+
 .set {
     &__container {
         margin-bottom: $set-help-height;
@@ -71,7 +72,7 @@ html {
             .set-card {
                 cursor: pointer;
             }
-            
+
             @include breakpoint(xs) {
                 position: absolute;
                 top: #{-$visible-card-height-mobile * 1.667};

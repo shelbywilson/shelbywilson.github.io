@@ -17,23 +17,36 @@
     &__score {
         width: 100%;
         font-weight: 500;
+
         &-wrong {
             color: $orangered;
         }
     }
-    &__toggle-possible, button, a {
+
+    &__toggle-possible,
+    button,
+    a {
         color: #000;
         font-size: 1rem;
         padding: 0;
         border-bottom: 1px dotted #000;
         padding: 0;
+
+        &:hover {
+            border-bottom: 1px solid #000;
+        }
     }
-    > div {
+
+    >div {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        p, button, a {
+
+        p,
+        button,
+        a {
             margin: 1rem;
+
             @include breakpoint(xs) {
                 font-size: 0.75rem;
                 margin: 0.5rem;
