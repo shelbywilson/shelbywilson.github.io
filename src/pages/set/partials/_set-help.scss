@@ -9,7 +9,6 @@
     flex-direction: column;
     justify-content: center;
     height: $set-help-height;
-    background: $lilac;
 
     @include breakpoint(xs) {
         padding: 1rem;
@@ -23,7 +22,11 @@
         }
     }
     &__toggle-possible, button, a {
-        color: $blue;
+        color: #000;
+        font-size: 1rem;
+        padding: 0;
+        border-bottom: 1px dotted #000;
+        padding: 0;
     }
     > div {
         display: flex;

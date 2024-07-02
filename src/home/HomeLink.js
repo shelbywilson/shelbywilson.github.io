@@ -12,7 +12,7 @@ export const HomeLink = ({ route }) => {
                     route.homeBanner
                 }
             </div>
-            {route.type ? <h4>&#9724;&nbsp;{route.type}</h4> : null}
+            {route.type ? <h4>&#9633;&nbsp;{route.type}</h4> : null}
             <a href={route.url}>
                 {route.title.split('').map((letter, i) => 
                     letter.replace(/^\s+|\s+$/g, '').length === 0 ? 

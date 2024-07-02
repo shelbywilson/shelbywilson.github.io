@@ -112,7 +112,7 @@ export const Sketch = () => {
                 orientation="column"
                 preserveAspectRatio={preserveAspectRatio}
                 />
-            <div aria-role="button"
+            <div role="button"
                 tabIndex={1}
                 style={{position: 'fixed', height: '100%', width: '100%', top: 0, left: 0}}
                 onClick={() => setPreserveAspectRation(prev => !prev)}>

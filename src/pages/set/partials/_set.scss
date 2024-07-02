@@ -4,6 +4,10 @@
     overflow: auto;
 }
 
+html {
+    background: #fff;
+}
+
 .set {
     &__container {
         margin-bottom: $set-help-height;
@@ -63,6 +67,11 @@
         position: relative;
         > span {
             display: block;
+
+            .set-card {
+                cursor: pointer;
+            }
+            
             @include breakpoint(xs) {
                 position: absolute;
                 top: #{-$visible-card-height-mobile * 1.667};

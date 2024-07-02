@@ -8,9 +8,9 @@ export const HomeDetail = (props) => {
     const type = () => {
         if (props.detail.type) {
             if (props.detail.type === "sketch") {
-                return <a style={{fontStyle: "normal"}} href="/#/sketches"><h4>&#9724;&nbsp;{props.detail.type}</h4></a>
+                return <a style={{fontStyle: "normal"}} href="/#/sketches"><h4>&#9633;&nbsp;{props.detail.type}</h4></a>
             }
-            return <h4>&#9724;&nbsp;{props.detail.type}</h4>
+            return <h4>&#9633;&nbsp;{props.detail.type}</h4>
         } 
         return null;
     }

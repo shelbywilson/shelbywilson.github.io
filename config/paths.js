@@ -121,6 +121,6 @@ module.exports = {
         sky_sort: {
             output: 'sky-sort/index.html',
             title: 'sky sort',
-        },
+        }
     }
 }
