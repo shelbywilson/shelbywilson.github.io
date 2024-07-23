@@ -28,7 +28,7 @@ export const SetMeta = () => {
                 <li>number of elements</li>
             </ul> 
             <p>
-                A 'set' is created by finding three cards that are either all the same or all different for each property. In a deck of 81 card, this means there are 1080 unique sets.
+                A 'set' is created by finding three cards that are either all the same or all different for each property. In a deck of 81 cards, this means there are 1080 unique sets.
             </p>
 
             <SetPractice />
