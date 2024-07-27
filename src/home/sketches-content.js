@@ -51,7 +51,7 @@ export const sketches_content = [
     {
         id: 'soy-sauce',
         title: 'soy sauce',
-        date: '2023-06-12',
+        date: '2024-06-12',
         url: 'https://shelby.cool/disco-ball/soy-sauce',
         thumb: 'https://raw.githubusercontent.com/shelbywilson/disco-ball/main/preview-soy-sauce.png',
         using: ['three.js', 'polycam'],
@@ -102,7 +102,7 @@ export const sketches_content = [
         title: 'sky sort',
         id: 'sky_sort',
         date: '2022-08-30',
-        desc: <p>Experiements with pixel sorting.</p>,
+        desc: <p>Experiments with pixel sorting.</p>,
         sketch: <PixelSort />,
         thumb: pixel_sort_thumb,
         url: '/sky-sort',
