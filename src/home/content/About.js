@@ -18,6 +18,7 @@ export const About = () => {
                     <a href='mailto:s.wilson024@gmail.com'>Email</a>
                     <a href='https://github.com/shelbywilson' target='_blank'>Github</a>
                     <a href='https://www.are.na/shelby-wilson' target='_blank'>Are.na</a>
+                    <a href='https://read.cv/shelbywilson' target='_blank'>CV</a>
                 </p>
             </div>
 

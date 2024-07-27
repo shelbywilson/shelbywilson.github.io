@@ -306,7 +306,7 @@ export const routes: Array<Route> = [
         title: 'about',
         url: '/#/about',
         content: <About />,
-        year: 'Last updated 1 April 2023',
+        year: 'Last updated 26 July 2024',
     },
     {
         id: 'cafes',
